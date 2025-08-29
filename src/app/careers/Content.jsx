@@ -119,8 +119,8 @@ const Content = () => {
 			<Hero />
 			{/* Why Work At Linno Section */}
 			<section className="w-full bg-[linear-gradient(90deg,#3433fe0f_0%,_#00c8530f_100%)] mt-[63px] sm:mt-[95px] lg:mt-[126px]">
-				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-[28px] sm:py-[42px] lg:py-[56px]">
-					<div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-0 w-[72%] mx-auto mt-[71px] sm:mt-[107px] lg:mt-[142px]">
+				<div className="w-full max-w-[1440px] px-2 md:px-4 py-8 md:py-12 mx-auto">
+					<div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-4">
 						{/* Left Content */}
 						<div className="flex flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] items-center w-full lg:w-[66%]">
 							<div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-start w-full">
@@ -131,9 +131,10 @@ const Content = () => {
 									At Linno, you'll grow, be heard, and make an impact. We value your ideas, support your career journey, and create space for you to do meaningful work with a global reach.
 								</p>
 							</div>
+
 							{/* Features Grid */}
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-0 w-full">
-								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start w-full">
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-4 w-full">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
 									<Image
 										src="/images/img_icon_gray_900_1.svg"
 										alt="Growth icon"
@@ -150,7 +151,7 @@ const Content = () => {
 										</p>
 									</div>
 								</div>
-								<div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] items-start w-full lg:ml-[120px]">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
 									<Image
 										src="/images/img_icon_gray_900_2.svg"
 										alt="Purpose icon"
@@ -167,7 +168,7 @@ const Content = () => {
 										</p>
 									</div>
 								</div>
-								<div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] items-start w-full">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
 									<Image
 										src="/images/img_icon_gray_900_3.svg"
 										alt="Culture icon"
@@ -184,7 +185,7 @@ const Content = () => {
 										</p>
 									</div>
 								</div>
-								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start w-full lg:ml-[131px]">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
 									<Image
 										src="/images/img_icon_gray_900_4.svg"
 										alt="Voice icon"
@@ -204,7 +205,7 @@ const Content = () => {
 							</div>
 						</div>
 						{/* Right Images */}
-						<div className="flex flex-col gap-[14px] sm:gap-[21px] lg:gap-[28px] items-center w-full lg:w-[34%] mt-[6px] sm:mt-[9px] lg:mt-[12px]">
+						<div className="flex flex-col gap-[14px] sm:gap-[21px] lg:gap-[28px] items-center w-full lg:w-[34%]">
 							<Image
 								src="/images/img_frame_14248_394x454.png"
 								alt="Team collaboration"
