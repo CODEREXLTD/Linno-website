@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import EditText from '@/components/ui/EditText';
+import Button from "@/components/ui/Button";
 const AboutUsPage = () => {
       const benefits = [
 		{
@@ -281,7 +282,14 @@ const AboutUsPage = () => {
             </div>
             <div>
               <p className='text-[#51515F] font-inter text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed sm:leading-relaxed md:leading-8 lg:leading-[35px] mb-5 sm:mb-8 lg:mb-12'>Within our intimate team, we cherish the diverse backgrounds, cultures and perspectives that each individual brings. Our team members represent a tapestry of experiences, talents and skills that enriches our collective creativity.</p>
-              <button className='rounded-xl bg-[#3433FE] text-white font-[Sora] text-sm sm:text-base md:text-lg lg:text-xl font-semibold py-3 sm:py-4 px-6 sm:px-8 lg:px-10 hover:bg-[#2D2BE5] transition-colors duration-200 w-full sm:w-auto'>Contact Us</button>
+              <Button
+                variant="primary"
+                size="lg"
+                link={true}
+                href="/contact"
+                label="Contact Us"
+                className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-semibold leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[16px] sm:pr-[24px] lg:pr-[32px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[16px] sm:pl-[24px] lg:pl-[32px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200 w-full sm:w-auto"
+              />
             </div>
           </div>
         </div>
