@@ -275,12 +275,12 @@ const AboutUsPage = () => {
       {/* Hero Section with Background */}
       <section className="w-full">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-20 lg:py-24 xl:py-32">
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-8 lg:gap-20 items-center'>
             <div>
               <h1 className='text-[#0B0B35] font-[Sora] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[80px] font-bold leading-tight sm:leading-tight md:leading-tight lg:leading-[1.15] xl:leading-[92px]'>About Us</h1>
             </div>
             <div>
-              <p className='text-[#51515F] font-inter text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed sm:leading-relaxed md:leading-8 lg:leading-[35px] mb-8 sm:mb-10 lg:mb-12'>Within our intimate team, we cherish the diverse backgrounds, cultures and perspectives that each individual brings. Our team members represent a tapestry of experiences, talents and skills that enriches our collective creativity.</p>
+              <p className='text-[#51515F] font-inter text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed sm:leading-relaxed md:leading-8 lg:leading-[35px] mb-5 sm:mb-8 lg:mb-12'>Within our intimate team, we cherish the diverse backgrounds, cultures and perspectives that each individual brings. Our team members represent a tapestry of experiences, talents and skills that enriches our collective creativity.</p>
               <button className='rounded-xl bg-[#3433FE] text-white font-[Sora] text-sm sm:text-base md:text-lg lg:text-xl font-semibold py-3 sm:py-4 px-6 sm:px-8 lg:px-10 hover:bg-[#2D2BE5] transition-colors duration-200 w-full sm:w-auto'>Contact Us</button>
             </div>
           </div>
@@ -309,7 +309,7 @@ const AboutUsPage = () => {
 
       {/* Values Section */}
       <section className="w-full py-[50px] sm:py-[75px] lg:py-[100px] px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-[20px] sm:pt-[30px] lg:pt-[40px]">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-[10px] mb-8 sm:mb-12 lg:mb-16">
             <h2 className='text-[#0B0B35] font-sora text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight'>Our <span className='font-bold  '>Values</span></h2>
           </div>
@@ -411,13 +411,7 @@ const AboutUsPage = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             {/* Left Side - Department Filter */}
             <div className="w-full lg:w-1/3">
-              <div className="flex items-center gap-[10px] mb-8 sm:mb-12 lg:mb-16">
-                <div className="w-[2px] h-[18px] sm:h-[24px] lg:h-[36px] bg-[#3433fe]"></div>
-                <h2 className="text-[16px] sm:text-[18px] lg:text-[20px] font-bold font-sans leading-[20px] sm:leading-[22px] lg:leading-[24px] tracking-[2px] text-[#0f0e55] uppercase">
-                  Our teams
-                </h2>
-              </div>
-              <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+              <div className="space-y-4 sm:space-y-6 lg:space-y-8 mt-0 md:mt-4 lg:mt-10">
                 {departments?.map((dept, index) => (
                   <div 
                     key={index} 
@@ -502,21 +496,45 @@ const AboutUsPage = () => {
           </div>
         </div>
       </section>
+
+
       {/* Final CTA Section */}
       <section className="w-full py-[50px] sm:py-[75px] lg:py-[100px] relative overflow-hidden">
         <div className="absolute inset-0 bg-[#0b0a3c]"></div>
-        <div className="absolute inset-0 bg-[url('/images/img_midjourney_image_1_1.png')] bg-cover bg-center opacity-30"></div>
+        <div className="absolute inset-0 bg-[url('/images/about_cta_img.webp')] bg-cover bg-center opacity-30"></div>
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-[40px] sm:text-[60px] lg:text-[80px] font-sora font-medium leading-[48px] sm:leading-[72px] lg:leading-[96px] text-[#ffffff] mb-6 sm:mb-8 lg:mb-12">
+          {/* <h2 className="text-[40px] sm:text-[60px] lg:text-[80px] font-sora font-medium leading-[48px] sm:leading-[72px] lg:leading-[96px] text-[#ffffff] mb-6 sm:mb-8 lg:mb-12">
             Good things Happen<br />When you say
-          </h2>
-          <div className="text-[60px] sm:text-[80px] lg:text-[105px] font-sora font-medium leading-[72px] sm:leading-[96px] lg:leading-[126px] underline mb-8 sm:mb-12 lg:mb-16">
-            <span className="bg-gradient-to-r from-[#3433fe] via-[#2585bd] to-[#21f0a7] bg-clip-text text-transparent">
-              😃 "Hello"
-            </span>
+          </h2> */}
+          <h1 className="text-white text-center font-sora font-semibold capitalize text-[38px] leading-[48px] sm:text-[48px] sm:leading-[60px] md:text-[60px] md:leading-[78px] lg:text-[80px] lg:leading-[94px]">
+          Join Us And Make Cool <br className="hidden sm:block" /> Stuff Togather
+          </h1>
+          <div className="mt-8">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 text-center font-sora font-semibold capitalize text-[38px] leading-[48px] sm:text-[48px] sm:leading-[60px] md:text-[60px] md:leading-[78px] lg:text-[80px] lg:leading-[94px] font-bold text-yellow-400 hover:text-yellow-500 transition"
+            >
+              Join Us
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+            <div className="h-[2px] bg-yellow-400 mt-0 w-[120px] sm:w-[180px] md:w-[200px] lg:w-[250px] mx-auto"></div>
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );
