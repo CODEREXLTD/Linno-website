@@ -10,19 +10,35 @@ const Content = () => {
     const benefits = [
 		{
 			icon: '/images/img_icon_white_a700.svg',
-			title: 'Fastival\nBonuses'
+			title: 'Fastival\nBonuses',
+            spanText: [
+                { text: 'Fastival ', weight: 'font-bold' },
+                { text: 'Bonuses', weight: 'font-normal' }
+            ]
 		},
 		{
 			icon: '/images/img_icon_white_a700_62x62.svg',
-			title: 'Performance\nBonus'
+			title: 'Performance\nBonus',
+            spanText: [
+                { text: 'Performance ', weight: 'font-bold' },
+                { text: 'Bonus', weight: 'font-normal' }
+            ]
 		},
 		{
 			icon: '/images/img_icon_62x62.svg',
-			title: 'Yearly \ncompany tour'
+			title: 'Yearly \ncompany tour',
+            spanText: [
+                { text: 'Yearly ', weight: 'font-bold' },
+                { text: 'company tour', weight: 'font-normal' }
+            ]
 		},
 		{
 			icon: '/images/img_icon_1.svg',
-			title: 'Yearly \nsalary review'
+			title: 'Yearly \nsalary review',
+            spanText: [
+                { text: 'Yearly ', weight: 'font-bold' },
+                { text: 'salary review', weight: 'font-normal' }
+            ]
 		},
 		{
 			icon: '/images/img_icon_2.svg',
@@ -224,15 +240,12 @@ const Content = () => {
 					</div>
 				</div>
 			</section>
+
 			{/* Company Benefits Section */}
-			<section className="w-full bg-[#090936]">
+			<section className="w-full bg-[#090936] py-[50px] md:py-[120px]">
 				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
 					{/* Background Image Section */}
-					<div className="w-[78%] mx-auto py-[60px] sm:py-[90px] lg:py-[120px] relative">
-						<div 
-							className="absolute inset-0 bg-cover bg-center z-0"
-							style={{ backgroundImage: "url('/images/img_light.png')" }}
-						/>
+					<div className="mx-auto py-[60px] sm:py-[90px] lg:py-[120px] relative">
 						<div className="relative z-10 flex justify-center items-start w-[48%] mx-auto mb-[36px] sm:mb-[54px] lg:mb-[72px]">
 							<div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-center">
 								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-white">
@@ -245,10 +258,10 @@ const Content = () => {
 						</div>
 					</div>
 					{/* Benefits Grid */}
-					<div className="w-full lg:w-[90%] xl:w-[74%] mx-auto px-[8px] sm:px-[15px] lg:px-[20px] xl:px-[26px] py-[8px] sm:py-[15px] lg:py-[20px] xl:py-[26px] -mt-[50px] sm:-mt-[75px] lg:-mt-[105px] xl:-mt-[140px] mb-[40px] sm:mb-[65px] lg:mb-[98px] xl:mb-[130px] relative z-20">
+					<div className="w-full px-[8px] sm:px-[15px] lg:px-[20px] xl:px-[26px] py-[8px] sm:py-[15px] lg:py-[20px] xl:py-[26px] -mt-[50px] sm:-mt-[75px] lg:-mt-[105px] xl:-mt-[140px] mb-[40px] sm:mb-[65px] lg:mb-[98px] xl:mb-[130px] relative z-20">
 						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] sm:gap-[50px] lg:gap-[80px] xl:gap-[146px] w-full">
 							{benefits?.map((benefit, index) => (
-								<div key={index} className="flex flex-col sm:flex-row lg:flex-row justify-start items-center sm:items-start lg:items-center gap-[10px] sm:gap-[15px] lg:gap-[20px] w-full group hover:scale-105 transition-transform duration-200">
+								<div key={index} className="flex flex-col sm:flex-row lg:flex-row justify-start items-center sm:items-start lg:items-center gap-[10px] sm:gap-[15px] lg:gap-[20px] w-full group hover:scale-105 transition-transform duration-200 glass border-b-[rgba(255,255,255,0.48)] border-t-[rgba(255,255,255,0.48)]">
 									<div className="bg-[#3433fe] rounded-[30px] p-[12px] sm:p-[14px] lg:p-[16px] w-[56px] h-[56px] sm:w-[60px] sm:h-[60px] lg:w-[62px] lg:h-[62px] flex items-center justify-center flex-shrink-0 group-hover:shadow-lg transition-shadow duration-200">
 										<Image
 											src={benefit?.icon}
@@ -264,6 +277,9 @@ const Content = () => {
 												{benefit?.spanText?.map((span, spanIndex) => (
 													<span key={spanIndex} className={span?.weight}>
 														{span?.text}
+                                                        {
+                                                            spanIndex === 0 ? <br /> : null
+                                                        }
 													</span>
 												))}
 											</>
