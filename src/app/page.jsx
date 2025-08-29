@@ -364,6 +364,7 @@ export default function HomePage() {
 						</div>
 					</div>
 				</section>
+
 				{/* Trusted by Customers Section */}
 				<section 
 					className="w-full bg-cover bg-center bg-no-repeat pt-[61px] sm:pt-[92px] lg:pt-[122px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[61px] sm:pb-[92px] lg:pb-[122px] pl-[28px] sm:pl-[42px] lg:pl-[56px]"
@@ -373,6 +374,7 @@ export default function HomePage() {
 						<div className="flex flex-col gap-[31px] sm:gap-[47px] lg:gap-[62px] justify-start items-center w-full lg:w-[54%] mb-[4px] sm:mb-[6px] lg:mb-[8px]">
 							<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[44px] sm:leading-[51px] lg:leading-[58px] text-center text-[#ffffff] w-full lg:w-[62%]">
 								<span className="font-semibold">Trusted by Customers</span>
+								<br />
 								<span className="font-normal"> Across the Globe</span>
 							</h2>
 							<div className="flex flex-col justify-start items-center w-full">
@@ -386,38 +388,13 @@ export default function HomePage() {
 									/>
 								</div>
 								<div className="flex flex-col lg:flex-row gap-[25px] sm:gap-[38px] lg:gap-[50px] justify-center items-end w-full mt-[-46px] sm:mt-[-69px] lg:mt-[-92px]">
-									{/* Successful Products */}
-									<div className="flex justify-center items-start w-full lg:w-[32%] pt-[15px] sm:pt-[23px] lg:pt-[30px] pr-[15px] sm:pr-[23px] lg:pr-[30px] pb-[15px] sm:pb-[23px] lg:pb-[30px] pl-[15px] sm:pl-[23px] lg:pl-[30px]">
-										<p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter leading-[41px] sm:leading-[48px] lg:leading-[54px] text-[#ffffff] w-full lg:w-[92%] mb-[11px] sm:mb-[17px] lg:mb-[22px]">
-											<span className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora font-extrabold">13+</span>
-											<span className="text-[35px] sm:text-[41px] lg:text-[46px] font-inter"> </span>
-											<br />
-											<span className="font-semibold">Successful Products</span>
-										</p>
-									</div>
-									{/* Country Worldwide */}
-									<div className="flex justify-center items-start w-auto pt-[14px] sm:pt-[21px] lg:pt-[28px] pr-[14px] sm:pr-[21px] lg:pr-[28px] pb-[14px] sm:pb-[21px] lg:pb-[28px] pl-[14px] sm:pl-[21px] lg:pl-[28px] shadow-[0px_5px_10px_#3534fe7f]">
-										<p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter leading-[41px] sm:leading-[48px] lg:leading-[54px] text-[#ffffff] w-auto mb-[6px] sm:mb-[9px] lg:mb-[12px]">
-											<span className="text-[47px] sm:text-[55px] lg:text-[62px] font-sora font-extrabold">50+</span>
-											<span className="text-[35px] sm:text-[41px] lg:text-[46px] font-inter"> </span>
-											<br />
-											<span className="text-[18px] sm:text-[21px] lg:text-[24px] font-semibold">Country Worldwide</span>
-										</p>
-									</div>
-									{/* Years of Experience */}
-									<div className="flex justify-center items-start w-full lg:w-[32%] pt-[14px] sm:pt-[21px] lg:pt-[28px] pr-[14px] sm:pr-[21px] lg:pr-[28px] pb-[14px] sm:pb-[21px] lg:pb-[28px] pl-[14px] sm:pl-[21px] lg:pl-[28px]">
-										<p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter leading-[41px] sm:leading-[48px] lg:leading-[54px] text-[#ffffff] w-full lg:w-[90%] mb-[13px] sm:mb-[20px] lg:mb-[26px]">
-											<span className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora font-extrabold">12+</span>
-											<span className="text-[35px] sm:text-[41px] lg:text-[46px] font-inter"> </span>
-											<br />
-											<span className="font-semibold">Years of Experiences</span>
-										</p>
-									</div>
+									
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
+
 				{/* Life at Linno Section */}
 				<section className="w-full bg-[linear-gradient(90deg,#3433fe0f_0%,_#00c8530f_100%)] pt-[61px] sm:pt-[92px] lg:pt-[122px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[61px] sm:pb-[92px] lg:pb-[122px] pl-[28px] sm:pl-[42px] lg:pr-[56px]">
 					<div className="flex flex-col lg:flex-row gap-[25px] sm:gap-[38px] lg:gap-[50px] justify-center items-center w-full">

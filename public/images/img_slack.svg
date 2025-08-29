@@ -1,0 +1,8 @@
+<svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="78" height="78" rx="8" fill="#4A154B"/>
+<rect x="15" y="25" width="48" height="28" rx="6" fill="white"/>
+<path d="M25 35C25 32.8 26.8 31 29 31H35C37.2 31 39 32.8 39 35V40C39 42.2 37.2 44 35 44H29C26.8 44 25 42.2 25 40V35Z" fill="#4A154B"/>
+<path d="M45 35C45 32.8 46.8 31 49 31H55C57.2 31 59 32.8 59 35V40C59 42.2 57.2 44 55 44H49C46.8 44 45 42.2 45 40V35Z" fill="#4A154B"/>
+<circle cx="39" cy="47" r="4" fill="#00D4AA"/>
+<text x="39" y="68" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Slack</text>
+</svg>

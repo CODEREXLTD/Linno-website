@@ -1,0 +1,10 @@
+<svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="78" height="78" rx="8" fill="#F24E1E"/>
+<rect x="20" y="25" width="38" height="28" rx="4" fill="white"/>
+<circle cx="30" cy="35" r="3" fill="#F24E1E"/>
+<rect x="35" y="32" width="18" height="6" rx="1" fill="#F24E1E"/>
+<circle cx="30" cy="45" r="3" fill="#F24E1E"/>
+<rect x="35" y="42" width="18" height="6" rx="1" fill="#F24E1E"/>
+<path d="M25 55L35 50L45 55L50 50L45 45L35 50L25 45L20 50L25 55Z" fill="#F24E1E"/>
+<text x="39" y="70" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">Plugin</text>
+</svg>

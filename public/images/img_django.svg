@@ -1,0 +1,8 @@
+<svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="78" height="78" rx="8" fill="#092E20"/>
+<rect x="18" y="25" width="42" height="28" rx="2" fill="white"/>
+<path d="M25 35H30V40H25V35ZM35 35H40V40H35V35ZM45 35H50V40H45V35Z" fill="#092E20"/>
+<rect x="25" y="30" width="28" height="3" fill="#092E20"/>
+<rect x="25" y="45" width="28" height="3" fill="#092E20"/>
+<text x="39" y="65" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">Django</text>
+</svg>

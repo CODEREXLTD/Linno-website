@@ -1,0 +1,14 @@
+<svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="78" height="78" rx="8" fill="#623CE4"/>
+<rect x="20" y="25" width="38" height="28" rx="2" stroke="white" stroke-width="2" fill="none"/>
+<rect x="25" y="30" width="8" height="6" fill="white"/>
+<rect x="35" y="30" width="8" height="6" fill="white"/>
+<rect x="45" y="30" width="8" height="6" fill="white"/>
+<rect x="25" y="38" width="8" height="6" fill="white"/>
+<rect x="35" y="38" width="8" height="6" fill="white"/>
+<rect x="45" y="38" width="8" height="6" fill="white"/>
+<rect x="25" y="46" width="8" height="4" fill="white"/>
+<rect x="35" y="46" width="8" height="4" fill="white"/>
+<rect x="45" y="46" width="8" height="4" fill="white"/>
+<text x="39" y="68" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">Terraform</text>
+</svg>
