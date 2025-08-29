@@ -76,22 +76,22 @@ const Content = () => {
         {
             name: 'LinkedIn',
             icon: '/images/img_icon.svg',
-            href: 'https://linkedin.com/company/linno'
+            href: 'https://www.linkedin.com/company/coderex-ltd/'
         },
         {
             name: 'Facebook',
             icon: '/images/img_vector_indigo_a700_18x18.svg',
-            href: 'https://facebook.com/linno'
+            href: 'https://www.facebook.com/coderexco'
         },
         {
-            name: 'Twitter',
+            name: 'X',
             icon: '/images/img_vector_indigo_a100.svg',
-            href: 'https://twitter.com/linno'
+            href: 'https://x.com/coderexco'
         },
         {
             name: 'Instagram',
             icon: '/images/img_vector_indigo_200.svg',
-            href: 'https://instagram.com/linno'
+            href: 'https://www.instagram.com/coderexco/'
         }
     ];
 
