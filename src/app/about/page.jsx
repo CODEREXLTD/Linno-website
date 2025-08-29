@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import EditText from '@/components/ui/EditText';
+import Button from "@/components/ui/Button";
 const AboutUsPage = () => {
       const benefits = [
 		{
@@ -136,7 +137,7 @@ const AboutUsPage = () => {
       name: "Fatema-Tuz-Zohra Nabila",
       position: "Product Marketing Manager",
       department: "marketing",
-      image: "/images/img_image_3.png",
+      image: "/images/nabila.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -144,7 +145,7 @@ const AboutUsPage = () => {
       name: "Syed Abid Hossain",
       position: "Marketing",
       department: "marketing",
-      image: "/images/img_image_4_328x350.png",
+      image: "/images/abid.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -152,7 +153,7 @@ const AboutUsPage = () => {
       name: "C S Sultan",
       position: "Chief Marketing Manager",
       department: "marketing",
-      image: "/images/img_image_5.png",
+      image: "/images/sultan.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -160,7 +161,7 @@ const AboutUsPage = () => {
       name: "Sakiba Prima",
       position: "Marketing",
       department: "marketing",
-      image: "/images/img_rectangle_18040.png",
+      image: "/images/prima.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -168,7 +169,7 @@ const AboutUsPage = () => {
       name: "Shahab Uddin Mahi",
       position: "Lead UI/UX Designer",
       department: "product",
-      image: "/images/img_image_3_328x350.png",
+      image: "/images/mahi.png",
       icon: "/images/img_uim_layer_group.svg"
     },
     {
@@ -176,71 +177,95 @@ const AboutUsPage = () => {
       name: "Fahmida Bhuiyan Sathi",
       position: "UI/UX Designer",
       department: "product",
-      image: "/images/img_image_7.png",
+      image: "/images/sathi.jpg",
       icon: "/images/img_uim_layer_group.svg"
     },
     {
       id: 7,
-      name: "John Smith",
-      position: "Chief Executive Officer",
-      department: "leadership",
-      image: "/images/img_image_4_328x350.png",
+      name: "Shahala Akter Joti",
+      position: "UI/UX Designer",
+      department: "product",
+      image: "/images/joti.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 8,
-      name: "Sarah Johnson",
+      name: "Sadi Mohammad Zaman",
       position: "Chief Technology Officer",
-      department: "leadership",
-      image: "/images/img_image_4_328x350.png",
+      department: "engineering",
+      image: "/images/sadi.jpg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 9,
-      name: "Mike Chen",
+      name: "Md. Saiduzzaman Tohin",
       position: "Senior Software Engineer",
       department: "engineering",
-      image: "/images/img_image_4_328x350.png",
+      image: "/images/tuhin.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 10,
-      name: "Lisa Wang",
-      position: "Frontend Developer",
+      name: "A S M Nasim",
+      position: "Software Engineer",
       department: "engineering",
-      image: "/images/img_image_4_328x350.png",
+      image: "/images/nasim.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 11,
-      name: "David Rodriguez",
-      position: "Marketing Director",
-      department: "marketing",
-      image: "/images/img_image_4_328x350.png",
+      name: "Md. Razun Mia",
+      position: "Full Stack Developer",
+      department: "engineering",
+      image: "/images/razun.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 12,
-      name: "Emily Davis",
-      position: "Content Marketing Specialist",
-      department: "marketing",
-      image: "/images/img_image_4_328x350.png",
+      name: "Tipu Sultan",
+      position: "Frontend Engineer",
+      department: "engineering",
+      image: "/images/tipu.jpg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 13,
-      name: "Alex Thompson",
-      position: "Product Manager",
-      department: "product",
-      image: "/images/img_image_4_328x350.png",
+      name: "AB Belal",
+      position: "Frontend Engineer",
+      department: "engineering",
+      image: "/images/belal.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 14,
-      name: "Rachel Green",
-      position: "UX Designer",
-      department: "product",
-      image: "/images/img_image_4_328x350.png",
+      name: "Humayun Kabir",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/kabir.jpeg",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 15,
+      name: "Mamun Prodhan",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/mamun.png",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 16,
+      name: "Humayun Kabir",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/humayun.jpeg",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 17,
+      name: "Humayun Kabir",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/humayun.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     }
   ];
@@ -281,7 +306,14 @@ const AboutUsPage = () => {
             </div>
             <div>
               <p className='text-[#51515F] font-inter text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed sm:leading-relaxed md:leading-8 lg:leading-[35px] mb-5 sm:mb-8 lg:mb-12'>Within our intimate team, we cherish the diverse backgrounds, cultures and perspectives that each individual brings. Our team members represent a tapestry of experiences, talents and skills that enriches our collective creativity.</p>
-              <button className='rounded-xl bg-[#3433FE] text-white font-[Sora] text-sm sm:text-base md:text-lg lg:text-xl font-semibold py-3 sm:py-4 px-6 sm:px-8 lg:px-10 hover:bg-[#2D2BE5] transition-colors duration-200 w-full sm:w-auto'>Contact Us</button>
+              <Button
+                variant="primary"
+                size="lg"
+                link={true}
+                href="/contact"
+                label="Contact Us"
+                className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-semibold leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[16px] sm:pr-[24px] lg:pr-[32px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[16px] sm:pl-[24px] lg:pl-[32px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200 w-full sm:w-auto"
+              />
             </div>
           </div>
         </div>
