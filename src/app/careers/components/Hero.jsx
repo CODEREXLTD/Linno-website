@@ -40,7 +40,7 @@ const Hero = () => {
                                         <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-semibold leading-[18px] sm:leading-[21px] lg:leading-[24px]">Members</span>
                                     </div>
                                 </div>
-                                <div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] w-full sm:w-[120px] rounded-none sm:rounded-[60px] flex justify-center items-center h-auto py-4">
+                                <div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] w-full sm:w-[120px] flex justify-center items-center h-auto py-4">
                                     <div className="text-[15px] sm:text-[18px] lg:text-[20px] font-sora leading-[20px] sm:leading-[23px] lg:leading-[26px] text-center text-[#0b0b35]">
                                         <span className="text-[27px] sm:text-[32px] lg:text-[36px] font-extrabold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#3433fe]">50+</span><br />
                                         <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px]">Countries</span>
@@ -119,7 +119,7 @@ const Hero = () => {
                                         <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-semibold leading-[18px] sm:leading-[21px] lg:leading-[24px]">Members</span>
                                     </div>
                                 </div>
-                                <div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] rounded-[60px] flex justify-center items-center w-[120px] h-auto py-4">
+                                <div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] flex justify-center items-center w-[120px] h-auto py-4">
                                     <div className="text-[15px] sm:text-[18px] lg:text-[20px] font-sora leading-[20px] sm:leading-[23px] lg:leading-[26px] text-center text-[#0b0b35]">
                                         <span className="text-[27px] sm:text-[32px] lg:text-[36px] font-extrabold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#3433fe]">50+</span><br />
                                         <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px]">Countries</span>
