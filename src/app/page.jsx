@@ -24,13 +24,14 @@ export default function HomePage() {
 									<div className="w-full sm:w-4/5 lg:w-[60%]">
 										<div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] rounded-[10px] pt-[2px] sm:pt-[3px] lg:pt-[4px] pr-[9px] sm:pr-[14px] lg:pr-[18px] pb-[2px] sm:pb-[3px] lg:pb-[4px] pl-[9px] sm:pl-[14px] lg:pl-[18px]">
 											<span className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-normal leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#000000]">
-												Innovation. Fueled by People
+												<span className='text-[#3433FE]'> Innovation. </span>
+												Fueled by People
 											</span>
 										</div>
 									</div>
 									{/* Main Heading and Description */}
 									<div className="flex flex-col gap-[15px] sm:gap-[23px] lg:gap-[30px] justify-start items-start w-full">
-										<h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-sora md:text-[74px] leading-tight text-[#0b0b35] w-full">
+										<h1 className="text-[32px] sm:text-[48px] lg:text-[80px] font-sora md:text-[74px] leading-tight text-[#0b0b35] w-full">
 											<span className="font-normal">High-End </span>
 											<span className="font-bold">Software Solutions</span>
 										</h1>
@@ -387,18 +388,18 @@ export default function HomePage() {
 										className="w-full h-auto"
 									/>
 								</div>
-								<div className="grid grid-cols-3 gap-6 p-10 relative z-40">
-									<div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left">
+								<div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-10 relative z-40 mt-[-230px] md:mt-[-50px]">
+									<div className="bg-transparent border-l border-r border-t-0 border-b-0 border-[1px] border-l-[rgb(70_68_210/0.62)] border-r-[rgba(255,255,255,0.48)] backdrop-blur-md rounded-xl p-6 text-left hover:scale-110 transition-all duration-300">
 										<h2 className="text-2xl font-bold text-white">13+</h2>
 										<p className="text-white/80 mt-2 text-sm">Successful Products</p>
 									</div>
 
-									<div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left">
+									<div className="bg-transparent border-l border-r border-t-0 border-b-0 border-[1px] border-l-[rgb(70_68_210/0.62)] border-r-[rgba(255,255,255,0.48)] backdrop-blur-md rounded-xl p-6 text-left hover:scale-110 transition-all duration-300">
 										<h2 className="text-2xl font-bold text-white">50+</h2>
 										<p className="text-white/80 mt-2 text-sm">Country Worldwide</p>
 									</div>
 
-									<div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left">
+									<div className="bg-transparent backdrop-blur-md rounded-xl p-6 text-left hover:scale-110 transition-all duration-300 border-l border-r border-t-0 border-b-0 border-[1px] border-l-[rgb(70_68_210/0.62)] border-r-[rgba(255,255,255,0.48)]">
 										<h2 className="text-2xl font-bold text-white">12+</h2>
 										<p className="text-white/80 mt-2 text-sm">Years of Experiences</p>
 									</div>
