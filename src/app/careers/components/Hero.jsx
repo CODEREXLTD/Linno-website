@@ -22,7 +22,12 @@ const Hero = () => {
                             Be part of a team that values your ideas, fuels your growth, and empowers you to make a real impact.
                         </p>
                         <Button 
-                            onClick={() => {}}
+                            onClick={() => {
+									const element = document.getElementById('linno-open-positions');
+									if (element) {
+										element.scrollIntoView({ behavior: 'smooth' });
+									}
+								}}
                             className="bg-[#3433fe] text-white rounded-[10px] px-[15px] sm:px-[23px] lg:px-[30px] py-[7px] sm:py-[11px] lg:py-[14px] text-[15px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] w-fit"
                         >
                             Check Open Position

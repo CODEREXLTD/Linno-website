@@ -300,7 +300,12 @@ const Content = () => {
 								</div>
 							</div>
 							<Button 
-								onClick={() => {}}
+								onClick={() => {
+									const element = document.getElementById('linno-open-positions');
+									if (element) {
+										element.scrollIntoView({ behavior: 'smooth' });
+									}
+								}}
 								className="bg-[#3433fe] text-white rounded-[10px] px-[11px] sm:px-[17px] lg:px-[22px] py-[7px] sm:py-[11px] lg:py-[14px] text-[15px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] w-fit"
 							>
 								Check Open Position
@@ -311,7 +316,7 @@ const Content = () => {
 			</section>
 
 			{/* Open Positions Section */}
-			<section className="w-full bg-white">
+			<section className="w-full bg-white" id="linno-open-positions">
 				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-[58px] sm:py-[87px] lg:py-[116px]">
 					<div className="flex flex-col gap-[26px] sm:gap-[39px] lg:gap-[52px] justify-center items-center w-full">
 						{/* Header */}
