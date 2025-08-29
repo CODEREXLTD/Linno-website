@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 const EditText = ({
@@ -26,11 +26,29 @@ const EditText = ({
 }) => {
   const inputRef = useRef(null);
   const textareaRef = useRef(null);
+  
+  // Local state for input value
+  const [localValue, setLocalValue] = useState(value);
+  
+  // Sync local state with prop value when it changes externally
+  useEffect(() => {
+    setLocalValue(value);
+  }, [value]);
 
-  const handleChange = (e) => {
-    if (maxLength && e.target.value.length > maxLength) return;
-    if (onChange) onChange(e);
-  };
+  const handleChange = useCallback((e) => {
+    const newValue = e.target.value;
+    
+    // Check max length constraint
+    if (maxLength && newValue.length > maxLength) return;
+    
+    // Update local state immediately for responsive UI
+    setLocalValue(newValue);
+    
+    // Propagate change to parent if onChange is provided
+    if (onChange) {
+      onChange(e);
+    }
+  }, [maxLength, onChange]);
 
   const handleRightImageClick = () => {
     if (multiline && textareaRef.current) {
@@ -96,7 +114,7 @@ const EditText = ({
 
       {maxLength && (
         <div className="absolute right-3 sm:right-4 lg:right-5 -bottom-6 text-xs text-gray-500">
-          {value.length}/{maxLength}
+          {localValue.length}/{maxLength}
         </div>
       )}
     </div>
@@ -119,7 +137,7 @@ const EditText = ({
           <textarea
             ref={textareaRef}
             id={inputId}
-            value={value}
+            value={localValue}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
@@ -139,7 +157,7 @@ const EditText = ({
             ref={inputRef}
             id={inputId}
             type={type}
-            value={value}
+            value={localValue}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}

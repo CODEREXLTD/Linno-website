@@ -162,13 +162,6 @@ const Footer = () => {
               >
                 Privacy Policy
               </Link>
-              <span className="hidden sm:inline text-gray-400" aria-hidden="true">|</span>
-              <Link 
-                href="/terms" 
-                className="hover:text-global-3 focus:text-global-3 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-global-3 focus:ring-opacity-50 rounded px-1 py-1"
-              >
-                Terms & Conditions
-              </Link>
             </div>
           </div>
         </div>

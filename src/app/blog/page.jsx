@@ -484,7 +484,7 @@ const BlogPage = () => {
               © 2025 Linno. All Rights Reserved.
             </span>
             <span className="text-[8px] sm:text-[11px] md:text-[13px] lg:text-[16px] font-medium leading-[10px] sm:leading-[13px] md:leading-[16px] lg:leading-[20px] text-[#51515f]">
-              Privacy Policy           Terms & Conditions
+              Privacy Policy
             </span>
           </div>
         </div>

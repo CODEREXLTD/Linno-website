@@ -1,11 +1,55 @@
 'use client';
-import React, { useState } from 'react';
-import { memo } from 'react';
+import React, { useState, useCallback } from 'react';
+
 import Image from 'next/image';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Button from '@/components/ui/Button';
 import EditText from '@/components/ui/EditText';
+
+const contactInfo = [
+    {
+        icon: '/images/img_icon_gray_900.svg',
+        title: 'Email',
+        info: 'enquiry@linno.io',
+        link: 'mailto:enquiry@linno.io'
+    },
+    {
+        icon: '/images/img_icon_gray_900_1.svg',
+        title: 'Phone',
+        info: '+880 1711 123456',
+        link: 'tel:+8801711123456'
+    },
+    {
+        icon: '/images/img_icon_gray_900_2.svg',
+        title: 'Office',
+        info: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215',
+        link: null
+    }
+];
+
+const socialLinks = [
+    {
+        name: 'LinkedIn',
+        icon: '/images/img_icon.svg',
+        href: 'https://www.linkedin.com/company/coderex-ltd/'
+    },
+    {
+        name: 'Facebook',
+        icon: '/images/img_vector_indigo_a700_18x18.svg',
+        href: 'https://www.facebook.com/coderexco'
+    },
+    {
+        name: 'X',
+        icon: '/images/img_vector_indigo_a100.svg',
+        href: 'https://x.com/coderexco'
+    },
+    {
+        name: 'Instagram',
+        icon: '/images/img_vector_indigo_200.svg',
+        href: 'https://www.instagram.com/coderexco/'
+    }
+];
 
 const Content = () => {
     const [formData, setFormData] = useState({
@@ -19,13 +63,13 @@ const Content = () => {
     });
     const [loading, setLoading] = useState(false);
 
-    const handleInputChange = (e) => {
+    const handleInputChange = useCallback((e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: value
         }));
-    };
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,50 +94,6 @@ const Content = () => {
         
         alert('Thank you for your message! We\'ll get back to you soon.');
     };
-
-    const contactInfo = [
-        {
-            icon: '/images/img_icon_gray_900.svg',
-            title: 'Email',
-            info: 'enquiry@linno.io',
-            link: 'mailto:enquiry@linno.io'
-        },
-        {
-            icon: '/images/img_icon_gray_900_1.svg',
-            title: 'Phone',
-            info: '+880 1711 123456',
-            link: 'tel:+8801711123456'
-        },
-        {
-            icon: '/images/img_icon_gray_900_2.svg',
-            title: 'Office',
-            info: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215',
-            link: null
-        }
-    ];
-
-    const socialLinks = [
-        {
-            name: 'LinkedIn',
-            icon: '/images/img_icon.svg',
-            href: 'https://www.linkedin.com/company/coderex-ltd/'
-        },
-        {
-            name: 'Facebook',
-            icon: '/images/img_vector_indigo_a700_18x18.svg',
-            href: 'https://www.facebook.com/coderexco'
-        },
-        {
-            name: 'X',
-            icon: '/images/img_vector_indigo_a100.svg',
-            href: 'https://x.com/coderexco'
-        },
-        {
-            name: 'Instagram',
-            icon: '/images/img_vector_indigo_200.svg',
-            href: 'https://www.instagram.com/coderexco/'
-        }
-    ];
 
     return (
         <div className="w-full bg-global-7">
@@ -383,4 +383,4 @@ const Content = () => {
     );
 };
 
-export default memo(Content);
+export default Content;
