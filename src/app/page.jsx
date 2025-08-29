@@ -387,34 +387,20 @@ export default function HomePage() {
 										className="w-full h-auto"
 									/>
 								</div>
-								<div className="grid grid-cols-3">
-									<div className="flex flex-col lg:flex-row gap-[25px] sm:gap-[38px] lg:gap-[50px] justify-center items-end w-full mt-[-46px] sm:mt-[-69px] lg:mt-[-92px]">
-										<div className='flex items-start flex-col gap-4 p-[30px_46px_53px_30px] rounded-[10px] bg-[rgba(0,0,0,0)] relative z-10'>
-											<h3 className='text-white font-sora font-extrabold text-[48px] leading-[1.25]'>
-												13+
-											</h3>
-											<p className='text-white flex-col gap-4font-sora font-extrabold text-[20px] leading-[1.25]'>
-												Successful Products
-											</p>
-										</div>
+								<div className="grid grid-cols-3 gap-6 p-10 relative z-40">
+									<div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left">
+										<h2 className="text-2xl font-bold text-white">13+</h2>
+										<p className="text-white/80 mt-2 text-sm">Successful Products</p>
 									</div>
 
-									<div className='flex items-start flex-col gap-4 p-[30px_46px_53px_30px] rounded-[10px] bg-[rgba(0,0,0,0)] relative z-10'>
-										<h3 className='text-white font-sora font-extrabold text-[48px] leading-[1.25]'>
-											50+
-										</h3>
-										<p className='text-white font-sora font-extrabold text-[20px] leading-[1.25]'>
-											Country Worldwide
-										</p>
+									<div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left">
+										<h2 className="text-2xl font-bold text-white">50+</h2>
+										<p className="text-white/80 mt-2 text-sm">Country Worldwide</p>
 									</div>
 
-									<div className='flex items-start flex-col gap-4 p-[30px_46px_53px_30px] rounded-[10px] bg-[rgba(0,0,0,0)] relative z-10'>
-										<h3 className='text-white font-sora font-extrabold text-[48px] leading-[1.25]'>
-											12+
-										</h3>
-										<p className='text-white font-sora font-extrabold text-[20px] leading-[1.25]'>
-											Years of Experience
-										</p>
+									<div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-left">
+										<h2 className="text-2xl font-bold text-white">12+</h2>
+										<p className="text-white/80 mt-2 text-sm">Years of Experiences</p>
 									</div>
 								</div>
 							</div>
