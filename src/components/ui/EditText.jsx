@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useId } from 'react';
 import Image from 'next/image';
 
 const EditText = ({
@@ -27,18 +27,14 @@ const EditText = ({
 }) => {
   const inputRef = useRef(null);
   const textareaRef = useRef(null);
+  const generatedId = useId();
 
   const handleChange = useCallback((e) => {
-    const newValue = e.target.value;
-    
-    // Check max length constraint
-    if (maxLength && newValue.length > maxLength) return;
-    
-    // Always propagate change to parent
+    // Always propagate change to parent for React consistency
     if (onChange) {
       onChange(e);
     }
-  }, [maxLength, onChange]);
+  }, [onChange]);
 
   const handleRightImageClick = () => {
     if (multiline && textareaRef.current) {
@@ -72,7 +68,7 @@ const EditText = ({
     ${className}
   `.trim().replace(/\s+/g, ' ');
 
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  const inputId = id || generatedId;
 
   const InputWrapper = ({ children }) => (
     <div className="relative w-full">
@@ -128,7 +124,7 @@ const EditText = ({
             ref={textareaRef}
             id={inputId}
             name={name}
-            value={value}
+            defaultValue={value}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
@@ -149,7 +145,7 @@ const EditText = ({
             id={inputId}
             name={name}
             type={type}
-            value={value}
+            defaultValue={value}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
