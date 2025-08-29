@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import Button from '../components/ui/Button';
+import TechnologyTabs from '@/components/ui/TechnologyTabs';
+import JoinUsLink from '@/components/ui/JoinUsLink';
 export default function HomePage() {
 	return (
 		<div className="min-h-screen bg-[#f2f5fb]">
@@ -509,165 +511,19 @@ export default function HomePage() {
 					</div>
 				</section>
 				{/* Technology We Use Section */}
-				<section className="w-full mt-[59px] sm:mt-[89px] lg:mt-[118px]">
-					<div className="w-full max-w-[1310px] mx-auto px-4 sm:px-6 lg:px-8">
-						<div className="flex flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full">
-							{/* Section Header */}
-							<div className="flex flex-col gap-[4px] sm:gap-[6px] lg:gap-[8px] justify-start items-center w-full mr-[133px] sm:mr-[200px] lg:mr-[266px] ml-[129px] sm:ml-[194px] lg:ml-[258px]">
-								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-[#0b0b35] w-auto">
-									<span className="font-bold">Technology </span>
-									<span className="font-normal">We Use</span>
-								</h2>
-								<p className="text-[16px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[23px] sm:leading-[27px] lg:leading-[30px] text-center text-[#51515f] w-full">
-									We thrive on innovation, teamwork, and continuous learning. Our workplace empowers people to do their best work while enjoying the journey together.
-								</p>
-							</div>
-							{/* Technology Categories */}
-							<div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[40px] justify-start items-center w-full mr-[4px] sm:mr-[6px] lg:mr-[8px]">
-								<div className="flex flex-wrap justify-center items-center gap-[8px] sm:gap-[12px] lg:gap-[16px] w-full mr-[97px] sm:mr-[146px] lg:mr-[194px] ml-[97px] sm:ml-[146px] lg:ml-[194px]">
-									<Button
-										variant="outline"
-										onClick={() => {}}
-										className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] border border-[#c7c7ff] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[9px] sm:pr-[14px] lg:pr-[18px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[9px] sm:pl-[14px] lg:pl-[18px] hover:bg-[#c7c7ff] transition-all duration-200"
-									>
-										DevOps/Server
-									</Button>
-									<Button
-										variant="outline"
-										onClick={() => {}}
-										className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] border border-[#c7c7ff] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[9px] sm:pr-[14px] lg:pr-[18px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[9px] sm:pl-[14px] lg:pl-[18px] hover:bg-[#c7c7ff] transition-all duration-200"
-									>
-										Other Technologies
-									</Button>
-									<Button
-										variant="outline"
-										onClick={() => {}}
-										className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] border border-[#c7c7ff] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[11px] sm:pr-[17px] lg:pr-[22px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[11px] sm:pl-[17px] lg:pl-[22px] hover:bg-[#c7c7ff] transition-all duration-200 flex-1"
-									>
-										Languages
-									</Button>
-									<Button
-										variant="outline"
-										onClick={() => {}}
-										className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] border border-[#c7c7ff] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[11px] sm:pr-[17px] lg:pr-[22px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[11px] sm:pl-[17px] lg:pl-[22px] hover:bg-[#c7c7ff] transition-all duration-200 flex-1"
-									>
-										Frontend
-									</Button>
-									<Button
-										variant="outline"
-										onClick={() => {}}
-										className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] border border-[#c7c7ff] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[11px] sm:pr-[17px] lg:pr-[22px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[11px] sm:pl-[17px] lg:pl-[22px] hover:bg-[#c7c7ff] transition-all duration-200"
-									>
-										Backend
-									</Button>
-									<Button
-										variant="primary"
-										onClick={() => {}}
-										className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-bold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[12px] sm:pr-[18px] lg:pr-[24px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[12px] sm:pl-[18px] lg:pl-[24px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200"
-									>
-										UI/UX
-									</Button>
-								</div>
-								{/* Technology Tools */}
-								<div className="flex flex-col sm:flex-row gap-[15px] sm:gap-[23px] lg:gap-[30px] justify-start items-center w-full ml-[0.5px] sm:ml-[0.75px] lg:ml-[1px]">
-									{/* Figma */}
-									<div className="flex flex-col gap-[37px] sm:gap-[56px] lg:gap-[74px] justify-center items-start w-full bg-[#e8e4ff] rounded-[10px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[20px] sm:pb-[30px] lg:pb-[40px] pl-[10px] sm:pr-[15px] lg:pl-[20px]">
-										<div className="w-[26px] sm:w-[39px] lg:w-[52px] ml-[8px] sm:ml-[12px] lg:ml-[16px]">
-											<Image
-												src="/images/img_vector_gray_900_01.svg"
-												alt="Figma"
-												width={52}
-												height={76}
-												className="w-full h-auto"
-											/>
-										</div>
-										<div className="flex justify-start items-center w-full pr-[8px] sm:pr-[12px] lg:pr-[16px] pl-[8px] sm:pl-[12px] lg:pl-[16px]">
-											<span className="text-[27px] sm:text-[32px] lg:text-[36px] font-sora font-normal leading-[35px] sm:leading-[41px] lg:leading-[46px] text-[#141618]">
-												Figma
-											</span>
-										</div>
-									</div>
-									{/* Sketch */}
-									<div className="flex flex-col gap-[34px] sm:gap-[51px] lg:gap-[68px] justify-start items-start w-full bg-[#dddddd] rounded-[10px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[20px] sm:pb-[30px] lg:pb-[40px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-										<div className="w-[42px] sm:w-[63px] lg:w-[84px] ml-[5px] sm:ml-[8px] lg:ml-[10px]">
-											<Image
-												src="/images/img_vector_gray_900_02.svg"
-												alt="Sketch"
-												width={84}
-												height={76}
-												className="w-full h-auto"
-											/>
-										</div>
-										<div className="flex justify-start items-center w-full pr-[8px] sm:pr-[12px] lg:pr-[16px] pl-[8px] sm:pl-[12px] lg:pl-[16px]">
-											<span className="text-[27px] sm:text-[32px] lg:text-[36px] font-sora font-normal leading-[35px] sm:leading-[41px] lg:leading-[46px] text-[#141618]">
-												Sketch
-											</span>
-										</div>
-									</div>
-									{/* Adobe XD */}
-									<div className="flex flex-col gap-[33px] sm:gap-[50px] lg:gap-[66px] justify-start items-start w-full bg-[#d7eadb] rounded-[10px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[20px] sm:pb-[30px] lg:pb-[40px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-										<div className="w-[39px] sm:w-[59px] lg:w-[78px] ml-[6px] sm:ml-[9px] lg:ml-[12px]">
-											<Image
-												src="/images/img_vector_gray_900_01_76x78.svg"
-												alt="Adobe XD"
-												width={78}
-												height={76}
-												className="w-[78px] h-auto"
-											/>
-										</div>
-										<div className="flex justify-start items-center w-full pr-[8px] sm:pr-[12px] lg:pr-[16px] pl-[8px] sm:pl-[12px] lg:pl-[16px]">
-											<span className="text-[27px] sm:text-[32px] lg:text-[36px] font-sora font-normal leading-[35px] sm:leading-[41px] lg:leading-[46px] text-[#141618]">
-												Adobe XD
-											</span>
-										</div>
-									</div>
-									{/* Miro */}
-									<div className="flex flex-col gap-[33px] sm:gap-[50px] lg:gap-[66px] justify-start items-start w-full bg-[#fff6cd] rounded-[10px] pt-[20px] sm:pt-[30px] lg:pt-[40px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[20px] sm:pb-[30px] lg:pb-[40px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-										<div className="w-[39px] sm:w-[59px] lg:w-[78px] ml-[4px] sm:ml-[6px] lg:ml-[8px]">
-											<Image
-												src="/images/img_vector_gray_900_03.svg"
-												alt="Miro"
-												width={78}
-												height={78}
-												className="w-[78px] h-auto"
-											/>
-										</div>
-										<div className="flex justify-start items-center w-full pr-[4px] sm:pr-[6px] lg:pr-[8px] pl-[4px] sm:pl-[6px] lg:pl-[8px]">
-											<span className="text-[27px] sm:text-[32px] lg:text-[36px] font-sora font-normal leading-[35px] sm:leading-[41px] lg:leading-[46px] text-[#141618]">
-												Miro
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				<TechnologyTabs />
+
 				{/* Join Us Section */}
 				<section 
 					className="w-full bg-cover bg-center bg-no-repeat pt-[72px] sm:pt-[108px] lg:pt-[144px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[72px] sm:pb-[108px] lg:pb-[144px] pl-[28px] sm:pl-[42px] lg:pl-[56px]"
 					style={{ backgroundImage: "url('/images/img_bg_2.png')" }}
 				>
 					<div className="flex flex-col gap-[25px] sm:gap-[38px] lg:gap-[50px] justify-center items-center w-full">
-						<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-[#ffffff] w-auto">
-							<span className="font-normal">Ready to </span>
-							<span className="font-bold">Join Us?</span>
+						<h2 className="text-[36px] w-full max-w-[660px] font-semibold sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-[#ffffff]">
+							Join us and Make Cool Stuff together
 						</h2>
 						<div className="flex flex-col sm:flex-row gap-[15px] sm:gap-[23px] lg:gap-[30px] justify-center items-center w-auto">
-							<Button
-								variant="primary"
-								onClick={() => {}}
-								className="text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#0b0b35] bg-[#ffffff] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[16px] sm:pr-[24px] lg:pr-[32px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[16px] sm:pl-[24px] lg:pl-[32px] hover:bg-[#f0f0f0] active:bg-[#e0e0e0] transition-all duration-200"
-							>
-								Explore Career
-							</Button>
-							<Button
-								variant="outline"
-								onClick={() => {}}
-								className="text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#ffffff] border border-[#ffffff] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[16px] sm:pr-[24px] lg:pr-[32px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[16px] sm:pl-[24px] lg:pl-[32px] hover:bg-[#ffffff] hover:text-[#0b0b35] transition-all duration-200"
-							>
-								Contact Us
-							</Button>
+							<JoinUsLink />
 						</div>
 					</div>
 				</section>
