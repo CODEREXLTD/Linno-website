@@ -137,7 +137,7 @@ const AboutUsPage = () => {
       name: "Fatema-Tuz-Zohra Nabila",
       position: "Product Marketing Manager",
       department: "marketing",
-      image: "/images/img_image_3.png",
+      image: "/images/nabila.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -145,7 +145,7 @@ const AboutUsPage = () => {
       name: "Syed Abid Hossain",
       position: "Marketing",
       department: "marketing",
-      image: "/images/img_image_4_328x350.png",
+      image: "/images/abid.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -153,7 +153,7 @@ const AboutUsPage = () => {
       name: "C S Sultan",
       position: "Chief Marketing Manager",
       department: "marketing",
-      image: "/images/img_image_5.png",
+      image: "/images/sultan.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -161,7 +161,7 @@ const AboutUsPage = () => {
       name: "Sakiba Prima",
       position: "Marketing",
       department: "marketing",
-      image: "/images/img_rectangle_18040.png",
+      image: "/images/prima.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
@@ -169,7 +169,7 @@ const AboutUsPage = () => {
       name: "Shahab Uddin Mahi",
       position: "Lead UI/UX Designer",
       department: "product",
-      image: "/images/img_image_3_328x350.png",
+      image: "/images/mahi.png",
       icon: "/images/img_uim_layer_group.svg"
     },
     {
@@ -177,71 +177,95 @@ const AboutUsPage = () => {
       name: "Fahmida Bhuiyan Sathi",
       position: "UI/UX Designer",
       department: "product",
-      image: "/images/img_image_7.png",
+      image: "/images/sathi.jpg",
       icon: "/images/img_uim_layer_group.svg"
     },
     {
       id: 7,
-      name: "John Smith",
-      position: "Chief Executive Officer",
-      department: "leadership",
-      image: "/images/img_image_4_328x350.png",
+      name: "Shahala Akter Joti",
+      position: "UI/UX Designer",
+      department: "product",
+      image: "/images/joti.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 8,
-      name: "Sarah Johnson",
+      name: "Sadi Mohammad Zaman",
       position: "Chief Technology Officer",
-      department: "leadership",
-      image: "/images/img_image_4_328x350.png",
+      department: "engineering",
+      image: "/images/sadi.jpg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 9,
-      name: "Mike Chen",
+      name: "Md. Saiduzzaman Tohin",
       position: "Senior Software Engineer",
       department: "engineering",
-      image: "/images/img_image_4_328x350.png",
+      image: "/images/tuhin.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 10,
-      name: "Lisa Wang",
-      position: "Frontend Developer",
+      name: "A S M Nasim",
+      position: "Software Engineer",
       department: "engineering",
-      image: "/images/img_image_4_328x350.png",
+      image: "/images/nasim.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 11,
-      name: "David Rodriguez",
-      position: "Marketing Director",
-      department: "marketing",
-      image: "/images/img_image_4_328x350.png",
+      name: "Md. Razun Mia",
+      position: "Full Stack Developer",
+      department: "engineering",
+      image: "/images/razun.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 12,
-      name: "Emily Davis",
-      position: "Content Marketing Specialist",
-      department: "marketing",
-      image: "/images/img_image_4_328x350.png",
+      name: "Tipu Sultan",
+      position: "Frontend Engineer",
+      department: "engineering",
+      image: "/images/tipu.jpg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 13,
-      name: "Alex Thompson",
-      position: "Product Manager",
-      department: "product",
-      image: "/images/img_image_4_328x350.png",
+      name: "AB Belal",
+      position: "Frontend Engineer",
+      department: "engineering",
+      image: "/images/belal.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
       id: 14,
-      name: "Rachel Green",
-      position: "UX Designer",
-      department: "product",
-      image: "/images/img_image_4_328x350.png",
+      name: "Humayun Kabir",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/kabir.jpeg",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 15,
+      name: "Mamun Prodhan",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/mamun.png",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 16,
+      name: "Humayun Kabir",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/humayun.jpeg",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 17,
+      name: "Humayun Kabir",
+      position: "JavaScript Developer",
+      department: "engineering",
+      image: "/images/humayun.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     }
   ];
