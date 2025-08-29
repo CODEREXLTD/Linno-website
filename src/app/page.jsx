@@ -6,7 +6,13 @@ import Footer from '../components/common/Footer';
 import Button from '../components/ui/Button';
 import TechnologyTabs from '@/components/ui/TechnologyTabs';
 import JoinUsLink from '@/components/ui/JoinUsLink';
+import Badge from '@/components/common/Badge';
+import Link from 'next/link';
+
 export default function HomePage() {
+	const navigate = () => {
+		window.location.href = '/careers';
+	};
 	return (
 		<div className="min-h-screen bg-[#f2f5fb]">
 			{/* Header */}
@@ -22,12 +28,10 @@ export default function HomePage() {
 								{/* Innovation Badge */}
 								<div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] justify-start items-start w-full">
 									<div className="w-full sm:w-4/5 lg:w-[60%]">
-										<div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] rounded-[10px] pt-[2px] sm:pt-[3px] lg:pt-[4px] pr-[9px] sm:pr-[14px] lg:pr-[18px] pb-[2px] sm:pb-[3px] lg:pb-[4px] pl-[9px] sm:pl-[14px] lg:pl-[18px]">
-											<span className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-normal leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#000000]">
-												<span className='text-[#3433FE]'> Innovation. </span>
-												Fueled by People
-											</span>
-										</div>
+										<Badge
+											highlight='Innovation.'
+											text='Fueled by People'
+										/>
 									</div>
 									{/* Main Heading and Description */}
 									<div className="flex flex-col gap-[15px] sm:gap-[23px] lg:gap-[30px] justify-start items-start w-full">
@@ -44,11 +48,11 @@ export default function HomePage() {
 								<Button
 									variant="primary"
 									size="lg"
-									onClick={() => {}}
+									link={true}
+									href="/about"
+									label="About Us"
 									className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-semibold leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[16px] sm:pr-[24px] lg:pr-[32px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[16px] sm:pl-[24px] lg:pl-[32px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200 w-full sm:w-auto"
-								>
-									About Us
-								</Button>
+								/>
 							</div>
 							{/* Right Image */}
 							<div className="flex justify-center items-center w-full lg:w-[62%] order-1 lg:order-2 mb-6 lg:mb-0">
@@ -103,8 +107,9 @@ export default function HomePage() {
 									<Button
 										variant="outline"
 										size="md"
-										onClick={() => {}}
-										className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-semibold leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#0b0b35] border border-[#0b0b35] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[15px] sm:pr-[23px] lg:pr-[30px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[15px] sm:pl-[23px] lg:pl-[30px] hover:bg-[#0b0b35] hover:text-white transition-all duration-200 w-full sm:w-auto"
+										onClick={() => {
+											window.open('https://getwpfunnels.com/', '_blank')
+										}}
 									>
 										Learn More
 									</Button>
@@ -131,8 +136,9 @@ export default function HomePage() {
 									<Button
 										variant="outline"
 										size="md"
-										onClick={() => {}}
-										className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-semibold leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#0b0b35] border border-[#0b0b35] rounded-[10px] pt-[5px] sm:pt-[8px] lg:pt-[10px] pr-[15px] sm:pr-[23px] lg:pr-[30px] pb-[5px] sm:pb-[8px] lg:pb-[10px] pl-[15px] sm:pl-[23px] lg:pl-[30px] hover:bg-[#0b0b35] hover:text-white transition-all duration-200 w-full sm:w-auto"
+										onClick={() => {
+											window.open('https://rextheme.com/', '_blank')
+										}}
 									>
 										Learn More
 									</Button>
@@ -179,16 +185,18 @@ export default function HomePage() {
 										</div>
 									</div>
 									<div className="flex justify-start items-center w-full group cursor-pointer">
-										<span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px] text-[#51515f] group-hover:text-[#3433fe] transition-colors duration-200">
-											Learn More
-										</span>
-										<Image
-											src="/images/img_vector_blue_gray_300.svg"
-											alt="Arrow"
-											width={12}
-											height={12}
-											className="ml-[8px] sm:ml-[10px] lg:ml-[12px] xl:ml-[16px] w-[12px] h-[12px] group-hover:translate-x-1 transition-transform duration-200"
-										/>
+										<Link className='flex justify-start items-center' href="https://getwpfunnels.com/email-marketing-automation-mail-mint/" target='_blank'>
+											<span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px] text-[#51515f] group-hover:text-[#3433fe] transition-colors duration-200">
+												Learn More
+											</span>
+											<Image
+												src="/images/img_vector_blue_gray_300.svg"
+												alt="Arrow"
+												width={12}
+												height={12}
+												className="ml-[8px] sm:ml-[10px] lg:ml-[12px] xl:ml-[16px] w-[12px] h-[12px] group-hover:translate-x-1 transition-transform duration-200"
+											/>
+										</Link>
 									</div>
 								</div>
 								{/* WPFunnels */}
@@ -213,16 +221,18 @@ export default function HomePage() {
 										</div>
 									</div>
 									<div className="flex justify-start items-center w-full">
-										<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#3433fe] underline cursor-pointer hover:opacity-75 transition-opacity duration-200">
-											Learn More
-										</span>
-										<Image
-											src="/images/img_vector_indigo_a700.svg"
-											alt="Arrow"
-											width={12}
-											height={12}
-											className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-										/>
+										<Link className='flex justify-start items-center' href="https://getwpfunnels.com/wordpress-funnel-builder-wpfunnels/" target='_blank'>
+											<span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px] text-[#51515f] hover:text-[#3433fe] transition-colors duration-200">
+												Learn More
+											</span>
+											<Image
+												src="/images/img_vector_blue_gray_300.svg"
+												alt="Arrow"
+												width={12}
+												height={12}
+												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
+											/>
+										</Link>
 									</div>
 								</div>
 								{/* Creator LMS */}
@@ -247,16 +257,18 @@ export default function HomePage() {
 										</div>
 									</div>
 									<div className="flex justify-start items-center w-full">
-										<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
+										<Link className='flex justify-start items-center' href="https://getwpfunnels.com/creator-lms" target='_blank'>
+											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
 											Learn More
-										</span>
-										<Image
-											src="/images/img_vector_blue_gray_300_01.svg"
-											alt="Arrow"
-											width={12}
-											height={12}
-											className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-										/>
+											</span>
+											<Image
+												src="/images/img_vector_blue_gray_300_01.svg"
+												alt="Arrow"
+												width={12}
+												height={12}
+												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
+											/>
+										</Link>
 									</div>
 								</div>
 								{/* Product Feed Manager */}
@@ -281,16 +293,18 @@ export default function HomePage() {
 										</div>
 									</div>
 									<div className="flex justify-start items-center w-full">
-										<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
+										<Link className='flex justify-start items-center' href="https://rextheme.com/best-woocommerce-product-feed/" target='_blank'>
+											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
 											Learn More
-										</span>
-										<Image
-											src="/images/img_vector_blue_gray_300_01.svg"
-											alt="Arrow"
-											width={12}
-											height={12}
-											className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-										/>
+											</span>
+											<Image
+												src="/images/img_vector_blue_gray_300_01.svg"
+												alt="Arrow"
+												width={12}
+												height={12}
+												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
+											/>
+										</Link>
 									</div>
 								</div>
 								{/* WPVR */}
@@ -315,16 +329,18 @@ export default function HomePage() {
 										</div>
 									</div>
 									<div className="flex justify-start items-center w-full">
-										<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
+										<Link className='flex justify-start items-center' href="https://rextheme.com/wpvr/" target='_blank'>
+											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
 											Learn More
-										</span>
-										<Image
-											src="/images/img_vector_blue_gray_300_01.svg"
-											alt="Arrow"
-											width={12}
-											height={12}
-											className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-										/>
+											</span>
+											<Image
+												src="/images/img_vector_blue_gray_300_01.svg"
+												alt="Arrow"
+												width={12}
+												height={12}
+												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
+											/>
+										</Link>
 									</div>
 								</div>
 								{/* Cart Lift */}
@@ -349,16 +365,18 @@ export default function HomePage() {
 										</div>
 									</div>
 									<div className="flex justify-start items-center w-full">
-										<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
+										<Link className='flex justify-start items-center' href="https://rextheme.com/cart-lift/" target='_blank'>
+											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
 											Learn More
-										</span>
-										<Image
-											src="/images/img_vector_blue_gray_300_01.svg"
-											alt="Arrow"
-											width={12}
-											height={12}
-											className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-										/>
+											</span>
+											<Image
+												src="/images/img_vector_blue_gray_300_01.svg"
+												alt="Arrow"
+												width={12}
+												height={12}
+												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
+											/>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -426,10 +444,11 @@ export default function HomePage() {
 								</div>
 								<Button
 									variant="primary"
-									onClick={() => {}}
 									className="text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[13px] sm:pr-[20px] lg:pr-[26px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[13px] sm:pl-[20px] lg:pl-[26px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200"
 								>
-									Check Open Positions
+									<Link href={'/careers'}>
+										Check Open Positions
+									</Link>
 								</Button>
 							</div>
 							<div className="w-full max-w-[400px]">

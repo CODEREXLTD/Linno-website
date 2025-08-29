@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React from 'react';
 
 const Button = ({ 
@@ -13,6 +14,9 @@ const Button = ({
   loading = false,
   icon = null,
   iconPosition = 'left',
+  link  = false,
+  href = null,
+  label="",
   ...props
 }) => {
   const variants = {
@@ -78,48 +82,96 @@ const Button = ({
     );
   };
 
+  if(link){
+    return (
+      <Link href={href}>
+        <button
+          type={type}
+          onClick={disabled || loading ? undefined : onClick}
+          disabled={disabled || loading}
+          className={`
+            ${responsiveRadius}
+            transition-all 
+            duration-200 
+            ease-in-out
+            focus:outline-none 
+            ${responsiveFocus}
+            focus:ring-opacity-50
+            ${variants?.[variant]} 
+            ${sizes?.[size]} 
+            ${fullWidth ? 'w-full' : 'w-auto'}
+            ${disabled || loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02] active:scale-[0.98] sm:hover:scale-105 sm:active:scale-95'} 
+            ${loading ? 'relative' : ''}
+            font-medium
+            inline-flex
+            items-center
+            justify-center
+            text-center
+            touch-manipulation
+            select-none
+            whitespace-nowrap
+            transform-gpu
+            ${className}
+          `?.trim()?.replace(/\s+/g, ' ')}
+          aria-disabled={disabled || loading}
+          aria-busy={loading}
+          {...props}
+        >
+          {loading && <LoadingSpinner />}
+          {!loading && icon && iconPosition === 'left' && <IconComponent />}
+          <span className={`${
+            loading ? 'opacity-75' : ''
+          } ${icon && !loading ? (iconPosition === 'left' ? 'ml-1 sm:ml-2' : 'mr-1 sm:mr-2') : ''}`}>
+            {label}
+          </span>
+          {!loading && icon && iconPosition === 'right' && <IconComponent />}
+        </button>
+      </Link>
+    )
+  }
+
   return (
     <button
-      type={type}
-      onClick={disabled || loading ? undefined : onClick}
-      disabled={disabled || loading}
-      className={`
-        ${responsiveRadius}
-        transition-all 
-        duration-200 
-        ease-in-out
-        focus:outline-none 
-        ${responsiveFocus}
-        focus:ring-opacity-50
-        ${variants?.[variant]} 
-        ${sizes?.[size]} 
-        ${fullWidth ? 'w-full' : 'w-auto'}
-        ${disabled || loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02] active:scale-[0.98] sm:hover:scale-105 sm:active:scale-95'} 
-        ${loading ? 'relative' : ''}
-        font-medium
-        inline-flex
-        items-center
-        justify-center
-        text-center
-        touch-manipulation
-        select-none
-        whitespace-nowrap
-        transform-gpu
-        ${className}
-      `?.trim()?.replace(/\s+/g, ' ')}
-      aria-disabled={disabled || loading}
-      aria-busy={loading}
-      {...props}
-    >
-      {loading && <LoadingSpinner />}
-      {!loading && icon && iconPosition === 'left' && <IconComponent />}
-      <span className={`${
-        loading ? 'opacity-75' : ''
-      } ${icon && !loading ? (iconPosition === 'left' ? 'ml-1 sm:ml-2' : 'mr-1 sm:mr-2') : ''}`}>
-        {children}
-      </span>
-      {!loading && icon && iconPosition === 'right' && <IconComponent />}
-    </button>
+        type={type}
+        onClick={disabled || loading ? undefined : onClick}
+        disabled={disabled || loading}
+        className={`
+          ${responsiveRadius}
+          transition-all 
+          duration-200 
+          ease-in-out
+          focus:outline-none 
+          ${responsiveFocus}
+          focus:ring-opacity-50
+          ${variants?.[variant]} 
+          ${sizes?.[size]} 
+          ${fullWidth ? 'w-full' : 'w-auto'}
+          ${disabled || loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02] active:scale-[0.98] sm:hover:scale-105 sm:active:scale-95'} 
+          ${loading ? 'relative' : ''}
+          font-medium
+          inline-flex
+          items-center
+          justify-center
+          text-center
+          touch-manipulation
+          select-none
+          whitespace-nowrap
+          transform-gpu
+          ${className}
+        `?.trim()?.replace(/\s+/g, ' ')}
+        aria-disabled={disabled || loading}
+        aria-busy={loading}
+        {...props}
+      >
+        {loading && <LoadingSpinner />}
+        {!loading && icon && iconPosition === 'left' && <IconComponent />}
+        <span className={`${
+          loading ? 'opacity-75' : ''
+        } ${icon && !loading ? (iconPosition === 'left' ? 'ml-1 sm:ml-2' : 'mr-1 sm:mr-2') : ''}`}>
+          {children}
+        </span>
+        {!loading && icon && iconPosition === 'right' && <IconComponent />}
+      </button>
   );
 };
 
