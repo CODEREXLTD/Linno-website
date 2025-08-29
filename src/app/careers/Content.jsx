@@ -1,12 +1,28 @@
 'use client';
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Button from '@/components/ui/Button';
 import Hero from './components/Hero';
 
 const Content = () => {
+    const router = useRouter();
+    
+    // Handle scrolling to section when page loads with hash
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash === '#linno-open-positions') {
+            setTimeout(() => {
+                const element = document.getElementById('linno-open-positions');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // Small delay to ensure the page is fully rendered
+        }
+    }, []);
+    
     const benefits = [
 		{
 			icon: '/images/img_icon_white_a700.svg',
@@ -301,9 +317,18 @@ const Content = () => {
 							</div>
 							<Button 
 								onClick={() => {
-									const element = document.getElementById('linno-open-positions');
-									if (element) {
-										element.scrollIntoView({ behavior: 'smooth' });
+									// Check if we're already on the careers page
+									const currentPath = window.location.pathname;
+									
+									if (currentPath === '/careers' || currentPath === '/careers/') {
+										// We're on the careers page, just scroll to the section
+										const element = document.getElementById('linno-open-positions');
+										if (element) {
+											element.scrollIntoView({ behavior: 'smooth' });
+										}
+									} else {
+										// Navigate to careers page with hash fragment
+										router.push('/careers#linno-open-positions');
 									}
 								}}
 								className="bg-[#3433fe] text-white rounded-[10px] px-[11px] sm:px-[17px] lg:px-[22px] py-[7px] sm:py-[11px] lg:py-[14px] text-[15px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] w-fit"
