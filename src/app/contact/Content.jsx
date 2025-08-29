@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useCallback } from 'react';
-
 import Image from 'next/image';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
@@ -51,7 +50,7 @@ const socialLinks = [
     }
 ];
 
-const Content = () => {
+const ContactPage = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -96,11 +95,11 @@ const Content = () => {
     };
 
     return (
-        <div className="w-full bg-global-7">
+        <div className="w-full bg-white">
             <Header />
             
             {/* Hero Section */}
-            <section className="w-full bg-global-5 pt-[60px] sm:pt-[80px] lg:pt-[100px] pb-[40px] sm:pb-[60px] lg:pb-[80px]">
+            <section className="w-full bg-gray-50 pt-[60px] sm:pt-[80px] lg:pt-[100px] pb-[40px] sm:pb-[60px] lg:pb-[80px]">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-[40px] sm:mb-[60px] lg:mb-[80px]">
                         <div className="flex justify-center items-center gap-[10px] sm:gap-[12px] lg:gap-[14px] mb-[20px] sm:mb-[30px] lg:mb-[40px]">
@@ -121,7 +120,7 @@ const Content = () => {
             </section>
 
             {/* Main Contact Section */}
-            <section className="w-full bg-global-7 py-[60px] sm:py-[80px] lg:pb-[120px]">
+            <section className="w-full bg-white pb-[60px] sm:pb-[80px] lg:pb-[120px]">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px]">
                         
@@ -140,31 +139,27 @@ const Content = () => {
                                 {/* Name Fields */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px] lg:gap-[24px]">
                                     <div>
-                                        <label htmlFor="firstName" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                            First Name *
-                                        </label>
                                         <EditText
                                             id="firstName"
                                             name="firstName"
+                                            label="First Name"
                                             placeholder="Enter your first name"
                                             value={formData.firstName}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
+                                            className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="lastName" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                            Last Name *
-                                        </label>
                                         <EditText
                                             id="lastName"
                                             name="lastName"
+                                            label="Last Name"
                                             placeholder="Enter your last name"
                                             value={formData.lastName}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
+                                            className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                                         />
                                     </div>
                                 </div>
@@ -172,32 +167,28 @@ const Content = () => {
                                 {/* Email and Phone */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px] lg:gap-[24px]">
                                     <div>
-                                        <label htmlFor="email" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                            Email Address *
-                                        </label>
                                         <EditText
                                             id="email"
                                             name="email"
                                             type="email"
+                                            label="Email Address"
                                             placeholder="Enter your email"
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
+                                            className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="phone" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                            Phone Number
-                                        </label>
                                         <EditText
                                             id="phone"
                                             name="phone"
                                             type="tel"
+                                            label="Phone Number"
                                             placeholder="Enter your phone number"
                                             value={formData.phone}
                                             onChange={handleInputChange}
-                                            className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
+                                            className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                                         />
                                     </div>
                                 </div>
@@ -205,49 +196,43 @@ const Content = () => {
                                 {/* Company and Subject */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px] lg:gap-[24px]">
                                     <div>
-                                        <label htmlFor="company" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                            Company
-                                        </label>
                                         <EditText
                                             id="company"
                                             name="company"
+                                            label="Company"
                                             placeholder="Enter your company name"
                                             value={formData.company}
                                             onChange={handleInputChange}
-                                            className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
+                                            className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="subject" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                            Subject *
-                                        </label>
                                         <EditText
                                             id="subject"
                                             name="subject"
+                                            label="Subject"
                                             placeholder="Enter subject"
                                             value={formData.subject}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
+                                            className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Message */}
                                 <div>
-                                    <label htmlFor="message" className="block text-[14px] sm:text-[16px] font-inter font-medium leading-[18px] sm:leading-[20px] text-[#0b0b35] mb-[8px] sm:mb-[10px] lg:mb-[12px]">
-                                        Message *
-                                    </label>
                                     <EditText
                                         id="message"
                                         name="message"
+                                        label="Message"
                                         placeholder="Tell us about your project..."
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         multiline={true}
                                         rows={6}
                                         required
-                                        className="w-full border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe] resize-none"
+                                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe] resize-none"
                                     />
                                 </div>
 
@@ -259,18 +244,9 @@ const Content = () => {
                                         size="lg"
                                         loading={loading}
                                         className="w-full sm:w-auto min-w-[200px] text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[14px] sm:pt-[16px] lg:pt-[18px] pr-[32px] sm:pr-[40px] lg:pr-[48px] pb-[14px] sm:pb-[16px] lg:pb-[18px] pl-[32px] sm:pl-[40px] lg:pl-[48px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200"
-                                        label={loading ? 'Sending...' : 'Send Message'}
-                                        icon={!loading && (
-                                            <Image
-                                                src="/images/img_arrowright_white_a700.svg"
-                                                alt="Send"
-                                                width={20}
-                                                height={20}
-                                                className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] lg:w-[20px] lg:h-[20px]"
-                                            />
-                                        )}
-                                        iconPosition="right"
-                                    />
+                                    >
+                                        {loading ? 'Sending...' : 'Send Message'}
+                                    </Button>
                                 </div>
                             </form>
                         </div>
@@ -352,7 +328,7 @@ const Content = () => {
             </section>
 
             {/* Map Section */}
-            <section className="w-full bg-global-5 py-[60px] sm:py-[80px] lg:py-[100px]">
+            <section className="w-full bg-gray-50 py-[60px] sm:py-[80px] lg:py-[100px]">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-[40px] sm:mb-[50px] lg:mb-[60px]">
                         <h3 className="text-[28px] sm:text-[32px] lg:text-[36px] font-sora font-semibold leading-[34px] sm:leading-[38px] lg:leading-[42px] text-[#0b0b35] mb-[12px] sm:mb-[16px] lg:mb-[20px]">
@@ -365,7 +341,7 @@ const Content = () => {
                     
                     <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-lg">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.842872436157!2d90.3959437!3d23.7531777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b7a55cd36f%3A0xfcc5b021faff43ea!2sPanthapath%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1620000000000!5m2!1sen!2sbd"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.842872436157!2d90.38757!3d23.75055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bd25e2a8c3%3A0x80e72e76ce7479f2!2sChandrashila%20Suvastu%20Tower!5e0!3m2!1sen!2sbd!4v1693318800000!5m2!1sen!2sbd"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
@@ -373,7 +349,7 @@ const Content = () => {
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             title="Linno Office Location"
-                        ></iframe>
+                        />
                     </div>
                 </div>
             </section>
@@ -383,4 +359,4 @@ const Content = () => {
     );
 };
 
-export default Content;
+export default ContactPage;

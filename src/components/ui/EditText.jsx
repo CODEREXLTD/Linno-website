@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import Image from 'next/image';
 
 const EditText = ({
@@ -22,13 +22,11 @@ const EditText = ({
   leftIcon = null,
   maxLength,
   id,
+  name,
   ...props
 }) => {
   const inputRef = useRef(null);
   const textareaRef = useRef(null);
-  
-  // Use controlled component approach - only use value prop, no local state
-  const currentValue = value || '';
 
   const handleChange = useCallback((e) => {
     const newValue = e.target.value;
@@ -55,7 +53,7 @@ const EditText = ({
     px-3 py-2.5 sm:px-4 sm:py-3 lg:px-5 lg:py-3.5
     text-sm sm:text-base lg:text-lg
     text-gray-900
-    bg-transparent
+    bg-white
     border-2
     rounded-md sm:rounded-lg
     transition-all duration-200 ease-in-out
@@ -106,7 +104,7 @@ const EditText = ({
 
       {maxLength && (
         <div className="absolute right-3 sm:right-4 lg:right-5 -bottom-6 text-xs text-gray-500">
-          {currentValue.length}/{maxLength}
+          {value?.length || 0}/{maxLength}
         </div>
       )}
     </div>
@@ -129,7 +127,8 @@ const EditText = ({
           <textarea
             ref={textareaRef}
             id={inputId}
-            value={currentValue}
+            name={name}
+            value={value}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
@@ -148,8 +147,9 @@ const EditText = ({
           <input
             ref={inputRef}
             id={inputId}
+            name={name}
             type={type}
-            value={currentValue}
+            value={value}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
