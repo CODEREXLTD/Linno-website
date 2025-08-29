@@ -28,7 +28,7 @@ export default function HomePage() {
 									</div>
 									{/* Main Heading and Description */}
 									<div className="flex flex-col gap-[15px] sm:gap-[23px] lg:gap-[30px] justify-start items-start w-full">
-										<h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-sora leading-[38px] sm:leading-[54px] md:text-[74px] lg:leading-[92px] text-[#0b0b35] w-full">
+										<h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-sora md:text-[74px] leading-tight text-[#0b0b35] w-full">
 											<span className="font-normal">High-End </span>
 											<span className="font-bold">Software Solutions</span>
 										</h1>
@@ -80,7 +80,7 @@ export default function HomePage() {
 							{/* Brand Cards */}
 							<div className="flex flex-col lg:flex-row gap-[25px] sm:gap-[30px] lg:gap-[38px] xl:gap-[50px] justify-center items-stretch w-full mb-[13px] sm:mb-[20px] lg:mb-[26px]">
 								{/* WPFunnels Card */}
-								<div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[44px] xl:gap-[58px] justify-between items-start w-full lg:w-1/2 bg-[#ffffff66] border border-[#ffffff] rounded-[10px] pt-[20px] sm:pt-[24px] lg:pt-[30px] xl:pt-[34px] pr-[20px] sm:pr-[24px] lg:pr-[30px] xl:pr-[36px] pb-[20px] sm:pb-[24px] lg:pb-[30px] xl:pb-[34px] pl-[20px] sm:pl-[24px] lg:pl-[30px] xl:pl-[36px]">
+								<div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[44px] xl:gap-[58px] justify-between items-start w-full lg:w-1/2 bg-[#ffffff66] border border-[#ffffff] rounded-[10px] pt-[20px] sm:pt-[24px] lg:pt-[30px] xl:pt-[34px] pr-[20px] sm:pr-[24px] lg:pr-[30px] xl:pr-[36px] pb-[20px] sm:pb-[24px] lg:pb-[30px] xl:pb-[34px] pl-[20px] sm:pl-[24px] lg:pl-[30px] xl:pl-[36px] shadow-[0_10px_50px_0_rgba(52,51,254,0.05)] backdrop-blur-[5px]">
 									<div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[38px] xl:gap-[50px] justify-start items-start w-full">
 										<div className="w-[80px] sm:w-[110px] lg:w-[140px] xl:w-[174px]">
 											<Image
@@ -108,7 +108,7 @@ export default function HomePage() {
 								</div>
 
 								{/* RexTheme Card */}
-								<div className="flex flex-col gap-[24px] sm:gap-[36px] lg:gap-[51px] xl:gap-[68px] justify-between items-start w-full lg:w-1/2 bg-[#ffffff66] border border-[#ffffff] rounded-[10px] pt-[20px] sm:pt-[22px] lg:pt-[28px] xl:pt-[32px] pr-[20px] sm:pr-[26px] lg:pr-[34px] xl:pr-[40px] pb-[20px] sm:pb-[22px] lg:pb-[28px] xl:pb-[32px] pl-[20px] sm:pl-[26px] lg:pl-[34px] xl:pl-[40px]">
+								<div className="flex flex-col gap-[24px] sm:gap-[36px] lg:gap-[51px] xl:gap-[68px] justify-between items-start w-full lg:w-1/2 bg-[#ffffff66] border border-[#ffffff] rounded-[10px] pt-[20px] sm:pt-[22px] lg:pt-[28px] xl:pt-[32px] pr-[20px] sm:pr-[26px] lg:pr-[34px] xl:pr-[40px] pb-[20px] sm:pb-[22px] lg:pb-[28px] xl:pb-[32px] pl-[20px] sm:pl-[26px] lg:pl-[34px] xl:pl-[40px] shadow-[0_10px_50px_0_rgba(52,51,254,0.05)] backdrop-blur-[5px]">
 									<div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[42px] xl:gap-[56px] justify-start items-start w-full">
 										<div className="w-[74px] sm:w-[100px] lg:w-[130px] xl:w-[162px]">
 											<Image
@@ -143,8 +143,8 @@ export default function HomePage() {
 					<div className="w-full max-w-[1310px] mx-auto">
 						<div className="flex flex-col gap-[26px] sm:gap-[39px] lg:gap-[52px] justify-center items-center w-full">
 							{/* Section Header */}
-							<div className="flex flex-col justify-center items-start w-full lg:w-[72%]">
-								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-[#0b0b35] w-auto mb-[34px] sm:mb-[51px] lg:mb-[68px]">
+							<div className="flex flex-col justify-center items-start w-full]">
+								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-[#0b0b35] w-auto mb-[34px]">
 									<span className="font-normal">Our </span>
 									<span className="font-bold">Key Products</span>
 								</h2>
@@ -153,7 +153,7 @@ export default function HomePage() {
 								</p>
 							</div>
 							{/* Products Grid */}
-							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full lg:w-[72%] mb-[6px] sm:mb-[9px] lg:mb-[12px]">
+							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full mb-[6px] sm:mb-[9px] lg:mb-[12px]">
 								{/* Mail Mint */}
 								<div className="flex flex-col gap-[18px] sm:gap-[24px] lg:gap-[30px] xl:gap-[36px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[15px] sm:pt-[18px] lg:pt-[22px] xl:pt-[20px] pr-[15px] sm:pr-[18px] lg:pr-[22px] xl:pr-[20px] pb-[15px] sm:pb-[18px] lg:pb-[22px] xl:pb-[20px] pl-[15px] sm:pl-[18px] lg:pl-[22px] xl:pl-[20px] hover:shadow-lg transition-shadow duration-300">
 									<div className="flex flex-col gap-[12px] sm:gap-[15px] lg:gap-[18px] xl:gap-[20px] justify-start items-start w-full">
