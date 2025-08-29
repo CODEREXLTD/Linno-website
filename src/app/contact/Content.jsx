@@ -100,7 +100,7 @@ const Content = () => {
             <Header />
             
             {/* Hero Section */}
-            <section className="w-full bg-global-7 pt-[60px] sm:pt-[80px] lg:pt-[100px] pb-[40px] sm:pb-[60px] lg:pb-[80px]">
+            <section className="w-full bg-global-5 pt-[60px] sm:pt-[80px] lg:pt-[100px] pb-[40px] sm:pb-[60px] lg:pb-[80px]">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-[40px] sm:mb-[60px] lg:mb-[80px]">
                         <div className="flex justify-center items-center gap-[10px] sm:gap-[12px] lg:gap-[14px] mb-[20px] sm:mb-[30px] lg:mb-[40px]">
@@ -121,7 +121,7 @@ const Content = () => {
             </section>
 
             {/* Main Contact Section */}
-            <section className="w-full bg-global-7 pb-[60px] sm:pb-[80px] lg:pb-[120px]">
+            <section className="w-full bg-global-7 py-[60px] sm:py-[80px] lg:pb-[120px]">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px]">
                         

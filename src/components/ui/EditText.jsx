@@ -27,13 +27,8 @@ const EditText = ({
   const inputRef = useRef(null);
   const textareaRef = useRef(null);
   
-  // Local state for input value
-  const [localValue, setLocalValue] = useState(value);
-  
-  // Sync local state with prop value when it changes externally
-  useEffect(() => {
-    setLocalValue(value);
-  }, [value]);
+  // Use controlled component approach - only use value prop, no local state
+  const currentValue = value || '';
 
   const handleChange = useCallback((e) => {
     const newValue = e.target.value;
@@ -41,10 +36,7 @@ const EditText = ({
     // Check max length constraint
     if (maxLength && newValue.length > maxLength) return;
     
-    // Update local state immediately for responsive UI
-    setLocalValue(newValue);
-    
-    // Propagate change to parent if onChange is provided
+    // Always propagate change to parent
     if (onChange) {
       onChange(e);
     }
@@ -62,7 +54,7 @@ const EditText = ({
     w-full
     px-3 py-2.5 sm:px-4 sm:py-3 lg:px-5 lg:py-3.5
     text-sm sm:text-base lg:text-lg
-    text-edittext-1
+    text-gray-900
     bg-transparent
     border-2
     rounded-md sm:rounded-lg
@@ -74,13 +66,13 @@ const EditText = ({
     ${
       error 
         ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-        : 'border-gray-300 hover:border-gray-400 focus:border-global-3 focus:ring-global-3'
+        : 'border-gray-300 hover:border-gray-400 focus:border-blue-500 focus:ring-blue-500'
     }
     focus:ring-2 focus:ring-opacity-50
     ${leftIcon ? 'pl-10 sm:pl-12 lg:pl-14' : ''}
     ${rightImage ? 'pr-10 sm:pr-12 lg:pr-14' : ''}
     ${className}
-  `?.trim()?.replace(/\s+/g, ' ');
+  `.trim().replace(/\s+/g, ' ');
 
   const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
 
@@ -98,7 +90,7 @@ const EditText = ({
         <button
           type="button"
           onClick={handleRightImageClick}
-          className="absolute right-3 sm:right-4 lg:right-5 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-global-3 focus:ring-opacity-50"
+          className="absolute right-3 sm:right-4 lg:right-5 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           aria-label="Focus input"
           tabIndex={-1}
         >
@@ -114,7 +106,7 @@ const EditText = ({
 
       {maxLength && (
         <div className="absolute right-3 sm:right-4 lg:right-5 -bottom-6 text-xs text-gray-500">
-          {localValue.length}/{maxLength}
+          {currentValue.length}/{maxLength}
         </div>
       )}
     </div>
@@ -137,7 +129,7 @@ const EditText = ({
           <textarea
             ref={textareaRef}
             id={inputId}
-            value={localValue}
+            value={currentValue}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
@@ -157,7 +149,7 @@ const EditText = ({
             ref={inputRef}
             id={inputId}
             type={type}
-            value={localValue}
+            value={currentValue}
             onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
