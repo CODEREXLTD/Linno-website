@@ -98,35 +98,36 @@ const Content = () => {
     },
   ];
   const values = [
-    {
-      title: 'Passion',
-      description:
-        'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/img_pxl_20230818_110706499.png',
-      icon: '/images/img_solar_fire_bold_duotone.svg',
-    },
-    {
-      title: 'Trust',
-      description:
-        'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/about2.jpg',
-      icon: '/images/img_solar_fire_bold_duotone.svg',
-    },
-    {
-      title: 'Leadership',
-      description:
-        'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/about1.jpg',
-      icon: '/images/img_solar_fire_bold_duotone.svg',
-    },
-    {
-      title: 'We are a family',
-      description:
-        'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/hero-home.jpg',
-      icon: '/images/img_solar_fire_bold_duotone.svg',
-    },
-  ];
+  {
+    title: 'Passion',
+    description:
+      'We put heart and creativity into every line of code, driven by a genuine love for building impactful solutions.',
+    image: '/images/img_pxl_20230818_110706499.png',
+    icon: '/images/img_solar_fire_bold_duotone.svg',
+  },
+  {
+    title: 'Trust',
+    description:
+      'We believe in honesty, reliability, and transparency—earning confidence through every project we deliver.',
+    image: '/images/about2.jpg',
+    icon: '/images/img_solar_fire_bold_duotone.svg',
+  },
+  {
+    title: 'Leadership',
+    description:
+      'We strive to lead with vision and innovation, guiding teams and clients toward meaningful digital growth.',
+    image: '/images/about1.jpg',
+    icon: '/images/img_solar_fire_bold_duotone.svg',
+  },
+  {
+    title: 'We are a family',
+    description:
+      'We grow together, celebrate success together, and support one another like a close-knit family.',
+    image: '/images/hero-home.jpg',
+    icon: '/images/img_solar_fire_bold_duotone.svg',
+  },
+];
+
   const skills = [
     { name: 'Custom CSS', icon: '/images/img_icon_indigo_a700.svg' },
     { name: 'UX Design', icon: '/images/img_icon_indigo_a700_42x42.svg' },
