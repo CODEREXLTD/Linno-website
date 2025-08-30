@@ -76,8 +76,8 @@ const Content = () => {
 
 					<section className="w-full pb-[63px] sm:pb-[95px] lg:pb-[126px] bg-white">
                         <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
-                            <div className="grid grid-cols-3 gap-8">
-								<aside className="md:col-span-1 sticky top-20 h-fit p-20">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+								<aside className="md:col-span-1 sticky top-20 h-fit p-20 hidden sm:block">
 									<h4 className="font-sora text-lg font-semibold mb-3">Table of Contents</h4>
 									<ul className="space-y-4 text-[#51515F] text-base">
 										{headings.map((h, i) => (
