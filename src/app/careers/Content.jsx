@@ -1,12 +1,28 @@
 'use client';
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Button from '@/components/ui/Button';
 import Hero from './components/Hero';
 
 const Content = () => {
+    const router = useRouter();
+    
+    // Handle scrolling to section when page loads with hash
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash === '#linno-open-positions') {
+            setTimeout(() => {
+                const element = document.getElementById('linno-open-positions');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // Small delay to ensure the page is fully rendered
+        }
+    }, []);
+    
     const benefits = [
 		{
 			icon: '/images/img_icon_white_a700.svg',
@@ -80,53 +96,14 @@ const Content = () => {
 
 	const jobPositions = [
 		{
-			category: 'Product',
-			title: 'Product Assistant Manager',
-			location: 'Remote',
-			type: 'Full Time',
-			level: 'Mid-Level',
-			buttonStyle: 'outline'
-		},
-		{
-			category: 'Product',
-			title: 'Product Manager',
-			location: 'Remote',
-			type: 'Full Time',
-			level: 'Expert',
-			buttonStyle: 'primary'
-		},
-		{
-			category: 'Engineering',
-			title: 'Front-End Engineer',
-			location: 'Remote',
-			type: 'Full Time',
-			level: 'Mid-Level',
-			buttonStyle: 'outline'
-		},
-		{
-			category: 'Engineering',
-			title: 'Back-End Engineer',
-			location: 'Remote',
-			type: 'Full Time',
-			level: 'Mid-Level',
-			buttonStyle: 'outline'
-		},
-		{
 			category: 'Marketing',
-			title: 'Marketing Manager',
-			location: 'Remote',
+			title: 'Digital Product Marketing Executive',
+			location: 'On-Site',
 			type: 'Full Time',
 			level: 'Mid-Level',
-			buttonStyle: 'outline'
+			buttonStyle: 'outline',
+            buttonLink: 'https://inside.coderex.co/jobs/digital-product-marketing-executive--mid-level--gokgm'
 		},
-		{
-			category: 'Marketing',
-			title: 'Marketing Associate',
-			location: 'Remote',
-			type: 'Full Time',
-			level: 'Mid-Level',
-			buttonStyle: 'outline'
-		}
 	];
 
 	return (
@@ -294,12 +271,12 @@ const Content = () => {
 				</div>
 			</section>
 			{/* Culture Section */}
-			<section className="w-full bg-white">
+			<section className="w-full bg-[#F2F5FB]">
 				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-[75px] sm:py-[113px] lg:py-[150px]">
 					<div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0 w-full">
 						{/* Left Images */}
 						<div className="flex flex-col gap-[14px] sm:gap-[21px] lg:gap-[28px] items-center w-full lg:w-[44%]">
-							<div className="flex flex-row gap-[14px] sm:gap-[21px] lg:gap-[28px] justify-center items-center w-auto">
+							<div className="flex flex-col sm:flex-row gap-[14px] sm:gap-[21px] lg:gap-[28px] justify-center items-center w-auto">
 								<Image
 									src="/images/img_02_1.png"
 									alt="Team culture"
@@ -339,7 +316,21 @@ const Content = () => {
 								</div>
 							</div>
 							<Button 
-								onClick={() => {}}
+								onClick={() => {
+									// Check if we're already on the careers page
+									const currentPath = window.location.pathname;
+									
+									if (currentPath === '/careers' || currentPath === '/careers/') {
+										// We're on the careers page, just scroll to the section
+										const element = document.getElementById('linno-open-positions');
+										if (element) {
+											element.scrollIntoView({ behavior: 'smooth' });
+										}
+									} else {
+										// Navigate to careers page with hash fragment
+										router.push('/careers#linno-open-positions');
+									}
+								}}
 								className="bg-[#3433fe] text-white rounded-[10px] px-[11px] sm:px-[17px] lg:px-[22px] py-[7px] sm:py-[11px] lg:py-[14px] text-[15px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] w-fit"
 							>
 								Check Open Position
@@ -348,13 +339,14 @@ const Content = () => {
 					</div>
 				</div>
 			</section>
+
 			{/* Open Positions Section */}
-			<section className="w-full bg-white">
+			<section className="w-full bg-white" id="linno-open-positions">
 				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-[58px] sm:py-[87px] lg:py-[116px]">
 					<div className="flex flex-col gap-[26px] sm:gap-[39px] lg:gap-[52px] justify-center items-center w-full">
 						{/* Header */}
 						<div className="flex flex-col gap-[3px] sm:gap-[5px] lg:gap-[6px] items-center px-[4px] sm:px-[6px] lg:px-[8px] w-auto">
-							<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-[#0b0b35]">
+							<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-snug text-center text-[#0b0b35]">
 								Open <span className="font-bold">Positions</span>
 							</h2>
 							<p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[19px] sm:leading-[22px] lg:leading-[25px] text-center text-[#51515f]">
@@ -371,84 +363,76 @@ const Content = () => {
 												<span className="text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-inter font-medium leading-[18px] sm:leading-[20px] lg:leading-[22px] xl:leading-[25px] text-[#3433fe] px-3 py-1 bg-blue-50 rounded-full text-center lg:px-0 lg:py-0 lg:bg-transparent lg:rounded-none">
 													{job?.category}
 												</span>
-												<div className="flex flex-col justify-start items-start w-full lg:w-auto flex-1">
-													<h3 className={`text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[30px] font-inter font-semibold leading-[22px] sm:leading-[26px] lg:leading-[30px] xl:leading-[37px] transition-colors duration-200 ${
-														job.buttonStyle === 'primary' ? 'text-[#3433fe]' : 'text-[#0b0b35] group-hover:text-[#3433fe]'
-													}`}>
-														{job?.title}
-													</h3>
-													<div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 lg:gap-6 justify-start items-start sm:items-center w-full mt-2">
-														<div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
-															<Image
-																src="/images/img_location.svg"
-																alt="Location"
-																width={12}
-																height={14}
-																className="w-[12px] h-[14px] flex-shrink-0"
-															/>
-															<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
-																{job?.location}
-															</span>
-														</div>
-														<div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
-															<Image
-																src="/images/img_clock.svg"
-																alt="Time"
-																width={14}
-																height={14}
-																className="w-[14px] h-[14px] flex-shrink-0"
-															/>
-															<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
-																{job?.type}
-															</span>
-														</div>
-														<div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
-															<Image
-																src="/images/img_chart.svg"
-																alt="Level"
-																width={12}
-																height={14}
-																className="w-[12px] h-[14px] flex-shrink-0"
-															/>
-															<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
-																{job?.level}
-															</span>
-														</div>
-													</div>
+												<div className="flex flex-col md:flex-row gap-4 justify-start items-start w-full lg:w-auto flex-1">
+													<div className="flex flex-col justify-start items-start w-full lg:w-auto flex-1">
+                                                        <h3 className={`text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[30px] font-inter font-semibold leading-[22px] sm:leading-[26px] lg:leading-[30px] xl:leading-[37px] transition-colors duration-200 ${
+														    job.buttonStyle === 'primary' ? 'text-[#3433fe]' : 'text-[#0b0b35] group-hover:text-[#3433fe]'
+                                                            }`}>
+                                                                {job?.title}
+                                                            </h3>
+                                                            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 lg:gap-6 justify-start items-start sm:items-center w-full mt-2">
+                                                                <div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
+                                                                    <Image
+                                                                        src="/images/img_location.svg"
+                                                                        alt="Location"
+                                                                        width={12}
+                                                                        height={14}
+                                                                        className="w-[12px] h-[14px] flex-shrink-0"
+                                                                    />
+                                                                    <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
+                                                                        {job?.location}
+                                                                    </span>
+                                                                </div>
+                                                                <div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
+                                                                    <Image
+                                                                        src="/images/img_clock.svg"
+                                                                        alt="Time"
+                                                                        width={14}
+                                                                        height={14}
+                                                                        className="w-[14px] h-[14px] flex-shrink-0"
+                                                                    />
+                                                                    <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
+                                                                        {job?.type}
+                                                                    </span>
+                                                                </div>
+                                                                <div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
+                                                                    <Image
+                                                                        src="/images/img_chart.svg"
+                                                                        alt="Level"
+                                                                        width={12}
+                                                                        height={14}
+                                                                        className="w-[12px] h-[14px] flex-shrink-0"
+                                                                    />
+                                                                    <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
+                                                                        {job?.level}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+
+                                                    <Button 
+                                                        onClick={() => {}}
+                                                        variant={job?.buttonStyle}
+                                                        size="md"
+                                                        link={true}
+                                                        href={job?.buttonLink}
+                                                        label='Apply Now'
+                                                        blank={true}
+                                                        icon={
+                                                            <Image
+                                                                src={job?.buttonStyle === 'primary' ? '/images/img_arrowright_white_a700.svg' : '/images/img_arrowright.svg'}
+                                                                alt="Arrow"
+                                                                width={16}
+                                                                height={12}
+                                                                className="w-[14px] h-[10px] sm:w-[16px] sm:h-[12px]"
+                                                            />
+                                                        }
+                                                        iconPosition="right"
+                                                    >
+                                                        Apply Now
+                                                    </Button>
 												</div>
 											</div>
-										</div>
-										<div className="mt-2 lg:mt-[6px] w-full sm:w-auto flex justify-center lg:justify-end">
-											<Button 
-												onClick={() => {}}
-												variant={job?.buttonStyle}
-												size="md"
-												className={`
-													${
-														job?.buttonStyle === 'primary' 
-															? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb] active:bg-[#2622c4]' 
-															: 'border-2 border-[#0b0b35] text-[#0b0b35] bg-transparent hover:bg-[#0b0b35] hover:text-white'
-													} 
-													rounded-[10px] px-[16px] sm:px-[24px] lg:px-[32px] xl:px-[38px] py-[8px] sm:py-[10px] lg:py-[12px] 
-													text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-semibold 
-													leading-[14px] sm:leading-[16px] lg:leading-[18px] xl:leading-[21px] 
-													transition-all duration-200
-													w-full sm:w-auto
-													min-w-[120px] sm:min-w-[140px]
-												`}
-												icon={
-													<Image
-														src={job?.buttonStyle === 'primary' ? '/images/img_arrowright_white_a700.svg' : '/images/img_arrowright.svg'}
-														alt="Arrow"
-														width={16}
-														height={12}
-														className="w-[14px] h-[10px] sm:w-[16px] sm:h-[12px]"
-													/>
-												}
-												iconPosition="right"
-											>
-												Apply Now
-											</Button>
 										</div>
 									</div>
 									{index < jobPositions?.length - 1 && (

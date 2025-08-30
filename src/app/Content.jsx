@@ -1,6 +1,7 @@
 'use client';
 import React, { memo } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import Button from '../components/ui/Button';
@@ -10,6 +11,12 @@ import Badge from '@/components/common/Badge';
 import Link from 'next/link';
 
 const Content = () => {
+    const router = useRouter();
+    
+    const handleCheckOpenPositions = () => {
+        router.push('/careers#linno-open-positions');
+    };
+    
     const navigate = () => {
 		window.location.href = '/careers';
 	};
@@ -444,11 +451,10 @@ const Content = () => {
 								</div>
 								<Button
 									variant="primary"
+									onClick={handleCheckOpenPositions}
 									className="text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[13px] sm:pr-[20px] lg:pr-[26px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[13px] sm:pl-[20px] lg:pl-[26px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200"
 								>
-									<Link href={'/careers'}>
-										Check Open Positions
-									</Link>
+									Check Open Positions
 								</Button>
 							</div>
 							<div className="w-full max-w-[400px]">

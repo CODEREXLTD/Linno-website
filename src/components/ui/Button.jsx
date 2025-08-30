@@ -17,6 +17,7 @@ const Button = ({
   link  = false,
   href = null,
   label="",
+  blank=false,
   ...props
 }) => {
   const variants = {
@@ -84,7 +85,7 @@ const Button = ({
 
   if(link){
     return (
-      <Link href={href}>
+      <Link href={href} target={blank ? "_blank" : "_self"}>
         <button
           type={type}
           onClick={disabled || loading ? undefined : onClick}

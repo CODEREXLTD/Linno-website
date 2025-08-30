@@ -22,25 +22,25 @@ const Footer = () => {
       name: 'LinkedIn', 
       icon: '/images/img_icon.svg', 
       size: { width: 20, height: 20 },
-      href: 'https://linkedin.com/company/linno'
+      href: 'https://www.linkedin.com/company/coderex-ltd/'
     },
     { 
       name: 'Facebook', 
       icon: '/images/img_vector_indigo_a700_18x18.svg', 
       size: { width: 18, height: 18 },
-      href: 'https://facebook.com/linno'
+      href: 'https://www.facebook.com/coderexco'
     },
     { 
-      name: 'Twitter', 
+      name: 'X', 
       icon: '/images/img_vector_indigo_a100.svg', 
       size: { width: 20, height: 16 },
-      href: 'https://twitter.com/linno'
+      href: 'https://x.com/coderexco'
     },
     { 
       name: 'Instagram', 
       icon: '/images/img_vector_indigo_200.svg', 
       size: { width: 18, height: 18 },
-      href: 'https://instagram.com/linno'
+      href: 'https://www.instagram.com/coderexco/'
     }
   ];
 
@@ -55,7 +55,7 @@ const Footer = () => {
               <div className="w-[104px] sm:w-[139px] lg:w-[174px]">
                 <Link href="/" className="block">
                   <Image
-                    src="/images/img_vector_indigo_a700_30x174.svg"
+                    src="/images/logo.svg"
                     alt="Linno Logo"
                     width={174}
                     height={30}
@@ -161,13 +161,6 @@ const Footer = () => {
                 className="hover:text-global-3 focus:text-global-3 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-global-3 focus:ring-opacity-50 rounded px-1 py-1"
               >
                 Privacy Policy
-              </Link>
-              <span className="hidden sm:inline text-gray-400" aria-hidden="true">|</span>
-              <Link 
-                href="/terms" 
-                className="hover:text-global-3 focus:text-global-3 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-global-3 focus:ring-opacity-50 rounded px-1 py-1"
-              >
-                Terms & Conditions
               </Link>
             </div>
           </div>

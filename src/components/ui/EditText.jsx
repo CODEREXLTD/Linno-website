@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useCallback, useId } from 'react';
 import Image from 'next/image';
 
 const EditText = ({
@@ -22,36 +22,19 @@ const EditText = ({
   leftIcon = null,
   maxLength,
   id,
+  name,
   ...props
 }) => {
-  const [inputValue, setInputValue] = useState(value);
-  const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
   const textareaRef = useRef(null);
+  const generatedId = useId();
 
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
-
-  const handleChange = (e) => {
-    const newValue = e?.target?.value;
-    if (maxLength && newValue.length > maxLength) return;
-    
-    setInputValue(newValue);
+  const handleChange = useCallback((e) => {
+    // Always propagate change to parent for React consistency
     if (onChange) {
       onChange(e);
     }
-  };
-
-  const handleFocus = (e) => {
-    setIsFocused(true);
-    if (onFocus) onFocus(e);
-  };
-
-  const handleBlur = (e) => {
-    setIsFocused(false);
-    if (onBlur) onBlur(e);
-  };
+  }, [onChange]);
 
   const handleRightImageClick = () => {
     if (multiline && textareaRef.current) {
@@ -65,8 +48,8 @@ const EditText = ({
     w-full
     px-3 py-2.5 sm:px-4 sm:py-3 lg:px-5 lg:py-3.5
     text-sm sm:text-base lg:text-lg
-    text-edittext-1
-    bg-transparent
+    text-gray-900
+    bg-white
     border-2
     rounded-md sm:rounded-lg
     transition-all duration-200 ease-in-out
@@ -77,37 +60,31 @@ const EditText = ({
     ${
       error 
         ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-        : isFocused 
-          ? 'border-global-3 focus:border-global-3 focus:ring-global-3' 
-          : 'border-gray-300 hover:border-gray-400'
+        : 'border-gray-300 hover:border-gray-400 focus:border-blue-500 focus:ring-blue-500'
     }
     focus:ring-2 focus:ring-opacity-50
     ${leftIcon ? 'pl-10 sm:pl-12 lg:pl-14' : ''}
     ${rightImage ? 'pr-10 sm:pr-12 lg:pr-14' : ''}
     ${className}
-  `?.trim()?.replace(/\s+/g, ' ');
+  `.trim().replace(/\s+/g, ' ');
 
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  const inputId = id || generatedId;
 
   const InputWrapper = ({ children }) => (
     <div className="relative w-full">
-      {/* Left Icon */}
       {leftIcon && (
-        <div className="absolute left-3 sm:left-4 lg:left-5 top-1/2 transform -translate-y-1/2 pointer-events-none">
-          <span className="text-gray-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 flex items-center justify-center">
-            {leftIcon}
-          </span>
+        <div className="absolute left-3 sm:left-4 lg:left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+          {leftIcon}
         </div>
       )}
-      
+
       {children}
-      
-      {/* Right Image/Icon */}
+
       {rightImage && (
         <button
           type="button"
           onClick={handleRightImageClick}
-          className="absolute right-3 sm:right-4 lg:right-5 top-1/2 transform -translate-y-1/2 p-1 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-global-3 focus:ring-opacity-50 transition-colors duration-200"
+          className="absolute right-3 sm:right-4 lg:right-5 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           aria-label="Focus input"
           tabIndex={-1}
         >
@@ -120,11 +97,10 @@ const EditText = ({
           />
         </button>
       )}
-      
-      {/* Character Count */}
+
       {maxLength && (
         <div className="absolute right-3 sm:right-4 lg:right-5 -bottom-6 text-xs text-gray-500">
-          {inputValue.length}/{maxLength}
+          {value?.length || 0}/{maxLength}
         </div>
       )}
     </div>
@@ -132,7 +108,6 @@ const EditText = ({
 
   return (
     <div className="w-full">
-      {/* Label */}
       {label && (
         <label 
           htmlFor={inputId}
@@ -142,16 +117,17 @@ const EditText = ({
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
-      
+
       <InputWrapper>
         {multiline ? (
           <textarea
             ref={textareaRef}
             id={inputId}
-            value={inputValue}
+            name={name}
+            defaultValue={value}
             onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onFocus={onFocus}
+            onBlur={onBlur}
             placeholder={placeholder}
             disabled={disabled}
             rows={rows}
@@ -167,11 +143,12 @@ const EditText = ({
           <input
             ref={inputRef}
             id={inputId}
+            name={name}
             type={type}
-            value={inputValue}
+            defaultValue={value}
             onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onFocus={onFocus}
+            onBlur={onBlur}
             placeholder={placeholder}
             disabled={disabled}
             maxLength={maxLength}
@@ -184,14 +161,9 @@ const EditText = ({
           />
         )}
       </InputWrapper>
-      
-      {/* Error Message */}
+
       {error && errorMessage && (
-        <p 
-          id={`${inputId}-error`}
-          className="mt-2 text-sm text-red-600"
-          role="alert"
-        >
+        <p id={`${inputId}-error`} className="mt-2 text-sm text-red-600" role="alert">
           {errorMessage}
         </p>
       )}
