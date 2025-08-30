@@ -30,11 +30,6 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-semibold text-slate-800 mb-3">Send us a Message</h1>
-        <p className="text-gray-600 text-base">Fill out the form below and we'll get back to you within 24 hours.</p>
-      </div>
-
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* First Name and Last Name Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
