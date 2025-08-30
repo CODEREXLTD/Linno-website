@@ -152,7 +152,7 @@ const AboutUsPage = () => {
       id: 3,
       name: "C S Sultan",
       position: "Chief Marketing Manager",
-      department: "marketing",
+      department: ["marketing", "leadership"],
       image: "/images/sultan.jpeg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
@@ -168,7 +168,7 @@ const AboutUsPage = () => {
       id: 5,
       name: "Shahab Uddin Mahi",
       position: "Lead UI/UX Designer",
-      department: "product",
+      department: ["product","leadership"],
       image: "/images/mahi.png",
       icon: "/images/img_uim_layer_group.svg"
     },
@@ -192,7 +192,7 @@ const AboutUsPage = () => {
       id: 8,
       name: "Sadi Mohammad Zaman",
       position: "Chief Technology Officer",
-      department: "engineering",
+      department: ["engineering", "leadership"],
       image: "/images/sadi.jpg",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
@@ -200,7 +200,7 @@ const AboutUsPage = () => {
       id: 9,
       name: "Md. Saiduzzaman Tohin",
       position: "Senior Software Engineer",
-      department: "engineering",
+      department: ["engineering", "leadership"],
       image: "/images/tuhin.png",
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
