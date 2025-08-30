@@ -134,6 +134,14 @@ const AboutUsPage = () => {
   const allTeamMembers = [
     {
       id: 1,
+      name: "Lincoln Islam",
+      position: "Founder & Visionary",
+      department: "founder",
+      image: "/images/lincoln_islam.jpg",
+      icon: "/images/img_lucide_lab_target_arrow.svg"
+    },
+    {
+      id: 2,
       name: "Fatema-Tuz-Zohra Nabila",
       position: "Product Marketing Manager",
       department: "marketing",
@@ -141,7 +149,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 2,
+      id: 3,
       name: "Syed Abid Hossain",
       position: "Marketing",
       department: "marketing",
@@ -149,7 +157,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 3,
+      id: 4,
       name: "C S Sultan",
       position: "Chief Marketing Manager",
       department: ["marketing", "leadership"],
@@ -157,7 +165,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 4,
+      id: 5,
       name: "Sakiba Prima",
       position: "Marketing",
       department: "marketing",
@@ -165,7 +173,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 5,
+      id: 6,
       name: "Shahab Uddin Mahi",
       position: "Lead UI/UX Designer",
       department: ["product","leadership"],
@@ -173,7 +181,7 @@ const AboutUsPage = () => {
       icon: "/images/img_uim_layer_group.svg"
     },
     {
-      id: 6,
+      id: 7,
       name: "Fahmida Bhuiyan Sathi",
       position: "UI/UX Designer",
       department: "product",
@@ -181,7 +189,7 @@ const AboutUsPage = () => {
       icon: "/images/img_uim_layer_group.svg"
     },
     {
-      id: 7,
+      id: 8,
       name: "Shahala Akter Joti",
       position: "UI/UX Designer",
       department: "product",
@@ -189,7 +197,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 8,
+      id: 9,
       name: "Sadi Mohammad Zaman",
       position: "Chief Technology Officer",
       department: ["engineering", "leadership"],
@@ -197,7 +205,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 9,
+      id: 10,
       name: "Md. Saiduzzaman Tohin",
       position: "Senior Software Engineer",
       department: ["engineering", "leadership"],
@@ -205,7 +213,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 10,
+      id: 11,
       name: "A S M Nasim",
       position: "Software Engineer",
       department: "engineering",
@@ -213,7 +221,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 11,
+      id: 12,
       name: "Md. Razun Mia",
       position: "Full Stack Developer",
       department: "engineering",
@@ -221,7 +229,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 12,
+      id: 13,
       name: "Tipu Sultan",
       position: "Frontend Engineer",
       department: "engineering",
@@ -229,7 +237,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 13,
+      id: 14,
       name: "AB Belal",
       position: "Frontend Engineer",
       department: "engineering",
@@ -237,7 +245,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 14,
+      id: 15,
       name: "Humayun Kabir",
       position: "JavaScript Developer",
       department: "engineering",
@@ -245,7 +253,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 15,
+      id: 16,
       name: "Mamun Prodhan",
       position: "JavaScript Developer",
       department: "engineering",
@@ -253,7 +261,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 16,
+      id: 17,
       name: "Humayun Kabir",
       position: "JavaScript Developer",
       department: "engineering",
@@ -261,7 +269,7 @@ const AboutUsPage = () => {
       icon: "/images/img_lucide_lab_target_arrow.svg"
     },
     {
-      id: 17,
+      id: 18,
       name: "Humayun Kabir",
       position: "JavaScript Developer",
       department: "engineering",
@@ -272,6 +280,7 @@ const AboutUsPage = () => {
 
 
   const departmentList = [
+    { name: "Founder & Visionary", key: "founder" },
     { name: "Leadership Team", key: "leadership" },
     { name: "Engineering Team", key: "engineering" },
     { name: "Marketing Team", key: "marketing" },
@@ -282,7 +291,12 @@ const AboutUsPage = () => {
   const [activeTab, setActiveTab] = useState("leadership");
 
   // Filter team members based on active tab
-  const filteredTeamMembers = allTeamMembers.filter(member => member.department === activeTab);
+  const filteredTeamMembers = allTeamMembers.filter(member => {
+    if (Array.isArray(member.department)) {
+      return member.department.includes(activeTab);
+    }
+    return member.department === activeTab;
+  });
 
   // Create departments array with active state for rendering
   const departments = departmentList.map(dept => ({
@@ -535,9 +549,6 @@ const AboutUsPage = () => {
         <div className="absolute inset-0 bg-[#0b0a3c]"></div>
         <div className="absolute inset-0 bg-[url('/images/about_cta_img.webp')] bg-cover bg-center opacity-30"></div>
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* <h2 className="text-[40px] sm:text-[60px] lg:text-[80px] font-sora font-medium leading-[48px] sm:leading-[72px] lg:leading-[96px] text-[#ffffff] mb-6 sm:mb-8 lg:mb-12">
-            Good things Happen<br />When you say
-          </h2> */}
           <h1 className="text-white text-center font-sora font-semibold capitalize text-[38px] leading-[48px] sm:text-[48px] sm:leading-[60px] md:text-[60px] md:leading-[78px] lg:text-[80px] lg:leading-[94px]">
           Join Us And Make Cool <br className="hidden sm:block" /> Stuff Togather
           </h1>
