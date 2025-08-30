@@ -362,7 +362,7 @@ const allTeamMembers = [
     { name: "Office Assistant", key: "assistant" }
   ];
 
-  const [activeTab, setActiveTab] = useState("founder");
+  const [activeTab, setActiveTab] = useState("leadership");
 
   // Filter team members based on active tab
   const filteredTeamMembers = allTeamMembers.filter(member => {
