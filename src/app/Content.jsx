@@ -28,16 +28,17 @@ const Content = () => {
 			<main className="w-full">
 				{/* Hero Section */}
 				<section className="w-full">
-					<div className="w-full max-w-[1310px] mx-auto px-4 sm:px-6 lg:px-8 pt-[20px] sm:pt-[30px] lg:pt-[40px]">
+					<div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto py-12 md:py-16 lg:py-26">
 						<div className="flex flex-col lg:flex-row justify-start items-center gap-8 lg:gap-12 xl:gap-0 w-full">
 							{/* Left Content */}
-							<div className="flex flex-col gap-[21px] sm:gap-[32px] lg:gap-[42px] justify-start items-start w-full lg:w-[38%] order-2 lg:order-1">
+							<div className="flex flex-col gap-[21px] sm:gap-[32px] lg:gap-[42px] justify-start items-start w-full lg:w-[40%] order-2 lg:order-1">
 								{/* Innovation Badge */}
 								<div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] justify-start items-start w-full">
 									<div className="w-full sm:w-4/5 lg:w-[60%]">
 										<Badge
 											highlight='Innovation.'
 											text='Fueled by People'
+											className='min-w-[330px] !py-2'
 										/>
 									</div>
 									{/* Main Heading and Description */}
@@ -63,7 +64,7 @@ const Content = () => {
 							</div>
 							{/* Right Image */}
 							<div className="flex justify-center items-center w-full lg:w-[62%] order-1 lg:order-2 mb-6 lg:mb-0">
-								<div className="w-full max-w-[500px] lg:max-w-[676px] px-4 sm:px-0">
+								<div className="w-full px-4 sm:px-0">
 									<Image
 										src="/images/img_image_4.png"
 										alt="Team collaboration"
