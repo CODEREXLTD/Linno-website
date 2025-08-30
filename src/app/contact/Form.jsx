@@ -48,7 +48,7 @@ export default function ContactForm() {
               name="firstName"
               value={formData.firstName}
               onChange={handleInputChange}
-              placeholder="dd"
+              placeholder="Enter your first name"
               required
               className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
