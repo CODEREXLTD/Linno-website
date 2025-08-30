@@ -102,28 +102,28 @@ const Content = () => {
       title: 'Passion',
       description:
         'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/img_credit_cards_my.png',
+      image: '/images/img_pxl_20230818_110706499.png',
       icon: '/images/img_solar_fire_bold_duotone.svg',
     },
     {
       title: 'Trust',
       description:
         'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/img_credit_cards_my_388x610.png',
+      image: '/images/about2.jpg',
       icon: '/images/img_solar_fire_bold_duotone.svg',
     },
     {
       title: 'Leadership',
       description:
         'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/img_credit_cards_my_1.png',
+      image: '/images/about1.jpg',
       icon: '/images/img_solar_fire_bold_duotone.svg',
     },
     {
       title: 'We are a family',
       description:
         'Passion is a powerful and intense emotion or enthusiasm for something, often driving individuals',
-      image: '/images/img_credit_cards_my_2.png',
+      image: '/images/hero-home.jpg',
       icon: '/images/img_solar_fire_bold_duotone.svg',
     },
   ];
@@ -426,8 +426,7 @@ const Content = () => {
             loop
             playsInline
           >
-            <source src="/videos/test-video.mp4" type="video/mp4" />
-            <source src="/videos/test-video.webm" type="video/webm" />
+            <source src="/videos/video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

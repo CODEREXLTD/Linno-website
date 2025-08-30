@@ -73,10 +73,10 @@ const Hero = () => {
                                 </div>
 
                                 <Image
-                                    src="/images/img_image_2.png"
+                                    src="/images/hero-home.jpg"
                                     alt="Team meeting"
-                                    width={438}
-                                    height={210}
+                                    width={300}
+                                    height={180}
                                     className="w-full h-auto"
                                 />
                             </div>
