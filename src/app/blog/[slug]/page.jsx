@@ -1,21 +1,119 @@
-'use client';
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/common/Header';
 import EditText from '@/components/ui/EditText';
-import { blogPosts, categories, getFeaturedPost, getPostsByCategory } from '@/data/blogData';
+import { notFound } from 'next/navigation';
+import { getPostBySlug, getRelatedPosts } from '@/data/blogData';
+import '@/styles/blog.css';
 
-const BlogPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const featuredPost = getFeaturedPost();
-  
-  const filteredPosts = useMemo(() => {
-    return getPostsByCategory(selectedCategory);
-  }, [selectedCategory]);
-  const handleCategoryClick = (categoryName) => {
-    setSelectedCategory(categoryName);
-  };
+// Blog content data - in a real app, this would come from a CMS or database
+const blogContent = {
+  'wordcamp-dhaka-2019': `
+    <p>WordCamp Dhaka 2019 was a historic event as it marked the first official WordCamp in Bangladesh. This groundbreaking event brought together WordPress enthusiasts, developers, designers, and business owners from across the country and beyond.</p>
+    
+    <h2>What is WordCamp?</h2>
+    <p>WordCamp is a conference that focuses on everything WordPress. WordCamps are informal, community-organized events that are put together by WordPress users like you. Everyone from casual users to core contributors participate, share ideas, and get to know each other.</p>
+    
+    <h2>The Historic Moment</h2>
+    <p>The event was held at a prestigious venue in Dhaka and attracted over 200 participants. It was a day filled with learning, networking, and celebrating the WordPress community in Bangladesh.</p>
+    
+    <h2>Key Highlights</h2>
+    <ul>
+      <li>Over 200 attendees from Bangladesh and neighboring countries</li>
+      <li>15+ speakers covering various WordPress topics</li>
+      <li>Workshops on WordPress development and design</li>
+      <li>Networking opportunities with like-minded individuals</li>
+      <li>Local vendor showcase</li>
+    </ul>
+    
+    <h2>Impact on the Bangladesh WordPress Community</h2>
+    <p>This event was a catalyst for the growth of the WordPress community in Bangladesh. It inspired many developers and business owners to contribute more actively to the WordPress ecosystem.</p>
+    
+    <p>The success of WordCamp Dhaka 2019 paved the way for future WordPress events in the region and helped establish Bangladesh as an important player in the global WordPress community.</p>
+  `,
+  'effective-delegation': `
+    <p>Effective delegation is a crucial skill for any leader or manager. It not only helps you manage your workload but also empowers your team members and helps them grow professionally.</p>
+    
+    <h2>1. Choose the Right Person</h2>
+    <p>Select team members based on their skills, experience, and availability. Consider their current workload and development goals.</p>
+    
+    <h2>2. Define Clear Expectations</h2>
+    <p>Be specific about what needs to be accomplished, the desired outcome, and the deadline. Avoid ambiguity.</p>
+    
+    <h2>3. Provide Necessary Resources</h2>
+    <p>Ensure the person has access to all the tools, information, and resources needed to complete the task successfully.</p>
+    
+    <h2>4. Set Clear Deadlines</h2>
+    <p>Establish realistic timelines and milestones. This helps track progress and ensures timely completion.</p>
+    
+    <h2>5. Grant Appropriate Authority</h2>
+    <p>Give the person the authority needed to make decisions and take actions necessary to complete the task.</p>
+    
+    <h2>6. Establish Check-in Points</h2>
+    <p>Schedule regular check-ins to monitor progress, provide guidance, and address any issues that arise.</p>
+    
+    <h2>7. Avoid Micromanaging</h2>
+    <p>Trust your team members to do their job. Resist the urge to constantly monitor or intervene unless necessary.</p>
+    
+    <h2>8. Provide Feedback and Recognition</h2>
+    <p>Once the task is completed, provide constructive feedback and recognize good work. This helps with future development.</p>
+  `,
+  'wordpress-custom-user-roles': `
+    <p>WordPress comes with several predefined user roles, but sometimes you need to create custom user roles with specific capabilities to meet your website's unique requirements.</p>
+    
+    <h2>Method 1: Using a Plugin</h2>
+    <p>The easiest way to create custom user roles is by using a plugin like "User Role Editor" or "Members".</p>
+    
+    <h3>Steps:</h3>
+    <ol>
+      <li>Install and activate the User Role Editor plugin</li>
+      <li>Go to Users > User Role Editor in your WordPress admin</li>
+      <li>Click "Add Role" to create a new role</li>
+      <li>Give your role a name and select capabilities</li>
+      <li>Save the new role</li>
+    </ol>
+    
+    <h2>Method 2: Using Code</h2>
+    <p>For more control, you can create custom user roles programmatically using WordPress functions.</p>
+    
+    <h3>Example Code:</h3>
+    <pre><code>
+function add_custom_user_role() {
+    add_role(
+        'custom_role',
+        'Custom Role Name',
+        array(
+            'read' => true,
+            'edit_posts' => true,
+            'delete_posts' => false,
+        )
+    );
+}
+add_action('init', 'add_custom_user_role');
+    </code></pre>
+    
+    <h2>Best Practices</h2>
+    <ul>
+      <li>Always follow the principle of least privilege</li>
+      <li>Document your custom roles and their purposes</li>
+      <li>Test thoroughly before implementing on production</li>
+      <li>Consider using capabilities instead of roles when possible</li>
+    </ul>
+  `
+};
+
+export default function BlogPost({ params }) {
+  const { slug } = params;
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const content = blogContent[slug] || '<p>Content coming soon...</p>';
+  const relatedPosts = getRelatedPosts(slug, post.category, 3);
+
   return (
     <div className="w-full bg-[#ffffff] relative">
       {/* Background Images */}
@@ -35,6 +133,7 @@ const BlogPage = () => {
           className="w-full h-auto object-cover absolute top-[456px] left-0"
         />
       </div>
+
       {/* Decorative Elements */}
       <Image
         src="/images/img_ellipse_1447.png"
@@ -43,209 +142,146 @@ const BlogPage = () => {
         height={712}
         className="absolute top-[3956px] left-0 w-[16%] h-auto z-10"
       />
+
       {/* Main Content */}
       <div className="relative z-20 w-full">
         {/* Vertical Lines */}
         <div className="absolute left-[52px] top-0 w-[1px] h-[11722px] bg-[#0000000f]"></div>
         <div className="absolute right-[209px] top-0 w-[1px] h-[11722px] bg-[#0000000f]"></div>
+
         {/* Content Container */}
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="pt-[18px] pb-[18px] mb-[10px]">
             <Header />
           </div>
-          {/* Hero Section */}
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-16 mb-[106px]">
-            <div className="flex-1">
-              <h1 className="text-[50px] sm:text-[65px] md:text-[80px] lg:text-[100px] font-bold leading-[60px] sm:leading-[78px] md:leading-[96px] lg:leading-[120px] text-[#0e0e54] mb-0">
-                Blog
-              </h1>
-            </div>
-            <div className="w-full lg:w-[38%]">
-              <p className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-normal leading-[14px] sm:leading-[19px] md:leading-[24px] lg:leading-[28px] text-[#292929]">
-                The latest from our world and beyond.<br />
-                Read, watch and go deeper on what's happening with us and our work.
-              </p>
-            </div>
+
+          {/* Back to Blog Link */}
+          <div className="mb-8">
+            <Link 
+              href="/blog"
+              className="inline-flex items-center text-[#3433fe] hover:text-[#0e0e54] transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Blog
+            </Link>
           </div>
-          {/* Featured Article Section */}
-          <div className="mb-[22px]">
-            <div className="flex flex-row justify-start items-center gap-[10px] mb-[22px]">
-              <div className="w-[2px] h-[36px] bg-[#3433fe]"></div>
-              <span className="text-[10px] sm:text-[14px] md:text-[17px] lg:text-[20px] font-normal leading-[12px] sm:leading-[17px] md:leading-[21px] lg:leading-[25px] tracking-[1px] sm:tracking-[1.4px] md:tracking-[1.7px] lg:tracking-[2px] uppercase text-[#0f0e55] ml-[10px]">
-                {featuredPost.category}
-              </span>
-              <span className="text-[10px] sm:text-[14px] md:text-[17px] lg:text-[20px] font-normal leading-[12px] sm:leading-[17px] md:leading-[21px] lg:leading-[25px] tracking-[1px] sm:tracking-[1.4px] md:tracking-[1.7px] lg:tracking-[2px] uppercase text-[#0f0e55] ml-[12px]">
-                {featuredPost.date}
-              </span>
-            </div>
-            <h2 className="text-[21px] sm:text-[28px] md:text-[35px] lg:text-[42px] font-bold leading-[25px] sm:leading-[34px] md:leading-[42px] lg:leading-[51px] text-[#0b0a3d] mb-[26px]">
-              {featuredPost.title}
-            </h2>
-            <Link href={`/blog/${featuredPost.slug}`}>
-              <div className="p-[10px] bg-[#ffffff] rounded-[16px] shadow-[0px_15px_21px_#6d688921] hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+
+          {/* Article Header */}
+          <article className="max-w-4xl mx-auto">
+            <header className="mb-12">
+              <div className="flex flex-row justify-start items-center gap-[10px] mb-6">
+                <div className="w-[2px] h-[36px] bg-[#3433fe]"></div>
+                <span className="text-[14px] sm:text-[16px] lg:text-[18px] font-normal leading-[17px] sm:leading-[19px] lg:leading-[22px] tracking-[1.4px] sm:tracking-[1.6px] lg:tracking-[1.8px] uppercase text-[#0f0e55] ml-[10px]">
+                  {post.category}
+                </span>
+                <span className="text-[14px] sm:text-[16px] lg:text-[18px] font-normal leading-[17px] sm:leading-[19px] lg:leading-[22px] tracking-[1.4px] sm:tracking-[1.6px] lg:tracking-[1.8px] uppercase text-[#0f0e55] ml-[12px]">
+                  {post.date}
+                </span>
+                <span className="text-[14px] sm:text-[16px] lg:text-[18px] font-normal leading-[17px] sm:leading-[19px] lg:leading-[22px] tracking-[1.4px] sm:tracking-[1.6px] lg:tracking-[1.8px] uppercase text-[#787878] ml-[12px]">
+                  {post.readTime}
+                </span>
+              </div>
+
+              <h1 className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold leading-[38px] sm:leading-[50px] lg:leading-[62px] text-[#0b0a3d] mb-8">
+                {post.title}
+              </h1>
+
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-[16px] text-[#787878]">By {post.author}</span>
+              </div>
+
+              <div className="relative overflow-hidden rounded-[16px] mb-8">
                 <Image
-                  src={featuredPost.image}
-                  alt={featuredPost.title}
-                  width={1318}
-                  height={530}
+                  src={post.image}
+                  alt={post.title}
+                  width={800}
+                  height={400}
                   className="w-full h-auto rounded-[16px]"
                 />
               </div>
-            </Link>
-          </div>
-          {/* Main Content Area */}
-          <div className="flex flex-col lg:flex-row gap-[40px] sm:gap-[50px] lg:gap-[64px] xl:gap-[474px] mt-[80px] sm:mt-[95px] lg:mt-[110px]">
-            {/* Sidebar */}
-            <div className="w-full lg:w-[200px] xl:w-[12%] order-2 lg:order-1">
-              <div className="pt-[20px] sm:pt-[23px] lg:pt-[26px] pb-[20px] sm:pb-[23px] lg:pb-[26px]">
-                <div className="mt-[60px] sm:mt-[75px] lg:mt-[90px]">
-                  <div className="flex flex-row lg:flex-col gap-[20px] sm:gap-[25px] lg:gap-[36px] overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0">
-                    {categories?.map((category, index) => (
-                      <div
-                        key={index}
-                        className="flex flex-row justify-start items-center gap-[10px] cursor-pointer flex-shrink-0 lg:flex-shrink hover:opacity-75 transition-opacity duration-200"
-                        onClick={() => handleCategoryClick(category?.name)}
-                      >
-                        <Image
-                          src={selectedCategory === category?.name ? "/images/img_line_12.svg" : "/images/img_line_14.svg"}
-                          alt="Line"
-                          width={20}
-                          height={1}
-                          className="w-[20px] h-[1px]"
-                        />
-                        <span className={`text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-normal leading-[16px] sm:leading-[18px] lg:leading-[20px] xl:leading-[24px] ml-[10px] whitespace-nowrap ${
-                          selectedCategory === category?.name ? 'text-[#3433fe]' : 'text-[#0f0e55]'
-                        }`}>
-                          {category?.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+            </header>
+
+            {/* Article Content */}
+            <div className="blog-content mb-16">
+              <div 
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+            </div>
+
+            {/* Social Sharing */}
+            <div className="border-t border-b border-[#e5e5e5] py-8 mb-12">
+              <div className="flex items-center justify-between">
+                <span className="text-[18px] font-semibold text-[#0b0a3d]">Share this article</span>
+                <div className="flex items-center gap-4">
+                  <button className="flex items-center justify-center w-10 h-10 bg-[#3433fe] text-white rounded-full hover:bg-[#0e0e54] transition-colors duration-200">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                  </button>
+                  <button className="flex items-center justify-center w-10 h-10 bg-[#3433fe] text-white rounded-full hover:bg-[#0e0e54] transition-colors duration-200">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </button>
+                  <button className="flex items-center justify-center w-10 h-10 bg-[#3433fe] text-white rounded-full hover:bg-[#0e0e54] transition-colors duration-200">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
-            {/* Blog Grid */}
-            <div className="flex-1 order-1 lg:order-2">
-              {filteredPosts.length === 0 ? (
-                <div className="text-center py-16">
-                  <p className="text-[18px] text-[#787878]">No blog posts found in this category.</p>
-                </div>
-              ) : (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
-                    {filteredPosts?.slice(0, 4)?.map((post, index) => (
-                      <Link key={post?.id} href={`/blog/${post?.slug}`}>
-                        <article className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
-                          <div className="flex flex-col gap-[12px]">
-                            <div className="flex flex-row justify-start items-center gap-[10px]">
-                              <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
-                              <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                  {post?.category}
-                                </span>
-                                <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                  {post?.date}
-                                </span>
-                              </div>
-                            </div>
-                            <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
-                              {post?.title}
-                            </h3>
+
+            {/* Related Posts */}
+            <section className="mb-16">
+              <h2 className="text-[28px] sm:text-[36px] font-bold leading-[34px] sm:leading-[43px] text-[#0b0a3d] mb-8">
+                Related Articles
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {relatedPosts.length > 0 ? relatedPosts.map((relatedPost) => (
+                  <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
+                    <article className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] hover:shadow-lg transition-shadow duration-300 group">
+                      <div className="relative overflow-hidden rounded-[14px]">
+                        <Image
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          width={300}
+                          height={200}
+                          className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-[12px]">
+                        <div className="flex flex-row justify-start items-center gap-[10px]">
+                          <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
+                          <div className="flex flex-row justify-start items-center gap-[12px] px-[10px]">
+                            <span className="text-[12px] font-normal leading-[14px] tracking-[0.7px] uppercase text-[#787878]">
+                              {relatedPost.category}
+                            </span>
+                            <span className="text-[12px] font-normal leading-[14px] tracking-[0.7px] uppercase text-[#787878]">
+                              {relatedPost.date}
+                            </span>
                           </div>
-                          <div className="relative overflow-hidden rounded-[14px]">
-                            <Image
-                              src={post?.image}
-                              alt={post?.title}
-                              width={390}
-                              height={284}
-                              className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                        </article>
-                      </Link>
-                    ))}
-                  </div>
-                  {/* Additional Blog Posts */}
-                  {filteredPosts.length > 4 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
-                      {filteredPosts?.slice(4, 8)?.map((post, index) => (
-                        <Link key={post?.id} href={`/blog/${post?.slug}`}>
-                          <article className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
-                            <div className="flex flex-col gap-[12px]">
-                              <div className="flex flex-row justify-start items-center gap-[10px]">
-                                <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
-                                <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                    {post?.category}
-                                  </span>
-                                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                    {post?.date}
-                                  </span>
-                                </div>
-                              </div>
-                              <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
-                                {post?.title}
-                              </h3>
-                            </div>
-                            <div className="relative overflow-hidden rounded-[14px]">
-                              <Image
-                                src={post?.image}
-                                alt={post?.title}
-                                width={390}
-                                height={284}
-                                className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          </article>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                  {/* Final Blog Posts */}
-                  {filteredPosts.length > 8 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px]">
-                      {filteredPosts?.slice(8, 12)?.map((post, index) => (
-                        <Link key={post?.id} href={`/blog/${post?.slug}`}>
-                          <article className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
-                            <div className="flex flex-col gap-[12px]">
-                              <div className="flex flex-row justify-start items-center gap-[10px]">
-                                <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
-                                <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                    {post?.category}
-                                  </span>
-                                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                    {post?.date}
-                                  </span>
-                                </div>
-                              </div>
-                              <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
-                                {post?.title}
-                              </h3>
-                            </div>
-                            <div className="relative overflow-hidden rounded-[14px]">
-                              <Image
-                                src={post?.image}
-                                alt={post?.title}
-                                width={390}
-                                height={284}
-                                className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          </article>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-          </div>
+                        </div>
+                        <h3 className="text-[18px] font-bold leading-[22px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-2">
+                          {relatedPost.title}
+                        </h3>
+                      </div>
+                    </article>
+                  </Link>
+                )) : (
+                  <p className="text-[16px] text-[#787878] col-span-3 text-center">No related posts found.</p>
+                )}
+              </div>
+            </section>
+          </article>
         </div>
       </div>
+
       {/* Footer Section */}
-      <div className="w-full bg-[#ffffff] pt-[38px] pr-[38px] pb-[38px] pl-[38px] mt-[724px]">
+      <div className="w-full bg-[#ffffff] pt-[38px] pr-[38px] pb-[38px] pl-[38px] mt-[100px]">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="flex flex-col lg:flex-row justify-start items-start gap-8 lg:gap-16 mt-[34px]">
             {/* Left Section - Logo and Contact */}
@@ -449,5 +485,4 @@ const BlogPage = () => {
       </div>
     </div>
   );
-};
-export default BlogPage;
+}
