@@ -131,158 +131,246 @@ const AboutUsPage = () => {
     { name: "Motion Design", icon: "/images/img_icon_indigo_a700.svg" }
   ];
 
-  const allTeamMembers = [
-    {
-      id: 1,
-      name: "Fatema-Tuz-Zohra Nabila",
-      position: "Product Marketing Manager",
-      department: "marketing",
-      image: "/images/nabila.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 2,
-      name: "Syed Abid Hossain",
-      position: "Marketing",
-      department: "marketing",
-      image: "/images/abid.png",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 3,
-      name: "C S Sultan",
-      position: "Chief Marketing Manager",
-      department: "marketing",
-      image: "/images/sultan.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 4,
-      name: "Sakiba Prima",
-      position: "Marketing",
-      department: "marketing",
-      image: "/images/prima.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 5,
-      name: "Shahab Uddin Mahi",
-      position: "Lead UI/UX Designer",
-      department: "product",
-      image: "/images/mahi.png",
-      icon: "/images/img_uim_layer_group.svg"
-    },
-    {
-      id: 6,
-      name: "Fahmida Bhuiyan Sathi",
-      position: "UI/UX Designer",
-      department: "product",
-      image: "/images/sathi.jpg",
-      icon: "/images/img_uim_layer_group.svg"
-    },
-    {
-      id: 7,
-      name: "Shahala Akter Joti",
-      position: "UI/UX Designer",
-      department: "product",
-      image: "/images/joti.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 8,
-      name: "Sadi Mohammad Zaman",
-      position: "Chief Technology Officer",
-      department: "engineering",
-      image: "/images/sadi.jpg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 9,
-      name: "Md. Saiduzzaman Tohin",
-      position: "Senior Software Engineer",
-      department: "engineering",
-      image: "/images/tuhin.png",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 10,
-      name: "A S M Nasim",
-      position: "Software Engineer",
-      department: "engineering",
-      image: "/images/nasim.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 11,
-      name: "Md. Razun Mia",
-      position: "Full Stack Developer",
-      department: "engineering",
-      image: "/images/razun.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 12,
-      name: "Tipu Sultan",
-      position: "Frontend Engineer",
-      department: "engineering",
-      image: "/images/tipu.jpg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 13,
-      name: "AB Belal",
-      position: "Frontend Engineer",
-      department: "engineering",
-      image: "/images/belal.png",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 14,
-      name: "Humayun Kabir",
-      position: "JavaScript Developer",
-      department: "engineering",
-      image: "/images/kabir.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 15,
-      name: "Mamun Prodhan",
-      position: "JavaScript Developer",
-      department: "engineering",
-      image: "/images/mamun.png",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 16,
-      name: "Humayun Kabir",
-      position: "JavaScript Developer",
-      department: "engineering",
-      image: "/images/humayun.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    },
-    {
-      id: 17,
-      name: "Humayun Kabir",
-      position: "JavaScript Developer",
-      department: "engineering",
-      image: "/images/humayun.jpeg",
-      icon: "/images/img_lucide_lab_target_arrow.svg"
-    }
-  ];
+const allTeamMembers = [
+  {
+    id: 1,
+    name: "Lincoln Islam",
+    position: "Founder & Visionary",
+    department: ["founder", "leadership"],
+    image: "/images/lincoln_islam.jpg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 2,
+    name: "Farshid Chowdhury",
+    position: "Chief Operating Officer",
+    department: ["product", "leadership"],
+    image: "/images/farshid.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 3,
+    name: "Nahid Hasan Pallab",
+    position: "Associate Product Manager",
+    department: "product",
+    image: "/images/pallab.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 4,
+    name: "Sadi Mohammad Zaman",
+    position: "Chief Technology Officer",
+    department: ["engineering", "leadership"],
+    image: "/images/sadi.jpg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 5,
+    name: "Tarequl Islam Khan",
+    position: "HR Manager",
+    department: ["product", "leadership"],
+    image: "/images/tareq.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 6,
+    name: "Md. Saiduzzaman Tohin",
+    position: "Senior Software Engineer",
+    department: ["engineering", "leadership"],
+    image: "/images/tuhin.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 7,
+    name: "A S M Nasim",
+    position: "Software Engineer",
+    department: ["engineering", "leadership"],
+    image: "/images/nasim.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 8,
+    name: "Md. Razun Mia",
+    position: "Full Stack Developer",
+    department: ["engineering", "leadership"],
+    image: "/images/razun.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 9,
+    name: "Tipu Sultan",
+    position: "Frontend Engineer",
+    department: "engineering",
+    image: "/images/tipu.jpg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 10,
+    name: "AB Belal",
+    position: "Frontend Engineer",
+    department: "engineering",
+    image: "/images/belal.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 11,
+    name: "Humayun Kabir",
+    position: "JavaScript Developer",
+    department: "engineering",
+    image: "/images/kabir.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 12,
+    name: "Mamun Prodhan",
+    position: "JavaScript Developer",
+    department: "engineering",
+    image: "/images/mamun.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 13,
+    name: "Tasnim Ikra",
+    position: "SQA Engineer",
+    department: "engineering",
+    image: "/images/tasnim.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 14,
+    name: "Nusrat Jahan Mou",
+    position: "SQA Engineer",
+    department: "engineering",
+    image: "/images/mou.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 15,
+    name: "C S Sultan",
+    position: "Chief Marketing Manager",
+    department: ["marketing", "leadership"],
+    image: "/images/sultan.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 16,
+    name: "Fatema-Tuz-Zohra Nabila",
+    position: "Product Marketing Manager",
+    department: ["marketing", "leadership"],
+    image: "/images/nabila.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 17,
+    name: "Sakiba Prima",
+    position: "Marketing",
+    department: "marketing",
+    image: "/images/prima.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 18,
+    name: "Rafsan Jany",
+    position: "Content Writer",
+    department: "marketing",
+    image: "/images/akhil.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 19,
+    name: "Syed Abid Hossain",
+    position: "Marketing Associate",
+    department: "marketing",
+    image: "/images/abid.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 20,
+    name: "Mahir Ashhab",
+    position: "Brand Marketer",
+    department: "marketing",
+    image: "/images/mahir.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 21,
+    name: "Shahab Uddin Mahi",
+    position: "Lead UI/UX Designer",
+    department: ["product","leadership"],
+    image: "/images/mahi.png",
+    icon: "/images/img_uim_layer_group.svg"
+  },
+  {
+    id: 22,
+    name: "Fahmida Bhuiyan Sathi",
+    position: "UI/UX Designer",
+    department: "product",
+    image: "/images/sathi.jpg",
+    icon: "/images/img_uim_layer_group.svg"
+  },
+  {
+    id: 23,
+    name: "Shahala Akter Joti",
+    position: "UI/UX Designer",
+    department: "product",
+    image: "/images/joti.jpeg",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 24,
+    name: "Tamanna Islam",
+    position: "Technical Support Engineer",
+    department: "customer",
+    image: "/images/tamanna.webp",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  {
+    id: 25,
+    name: "Sakibul Hasan",
+    position: "Technical Support Engineer",
+    department: "customer",
+    image: "/images/sakibul.png",
+    icon: "/images/img_lucide_lab_target_arrow.svg"
+  },
+  { 
+    id: 26, 
+    name: "Al Amin", 
+    position: "Office Assistant", 
+    department: "assistant", 
+    image: "/images/alamin.jpeg", 
+    icon: "/images/img_lucide_lab_target_arrow.svg" 
+  },
+  { 
+    id: 27, 
+    name: "Morjina Begum", 
+    position: "Office Assistant", 
+    department: "assistant", 
+    image: "/images/morjina.png", 
+    icon: "/images/img_lucide_lab_target_arrow.svg" 
+  }
+];
+
 
 
   const departmentList = [
+    { name: "Founder & Visionary", key: "founder" },
     { name: "Leadership Team", key: "leadership" },
     { name: "Engineering Team", key: "engineering" },
     { name: "Marketing Team", key: "marketing" },
     { name: "Product Team", key: "product" },
-    { name: "Customer Success", key: "customer" }
+    { name: "Customer Success", key: "customer" },
+    { name: "Office Assistant", key: "assistant" }
   ];
 
   const [activeTab, setActiveTab] = useState("leadership");
 
   // Filter team members based on active tab
-  const filteredTeamMembers = allTeamMembers.filter(member => member.department === activeTab);
+  const filteredTeamMembers = allTeamMembers.filter(member => {
+    if (Array.isArray(member.department)) {
+      return member.department.includes(activeTab);
+    }
+    return member.department === activeTab;
+  });
 
   // Create departments array with active state for rendering
   const departments = departmentList.map(dept => ({
@@ -535,9 +623,6 @@ const AboutUsPage = () => {
         <div className="absolute inset-0 bg-[#0b0a3c]"></div>
         <div className="absolute inset-0 bg-[url('/images/about_cta_img.webp')] bg-cover bg-center opacity-30"></div>
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* <h2 className="text-[40px] sm:text-[60px] lg:text-[80px] font-sora font-medium leading-[48px] sm:leading-[72px] lg:leading-[96px] text-[#ffffff] mb-6 sm:mb-8 lg:mb-12">
-            Good things Happen<br />When you say
-          </h2> */}
           <h1 className="text-white text-center font-sora font-semibold capitalize text-[38px] leading-[48px] sm:text-[48px] sm:leading-[60px] md:text-[60px] md:leading-[78px] lg:text-[80px] lg:leading-[94px]">
           Join Us And Make Cool <br className="hidden sm:block" /> Stuff Togather
           </h1>
