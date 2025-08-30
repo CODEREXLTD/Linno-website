@@ -53,7 +53,7 @@ const Header = () => {
           <div className="w-[80px] sm:w-[120px] md:w-[150px] lg:w-[174px] flex-shrink-0">
             <Link href="/" className="block">
               <Image
-                src="/images/img_vector.svg"
+                src="/images/logo.svg"
                 alt="Linno Logo"
                 width={174}
                 height={30}

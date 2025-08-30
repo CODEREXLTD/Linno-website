@@ -55,7 +55,7 @@ const Footer = () => {
               <div className="w-[104px] sm:w-[139px] lg:w-[174px]">
                 <Link href="/" className="block">
                   <Image
-                    src="/images/img_vector_indigo_a700_30x174.svg"
+                    src="/images/logo.svg"
                     alt="Linno Logo"
                     width={174}
                     height={30}
