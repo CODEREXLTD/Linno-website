@@ -104,10 +104,8 @@ const Content = () => {
 												className="w-full h-auto"
 											/>
 										</div>
-										<p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] font-sora leading-[22px] sm:leading-[25px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] text-[#0b0b35] w-full">
-											<span className="font-normal">Maximize Your Leads And Sales Using </span>
-											<span className="font-semibold">Marketing Funnel Automation</span>
-											<span className="font-normal"> In WordPress</span>
+										<p className="text-[16px] font-sora leading-[22px] sm:leading-[25px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] text-[#0b0b35] w-full">
+											WPFunnels is a WordPress solutions brand behind WPFunnels, Mail Mint, and Creator LMS. Their tools empower creators and businesses with sales funnels, marketing automation, and eLearning solutions—all built to simplify workflows and maximize growth.
 										</p>
 									</div>
 									<Button
@@ -133,10 +131,8 @@ const Content = () => {
 												className="w-full h-auto"
 											/>
 										</div>
-										<p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] font-sora leading-[22px] sm:leading-[25px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] text-[#0b0b35] w-full">
-											<span className="font-normal">Increase Your </span>
-											<span className="font-semibold">WooCommerce Sales With Powerful Plugins</span>
-											<span className="font-normal"> Designed to Drive Results</span>
+										<p className="text-[16px] font-sora leading-[22px] sm:leading-[25px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] text-[#0b0b35] w-full">
+											RexTheme develops premium WordPress plugins that help businesses grow online. Their solutions include tools for product feed generation, abandoned cart recovery, and immersive virtual tours—built to boost eCommerce performance and user engagement.
 										</p>
 									</div>
 									<Button
@@ -300,17 +296,6 @@ const Content = () => {
 										height={274}
 										className="w-full h-full object-cover rounded-lg"
 									/>
-									<div className="absolute inset-0 bg-[#3433fe4c] rounded-lg flex justify-center items-center pt-[50px] sm:pt-[75px] lg:pt-[100px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[50px] sm:pb-[75px] lg:pb-[100px] pl-[28px] sm:pl-[42px] lg:pl-[56px]">
-										<div className="w-[35px] sm:w-[53px] lg:w-[70px]">
-											<Image
-												src="/images/img_vector_white_a700.svg"
-												alt="Play button"
-												width={70}
-												height={70}
-												className="w-full h-auto cursor-pointer hover:scale-110 transition-transform duration-200"
-											/>
-										</div>
-									</div>
 								</div>
 							</div>
 							<div className="flex justify-center items-center w-auto">
