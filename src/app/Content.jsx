@@ -9,6 +9,7 @@ import TechnologyTabs from '@/components/ui/TechnologyTabs';
 import JoinUsLink from '@/components/ui/JoinUsLink';
 import Badge from '@/components/common/Badge';
 import Link from 'next/link';
+import { products } from './products/ProductsContent';
 
 const Content = () => {
     const router = useRouter();
@@ -168,222 +169,45 @@ const Content = () => {
 							</div>
 							{/* Products Grid */}
 							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full mb-[6px] sm:mb-[9px] lg:mb-[12px]">
-								{/* Mail Mint */}
-								<div className="flex flex-col gap-[18px] sm:gap-[24px] lg:gap-[30px] xl:gap-[36px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[15px] sm:pt-[18px] lg:pt-[22px] xl:pt-[20px] pr-[15px] sm:pr-[18px] lg:pr-[22px] xl:pr-[20px] pb-[15px] sm:pb-[18px] lg:pb-[22px] xl:pb-[20px] pl-[15px] sm:pl-[18px] lg:pl-[22px] xl:pl-[20px] hover:shadow-lg transition-shadow duration-300">
-									<div className="flex flex-col gap-[12px] sm:gap-[15px] lg:gap-[18px] xl:gap-[20px] justify-start items-start w-full">
-										<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[8px] sm:pt-[10px] lg:pt-[12px] xl:pt-[16px] pr-[7px] sm:pr-[9px] lg:pr-[11px] xl:pr-[14px] pb-[8px] sm:pb-[10px] lg:pb-[12px] xl:pb-[16px] pl-[7px] sm:pl-[9px] lg:pl-[11px] xl:pl-[14px]">
-											<Image
-												src="/images/img_vector_24x34.png"
-												alt="Mail Mint"
-												width={34}
-												height={24}
-												className="w-auto h-auto"
-											/>
+								{
+									products.map((product, index) => (
+										<div key={index} className="flex flex-col gap-[18px] sm:gap-[24px] lg:gap-[30px] xl:gap-[36px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[15px] sm:pt-[18px] lg:pt-[22px] xl:pt-[20px] pr-[15px] sm:pr-[18px] lg:pr-[22px] xl:pr-[20px] pb-[15px] sm:pb-[18px] lg:pb-[22px] xl:pb-[20px] pl-[15px] sm:pl-[18px] lg:pl-[22px] xl:pl-[20px] hover:shadow-lg transition-shadow duration-300">
+											<div className="flex flex-col gap-[12px] sm:gap-[15px] lg:gap-[18px] xl:gap-[20px] justify-start items-start w-full">
+												<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[8px] sm:pt-[10px] lg:pt-[12px] xl:pt-[16px] pr-[7px] sm:pr-[9px] lg:pr-[11px] xl:pr-[14px] pb-[8px] sm:pb-[10px] lg:pb-[12px] xl:pb-[16px] pl-[7px] sm:pl-[9px] lg:pl-[11px] xl:pl-[14px]">
+													<Image
+														src={product.image}
+														alt={product.title}
+														width={34}
+														height={24}
+														className="w-auto h-auto"
+													/>
+												</div>
+												<div className="flex flex-col gap-[6px] sm:gap-[8px] lg:gap-[9px] xl:gap-[10px] justify-start items-start w-full">
+													<h3 className="text-[16px] sm:text-[18px] lg:text-[21px] xl:text-[24px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[27px] xl:leading-[31px] text-[#0b0b35] w-auto">
+														{product.title}
+													</h3>
+													<p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-inter font-normal leading-[18px] sm:leading-[20px] lg:leading-[22px] xl:leading-[26px] text-[#51515f] w-full">
+														{product.description}
+													</p>
+												</div>
+											</div>
+											<div className="flex justify-start items-center w-full group cursor-pointer">
+												<Link className='flex justify-start items-center' href={product.link} target='_blank'>
+													<span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px] text-[#51515f] group-hover:text-[#3433fe] transition-colors duration-200">
+														Learn More
+													</span>
+													<Image
+														src="/images/img_vector_blue_gray_300.svg"
+														alt="Arrow"
+														width={12}
+														height={12}
+														className="ml-[8px] sm:ml-[10px] lg:ml-[12px] xl:ml-[16px] w-[12px] h-[12px] group-hover:translate-x-1 transition-transform duration-200"
+													/>
+												</Link>
+											</div>
 										</div>
-										<div className="flex flex-col gap-[6px] sm:gap-[8px] lg:gap-[9px] xl:gap-[10px] justify-start items-start w-full">
-											<h3 className="text-[16px] sm:text-[18px] lg:text-[21px] xl:text-[24px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[27px] xl:leading-[31px] text-[#0b0b35] w-auto">
-												Mail Mint
-											</h3>
-											<p className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-inter font-normal leading-[18px] sm:leading-[20px] lg:leading-[22px] xl:leading-[26px] text-[#51515f] w-full">
-												Create automated abandoned cart recovery campaigns for WooCommerce and EDD stores to win back abandoned customers.
-											</p>
-										</div>
-									</div>
-									<div className="flex justify-start items-center w-full group cursor-pointer">
-										<Link className='flex justify-start items-center' href="https://getwpfunnels.com/email-marketing-automation-mail-mint/" target='_blank'>
-											<span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px] text-[#51515f] group-hover:text-[#3433fe] transition-colors duration-200">
-												Learn More
-											</span>
-											<Image
-												src="/images/img_vector_blue_gray_300.svg"
-												alt="Arrow"
-												width={12}
-												height={12}
-												className="ml-[8px] sm:ml-[10px] lg:ml-[12px] xl:ml-[16px] w-[12px] h-[12px] group-hover:translate-x-1 transition-transform duration-200"
-											/>
-										</Link>
-									</div>
-								</div>
-								{/* WPFunnels */}
-								<div className="flex flex-col gap-[31px] sm:gap-[47px] lg:gap-[62px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[10px] sm:pt-[15px] lg:pt-[20px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[10px] sm:pb-[15px] lg:pb-[20px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-									<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-start items-start w-full">
-										<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[6px] sm:pt-[9px] lg:pt-[12px] pr-[6px] sm:pr-[9px] lg:pr-[12px] pb-[6px] sm:pb-[9px] lg:pb-[12px] pl-[6px] sm:pl-[9px] lg:pl-[12px]">
-											<Image
-												src="/images/img_vector_deep_purple_500_32x34.svg"
-												alt="WPFunnels"
-												width={34}
-												height={32}
-												className="w-auto h-auto"
-											/>
-										</div>
-										<div className="flex flex-col gap-[5px] sm:gap-[8px] lg:gap-[10px] justify-start items-start w-full">
-											<h3 className="text-[18px] sm:text-[21px] lg:text-[24px] font-sora font-semibold leading-[23px] sm:leading-[27px] lg:leading-[31px] text-[#3433fe] w-auto">
-												WPFunnels
-											</h3>
-											<p className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#51515f] w-full lg:w-[88%]">
-												Generate WooCommerce product feeds for Google Shopping, Facebook feeds and 170+ online marketplaces.
-											</p>
-										</div>
-									</div>
-									<div className="flex justify-start items-center w-full">
-										<Link className='flex justify-start items-center' href="https://getwpfunnels.com/wordpress-funnel-builder-wpfunnels/" target='_blank'>
-											<span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px] text-[#51515f] hover:text-[#3433fe] transition-colors duration-200">
-												Learn More
-											</span>
-											<Image
-												src="/images/img_vector_blue_gray_300.svg"
-												alt="Arrow"
-												width={12}
-												height={12}
-												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-											/>
-										</Link>
-									</div>
-								</div>
-								{/* Creator LMS */}
-								<div className="flex flex-col gap-[18px] sm:gap-[27px] lg:gap-[36px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[10px] sm:pt-[15px] lg:pt-[20px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[10px] sm:pb-[15px] lg:pb-[20px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-									<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-start items-start w-full">
-										<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[6px] sm:pt-[9px] lg:pt-[12px] pr-[6px] sm:pr-[9px] lg:pr-[12px] pb-[6px] sm:pb-[9px] lg:pb-[12px] pl-[6px] sm:pl-[9px] lg:pl-[12px]">
-											<Image
-												src="/images/img_logo.svg"
-												alt="Creator LMS"
-												width={34}
-												height={30}
-												className="w-auto h-auto"
-											/>
-										</div>
-										<div className="flex flex-col gap-[5px] sm:gap-[8px] lg:gap-[10px] justify-start items-start w-full">
-											<h3 className="text-[18px] sm:text-[21px] lg:text-[24px] font-sora font-semibold leading-[23px] sm:leading-[27px] lg:leading-[31px] text-[#0b0b35] w-auto">
-												Creator LMS
-											</h3>
-											<p className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#51515f] w-full lg:w-[90%]">
-												Create automated abandoned cart recovery campaigns for WooCommerce and EDD stores to win back abandoned customers.
-											</p>
-										</div>
-									</div>
-									<div className="flex justify-start items-center w-full">
-										<Link className='flex justify-start items-center' href="https://getwpfunnels.com/creator-lms" target='_blank'>
-											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
-											Learn More
-											</span>
-											<Image
-												src="/images/img_vector_blue_gray_300_01.svg"
-												alt="Arrow"
-												width={12}
-												height={12}
-												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-											/>
-										</Link>
-									</div>
-								</div>
-								{/* Product Feed Manager */}
-								<div className="flex flex-col gap-[31px] sm:gap-[47px] lg:gap-[62px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[10px] sm:pt-[15px] lg:pt-[20px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[10px] sm:pb-[15px] lg:pb-[20px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-									<div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] justify-start items-start w-full">
-										<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[6px] sm:pt-[9px] lg:pt-[12px] pr-[5px] sm:pr-[8px] lg:pr-[10px] pb-[6px] sm:pb-[9px] lg:pb-[12px] pl-[5px] sm:pl-[8px] lg:pl-[10px]">
-											<Image
-												src="/images/img_fav.svg"
-												alt="Product Feed Manager"
-												width={40}
-												height={32}
-												className="w-auto h-auto"
-											/>
-										</div>
-										<div className="flex flex-col gap-[3px] sm:gap-[5px] lg:gap-[6px] justify-start items-start w-full">
-											<h3 className="text-[18px] sm:text-[21px] lg:text-[24px] font-sora font-semibold leading-[23px] sm:leading-[27px] lg:leading-[31px] text-[#0b0b35] w-auto">
-												Product Feed Manager
-											</h3>
-											<p className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#51515f] w-full lg:w-[90%]">
-												Generate WooCommerce product feeds for Google Shopping, Facebook feeds and 170+ online marketplaces.
-											</p>
-										</div>
-									</div>
-									<div className="flex justify-start items-center w-full">
-										<Link className='flex justify-start items-center' href="https://rextheme.com/best-woocommerce-product-feed/" target='_blank'>
-											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
-											Learn More
-											</span>
-											<Image
-												src="/images/img_vector_blue_gray_300_01.svg"
-												alt="Arrow"
-												width={12}
-												height={12}
-												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-											/>
-										</Link>
-									</div>
-								</div>
-								{/* WPVR */}
-								<div className="flex flex-col gap-[31px] sm:gap-[47px] lg:gap-[62px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[10px] sm:pt-[15px] lg:pt-[20px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[10px] sm:pb-[15px] lg:pt-[20px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-									<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-start items-start w-full">
-										<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[8px] sm:pt-[12px] lg:pt-[16px] pr-[2px] sm:pr-[3px] lg:pr-[4px] pb-[8px] sm:pb-[12px] lg:pb-[16px] pl-[2px] sm:pl-[3px] lg:pl-[4px]">
-											<Image
-												src="/images/img_fav_deep_purple_a700.svg"
-												alt="WPVR"
-												width={50}
-												height={22}
-												className="w-full h-auto"
-											/>
-										</div>
-										<div className="flex flex-col gap-[5px] sm:gap-[8px] lg:gap-[10px] justify-start items-start w-full">
-											<h3 className="text-[18px] sm:text-[21px] lg:text-[24px] font-sora font-semibold leading-[23px] sm:leading-[27px] lg:leading-[31px] text-[#0b0b35] w-auto">
-												WPVR
-											</h3>
-											<p className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#51515f] w-full lg:w-[90%]">
-												Create 360 virtual tours easily within just a few clicks for Real Estate, Hotels, Art Galleries, Restaurants and more.
-											</p>
-										</div>
-									</div>
-									<div className="flex justify-start items-center w-full">
-										<Link className='flex justify-start items-center' href="https://rextheme.com/wpvr/" target='_blank'>
-											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
-											Learn More
-											</span>
-											<Image
-												src="/images/img_vector_blue_gray_300_01.svg"
-												alt="Arrow"
-												width={12}
-												height={12}
-												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-											/>
-										</Link>
-									</div>
-								</div>
-								{/* Cart Lift */}
-								<div className="flex flex-col gap-[18px] sm:gap-[27px] lg:gap-[36px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[10px] sm:pt-[15px] lg:pt-[20px] pr-[10px] sm:pr-[15px] lg:pr-[20px] pb-[10px] sm:pb-[15px] lg:pb-[20px] pl-[10px] sm:pl-[15px] lg:pl-[20px]">
-									<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-start items-start w-full">
-										<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[3px] sm:pt-[5px] lg:pt-[6px] pr-[3px] sm:pr-[5px] lg:pr-[6px] pb-[3px] sm:pb-[5px] lg:pb-[6px] pl-[3px] sm:pl-[5px] lg:pl-[6px]">
-											<Image
-												src="/images/img_fav_deep_purple_500_02.svg"
-												alt="Cart Lift"
-												width={44}
-												height={42}
-												className="w-[44px] h-auto"
-											/>
-										</div>
-										<div className="flex flex-col gap-[5px] sm:gap-[8px] lg:gap-[10px] justify-center items-start w-full">
-											<h3 className="text-[18px] sm:text-[21px] lg:text-[24px] font-sora font-semibold leading-[23px] sm:leading-[27px] lg:leading-[31px] text-[#0b0b35] w-auto">
-												Cart Lift
-											</h3>
-											<p className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#51515f] w-full lg:w-[90%]">
-												Create automated abandoned cart recovery campaigns for WooCommerce and EDD stores to win back abandoned customers.
-											</p>
-										</div>
-									</div>
-									<div className="flex justify-start items-center w-full">
-										<Link className='flex justify-start items-center' href="https://rextheme.com/cart-lift/" target='_blank'>
-											<span className="text-[12px] sm:text-[14px] lg:text-[16px] font-sora font-normal leading-[16px] sm:leading-[19px] lg:leading-[21px] text-[#51515f] cursor-pointer hover:text-[#3433fe] transition-colors duration-200">
-											Learn More
-											</span>
-											<Image
-												src="/images/img_vector_blue_gray_300_01.svg"
-												alt="Arrow"
-												width={12}
-												height={12}
-												className="ml-[8px] sm:ml-[12px] lg:ml-[16px] w-[12px] h-[12px]"
-											/>
-										</Link>
-									</div>
-								</div>
+									))
+								}
 							</div>
 						</div>
 					</div>

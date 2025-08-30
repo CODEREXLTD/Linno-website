@@ -4,74 +4,53 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
-
-const ProductsContent = () => {
-  // Products data array
-  const products = [
+export const products = [
     { 
       id: 1, 
       title: "Mail Mint", 
-      description: "Create automated abandoned cart recovery campaigns for WooCommerce and EDD stores to win back abandoned customers.", 
+      description: "An easy-to-use email marketing and automation plugin for WordPress & WooCommerce. Create campaigns, manage contacts, and recover abandoned carts with workflows.", 
       image: "/images/img_vector_24x34.png", 
       link: "https://getwpfunnels.com/email-marketing-automation-mail-mint/" 
     },
     { 
       id: 2, 
       title: "WPFunnels", 
-      description: "Generate WooCommerce product feeds for Google Shopping, Facebook feeds and 170+ online marketplaces.", 
+      description: "A drag-and-drop sales funnel builder for WordPress. Design landing pages, checkouts, upsells/downsells, and optimize conversions with A/B testing and analytics.", 
       image: "/images/img_vector_deep_purple_500_32x34.svg", 
       link: "https://getwpfunnels.com/wordpress-funnel-builder-wpfunnels/" 
     },
     { 
       id: 3, 
       title: "Creator LMS", 
-      description: "Create automated abandoned cart recovery campaigns for WooCommerce and EDD stores to win back abandoned customers.", 
+      description: "A complete WordPress LMS plugin to build and sell online courses. Includes quizzes, progress tracking, gamification, and AI-powered course tools.", 
       image: "/images/img_logo.svg", 
       link: "https://getwpfunnels.com/creator-lms" 
     },
     { 
       id: 4, 
       title: "Product Feed Manager", 
-      description: "Generate WooCommerce product feeds for Google Shopping, Facebook feeds and 170+ online marketplaces.", 
+      description: "Generate WooCommerce product feeds for Google Shopping, Facebook, TikTok, and 100+ marketplaces. Supports filters, scheduling, and auto-sync.", 
       image: "/images/img_fav.svg", 
       link: "https://rextheme.com/best-woocommerce-product-feed/" 
     },
     { 
       id: 5, 
       title: "WPVR", 
-      description: "Create 360 virtual tours easily within just a few clicks for Real Estate, Hotels, Art Galleries, Restaurants and more.", 
+      description: "Create 360° virtual tours in WordPress for real estate, hotels, schools, and more. Supports floor plans, hotspots, VR headsets, and mobile devices.", 
       image: "/images/img_fav_deep_purple_a700.svg", 
       link: "https://rextheme.com/wpvr/" 
     },
     { 
       id: 6, 
       title: "Cart Lift", 
-      description: "Create automated abandoned cart recovery campaigns for WooCommerce and EDD stores to win back abandoned customers.", 
+      description: "Recover lost WooCommerce and EDD sales with automated abandoned cart emails. Includes pop-ups, coupons, analytics, and revenue tracking.", 
       image: "/images/img_fav_deep_purple_500_02.svg", 
       link: "https://rextheme.com/cart-lift/" 
     },
-    { 
-      id: 7, 
-      title: "Product One", 
-      description: "This is product one description showcasing our innovative solutions for modern businesses.", 
-      image: "/images/img_vector_24x34.png", 
-      link: "#" 
-    },
-    { 
-      id: 8, 
-      title: "Product Two", 
-      description: "This is product two description highlighting our commitment to excellence and customer satisfaction.", 
-      image: "/images/img_fav.svg", 
-      link: "#" 
-    },
-    { 
-      id: 9, 
-      title: "Product Three", 
-      description: "This is product three description demonstrating our expertise in delivering high-quality solutions.", 
-      image: "/images/img_logo.svg", 
-      link: "#" 
-    }
   ];
+
+const ProductsContent = () => {
+
 
   return (
     <div className="w-full bg-[#ffffff]">
