@@ -11,8 +11,8 @@ const Hero = () => {
         }
     };
     return (
-        <>
-            <section className="w-full max-w-[1440px] px-2 md:px-4 py-8 md:py-12">
+        <section className="w-full mt-[63px] sm:mt-[95px] lg:mt-[126px]">
+            <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2">
                     <div className="col-span-1 space-y-4"> 
                         <Badge
@@ -83,7 +83,7 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <section className="w-full hidden">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-[58px] sm:pt-[87px] lg:pt-[116px]">
                     <div className="flex flex-col lg:flex-row justify-start items-start gap-8 lg:gap-0 w-full">
@@ -162,7 +162,7 @@ const Hero = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </section>
     );
 };
 

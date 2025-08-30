@@ -1,28 +1,60 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@/components/ui/Button';
 import EditText from '@/components/ui/EditText';
 
-const Form = ({ data, onSubmit, loading }) => {
-    const [formData, setFormData] = React.useState(data || {});
+const Form = ({onSubmit, loading }) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [company, setCompany] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+
     const handleInputChange = (e) => {
         // Let the parent handle the state change
-        if (onSubmit) {
-            const { name, value } = e.target;
-            const updatedData = {
-                ...formData,
-                [name]: value
-            };
-            localStorage.setItem('formData', JSON.stringify(updatedData));
+        const { name, value } = e.target;
+        switch (name) {
+            case 'firstName':
+                setFirstName(value);
+                break;
+            case 'lastName':
+                setLastName(value);
+                break;
+            case 'email':
+                setEmail(value);
+                break;
+            case 'phone':
+                setPhone(value);
+                break;
+            case 'company':
+                setCompany(value);
+                break;
+            case 'subject':
+                setSubject(value);
+                break;
+            case 'message':
+                setMessage(value);
+                break;
+            default:
+                break;
         }
     };
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         if (onSubmit) {
-            const updatedDataOBJ = await localStorage.getItem('formData');
-            const updatedData = await JSON.parse(updatedDataOBJ);
-            onSubmit(updatedData, 'submit');
+            const data = {
+                firstName,
+                lastName,
+                email,
+                phone,
+                company,
+                subject,
+                message
+            }
+            onSubmit(data, 'submit');
         }
     };
 
@@ -36,7 +68,7 @@ const Form = ({ data, onSubmit, loading }) => {
                         name="firstName"
                         label="First Name"
                         placeholder="Enter your first name"
-                        value={formData.firstName || ''}
+                        value={firstName || ''}
                         onChange={handleInputChange}
                         required
                         className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
@@ -48,7 +80,7 @@ const Form = ({ data, onSubmit, loading }) => {
                         name="lastName"
                         label="Last Name"
                         placeholder="Enter your last name"
-                        value={formData.lastName || ''}
+                        value={lastName || ''}
                         onChange={handleInputChange}
                         required
                         className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
@@ -65,7 +97,7 @@ const Form = ({ data, onSubmit, loading }) => {
                         type="email"
                         label="Email Address"
                         placeholder="Enter your email"
-                        value={formData.email || ''}
+                        value={email || ''}
                         onChange={handleInputChange}
                         required
                         className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
@@ -78,7 +110,7 @@ const Form = ({ data, onSubmit, loading }) => {
                         type="tel"
                         label="Phone Number"
                         placeholder="Enter your phone number"
-                        value={formData.phone || ''}
+                        value={phone || ''}
                         onChange={handleInputChange}
                         className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                     />
@@ -93,7 +125,7 @@ const Form = ({ data, onSubmit, loading }) => {
                         name="company"
                         label="Company"
                         placeholder="Enter your company name"
-                        value={formData.company || ''}
+                        value={company || ''}
                         onChange={handleInputChange}
                         className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
                     />
@@ -104,7 +136,7 @@ const Form = ({ data, onSubmit, loading }) => {
                         name="subject"
                         label="Subject"
                         placeholder="Enter subject"
-                        value={formData.subject || ''}
+                        value={subject || ''}
                         onChange={handleInputChange}
                         required
                         className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
@@ -119,7 +151,7 @@ const Form = ({ data, onSubmit, loading }) => {
                     name="message"
                     label="Message"
                     placeholder="Tell us about your project..."
-                    value={formData.message || ''}
+                    value={message || ''}
                     onChange={handleInputChange}
                     multiline={true}
                     rows={6}
