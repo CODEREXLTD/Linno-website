@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/common/Header';
@@ -9,41 +9,29 @@ import Footer from '@/components/common/Footer';
 import TeamCard from '@/components/common/TeamCard';
 
 const Content = () => {
-  const [activeSection, setActiveSection] = useState('wordpress');
-  const tableOfContents = [
-    { id: 'wordpress', label: 'Wordpress', active: false },
-    { id: 'funnel', label: 'Funnel', active: true },
-    { id: 'plugins', label: 'Plugins', active: false },
-    { id: 'ux-design', label: 'UX design', active: false },
-    { id: 'user-research', label: 'User Research', active: false },
-    { id: 'web-accessibility', label: 'Web Accessibility', active: false },
-    { id: 'seo-optimization', label: 'SEO Optimization', active: false },
-    { id: 'content-strategy', label: 'Content Strategy', active: false },
-    { id: 'data-analytics', label: 'Data Analytics', active: false },
-  ];
-  const socialLinks = [
-    { name: 'LinkedIn', icon: '/images/img_icon_gray_900.svg' },
-    { name: 'Facebook', icon: '/images/img_vector_gray_900.svg' },
-    { name: 'Twitter', icon: '/images/img_vector_gray_900_14x16.svg' },
-    { name: 'Instagram', icon: '/images/img_icon_gray_900_16x16.svg' },
-  ];
-  const locations = [
-    {
-      flag: '/images/img_twemoji_flag_bangladesh.svg',
-      country: 'Dhaka',
-      address: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215',
-    },
-    {
-      flag: '/images/img_twemoji_flag_united_states.svg',
-      country: 'United States',
-      address: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215',
-    },
-    {
-      flag: '/images/img_emojione_v1_flag_for_canada.svg',
-      country: 'Canada',
-      address: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215',
-    },
-  ];
+	const [headings, setHeadings] = useState([]);
+
+	useEffect(() => {
+		// Grab all h2 and h3 headings for TOC
+		const elements = Array.from(document.querySelectorAll("h2, h3"));
+		const mapped = elements.map((el) => ({
+		id: el.innerText.replace(/\s+/g, "-").toLowerCase(),
+		text: el.innerText,
+		level: el.tagName,
+		}));
+
+		// Add IDs to headings if not already present
+		mapped.forEach((h) => {
+		const el = document.getElementById(h.id);
+		if (!el) {
+			document
+			.querySelector(`[data-text='${h.text}']`)
+			?.setAttribute("id", h.id);
+		}
+		});
+
+		setHeadings(mapped);
+	}, []);
   	const formattedToday = new Intl.DateTimeFormat('en-US', {
         month: 'long',
         day: 'numeric',
@@ -88,13 +76,23 @@ const Content = () => {
 
 					<section className="w-full pb-[63px] sm:pb-[95px] lg:pb-[126px] bg-white">
                         <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
-                            <div className="grid grid-cols-2">
-								<div>
+                            <div className="grid grid-cols-3 gap-8">
+								<aside className="md:col-span-1 sticky top-20 h-fit p-20">
+									<h4 className="font-sora text-lg font-semibold mb-3">Table of Contents</h4>
+									<ul className="space-y-4 text-[#51515F] text-base">
+										{headings.map((h, i) => (
+											<li
+												key={i}
+												className={`pl-${h.level === "H3" ? "4" : "0"} text-sm hover:text-blue-600 text-[#585A65] leading-6`}
+											>
+												<Link href={`#${h.id}`}>{h.text}</Link>
+											</li>
+										))}
+									</ul>
+								</aside>
 
-								</div>
 
-
-								<div>
+								<div className='col-span-2'>
 									<p className='text-[#51515F] font-sora text-xl leading-10'>
 										WordPress is a powerful CMS, used to build over 27% of all websites on the internet. It offers over 3000 free themes and over 8000 premium themes, that are GPL licensed, for developing websites.
 										While creating a website, you may choose to among brilliant themes. However, you should get familiar with how to create a child theme.
