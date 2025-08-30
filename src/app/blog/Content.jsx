@@ -138,11 +138,11 @@ const Content = () => {
 
                     <section className="w-full py-[63px] sm:py-[95px] lg:py-[126px] bg-white">
                         <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
-                            <div className="flex flex-col lg:flex-row gap-[40px] sm:gap-[50px] lg:gap-[64px] xl:gap-[474px] mt-[80px] sm:mt-[95px] lg:mt-[110px]">
+                            <div className="flex flex-col lg:flex-row gap-[40px] sm:gap-[50px] lg:gap-[64px] xl:gap-[474px]">
                         {/* Sidebar */}
                         <div className="w-full lg:w-[200px] xl:w-[12%] order-2 lg:order-1">
-                        <div className="pt-[20px] sm:pt-[23px] lg:pt-[26px] pb-[20px] sm:pb-[23px] lg:pb-[26px]">
-                            <div className="mt-[60px] sm:mt-[75px] lg:mt-[90px]">
+                        <div className="pb-[20px] sm:pb-[23px] lg:pb-[26px]">
+                            <div className="">
                                 <div className="flex flex-row lg:flex-col gap-[20px] sm:gap-[25px] lg:gap-[36px] overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0">
                                     {categories?.map((category, index) => (
                                         <div
