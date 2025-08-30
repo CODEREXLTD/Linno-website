@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   // Handle scroll effect
   useEffect(() => {
@@ -28,6 +30,7 @@ const Header = () => {
   }, [menuOpen]);
 
   const menuItems = [
+    { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
     { label: 'Products', href: '/products' },
     { label: 'Blog', href: '/blog' },
@@ -41,6 +44,16 @@ const Header = () => {
 
   const handleMenuItemClick = () => {
     setMenuOpen(false);
+  };
+
+  const isActiveRoute = (href) => {
+    if (href === '/' && pathname === '/') {
+      return true;
+    }
+    if (href !== '/' && pathname.startsWith(href)) {
+      return true;
+    }
+    return false;
   };
 
   return (
@@ -107,37 +120,41 @@ const Header = () => {
             aria-label="Main navigation"
           >
             <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 xl:gap-8 p-4 lg:p-0 items-stretch lg:items-center max-h-[calc(100vh-80px)] lg:max-h-none overflow-y-auto lg:overflow-visible">
-              {menuItems?.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  onClick={handleMenuItemClick}
-                  className="
-                    block lg:inline-block
-                    px-4 py-3 lg:px-2 lg:py-1
-                    text-base lg:text-sm xl:text-base 
-                    font-sora font-normal 
-                    leading-tight
-                    text-global-5 
-                    hover:text-global-3 
-                    hover:bg-gray-100 lg:hover:bg-transparent
-                    rounded-md lg:rounded-none
-                    transition-all duration-200 
-                    focus:outline-none 
-                    focus:ring-2 
-                    focus:ring-global-3 
-                    focus:ring-opacity-50
-                    border-b lg:border-b-0 
-                    border-gray-100 
-                    last:border-b-0
-                    text-center lg:text-left
-                    whitespace-nowrap
-                  "
-                  role="menuitem"
-                >
-                  {item?.label}
-                </Link>
-              ))}
+              {menuItems?.map((item, index) => {
+                const isActive = isActiveRoute(item.href);
+                return (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    onClick={handleMenuItemClick}
+                    className={`
+                      block lg:inline-block
+                      px-4 py-3 lg:px-2 lg:py-1
+                      text-base lg:text-sm xl:text-base 
+                      font-sora
+                      leading-tight
+                      ${isActive 
+                        ? 'text-[#3433fe] bg-[#3433fe]/10 lg:bg-transparent lg:text-[#3433fe] font-semibold lg:border-b-2 lg:border-[#3433fe]' 
+                        : 'text-global-5 hover:text-[#3433fe] hover:bg-gray-100 lg:hover:bg-transparent font-normal'
+                      }
+                      rounded-md lg:rounded-none
+                      transition-all duration-200 
+                      focus:outline-none 
+                      focus:ring-2 
+                      focus:ring-[#3433fe] 
+                      focus:ring-opacity-50
+                      border-b lg:border-b-0 
+                      border-gray-100 
+                      last:border-b-0
+                      text-center lg:text-left
+                      whitespace-nowrap
+                    `}
+                    role="menuitem"
+                  >
+                    {item?.label}
+                  </Link>
+                );
+              })}
             </div>
           </nav>
         </div>
