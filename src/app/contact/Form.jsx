@@ -1,179 +1,168 @@
-'use client';
-import React, { useState } from 'react';
-import Button from '@/components/ui/Button';
-import EditText from '@/components/ui/EditText';
+"use client"
 
-const Form = ({onSubmit, loading }) => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [company, setCompany] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
+import { useState } from "react"
+import Button from "@/components/ui/Button"
 
-    const handleInputChange = (e) => {
-        // Let the parent handle the state change
-        const { name, value } = e.target;
-        switch (name) {
-            case 'firstName':
-                setFirstName(value);
-                break;
-            case 'lastName':
-                setLastName(value);
-                break;
-            case 'email':
-                setEmail(value);
-                break;
-            case 'phone':
-                setPhone(value);
-                break;
-            case 'company':
-                setCompany(value);
-                break;
-            case 'subject':
-                setSubject(value);
-                break;
-            case 'message':
-                setMessage(value);
-                break;
-            default:
-                break;
-        }
-    };
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    subject: "",
+    message: "",
+  })
 
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-        if (onSubmit) {
-            const data = {
-                firstName,
-                lastName,
-                email,
-                phone,
-                company,
-                subject,
-                message
-            }
-            onSubmit(data, 'submit');
-        }
-    };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
 
-    return (
-        <form onSubmit={handleFormSubmit} className="space-y-[20px] sm:space-y-[24px] lg:space-y-[28px]">
-            {/* Name Fields */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px] lg:gap-[24px]">
-                <div>
-                    <EditText
-                        id="firstName"
-                        name="firstName"
-                        label="First Name"
-                        placeholder="Enter your first name"
-                        value={firstName || ''}
-                        onChange={handleInputChange}
-                        required
-                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
-                    />
-                </div>
-                <div>
-                    <EditText
-                        id="lastName"
-                        name="lastName"
-                        label="Last Name"
-                        placeholder="Enter your last name"
-                        value={lastName || ''}
-                        onChange={handleInputChange}
-                        required
-                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
-                    />
-                </div>
-            </div>
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("Form submitted:", formData)
+    alert("Thank you for your message! We'll get back to you soon.")
+  }
 
-            {/* Email and Phone */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px] lg:gap-[24px]">
-                <div>
-                    <EditText
-                        id="email"
-                        name="email"
-                        type="email"
-                        label="Email Address"
-                        placeholder="Enter your email"
-                        value={email || ''}
-                        onChange={handleInputChange}
-                        required
-                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
-                    />
-                </div>
-                <div>
-                    <EditText
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        label="Phone Number"
-                        placeholder="Enter your phone number"
-                        value={phone || ''}
-                        onChange={handleInputChange}
-                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
-                    />
-                </div>
-            </div>
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+      <div className="mb-8">
+        <h1 className="text-3xl font-semibold text-slate-800 mb-3">Send us a Message</h1>
+        <p className="text-gray-600 text-base">Fill out the form below and we'll get back to you within 24 hours.</p>
+      </div>
 
-            {/* Company and Subject */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px] lg:gap-[24px]">
-                <div>
-                    <EditText
-                        id="company"
-                        name="company"
-                        label="Company"
-                        placeholder="Enter your company name"
-                        value={company || ''}
-                        onChange={handleInputChange}
-                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
-                    />
-                </div>
-                <div>
-                    <EditText
-                        id="subject"
-                        name="subject"
-                        label="Subject"
-                        placeholder="Enter subject"
-                        value={subject || ''}
-                        onChange={handleInputChange}
-                        required
-                        className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe]"
-                    />
-                </div>
-            </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* First Name and Last Name Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+              First Name <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              placeholder="dd"
+              required
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+              Last Name <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              placeholder="Enter your last name"
+              required
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+        </div>
 
-            {/* Message */}
-            <div>
-                <EditText
-                    id="message"
-                    name="message"
-                    label="Message"
-                    placeholder="Tell us about your project..."
-                    value={message || ''}
-                    onChange={handleInputChange}
-                    multiline={true}
-                    rows={6}
-                    required
-                    className="border-gray-300 focus:border-[#3433fe] focus:ring-[#3433fe] resize-none"
-                />
-            </div>
+        {/* Email and Phone Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email Address <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Enter your email"
+              required
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="Enter your phone number"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+        </div>
 
-            {/* Submit Button */}
-            <div className="pt-[10px] sm:pt-[15px] lg:pt-[20px]">
-                <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    loading={loading}
-                    className="w-full sm:w-auto min-w-[200px] text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[14px] sm:pt-[16px] lg:pt-[18px] pr-[32px] sm:pr-[40px] lg:pr-[48px] pb-[14px] sm:pb-[16px] lg:pb-[18px] pl-[32px] sm:pl-[40px] lg:pl-[48px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200"
-                >
-                    {loading ? 'Sending...' : 'Send Message'}
-                </Button>
-            </div>
-        </form>
-    );
-};
+        {/* Company and Subject Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+              Company
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={formData.company}
+              onChange={handleInputChange}
+              placeholder="Enter your company name"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+              Subject <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              placeholder="Enter subject"
+              required
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+        </div>
 
-export default Form;
+        {/* Message Field */}
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            Message <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
+            placeholder="Tell us about your project..."
+            required
+            rows={6}
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+          />
+        </div>
+
+        {/* Submit Button */}
+        <div>
+          <Button
+            type="submit"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors duration-200"
+          >
+            Send Message
+          </Button>
+        </div>
+      </form>
+    </div>
+  )
+}

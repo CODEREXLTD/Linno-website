@@ -3,9 +3,7 @@ import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
-import Button from '@/components/ui/Button';
-import EditText from '@/components/ui/EditText';
-import Form from './Form';
+import ContactForm from './Form';
 
 const contactInfo = [
     {
@@ -52,62 +50,6 @@ const socialLinks = [
 ];
 
 const ContactPage = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: ''
-    });
-    const [loading, setLoading] = useState(false);
-
-    const handleInputChange = useCallback((e) => {
-        const { name, value } = e.target;
-        setFormData(prev => {
-            // Only update if the value actually changed
-            if (prev[name] === value) return prev;
-            return {
-                ...prev,
-                [name]: value
-            };
-        });
-    }, []);
-
-    const handleFormUpdate = useCallback((newData, action) => {
-        if (action === 'submit') {
-            handleSubmit({
-                preventDefault: () => {},
-                target: {}
-            });
-        } else {
-            setFormData(newData);
-        }
-    }, []);
-
-    const handleSubmit = async (e) => {
-        setLoading(true);
-        
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        console.log('Form submitted:', formData);
-        setLoading(false);
-        
-        // Reset form
-        setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            company: '',
-            subject: '',
-            message: ''
-        });
-        
-        alert('Thank you for your message! We\'ll get back to you soon.');
-    };
 
     return (
         <div className="w-full bg-white">
@@ -135,7 +77,7 @@ const ContactPage = () => {
             </section>
 
             {/* Main Contact Section */}
-            <section className="w-full bg-white pb-[60px] sm:pb-[80px] lg:pb-[120px]">
+            <section className="w-full bg-white py-[60px] sm:py-[80px] lg:py-[120px]">
                 <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px]">
                         
@@ -149,12 +91,8 @@ const ContactPage = () => {
                                     Fill out the form below and we'll get back to you within 24 hours.
                                 </p>
                             </div>
-                            
-                            <Form 
-                                data={formData}
-                                onSubmit={handleFormUpdate}
-                                loading={loading}
-                            />
+
+                            <ContactForm />
                         </div>
 
                         {/* Contact Information */}
