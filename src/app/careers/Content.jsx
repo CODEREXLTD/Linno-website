@@ -104,6 +104,15 @@ const Content = () => {
 			buttonStyle: 'outline',
             buttonLink: 'https://inside.coderex.co/jobs/digital-product-marketing-executive--mid-level--gokgm'
 		},
+		{
+			category: 'Engineering',
+			title: 'AI Engineer ',
+			location: 'On-Site',
+			type: 'Full Time',
+			level: 'Lead-Role',
+			buttonStyle: 'outline',
+            buttonLink: 'https://inside.coderex.co/jobs/ai-engineer--lead-role--nbgze'
+		},
 	];
 
 	return (
