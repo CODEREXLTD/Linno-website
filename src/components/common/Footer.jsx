@@ -73,7 +73,7 @@ const Footer = () => {
                 </div>
                 <address className="text-sm sm:text-base lg:text-lg font-inter font-medium leading-[22px] sm:leading-[26px] lg:leading-[30px] text-global-5 text-center lg:text-left not-italic">
                   Level 12B, 69/1 Chandrashila Suvastu Tower,<br className="hidden sm:block" />
-                  <span className="sm:hidden"> </span>Panthapath, Dhaka 1215
+                  <span className="sm:hidden"> </span>Panthapath, Dhaka 1205
                 </address>
               </div>
             </div>

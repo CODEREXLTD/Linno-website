@@ -461,13 +461,13 @@ export default function BlogPost({ params }) {
               </div>
               <div className="flex flex-row justify-between items-center w-full mr-[86px] ml-[46px]">
                 <span className="text-[8px] sm:text-[11px] md:text-[13px] lg:text-[16px] font-medium leading-[13px] sm:leading-[18px] md:leading-[22px] lg:leading-[27px] text-[#51515f] w-[22%]">
-                  Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215
+                  Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1205
                 </span>
                 <span className="text-[8px] sm:text-[11px] md:text-[13px] lg:text-[16px] font-medium leading-[13px] sm:leading-[18px] md:leading-[22px] lg:leading-[27px] text-[#51515f] w-[22%]">
-                  Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215
+                  Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1205
                 </span>
                 <span className="text-[8px] sm:text-[11px] md:text-[13px] lg:text-[16px] font-medium leading-[13px] sm:leading-[18px] md:leading-[22px] lg:leading-[27px] text-[#51515f] w-[22%]">
-                  Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215
+                  Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1205
                 </span>
               </div>
             </div>

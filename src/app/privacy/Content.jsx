@@ -23,7 +23,7 @@ const PrivacyContent = () => {
     {
       icon: '/images/img_icon_gray_900_2.svg',
       title: 'Office',
-      info: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1215',
+      info: 'Level 12B, 69/1 Chandrashila Suvastu Tower, Panthapath, Dhaka 1205',
       link: null
     }
   ];
