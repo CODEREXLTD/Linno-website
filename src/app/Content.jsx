@@ -151,12 +151,13 @@ const Content = () => {
 						</div>
 					</div>
 				</section>
+
 				{/* Our Key Products Section */}
-				<section className="w-full bg-[#ffffff] pt-[58px] sm:pt-[87px] lg:pt-[116px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[58px] sm:pb-[87px] lg:pb-[116px] pl-[28px] sm:pl-[42px] lg:pl-[56px]">
+				<section className="w-full bg-[#ffffff] py-[50px] lg:py-[120px] px-4">
 					<div className="w-full max-w-[1310px] mx-auto">
 						<div className="flex flex-col gap-[26px] sm:gap-[39px] lg:gap-[52px] justify-center items-center w-full">
 							{/* Section Header */}
-							<div className="flex flex-col justify-center items-start w-full]">
+							<div className="flex flex-col justify-center items-start w-full">
 								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-[#0b0b35] w-auto mb-[34px]">
 									<span className="font-normal">Our </span>
 									<span className="font-bold">Key Products</span>
