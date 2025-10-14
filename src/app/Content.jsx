@@ -36,7 +36,7 @@ const Content = () => {
 										<Badge
 											highlight='Innovation.'
 											text='Fueled by People'
-											className='min-w-[330px] !py-2'
+											className='max-w-[330px] !py-2'
 										/>
 									</div>
 									{/* Main Heading and Description */}
@@ -114,6 +114,7 @@ const Content = () => {
 										onClick={() => {
 											window.open('https://getwpfunnels.com/', '_blank')
 										}}
+										className='hover:bg-[#2622c4] hover:text-white hover:font-semibold active:bg-[#2622c4] transition-all duration-200 hover:border-transparent'
 									>
 										Learn More
 									</Button>
@@ -141,6 +142,7 @@ const Content = () => {
 										onClick={() => {
 											window.open('https://rextheme.com/', '_blank')
 										}}
+										className='hover:bg-[#2622c4] hover:text-white hover:font-semibold active:bg-[#2622c4] transition-all duration-200 hover:border-transparent'
 									>
 										Learn More
 									</Button>

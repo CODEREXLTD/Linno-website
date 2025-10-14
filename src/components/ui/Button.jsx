@@ -21,11 +21,11 @@ const Button = ({
   ...props
 }) => {
   const variants = {
-    primary: 'bg-button-1 text-global-7 hover:bg-[#2d2bdb] active:bg-[#2622c4] focus:ring-global-3 shadow-sm hover:shadow-md',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 active:bg-gray-400 focus:ring-gray-300 shadow-sm hover:shadow-md',
-    outline: 'border-2 border-gray-300 text-gray-700 hover:text-gray-700 bg-transparent hover:bg-gray-50 active:bg-gray-100 focus:ring-gray-300 hover:border-gray-400',
-    ghost: 'text-gray-700 bg-transparent hover:bg-gray-100 active:bg-gray-200 focus:ring-gray-300',
-    danger: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 focus:ring-red-500 shadow-sm hover:shadow-md'
+    primary: 'bg-button-1 text-global-7 hover:bg-[#2d2bdb] active:bg-[#2622c4] shadow-sm hover:shadow-md',
+    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 active:bg-gray-400 shadow-sm hover:shadow-md',
+    outline: 'border-2 border-gray-300 text-gray-700 hover:text-gray-700 bg-transparent hover:bg-gray-50 active:bg-gray-100  hover:border-gray-400',
+    ghost: 'text-gray-700 bg-transparent hover:bg-gray-100 active:bg-gray-200',
+    danger: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800  shadow-sm hover:shadow-md'
   };
 
   const sizes = {
@@ -37,7 +37,7 @@ const Button = ({
   };
 
   const responsiveRadius = 'rounded-md sm:rounded-lg';
-  const responsiveFocus = 'focus:ring-2 sm:focus:ring-2 md:focus:ring-4';
+  const responsiveFocus = '';
 
   const LoadingSpinner = () => (
     <svg 
@@ -97,7 +97,6 @@ const Button = ({
             ease-in-out
             focus:outline-none 
             ${responsiveFocus}
-            focus:ring-opacity-50
             ${variants?.[variant]} 
             ${sizes?.[size]} 
             ${fullWidth ? 'w-full' : 'w-auto'}
@@ -143,7 +142,6 @@ const Button = ({
           ease-in-out
           focus:outline-none 
           ${responsiveFocus}
-          focus:ring-opacity-50
           ${variants?.[variant]} 
           ${sizes?.[size]} 
           ${fullWidth ? 'w-full' : 'w-auto'}
