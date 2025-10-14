@@ -172,7 +172,7 @@ const Content = () => {
 										<div key={index} className="flex flex-col gap-[18px] sm:gap-[24px] lg:gap-[30px] xl:gap-[36px] justify-center items-center w-full bg-[linear-gradient(117deg,#3433fe0f_0%,_#00c8530f_100%)] rounded-[6px] pt-[15px] sm:pt-[18px] lg:pt-[22px] xl:pt-[20px] pr-[15px] sm:pr-[18px] lg:pr-[22px] xl:pr-[20px] pb-[15px] sm:pb-[18px] lg:pb-[22px] xl:pb-[20px] pl-[15px] sm:pl-[18px] lg:pl-[22px] xl:pl-[20px] hover:shadow-lg transition-shadow duration-300">
 											<div className="flex flex-col gap-[12px] sm:gap-[15px] lg:gap-[18px] xl:gap-[20px] justify-start items-start w-full">
 												<div className="flex justify-center items-center w-auto bg-[#ffffff] rounded-[10px] pt-[8px] sm:pt-[10px] lg:pt-[12px] xl:pt-[16px] pr-[7px] sm:pr-[9px] lg:pr-[11px] xl:pr-[14px] pb-[8px] sm:pb-[10px] lg:pb-[12px] xl:pb-[16px] pl-[7px] sm:pl-[9px] lg:pl-[11px] xl:pl-[14px]">
-													<Image
+													<img
 														src={product.image}
 														alt={product.title}
 														width={34}
@@ -291,7 +291,7 @@ const Content = () => {
 						<div className="flex flex-col gap-[17px] sm:gap-[26px] lg:gap-[34px] justify-start items-center w-full lg:w-[24%]">
 							<div className="flex justify-center w-full relative">
 								<div className="w-full max-w-[402px] h-[137px] sm:h-[206px] lg:h-[274px] relative">
-									<Image
+									<img
 										src="/images/img_image.png"
 										alt="Team collaboration"
 										width={402}
