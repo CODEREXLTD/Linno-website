@@ -294,8 +294,6 @@ const Content = () => {
 									<img
 										src="/images/img_image.png"
 										alt="Team collaboration"
-										width={402}
-										height={274}
 										className="w-full h-full object-cover rounded-lg"
 									/>
 								</div>
@@ -305,8 +303,6 @@ const Content = () => {
 									<img
 										src="/images/img_pxl_20230818_110706499.png"
 										alt="Office environment"
-										width={400}
-										height={368}
 										className="w-full h-auto rounded-lg"
 									/>
 								</div>
@@ -318,8 +314,6 @@ const Content = () => {
 								<img
 									src="/images/home-img2.jpg"
 									alt="Team meeting"
-									width={400}
-									height={356}
 									className="w-full h-auto rounded-lg"
 								/>
 							</div>
@@ -327,8 +321,6 @@ const Content = () => {
 								<img
 									src="/images/img_image_8.png"
 									alt="Workspace"
-									width={400}
-									height={266}
 									className="w-full h-auto rounded-lg"
 								/>
 							</div>
