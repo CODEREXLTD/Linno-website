@@ -484,6 +484,7 @@ const Content = () => {
           </div>
         </div>
       </section>
+
       {/* Skills Section */}
       <section className="w-full bg-[#090936] py-[50px] md:py-[120px]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -550,9 +551,9 @@ const Content = () => {
               software solutions for your business.
             </p>
           </div>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+          <div className="flex flex-col md:flex-row gap-8 lg:gap-16">
             {/* Left Side - Department Filter */}
-            <div className="w-full lg:w-1/3">
+            <div className="w-full md:w-1/3 md:sticky top-20 self-start">
               <div className="space-y-4 sm:space-y-6 lg:space-y-8 mt-0 md:mt-4 lg:mt-10">
                 {departments?.map((dept, index) => (
                   <div
@@ -687,16 +688,7 @@ const Content = () => {
                               </p>
                             </div>
                           </div>
-                          <button
-                            className="flex-shrink-0 p-2 rounded-full hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                            aria-label={`View ${member?.name} on LinkedIn`}
-                          >
-                            <div className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] lg:w-[24px] lg:h-[24px] bg-[#0077b5] rounded-sm flex items-center justify-center">
-                              <div className="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] lg:w-[14px] lg:h-[14px] bg-white rounded-sm flex items-center justify-center text-[8px] font-bold text-[#0077b5]">
-                                in
-                              </div>
-                            </div>
-                          </button>
+               
                         </div>
                       </div>
                     </div>
