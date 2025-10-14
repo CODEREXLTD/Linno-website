@@ -272,7 +272,7 @@ const Content = () => {
 									Check Open Positions
 								</Button>
 							</div>
-							<div className="w-full max-w-[400px]">
+							<div className="w-full">
 								<img
 									src="/images/img_08_1.png"
 									alt="Team member"
