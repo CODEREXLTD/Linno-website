@@ -392,7 +392,7 @@ const Content = () => {
       {/* Hero Section with Background */}
       <section className="w-full">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-20 lg:py-24 xl:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-8 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-8 lg:gap-20 items-start">
             <div>
               <h1 className="text-[#0B0B35] font-[Sora] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[80px] font-bold leading-tight sm:leading-tight md:leading-tight lg:leading-[1.15] xl:leading-[92px]">
                 About Us
@@ -400,9 +400,7 @@ const Content = () => {
             </div>
             <div>
               <p className="text-[#51515F] font-inter text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed sm:leading-relaxed md:leading-8 lg:leading-[35px] mb-5 sm:mb-8 lg:mb-12">
-                Within our intimate team, we cherish the diverse backgrounds, cultures and
-                perspectives that each individual brings. Our team members represent a tapestry of
-                experiences, talents and skills that enriches our collective creativity.
+                We combine expert resources with the latest technologies to deliver high-quality software solutions for your business.
               </p>
               <Button
                 variant="primary"
@@ -437,14 +435,17 @@ const Content = () => {
       </section>
 
       {/* Values Section */}
-      <section className="w-full py-[50px] sm:py-[75px] lg:py-[100px] px-4 sm:px-6 lg:px-8">
+      <section className="w-full py-[50px] sm:py-[75px] lg:py-[100px] px-4 sm:px-6 lg:px-8 bg-[#F2F5FB]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-[10px] mb-8 sm:mb-12 lg:mb-16">
+          <div className="space-y-2 mb-8 sm:mb-12">
             <h2 className="text-[#0B0B35] font-sora text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
               Our <span className="font-bold  ">Values</span>
             </h2>
+            <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[24px] sm:leading-[27px] lg:leading-[30px] text-[#51515f] w-full max-w-[600px]">
+                We combine expert resources with the latest technologies to deliver high-quality software solutions for your business.
+            </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {values?.map((value, index) => (
               <div
                 key={index}
@@ -487,7 +488,7 @@ const Content = () => {
       <section className="w-full bg-[#090936] py-[50px] md:py-[120px]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Background Image Section */}
-          <div className="mx-auto py-[60px] sm:py-[90px] lg:py-[120px] relative">
+          <div className="mx-auto relative">
             <div className="relative z-10 flex justify-center items-start w-[48%] mx-auto mb-[36px] sm:mb-[54px] lg:mb-[72px]">
               <div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-center">
                 <h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-white">
@@ -501,7 +502,7 @@ const Content = () => {
             </div>
           </div>
           {/* Benefits Grid */}
-          <div className="w-full px-[8px] sm:px-[15px] lg:px-[20px] xl:px-[26px] py-[8px] sm:py-[15px] lg:py-[20px] xl:py-[26px] -mt-[50px] sm:-mt-[75px] lg:-mt-[105px] xl:-mt-[140px] mb-[40px] sm:mb-[65px] lg:mb-[98px] xl:mb-[130px] relative z-20">
+          <div className="w-full relative z-20">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] sm:gap-[50px] lg:gap-[80px] xl:gap-[146px] w-full">
               {benefits?.map((benefit, index) => (
                 <div
