@@ -246,9 +246,9 @@ const Content = () => {
 					</div>
 					{/* Benefits Grid */}
 					<div className="w-full relative z-20">
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] sm:gap-[50px] lg:gap-[80px] xl:gap-[146px] w-full">
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:gap-[30px] w-full">
 							{benefits?.map((benefit, index) => (
-								<div key={index} className="flex flex-col sm:flex-row lg:flex-row justify-start items-center sm:items-start lg:items-center gap-[10px] sm:gap-[15px] lg:gap-[20px] w-full group hover:scale-105 transition-transform duration-200 glass border-b-[rgba(255,255,255,0.48)] border-t-[rgba(255,255,255,0.48)]">
+								<div key={index} className="flex flex-col sm:flex-row lg:flex-row justify-start items-center sm:items-start lg:items-center gap-[10px] sm:gap-[15px] lg:gap-[20px] w-full group hover:scale-105 transition-transform duration-200 backdrop-blur-md bg-white/5 border border-white/10 px-[30px] py-[26px] relative rounded-[12px]  shadow-lg">
 									<div className="bg-[#3433fe] rounded-[30px] p-[12px] sm:p-[14px] lg:p-[16px] w-[56px] h-[56px] sm:w-[60px] sm:h-[60px] lg:w-[62px] lg:h-[62px] flex items-center justify-center flex-shrink-0 group-hover:shadow-lg transition-shadow duration-200">
 										<Image
 											src={benefit?.icon}

@@ -13,5 +13,5 @@ body {
 }
 
 .glass {
-  @apply bg-transparent backdrop-blur-md rounded-xl p-6 text-left hover:scale-110 transition-all duration-300 border-l border-r border-t-0 border-b-0 border-[1px] border-l-[rgb(70_68_210/0.62)] border-r-[rgba(255,255,255,0.48)]
+  @apply backdrop-blur-md bg-white/5 border border-white/10 px-[30px] py-[26px] relative rounded-[12px]  shadow-lg
 }
