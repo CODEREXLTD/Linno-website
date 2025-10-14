@@ -278,7 +278,7 @@ const Content = () => {
 								</Button>
 							</div>
 							<div className="w-full max-w-[400px]">
-								<Image
+								<img
 									src="/images/img_08_1.png"
 									alt="Team member"
 									width={400}
@@ -302,7 +302,7 @@ const Content = () => {
 							</div>
 							<div className="flex justify-center items-center w-auto">
 								<div className="w-full max-w-[400px]">
-									<Image
+									<img
 										src="/images/img_pxl_20230818_110706499.png"
 										alt="Office environment"
 										width={400}
@@ -315,7 +315,7 @@ const Content = () => {
 						{/* Right Content */}
 						<div className="flex flex-col gap-[17px] sm:gap-[26px] lg:gap-[34px] justify-start items-center w-full lg:w-[22%]">
 							<div className="w-full max-w-[400px]">
-								<Image
+								<img
 									src="/images/home-img2.jpg"
 									alt="Team meeting"
 									width={400}
@@ -324,7 +324,7 @@ const Content = () => {
 								/>
 							</div>
 							<div className="w-full max-w-[400px]">
-								<Image
+								<img
 									src="/images/img_image_8.png"
 									alt="Workspace"
 									width={400}
