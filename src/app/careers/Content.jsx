@@ -1,11 +1,12 @@
 'use client';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Button from '@/components/ui/Button';
 import Hero from './components/Hero';
+import Application from './components/Application';
 
 const Content = () => {
     const router = useRouter();
@@ -121,11 +122,11 @@ const Content = () => {
 			<Hero />
 			{/* Why Work At Linno Section */}
 			<section className="w-full bg-[linear-gradient(90deg,#3433fe0f_0%,_#00c8530f_100%)] mt-[63px] sm:mt-[95px] lg:mt-[126px]">
-				<div className="w-full max-w-[1440px] px-2 md:px-4 py-8 md:py-12 mx-auto">
+				<div className="w-full max-w-[1440px] px-2 md:px-4 py-[50px] lg:py-[120px] mx-auto">
 					<div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-4">
 						{/* Left Content */}
 						<div className="flex flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] items-center w-full lg:w-[66%]">
-							<div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-start w-full">
+							<div className="flex flex-col gap-[12px] lg:gap-[26px] items-start w-full">
 								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-left text-[#0b0b35]">
 									Why Work At <span className="font-bold">Linno?</span>
 								</h2>
@@ -135,8 +136,8 @@ const Content = () => {
 							</div>
 
 							{/* Features Grid */}
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-4 w-full">
-								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-[50px] w-full">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start w-full max-w-[270px]">
 									<Image
 										src="/images/img_icon_gray_900_1.svg"
 										alt="Growth icon"
@@ -153,7 +154,7 @@ const Content = () => {
 										</p>
 									</div>
 								</div>
-								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start w-full max-w-[270px]">
 									<Image
 										src="/images/img_icon_gray_900_2.svg"
 										alt="Purpose icon"
@@ -170,7 +171,7 @@ const Content = () => {
 										</p>
 									</div>
 								</div>
-								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start w-full max-w-[270px]">
 									<Image
 										src="/images/img_icon_gray_900_3.svg"
 										alt="Culture icon"
@@ -187,7 +188,7 @@ const Content = () => {
 										</p>
 									</div>
 								</div>
-								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start">
+								<div className="flex flex-col gap-[10px] sm:gap-[15px] lg:gap-[20px] items-start w-full max-w-[270px]">
 									<Image
 										src="/images/img_icon_gray_900_4.svg"
 										alt="Voice icon"
@@ -231,7 +232,7 @@ const Content = () => {
 			<section className="w-full bg-[#090936] py-[50px] md:py-[120px]">
 				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
 					{/* Background Image Section */}
-					<div className="mx-auto py-[60px] sm:py-[90px] lg:py-[120px] relative">
+					<div className="mx-auto relative">
 						<div className="relative z-10 flex justify-center items-start w-[48%] mx-auto mb-[36px] sm:mb-[54px] lg:mb-[72px]">
 							<div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-center">
 								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-white">
@@ -244,7 +245,7 @@ const Content = () => {
 						</div>
 					</div>
 					{/* Benefits Grid */}
-					<div className="w-full px-[8px] sm:px-[15px] lg:px-[20px] xl:px-[26px] py-[8px] sm:py-[15px] lg:py-[20px] xl:py-[26px] -mt-[50px] sm:-mt-[75px] lg:-mt-[105px] xl:-mt-[140px] mb-[40px] sm:mb-[65px] lg:mb-[98px] xl:mb-[130px] relative z-20">
+					<div className="w-full relative z-20">
 						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] sm:gap-[50px] lg:gap-[80px] xl:gap-[146px] w-full">
 							{benefits?.map((benefit, index) => (
 								<div key={index} className="flex flex-col sm:flex-row lg:flex-row justify-start items-center sm:items-start lg:items-center gap-[10px] sm:gap-[15px] lg:gap-[20px] w-full group hover:scale-105 transition-transform duration-200 glass border-b-[rgba(255,255,255,0.48)] border-t-[rgba(255,255,255,0.48)]">
@@ -279,6 +280,7 @@ const Content = () => {
 					</div>
 				</div>
 			</section>
+
 			{/* Culture Section */}
 			<section className="w-full bg-[#F2F5FB]">
 				<div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-[75px] sm:py-[113px] lg:py-[150px]">
@@ -362,92 +364,11 @@ const Content = () => {
 								We're Hiring! See something that interests you? Apply here.
 							</p>
 						</div>
+
 						{/* Job Listings */}
 						<div className="flex flex-col gap-[30px] sm:gap-[40px] lg:gap-[60px] xl:gap-[86px] items-center w-full lg:w-[80%] xl:w-[52%] mb-[4px] sm:mb-[6px] lg:mb-[8px]">
 							{jobPositions?.map((job, index) => (
-								<div key={index} className="flex flex-col gap-[12px] sm:gap-[18px] lg:gap-[24px] items-center w-full group">
-									<div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-8 w-full p-4 sm:p-6 lg:p-0 bg-white lg:bg-transparent rounded-lg lg:rounded-none shadow-sm lg:shadow-none hover:shadow-md lg:hover:shadow-none transition-shadow duration-200">
-										<div className="flex flex-col lg:flex-row justify-start lg:justify-between items-start lg:items-center w-full gap-4 lg:gap-0">
-											<div className="flex flex-col sm:flex-row justify-start items-start sm:items-center w-full gap-3 sm:gap-6 lg:gap-8">
-												<span className="text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-inter font-medium leading-[18px] sm:leading-[20px] lg:leading-[22px] xl:leading-[25px] text-[#3433fe] px-3 py-1 bg-blue-50 rounded-full text-center lg:px-0 lg:py-0 lg:bg-transparent lg:rounded-none">
-													{job?.category}
-												</span>
-												<div className="flex flex-col md:flex-row gap-4 justify-start items-start w-full lg:w-auto flex-1">
-													<div className="flex flex-col justify-start items-start w-full lg:w-auto flex-1">
-                                                        <h3 className={`text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[30px] font-inter font-semibold leading-[22px] sm:leading-[26px] lg:leading-[30px] xl:leading-[37px] transition-colors duration-200 ${
-														    job.buttonStyle === 'primary' ? 'text-[#3433fe]' : 'text-[#0b0b35] group-hover:text-[#3433fe]'
-                                                            }`}>
-                                                                {job?.title}
-                                                            </h3>
-                                                            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 lg:gap-6 justify-start items-start sm:items-center w-full mt-2">
-                                                                <div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
-                                                                    <Image
-                                                                        src="/images/img_location.svg"
-                                                                        alt="Location"
-                                                                        width={12}
-                                                                        height={14}
-                                                                        className="w-[12px] h-[14px] flex-shrink-0"
-                                                                    />
-                                                                    <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
-                                                                        {job?.location}
-                                                                    </span>
-                                                                </div>
-                                                                <div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
-                                                                    <Image
-                                                                        src="/images/img_clock.svg"
-                                                                        alt="Time"
-                                                                        width={14}
-                                                                        height={14}
-                                                                        className="w-[14px] h-[14px] flex-shrink-0"
-                                                                    />
-                                                                    <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
-                                                                        {job?.type}
-                                                                    </span>
-                                                                </div>
-                                                                <div className="flex items-center gap-[5px] sm:gap-[8px] lg:gap-[10px]">
-                                                                    <Image
-                                                                        src="/images/img_chart.svg"
-                                                                        alt="Level"
-                                                                        width={12}
-                                                                        height={14}
-                                                                        className="w-[12px] h-[14px] flex-shrink-0"
-                                                                    />
-                                                                    <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-inter font-normal leading-[15px] sm:leading-[18px] lg:leading-[20px] text-[#51515f]">
-                                                                        {job?.level}
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-
-                                                    <Button 
-                                                        onClick={() => {}}
-                                                        variant={job?.buttonStyle}
-                                                        size="md"
-                                                        link={true}
-                                                        href={job?.buttonLink}
-                                                        label='Apply Now'
-                                                        blank={true}
-                                                        icon={
-                                                            <Image
-                                                                src={job?.buttonStyle === 'primary' ? '/images/img_arrowright_white_a700.svg' : '/images/img_arrowright.svg'}
-                                                                alt="Arrow"
-                                                                width={16}
-                                                                height={12}
-                                                                className="w-[14px] h-[10px] sm:w-[16px] sm:h-[12px]"
-                                                            />
-                                                        }
-                                                        iconPosition="right"
-                                                    >
-                                                        Apply Now
-                                                    </Button>
-												</div>
-											</div>
-										</div>
-									</div>
-									{index < jobPositions?.length - 1 && (
-										<div className="w-full h-[1px] bg-[#e9e9ff] hidden lg:block" />
-									)}
-								</div>
+								<Application key={index} job={job} index={index} jobPositions={jobPositions} />
 							))}
 						</div>
 					</div>
