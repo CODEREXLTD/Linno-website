@@ -57,8 +57,8 @@ const Header = () => {
   };
 
   return (
-    <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-global-7'
+    <header className={`w-full sticky top-0 z-50 ${
+      scrolled ? 'bg-[#F2F5FB]' : ''
     }`}>
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 sm:py-4 lg:py-6">
