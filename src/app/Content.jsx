@@ -13,7 +13,7 @@ import HomeCTA from './components/HomeCTA';
 const Content = () => {
     
 	return (
-		<div className="min-h-screen bg-[#f2f5fb]">
+		<div className="min-h-screen bg-[#f2f5fb] linno-home-page">
 			<Header />
 			
 			<main className="w-full">

@@ -1,0 +1,34 @@
+/* Brand Section Start */
+.linno-home-page .linno-home-brand-section {
+    background: #FFF;
+}
+
+.linno-home-page .linno-products-section {
+    background: #FBFBFF;
+}
+
+.linno-products-card {
+    border-radius: 20px;
+    border: 1px solid #E7E9F5;
+    background: #FFF;
+    box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+.linno-products-card:hover {
+    background: radial-gradient(116.41% 116.06% at 4.96% 3.28%, rgba(52, 51, 254, 0.12) 13.46%, rgba(43, 96, 211, 0.12) 45.25%, rgba(38, 134, 189, 0.12) 64.06%, rgba(33, 240, 168, 0.12) 100%);
+}
+.linno-products-card:hover .product-title {
+    background: linear-gradient(91deg, #3433FE 23.76%, #21F0A8 41.75%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.linno-products-card:hover .products-link-btn span {
+    color: #3433FE;
+}
+
+.linno-products-card:hover .products-link-btn svg path {
+    stroke: #3433FE;
+}
+/* Brand Section End */

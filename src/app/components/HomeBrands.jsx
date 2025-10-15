@@ -6,7 +6,7 @@ import { memo } from 'react';
 const HomeBrands = () => {
     return (
         <>
-            <section className="w-full bg-[linear-gradient(90deg,rgba(52,51,254,0.06)_9.32%,rgba(0,200,83,0.06)_100%)] mt-[40px] sm:mt-[60px] lg:mt-[80px] xl:mt-[118px] pt-[40px] sm:pt-[60px] lg:pt-[80px] xl:pt-[118px] pb-[40px] sm:pb-[60px] lg:pt-[80px] xl:pb-[112px]">
+            <section className="linno-home-brand-section w-full mt-[40px] sm:mt-[60px] lg:mt-[80px] xl:mt-[118px] pt-[40px] sm:pt-[60px] lg:pt-[80px] xl:pt-[118px] pb-[40px] sm:pb-[60px] lg:pt-[80px] xl:pb-[112px]">
                 <div className="w-full max-w-[1310px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col gap-[25px] sm:gap-[38px] lg:gap-[50px] justify-center items-start w-full">
 
