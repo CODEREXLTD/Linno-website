@@ -13,12 +13,15 @@ const Products = () => {
 							{/* Section Header */}
 							<div className="section-info-wrapper">
 								<h2 className="section-title">
-									<span className="font-normal">Our </span>
-									<span className="font-bold title-gradient">Key Products</span>
+									<span className="font-normal">The Solutions We've Built To Deliver </span>
+									<span className="font-bold title-gradient">Real Value</span>
 								</h2>
 
 								<p className="section-description">
-									We thrive on innovation, teamwork, and continuous learning. Our workplace empowers people to do their best work while enjoying the journey together.
+									At Linno, innovation isn't just a buzzword. We are all passionate about solving real world problems, with <strong>innovation</strong> being the key driver, powered by teamwork, and continuous learning.
+									<br />
+									<br />
+									Take a look at what we've built, making a difference for over 50,000+ people as we speak!
 								</p>
 							</div>
 							{/* Products Grid */}

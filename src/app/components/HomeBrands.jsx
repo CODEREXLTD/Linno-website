@@ -1,6 +1,7 @@
 'use client';
 import Button from '@/components/ui/Button';
 import Image from 'next/image';
+import Link from 'next/link';
 import { memo } from 'react';
 
 const HomeBrands = () => {
@@ -12,12 +13,13 @@ const HomeBrands = () => {
                         {/* Section Header */}
                         <div className="flex flex-col gap-6 justify-start items-center lg:items-start w-full max-w-full md:max-w-[1070px] text-center lg:text-left">
                             <h2 className="section-title">
-                                <span className="font-normal">Our </span>
-                                <span className="font-bold title-gradient">Brands</span>
+                                <span className="font-normal">You Probably </span>
+                                <span className="font-bold title-gradient">Know Us</span>
+                                <span className="font-normal"> Already....</span>
                             </h2>
 
                             <p className="section-description">
-                                We empower businesses through our brands WPFunnels and RexTheme - each designed to solve real-world challenges and accelerate growth.
+                                While we are Linno at heart, globally we operate through two leading brands, each focused on solving real problems for real people.
                             </p>
                         </div>
 
@@ -35,20 +37,27 @@ const HomeBrands = () => {
                                             className="w-full h-auto"
                                         />
                                     </div>
-                                    <p className="text-[20px] font-normal font-sora leading-[1.6] text-[#585A65]">
-                                        WPFunnels is a WordPress solutions brand behind WPFunnels, Mail Mint, and Creator LMS. Their tools empower creators and businesses with sales funnels, marketing automation, and eLearning solutions—all built to simplify workflows and maximize growth.
-                                    </p>
+
+                                    <div className='space-y-3'>
+                                        <h3 className='text-[24px] sm:text-[30px] lg:text-[20px] font-sora font-semibold leading-[1.3] text-[#0b0b35]'>
+                                            Makers of WPFunnels, Mail Mint, and Creator LMS.
+                                        </h3>
+                                        <p className="text-[16px] font-normal font-sora leading-[1.6] text-[#585A65]">
+                                            The team is dedicated to empowering digital creators and businesses with sales funnels, marketing automation, and easy eLearning solutions—all built to simplify workflows and maximize growth.
+                                        </p>
+                                    </div>
                                 </div>
-                                <Button
-                                    variant="outline"
-                                    size="md"
-                                    onClick={() => {
-                                        window.open('https://getwpfunnels.com/', '_blank')
-                                    }}
-                                    className='hover:bg-[#2622c4] hover:text-white active:bg-[#2622c4] transition-all duration-200 hover:border-transparent'
-                                >
-                                    Learn More
-                                </Button>
+
+                                <Link href={'https://getwpfunnels.com/'} target='_blank'>
+                                    <div className="flex justify-start items-center w-full group cursor-pointer">
+                                        <p className='flex justify-start items-center gap-[14px] products-link-btn'>
+                                            <span className="text-[12px] text-[#3433FE] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px]  transition-colors duration-200">
+                                                Visit Website
+                                            </span>
+                                            <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                        </p>
+                                    </div>
+                                </Link>
                             </div>
 
                             {/* RexTheme Card */}
@@ -64,21 +73,26 @@ const HomeBrands = () => {
                                             className="w-full h-auto"
                                         />
                                     </div>
-                                    <p className="text-[20px] font-normal font-sora leading-[1.6] text-[#585A65]">
-                                        RexTheme develops premium WordPress plugins that help businesses grow online. Their solutions include tools for product feed generation, abandoned cart recovery, and immersive virtual tours—built to boost eCommerce performance and user engagement.
-                                    </p>
-                                </div>
-                                <Button
 
-                                    variant="outline"
-                                    size="md"
-                                    onClick={() => {
-                                        window.open('https://rextheme.com/', '_blank')
-                                    }}
-                                    className='hover:bg-[#2622c4] hover:text-white hover:font-semibold active:bg-[#2622c4] transition-all duration-200 hover:border-transparent'
-                                >
-                                    Learn More
-                                </Button>
+                                    <div className='space-y-3'>
+                                        <h3 className='text-[24px] sm:text-[30px] lg:text-[20px] font-sora font-semibold leading-[1.3] text-[#0b0b35]'>
+                                            The team behind Product Feed Manager and WPVR
+                                        </h3>
+                                        <p className="text-[16px] font-normal font-sora leading-[1.6] text-[#585A65]">
+                                            A team focused on delivering premium WordPress plugins that help businesses grow online with solutions for product feed generation, abandoned cart recovery, and immersive virtual tours—built to boost eCommerce performance and user engagement.
+                                        </p>
+                                    </div>
+                                </div>
+                                <Link href={'https://rextheme.com/'} target='_blank'>
+                                    <div className="flex justify-start items-center w-full group cursor-pointer">
+                                        <p className='flex justify-start items-center gap-[14px] products-link-btn'>
+                                            <span className="text-[12px] text-[#3433FE] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-sora font-normal leading-[16px] sm:leading-[17px] lg:leading-[19px] xl:leading-[21px]  transition-colors duration-200">
+                                                Visit Website
+                                            </span>
+                                            <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                        </p>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
