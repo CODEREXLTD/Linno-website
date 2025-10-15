@@ -6,19 +6,18 @@ import { memo } from 'react';
 const HomeBrands = () => {
     return (
         <>
-            <section className="linno-home-brand-section w-full mt-[40px] sm:mt-[60px] lg:mt-[80px] xl:mt-[118px] pt-[40px] sm:pt-[60px] lg:pt-[80px] xl:pt-[118px] pb-[40px] sm:pb-[60px] lg:pt-[80px] xl:pb-[112px]">
-                <div className="w-full max-w-[1310px] mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="linno-home-brand-section section-wrapper">
+                <div className="linno-container">
                     <div className="flex flex-col gap-[25px] sm:gap-[38px] lg:gap-[50px] justify-center items-start w-full">
-
                         {/* Section Header */}
-                        <div className="flex flex-col gap-[7px] sm:gap-[11px] lg:gap-[14px] justify-start items-center lg:items-start w-full lg:w-[68%] text-center lg:text-left">
-                            <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-sora leading-[1.3] sm:leading-[42px] md:leading-[50px] lg:leading-[61px] text-[#0B0A3D] w-auto">
+                        <div className="flex flex-col gap-6 justify-start items-center lg:items-start w-full max-w-full md:max-w-[1070px] text-center lg:text-left">
+                            <h2 className="section-title">
                                 <span className="font-normal">Our </span>
                                 <span className="font-bold title-gradient">Brands</span>
                             </h2>
 
-                            <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px] font-inter font-normal leading-[1.5] text-[#B1B4C9] w-full">
-                                We empower businesses through our brands—WPFunnels and RexTheme—each designed to solve real-world challenges and accelerate growth.
+                            <p className="section-description">
+                                We empower businesses through our brands WPFunnels and RexTheme - each designed to solve real-world challenges and accelerate growth.
                             </p>
                         </div>
 

@@ -2,7 +2,7 @@
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
+import Footer, { socialLinks } from '@/components/common/Footer';
 import ContactForm from './Form';
 
 const contactInfo = [
@@ -26,29 +26,6 @@ const contactInfo = [
     }
 ];
 
-const socialLinks = [
-    {
-        name: 'LinkedIn',
-        icon: '/images/img_icon.svg',
-        href: 'https://www.linkedin.com/company/coderex-ltd/'
-    },
-    {
-        name: 'Facebook',
-        icon: '/images/img_vector_indigo_a700_18x18.svg',
-        href: 'https://www.facebook.com/coderexco'
-    },
-    {
-        name: 'X',
-        icon: '/images/img_vector_indigo_a100.svg',
-        href: 'https://x.com/coderexco'
-    },
-    {
-        name: 'Instagram',
-        icon: '/images/img_vector_indigo_200.svg',
-        href: 'https://www.instagram.com/coderexco/'
-    }
-];
-
 const ContactPage = () => {
 
     return (
@@ -69,7 +46,7 @@ const ContactPage = () => {
                             <span className="font-normal">Let's Start a </span>
                             <span className="font-bold bg-gradient-to-r from-[#3433fe] via-[#2585bd] to-[#21f0a7] bg-clip-text text-transparent">Conversation</span>
                         </h1>
-                        <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[24px] sm:leading-[28px] lg:leading-[32px] text-[#51515f] max-w-[600px] mx-auto">
+                        <p className="section-description mx-auto !max-w-3xl">
                             Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
                         </p>
                     </div>
@@ -152,16 +129,10 @@ const ContactPage = () => {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center justify-center w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] lg:w-[52px] lg:h-[52px] bg-[#3433fe] rounded-[8px] sm:rounded-[10px] lg:rounded-[12px] hover:bg-[#2d2bdb] transition-all duration-200 hover:scale-105"
+                                            className="flex items-center justify-center transition-all duration-200 hover:scale-105"
                                             aria-label={social.name}
                                         >
-                                            <Image
-                                                src={social.icon}
-                                                alt={social.name}
-                                                width={20}
-                                                height={20}
-                                                className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] lg:w-[22px] lg:h-[22px] filter invert brightness-0 contrast-100"
-                                            />
+                                            {social.icon}
                                         </a>
                                     ))}
                                 </div>

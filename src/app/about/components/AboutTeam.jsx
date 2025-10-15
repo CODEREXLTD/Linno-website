@@ -254,17 +254,18 @@ const AboutTeam = () => {
     };
     return (
         <>
-            <section className="w-full py-[50px] sm:py-[75px] lg:py-[100px] px-4 sm:px-6 lg:px-8 bg-[#fbfbff]">
-                <div className="w-full max-w-[1440px] mx-auto">
-                    <div className="">
-                        <h2 className="text-[#0B0B35] font-sora text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
-                            Meet Our <span className="font-bold  ">Teams</span>
+            <section className="section-wrapper bg-[#FFF]">
+                <div className="linno-container">
+                    <div className="mb-8 sm:mb-12">
+                        <h2 className="section-title">
+                            Meet Our <span className="title-gradient">Teams</span>
                         </h2>
-                        <p class="max-w-[720px] w-full mt-2 sm:mt-3 md:mt-4 lg:mt-6 mb-8 sm:mb-10 md:mb-12 lg:mb-16 text-[#40403F] font-inter text-base sm:text-lg md:text-xl lg:text-2xl font-normal leading-[29px]">
+                        <p className="section-description">
                             We combine expert resources with the latest technologies to deliver high-quality
                             software solutions for your business.
                         </p>
                     </div>
+
                     <div className="flex flex-col md:flex-row gap-8 lg:gap-16">
                         {/* Left Side - Department Filter */}
                         <div className="w-full md:w-1/3 md:sticky top-20 self-start">

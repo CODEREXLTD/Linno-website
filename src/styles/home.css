@@ -1,3 +1,4 @@
+@import './globe.css';
 /* Brand Section Start */
 .linno-home-page .linno-home-brand-section {
     background: #FFF;
@@ -33,3 +34,36 @@
     stroke: #3433FE;
 }
 /* Brand Section End */
+
+/* Technology Section Start */
+.tab {
+    border-radius: 12px;
+    border: 0.664px solid #EDEDED;
+    background: white;
+    color: #585A65;
+    font-family: 'sora', sans-serif;
+    padding: 14px 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab.active-tab {
+    border-radius: 12px;
+    border: 0.664px solid var(--title-gradient, #3433FE);
+    background: linear-gradient(103deg, #3433FE 57.85%, #21F0A8 98%);
+    color: #FFF;
+}
+
+.tab-content-card  {
+    border-radius: 20px;
+    border: 1px solid #E7E9F5;
+    background: #FFF;
+    box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+    backdrop-filter: blur(5px);
+    background: white;
+
+    @apply py-6 md:py-10 px-5 md:py-9 flex flex-col justify-between items-start p-6 h-[200px] md:h-[260px]; 
+}
+/* Technology Section End */

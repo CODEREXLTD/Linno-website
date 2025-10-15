@@ -7,21 +7,22 @@ import { products } from '../products/ProductsContent';
 const Products = () => {
     return (
         <>
-            <section className="linno-products-section w-full bg-[#ffffff] py-[50px] lg:py-[120px] px-4">
-					<div className="w-full max-w-[1310px] mx-auto">
+            <section className="linno-products-section section-wrapper">
+					<div className="linno-container">
 						<div className="flex flex-col gap-[26px] sm:gap-[39px] lg:gap-[52px] justify-center items-center w-full">
 							{/* Section Header */}
-							<div className="flex flex-col justify-center items-start w-full">
-								<h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-[#0b0b35] w-auto mb-[34px]">
+							<div className="section-info-wrapper">
+								<h2 className="section-title">
 									<span className="font-normal">Our </span>
 									<span className="font-bold title-gradient">Key Products</span>
 								</h2>
-								<p className="text-[16px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[23px] sm:leading-[27px] lg:leading-[30px] text-[#B1B4C9] w-full lg:w-[60%]">
+
+								<p className="section-description">
 									We thrive on innovation, teamwork, and continuous learning. Our workplace empowers people to do their best work while enjoying the journey together.
 								</p>
 							</div>
 							{/* Products Grid */}
-							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 w-full mb-[6px] sm:mb-[9px] lg:mb-[12px]">
+							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-[30px] w-full mb-[6px] sm:mb-[9px] lg:mb-[12px]">
 								{
 									products.map((product, index) => (
 										<Link href={product.link} target='_blank' key={index} className="linno-products-card flex flex-col gap-[18px] sm:gap-[24px] lg:gap-[30px] xl:gap-[36px] justify-center items-center w-full bg-white rounded-[6px] pt-[15px] sm:pt-[18px] lg:pt-[22px] xl:pt-[20px] pr-[15px] sm:pr-[18px] lg:pr-[22px] xl:pr-[20px] pb-[15px] sm:pb-[18px] lg:pb-[22px] xl:pb-[20px] pl-[15px] sm:pl-[18px] lg:pl-[22px] xl:pl-[20px] hover:shadow-lg transition-shadow duration-300">

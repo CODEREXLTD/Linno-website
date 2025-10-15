@@ -11,17 +11,17 @@ const LifeAtLinno = () => {
     };
     return (
         <>
-            <section className="w-full bg-[linear-gradient(90deg,#3433fe0f_0%,_#00c8530f_100%)] pt-[61px] sm:pt-[92px] lg:pt-[122px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[61px] sm:pb-[92px] lg:pb-[122px] pl-[28px] sm:pl-[42px] lg:pr-[56px]">
+            <section className="w-full bg-white pt-[61px] sm:pt-[92px] lg:pt-[122px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[61px] sm:pb-[92px] lg:pb-[122px] pl-[28px] sm:pl-[42px] lg:pr-[56px]">
                 <div className="flex flex-col lg:flex-row gap-[25px] sm:gap-[38px] lg:gap-[45px] justify-center items-center w-full max-w-[1440px] mx-auto">
                     {/* Left Content */}
                     <div className="flex flex-col gap-[41px] sm:gap-[62px] lg:gap-[50px] justify-start lg:items-start items-center w-full lg:w-[30%] mb-[16px] sm:mb-[24px] lg:mb-[32px]">
                         <div className="flex flex-col gap-[18px] sm:gap-[27px] lg:gap-[36px] justify-start items-start w-full">
                             <div className="flex flex-col gap-[4px] sm:gap-[6px] lg:gap-[8px] justify-start items-start w-full">
-                                <h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-[#0b0b35] w-auto">
+                                <h2 className="section-title">
                                     <span className="font-normal">Life at </span>
-                                    <span className="font-bold">Linno</span>
+                                    <span className="title-gradient">Linno</span>
                                 </h2>
-                                <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[22px] sm:leading-[26px] lg:leading-[29px] text-[#40403f] w-full">
+                                <p className="section-description">
                                     We combine expert resources with the latest technologies to deliver high-quality software solutions for your business.
                                 </p>
                             </div>

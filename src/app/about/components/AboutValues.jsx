@@ -38,13 +38,13 @@ const AboutValues = () => {
 
     return (
         <>
-            <section className="w-full py-[50px] sm:py-[75px] lg:py-[100px] px-4 sm:px-6 lg:px-8 bg-[#F2F5FB]">
-                <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="section-wrapper bg-[#F2F5FB]">
+                <div className="linno-container">
                     <div className="space-y-2 mb-8 sm:mb-12">
-                        <h2 className="text-[#0B0B35] font-sora text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
-                            Our <span className="font-bold  ">Values</span>
+                        <h2 className="section-title">
+                            Our <span className="title-gradient">Values</span>
                         </h2>
-                        <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[24px] sm:leading-[27px] lg:leading-[30px] text-[#51515f] w-full max-w-[600px]">
+                        <p className="section-description !max-w-[600px]">
                             We combine expert resources with the latest technologies to deliver high-quality software solutions for your business.
                         </p>
                     </div>
