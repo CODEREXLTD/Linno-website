@@ -59,7 +59,7 @@ const Header = () => {
     return (
         <header className={`w-full sticky top-0 z-50 bg-[#F2F5FB] ${scrolled ? '' : ''
             }`}>
-            <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="linno-container">
                 <div className="flex justify-between items-center py-3 sm:py-4 lg:py-6">
                     {/* Logo */}
                     <div className="w-[80px] sm:w-[120px] md:w-[150px] lg:w-[174px] flex-shrink-0">
