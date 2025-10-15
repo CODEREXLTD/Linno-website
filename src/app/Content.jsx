@@ -88,7 +88,7 @@ const Content = () => {
 									<span className="font-bold title-gradient">Brands</span>
 								</h2>
 
-								<p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-inter font-normal leading-[20px] sm:leading-[23px] md:leading-[27px] lg:leading-[30px] text-[#B1B4C9] w-full">
+								<p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px] font-inter font-normal leading-[1.5] text-[#B1B4C9] w-full">
 									We empower businesses through our brands—WPFunnels and RexTheme—each designed to solve real-world challenges and accelerate growth.
 								</p>
 							</div>
@@ -107,7 +107,7 @@ const Content = () => {
 												className="w-full h-auto"
 											/>
 										</div>
-										<p className="text-[20px] font-sora leading-[1.6] text-[#585A65]">
+										<p className="text-[20px] font-normal font-sora leading-[1.6] text-[#585A65]">
 											WPFunnels is a WordPress solutions brand behind WPFunnels, Mail Mint, and Creator LMS. Their tools empower creators and businesses with sales funnels, marketing automation, and eLearning solutions—all built to simplify workflows and maximize growth.
 										</p>
 									</div>
