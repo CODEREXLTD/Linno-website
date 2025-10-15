@@ -11,7 +11,7 @@ const Hero = () => {
         }
     };
     return (
-        <section className="w-full mt-[63px] sm:mt-[95px] lg:mt-[126px]">
+        <section className="w-full mt-[63px] sm:mt-[95px] lg:mt-[126px] mb-[50px] sm:mb-[75px] lg:mb-[100px]">
             <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2">
                     <div className="col-span-1 space-y-4"> 
@@ -22,7 +22,7 @@ const Hero = () => {
                         />
                         <h1 className="text-[31px] sm:text-[47px] lg:text-[62px] font-sora leading-[36px] sm:leading-[54px] lg:leading-[72px] text-left text-[#0b0b35]">
                             We're All in This Together<br />
-                            Working at <span className="font-bold">Linno</span>
+                            Working at <span className="title-gradient">Linno</span>
                         </h1>
                         <p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[23px] sm:leading-[27px] lg:leading-[30px] text-left text-[#51515f] w-full lg:w-[86%]">
                             Be part of a team that values your ideas, fuels your growth, and empowers you to make a real impact.

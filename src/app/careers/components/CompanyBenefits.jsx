@@ -75,16 +75,16 @@ const CompanyBenefits = () => {
     ];
 
     return (
-        <section className="w-full bg-[#090936] py-[50px] md:py-[120px]">
-            <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#090936] section-wrapper">
+            <div className="linno-container">
                 {/* Background Image Section */}
                 <div className="mx-auto relative">
                     <div className="relative z-10 flex justify-center items-start w-[48%] mx-auto mb-[36px] sm:mb-[54px] lg:mb-[72px]">
                         <div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-center">
-                            <h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-center text-white">
-                                Company <span className="font-bold">Benefits</span>
+                            <h2 className="section-title !text-white">
+                                Company <span className="title-gradient">Benefits</span>
                             </h2>
-                            <p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[23px] sm:leading-[27px] lg:leading-[30px] text-center text-white w-full">
+                            <p className="section-description text-center  w-full">
                                 At Linno, we offer a comprehensive benefits package to support our employees' well-being and work-life balance.
                             </p>
                         </div>

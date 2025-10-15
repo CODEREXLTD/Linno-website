@@ -73,7 +73,7 @@ const Application = ({job, index, jobPositions}) => {
                                     label="Apply Now"
                                     blank={true}
                                     iconPosition="right"
-                                    className="hover:bg-[#2622c4] hover:text-white hover:font-semibold active:bg-[#2622c4] transition-all duration-200 hover:border-transparent"
+                                    className="hover:bg-[#2622c4] hover:text-white hover:font-semibold active:bg-[#2622c4] transition-all duration-200 hover:border-transparent !hover:scale-0"
                                     icon={
                                         <div className="relative w-[14px] h-[10px] sm:w-[16px] sm:h-[12px]">
                                             {

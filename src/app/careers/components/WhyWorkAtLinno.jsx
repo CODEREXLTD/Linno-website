@@ -4,16 +4,16 @@ import Image from 'next/image';
 
 const WhyWorkAtLinno = () => {
     return (
-        <section className="w-full bg-[linear-gradient(90deg,#3433fe0f_0%,_#00c8530f_100%)] mt-[63px] sm:mt-[95px] lg:mt-[126px]">
-            <div className="w-full max-w-[1440px] px-2 md:px-4 py-[50px] lg:py-[120px] mx-auto">
+        <section className="section-wrapper bg-[linear-gradient(90deg,#3433fe0f_0%,_#00c8530f_100%)]">
+            <div className="linno-container">
                 <div className="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-4">
                     {/* Left Content */}
                     <div className="flex flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] items-center w-full lg:w-[66%]">
                         <div className="flex flex-col gap-[12px] lg:gap-[26px] items-start w-full">
-                            <h2 className="text-[36px] sm:text-[42px] lg:text-[48px] font-sora leading-[46px] sm:leading-[54px] lg:leading-[61px] text-left text-[#0b0b35]">
-                                Why Work At <span className="font-bold">Linno?</span>
+                            <h2 className="section-title">
+                                Why Work At <span className="title-gradient">Linno?</span>
                             </h2>
-                            <p className="text-[15px] sm:text-[18px] lg:text-[20px] font-inter font-normal leading-[23px] sm:leading-[27px] lg:leading-[30px] text-left text-[#51515f] w-[64%]">
+                            <p className="section-description !w-[64%]">
                                 At Linno, you'll grow, be heard, and make an impact. We value your ideas, support your career journey, and create space for you to do meaningful work with a global reach.
                             </p>
                         </div>
