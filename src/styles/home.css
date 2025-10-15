@@ -1,4 +1,64 @@
 @import './globe.css';
+
+.linno-hero {
+    @apply relative lg:p-[80px_0_120px_0] sm:p-[50px_0_80px_0] p-[40px_0_60px_0];
+
+}
+.linno-hero .linno-container {
+    @apply lg:absolute relative top-0 lg:left-1/2 lg:-translate-x-1/2 w-full h-full lg:flex lg:flex-col items-start justify-center lg:pt-[80px] lg:pb-[120px];
+}
+
+.hero-content-wrapper {
+    @apply 2xl:w-[55%] lg:w-[50%] lg:pr-[30px];
+}
+
+.linno-hero .linno-hero-image {
+    @apply 2xl:w-[calc(100%-140px)] xl:w-[calc(100%-60px)] w-[calc(100%-48px)] mx-auto lg:mt-0 sm:mt-[60px] mt-[30px];
+}
+.linno-hero-image .hero-image-wrapper {
+    @apply flex flex-wrap items-end sm:gap-[20px] gap-[10px] max-w-[785px] 2xl:w-[45%] lg:w-[50%] ml-auto;
+
+}
+.linno-hero-image .single-hero-image {
+    @apply sm:mb-[20px] mb-[10px];
+}
+.linno-hero-image .single-hero-image:last-child {
+    margin-bottom: 0;
+}
+.linno-hero-image .single-hero-image img {
+    @apply sm:rounded-[20px] rounded-[12px] block w-full h-auto;
+}
+.linno-hero-image .iamge-side1 {
+    @apply sm:w-[calc(56%-20px)] w-[calc(56%-10px)];
+}
+.linno-hero-image .iamge-side2 {
+    width: 44%;
+}
+
+.linno-hero-image .hero-target {
+    @apply sm:mb-[20px] mb-[10px] text-center;
+}
+.linno-hero-image .hero-target img {
+    display: block;
+    margin: 0 auto 10px;
+    position: relative;
+    left: -20px;
+
+    @apply lg:w-auto sm:w-[100px] w-[80px];
+}
+.linno-hero-image .hero-target span {
+    @apply text-[#0B0A3D] text-center font-inter lg:text-[20px] text-[14px] font-medium leading-[1.2] tracking-[0.2px] lg:w-[100px] block mx-auto;
+
+}
+
+.linno-hero .linno-hero-title {
+    @apply 2xl:text-[64px] xl:text-[52px] sm:text-[40px] text-[34px] font-normal capitalize tracking-[-0.64px] font-sora leading-tight text-[#0B0A3D] max-w-[610px];
+}
+
+.linno-hero .linno-hero-title .title-gradient {
+    @apply font-bold;
+}
+
 /* Brand Section Start */
 .linno-home-page .linno-home-brand-section {
     background: #FFF;
