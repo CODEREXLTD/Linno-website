@@ -13,7 +13,7 @@
 }
 
 .linno-hero .linno-hero-image {
-    @apply 2xl:w-[calc(100%-140px)] xl:w-[calc(100%-60px)] w-[calc(100%-48px)] mx-auto lg:mt-0 sm:mt-[60px] mt-[30px];
+    @apply max-w-[1920px] 2xl:w-[calc(100%-140px)] xl:w-[calc(100%-60px)] w-[calc(100%-48px)] mx-auto lg:mt-0 sm:mt-[60px] mt-[30px];
 }
 .linno-hero-image .hero-image-wrapper {
     @apply flex flex-wrap items-end sm:gap-[20px] gap-[10px] max-w-[785px] 2xl:w-[45%] lg:w-[50%] ml-auto;
