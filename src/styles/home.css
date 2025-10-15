@@ -17,7 +17,6 @@
 }
 .linno-hero-image .hero-image-wrapper {
     @apply flex flex-wrap items-end sm:gap-[20px] gap-[10px] max-w-[785px] 2xl:w-[45%] lg:w-[50%] ml-auto;
-
 }
 .linno-hero-image .single-hero-image {
     @apply sm:mb-[20px] mb-[10px];
