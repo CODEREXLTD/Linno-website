@@ -45,6 +45,7 @@
 
     @apply lg:w-auto sm:w-[100px] w-[80px];
 }
+
 .linno-hero-image .hero-target span {
     @apply text-[#0B0A3D] text-center font-inter lg:text-[20px] text-[14px] font-medium leading-[1.2] tracking-[0.2px] lg:w-[100px] block mx-auto;
 }
