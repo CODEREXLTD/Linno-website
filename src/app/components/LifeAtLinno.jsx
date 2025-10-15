@@ -18,11 +18,13 @@ const LifeAtLinno = () => {
                         <div className="flex flex-col gap-[18px] sm:gap-[27px] lg:gap-[36px] justify-start items-start w-full">
                             <div className="flex flex-col gap-[4px] sm:gap-[6px] lg:gap-[8px] justify-start items-start w-full">
                                 <h2 className="section-title">
-                                    <span className="font-normal">Life at </span>
                                     <span className="title-gradient">Linno</span>
+                                    <span className="font-normal"> Is All About It's People </span>
                                 </h2>
                                 <p className="section-description">
-                                    We combine expert resources with the latest technologies to deliver high-quality software solutions for your business.
+                                    While technology is our passion, people are our strength. At Linno, we are proud to have an amazing team that loves to innovate, grow in skills, and dive into unique ideas of true value for businesses.
+                                    <br /><br />
+                                    And from the heart, we all work as a team that makes each other better!
                                 </p>
                             </div>
                             <Button

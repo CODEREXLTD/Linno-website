@@ -24,15 +24,15 @@ const Globe = () => {
 
                             <div className="single-stat right-stat">
                                 <h2 className="2xl:text-[48px] xl:text-[38px] text-[28px] font-semibold leading-[1] text-white">12+</h2>
-                                <p className="text-[#21F0A8] mt-[16px] 2xl:text-[20px] xl:text-[18px] text-[16px] leading-[1.2]">Years of Experiences</p>
+                                <p className="text-[#21F0A8] mt-[16px] 2xl:text-[20px] xl:text-[18px] text-[16px] leading-[1.2]">Years of Innovation</p>
                             </div>
                         </div>
                         
                         <div className="glob-content">
-                            <h2 className="2xl:text-[48px] lg:text-[36px] text-[36px] font-sora leading-[1.5] text-[#ffffff] lg:max-w-[470px]">
-                                <span className="font-semibold">Trusted by</span>
+                            <h2 className="2xl:text-[38px] lg:text-[36px] text-[36px] font-sora leading-[1.5] text-[#ffffff] lg:max-w-[470px]">
+                                <span className="font-semibold">Trusted Across</span>
                                 <br />
-                                <span className="font-normal gradient-title"> Customers Across the Globe</span>
+                                <span className="font-normal gradient-title"> The Globe For Innovative Solutions</span>
                             </h2>
 
                             <p className='glob-content-text'>We thrive on innovation, teamwork, and continuous learning. Our workplace empowers people to do their best work while enjoying the journey together.</p>
