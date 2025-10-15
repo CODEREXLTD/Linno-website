@@ -14,7 +14,7 @@ const tabs = [
 ];
 
 export default function TechnologyTabs() {
-    const [activeTab, setActiveTab] = useState("backend");
+    const [activeTab, setActiveTab] = useState("uiux");
 
     const tabContents = {
         uiux: [
@@ -95,7 +95,21 @@ export default function TechnologyTabs() {
                                     key={idx}
                                     className="tab-content-card"
                                 >
-                                    {item.img}
+                                    {
+                                        'string' === typeof item.img ? (
+                                            <Image
+                                                src={item.img}
+                                                alt={item.name}
+                                                width={48}
+                                                height={48}
+                                                className="w-[48px] h-[48px] sm:w-[64px] sm:h-[64px] lg:w-[80px] lg:h-[80px] object-contain"
+                                            />
+                                        ) : (
+                                            <>
+                                                {item.img}
+                                            </>
+                                        )
+                                    }
                                     <span className="text-[24px] sm:text-[28px] lg:text-[32px] font-sora text-[#141618]">
                                         {item.name}
                                     </span>
