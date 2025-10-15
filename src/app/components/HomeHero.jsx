@@ -19,7 +19,7 @@ const HomeHero = () => {
                                     <Badge
                                         highlight='Innovation.'
                                         text='Fueled by People'
-                                        className='max-w-[330px] !py-2'
+                                        className='!py-2'
                                     />
                                 </div>
                                 {/* Main Heading and Description */}
