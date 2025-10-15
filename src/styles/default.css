@@ -9,6 +9,30 @@
     font-weight: 600;
 }
 
+.cta-text-gradient {
+    text-align: center;
+    font-family: Sora;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.17;
+    text-decoration: underline;
+    text-transform: capitalize;
+    background: linear-gradient(95deg, #3433FE -1.32%, #21F0A8 43.1%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @apply text-[24px] lg:text-[80px];
+}
+
+.cta-text-gradient::after {
+    content: "";
+    background: linear-gradient(95deg, #3433FE -1.32%, #21F0A8 43.1%);
+    width: 100%;
+    height: 2px;
+    display: block;
+}
+
 .section-wrapper {
     @apply w-full py-[40px] sm:py-[60px] lg:py-[80px] xl:py-[118px];
 }
