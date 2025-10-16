@@ -42,7 +42,6 @@
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.10",
     "@tailwindcss/typography": "^0.5.16",
-    "@wordpress/base-styles": "^6.8.0",
     "@wordpress/block-library": "^9.32.0",
     "next": "14.2.0",
     "prop-types": "^15.8.1",
@@ -52,6 +51,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.11.1",
+    "@wordpress/base-styles": "^6.8.0",
     "autoprefixer": "10.4.2",
     "postcss": "8.4.8",
     "prettier": "^3.5.3",
