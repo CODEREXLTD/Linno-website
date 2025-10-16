@@ -32,13 +32,14 @@ export const socialLinks = [
 ];
 const Footer = () => {
 	const quickLinks = [
-		{ name: 'About Us', href: '/about' },
+		{ name: 'Home', href: '/' },
 		{ name: 'Products', href: '/products' },
 		{ name: 'Careers', href: '/careers' }
 	];
 
 	const otherLinks = [
-		{ name: 'Blog', href: '/blog' },
+		{ name: 'About Us', href: '/about' },
+		// { name: 'Blog', href: '/blog' },
 		{ name: 'Contact', href: '/contact' }
 	];
 

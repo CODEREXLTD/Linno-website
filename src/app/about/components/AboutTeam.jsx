@@ -37,6 +37,14 @@ const AboutTeam = () => {
             icon: '/images/img_lucide_lab_target_arrow.svg',
         },
         {
+            id: 21,
+            name: 'Shahab Uddin Mahi',
+            position: 'Lead UI/UX Designer',
+            department: ['product', 'leadership'],
+            image: '/images/mahi.png',
+            icon: '/images/img_uim_layer_group.svg',
+        },
+        {
             id: 5,
             name: 'Tarequl Islam Khan',
             position: 'HR Manager',
@@ -64,7 +72,7 @@ const AboutTeam = () => {
             id: 8,
             name: 'Md. Razun Mia',
             position: 'Full Stack Developer',
-            department: ['engineering', 'leadership'],
+            department: ['engineering'],
             image: '/images/razun.jpeg',
             icon: '/images/img_lucide_lab_target_arrow.svg',
         },
@@ -163,14 +171,6 @@ const AboutTeam = () => {
             department: 'marketing',
             image: '/images/mahir.jpeg',
             icon: '/images/img_lucide_lab_target_arrow.svg',
-        },
-        {
-            id: 21,
-            name: 'Shahab Uddin Mahi',
-            position: 'Lead UI/UX Designer',
-            department: ['product', 'leadership'],
-            image: '/images/mahi.png',
-            icon: '/images/img_uim_layer_group.svg',
         },
         {
             id: 22,
