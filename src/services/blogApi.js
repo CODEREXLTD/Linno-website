@@ -12,17 +12,28 @@ const ENDPOINTS = {
 
 // WordPress REST API response transformation
 const transformPost = (post) => {
-  // Extract featured image from _embedded
-  const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 
-                       post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
-                       '/images/default-blog.jpg';
+  // Extract featured image from _embedded or featured_image property
+  let featuredImage = '/images/default-blog.jpg';
+  
+  if (post.featured_image?.source_url) {
+    // Handle the API structure you provided
+    featuredImage = post.featured_image.source_url;
+  } else if (post._embedded?.['wp:featuredmedia']?.[0]) {
+    // Handle standard WordPress _embedded structure
+    const media = post._embedded['wp:featuredmedia'][0];
+    featuredImage = media.source_url || 
+                   media.media_details?.sizes?.large?.source_url ||
+                   media.media_details?.sizes?.medium?.source_url ||
+                   '/images/default-blog.jpg';
+  }
   
   // Extract categories from _embedded
   const categories = post._embedded?.['wp:term']?.[0] || [];
   const primaryCategory = categories.find(cat => cat.taxonomy === 'category') || categories[0];
   
-  // Extract author from _embedded
+  // Extract author from _embedded or author_name property
   const author = post._embedded?.author?.[0];
+  const authorName = post.author_name || author?.name || 'Linno Team';
   
   return {
     id: post.id,
@@ -32,7 +43,13 @@ const transformPost = (post) => {
     categoryId: primaryCategory?.id || null,
     date: post.date,
     readTime: '5 min read', // WordPress doesn't provide this by default
-    author: author?.name || 'Linno Team',
+    author: authorName,
+    authorDetails: author ? {
+      name: authorName,
+      avatar: author.avatar_urls?.['96'] || '/images/default-author.png',
+      bio: author.description || '',
+      url: author.url || ''
+    } : null,
     image: featuredImage,
     excerpt: post.excerpt?.rendered || post.excerpt,
     content: post.content?.rendered || post.content,
