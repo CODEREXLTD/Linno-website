@@ -67,16 +67,23 @@ const transformCategory = (category) => ({
 });
 
 // Fetch all blog posts with pagination
-export const fetchBlogPosts = async (page = 1, limit = 10, category = null) => {
+export const fetchBlogPosts = async (page = 1, limit = 10, categoryId = null) => {
   try {
     const params = new URLSearchParams({
       per_page: limit.toString(),
       page: page.toString(),
       _embed: 'true', // Include embedded data (featured images, categories, author)
-      ...(category && category !== 'All' && category !== 'all' && { categories: category.toString() })
     });
 
-    const response = await fetch(`${API_BASE_URL}${ENDPOINTS.POSTS}?${params}`, {
+    // Add category filter if categoryId is provided and not 'all'
+    if (categoryId && categoryId !== 'all' && categoryId !== null) {
+      params.append('categories', categoryId.toString());
+    }
+
+    const url = `${API_BASE_URL}${ENDPOINTS.POSTS}?${params}`;
+    console.log('Fetching posts from:', url); // Debug log
+
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -91,6 +98,8 @@ export const fetchBlogPosts = async (page = 1, limit = 10, category = null) => {
     const posts = await response.json();
     const totalPages = parseInt(response.headers.get('X-WP-TotalPages')) || 1;
     const totalPosts = parseInt(response.headers.get('X-WP-Total')) || 0;
+    
+    console.log(`Found ${posts.length} posts on page ${page} of ${totalPages} (${totalPosts} total)`); // Debug log
     
     return {
       posts: posts.map(transformPost),
@@ -173,10 +182,10 @@ export const fetchFeaturedPosts = async () => {
   }
 };
 
-// Fetch categories
+// Fetch categories with accurate post counts
 export const fetchCategories = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}${ENDPOINTS.CATEGORIES}`, {
+    const response = await fetch(`${API_BASE_URL}${ENDPOINTS.CATEGORIES}?per_page=100`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -189,15 +198,38 @@ export const fetchCategories = async () => {
     }
 
     const categories = await response.json();
-    return categories.map(transformCategory);
+    
+    return categories.map(transformCategory).filter(cat => cat.count > 0);
   } catch (error) {
     console.error('Error fetching categories:', error);
     throw new Error('Failed to fetch categories');
   }
 };
 
+// Get total posts count for all categories
+export const getTotalPostsCount = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}${ENDPOINTS.POSTS}?per_page=1`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return parseInt(response.headers.get('X-WP-Total')) || 0;
+  } catch (error) {
+    console.error('Error fetching total posts count:', error);
+    return 0;
+  }
+};
+
 // Search blog posts
-export const searchBlogPosts = async (query, page = 1, limit = 10) => {
+export const searchBlogPosts = async (query, page = 1, limit = 10, categoryId = null) => {
   try {
     const params = new URLSearchParams({
       search: query,
@@ -205,6 +237,11 @@ export const searchBlogPosts = async (query, page = 1, limit = 10) => {
       page: page.toString(),
       _embed: 'true'
     });
+
+    // Add category filter if provided
+    if (categoryId && categoryId !== 'all' && categoryId !== null) {
+      params.append('categories', categoryId.toString());
+    }
 
     const response = await fetch(`${API_BASE_URL}${ENDPOINTS.POSTS}?${params}`, {
       method: 'GET',

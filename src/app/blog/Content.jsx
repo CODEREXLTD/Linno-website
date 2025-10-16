@@ -9,7 +9,7 @@ import Sidebar from './components/Sidebar';
 import Blogs from './components/Blogs';
 import SidebarLoader from './components/SidebarLoader';
 import BlogLoader from './components/BlogLoader';
-import { fetchBlogPosts, fetchCategories as fetchCategoriesAPI } from '@/services/blogApi';
+import { fetchBlogPosts, fetchCategories as fetchCategoriesAPI, getTotalPostsCount } from '@/services/blogApi';
 
 const Content = () => {
     const [blogs, setBlogs] = useState([]);
@@ -24,9 +24,11 @@ const Content = () => {
     const fetchCategories = async () => {
         try {
             const categoriesData = await fetchCategoriesAPI();
-            // Add "All" category at the beginning
+            const totalPosts = await getTotalPostsCount();
+            
+            // Add "All" category at the beginning with total posts count
             const allCategories = [
-                { id: 'all', name: 'All', slug: 'all', count: 0 },
+                { id: 'all', name: 'All', slug: 'all', count: totalPosts },
                 ...categoriesData
             ];
             setCategories(allCategories);
@@ -43,29 +45,30 @@ const Content = () => {
         try {
             setLoading(true);
             setError(null);
-            const categoryId = category === 'All' ? null : categories.find(cat => cat.name === category)?.id;
-            // Use smaller page size to ensure pagination shows up
-            const response = await fetchBlogPosts(page, 4, categoryId);
+            
+            // Find the category ID based on the category name
+            // Only pass categoryId if it's not 'All' and we have categories loaded
+            let categoryId = null;
+            if (category !== 'All' && categories.length > 0) {
+                const foundCategory = categories.find(cat => cat.name === category);
+                categoryId = foundCategory?.id || null;
+            }
+            
+            // Use a reasonable page size for pagination
+            const response = await fetchBlogPosts(page, 6, categoryId);
             console.log('API Response:', response); // Debug log
             console.log('Pagination response:', response.pagination); // Debug log
             
             setBlogs(response.posts || []);
             
-            // Ensure pagination object exists with fallback values
+            // Use the actual pagination data from WordPress API
             const paginationData = response.pagination || {
                 currentPage: page,
-                totalPages: Math.max(1, Math.ceil((response.posts?.length || 0) / 4)),
+                totalPages: 1,
                 totalPosts: response.posts?.length || 0,
                 hasNext: false,
                 hasPrev: page > 1
             };
-            
-            // If we got posts but no totalPages, create mock pagination for testing
-            if (response.posts && response.posts.length > 0 && (!paginationData.totalPages || paginationData.totalPages === 1)) {
-                paginationData.totalPages = 3; // Mock 3 pages for testing
-                paginationData.hasNext = page < 3;
-                paginationData.totalPosts = 12; // Mock total
-            }
             
             setPagination(paginationData);
             setCurrentPage(page);
@@ -157,7 +160,7 @@ const Content = () => {
                     <BlogHero />
                     <FeaturedBlog />
 
-                    <section className="section-wrapper">
+                    <section className="section-wrapper bg-[#F2F5FB]">
                         <div className="linno-container">
                             <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-8">
                                 <div>

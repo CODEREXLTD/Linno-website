@@ -28,11 +28,19 @@ const Blogs = ({
                     </div>
                 ) : blogs && blogs.length > 0 ? (
                     <>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[30px] sm:mb-[40px] lg:mb-[50px]">
                             {blogs.map((post, index) => (
                                 <SingleBlog post={post} key={post.id || index} />
                             ))}
                         </div>
+
+                        {/* Pagination info for debugging */}
+                        {pagination && (
+                            <div className="text-center text-sm text-gray-600 mb-4">
+                                Showing page {pagination.currentPage} of {pagination.totalPages} 
+                                ({pagination.totalPosts} total posts{selectedCategory !== 'All' ? ` in ${selectedCategory}` : ''})
+                            </div>
+                        )}
 
                         {/* Dynamic pagination */}
                         {pagination && pagination.totalPages > 1 && (
@@ -49,18 +57,38 @@ const Blogs = ({
                                 </button>
 
                                 {/* Show dynamic page numbers */}
-                                {(getPageNumbers ? getPageNumbers() : Array.from({ length: pagination.totalPages }, (_, i) => i + 1)).map((pageNum) => (
-                                    <button
-                                        key={pageNum}
-                                        onClick={() => handlePageChange && handlePageChange(pageNum)}
-                                        className={`px-3 py-2 rounded-md ${currentPage === pageNum
-                                            ? 'bg-[#3433fe] text-white'
-                                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                            } transition-colors duration-200`}
-                                    >
-                                        {pageNum}
-                                    </button>
-                                ))}
+                                {getPageNumbers ? 
+                                    getPageNumbers(pagination.totalPages, currentPage).map((pageNum) => (
+                                        pageNum === '...' ? (
+                                            <span key={`ellipsis-${Math.random()}`} className="px-3 py-2 text-gray-500">
+                                                ...
+                                            </span>
+                                        ) : (
+                                            <button
+                                                key={pageNum}
+                                                onClick={() => handlePageChange && handlePageChange(pageNum)}
+                                                className={`px-3 py-2 rounded-md ${currentPage === pageNum
+                                                    ? 'bg-[#3433fe] text-white'
+                                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                                    } transition-colors duration-200`}
+                                            >
+                                                {pageNum}
+                                            </button>
+                                        )
+                                    )) :
+                                    Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map((pageNum) => (
+                                        <button
+                                            key={pageNum}
+                                            onClick={() => handlePageChange && handlePageChange(pageNum)}
+                                            className={`px-3 py-2 rounded-md ${currentPage === pageNum
+                                                ? 'bg-[#3433fe] text-white'
+                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                                } transition-colors duration-200`}
+                                        >
+                                            {pageNum}
+                                        </button>
+                                    ))
+                                }
 
                                 <button
                                     onClick={() => handlePageChange && handlePageChange(currentPage + 1)}
