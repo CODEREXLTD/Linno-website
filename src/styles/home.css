@@ -34,20 +34,43 @@
     width: 44%;
 }
 
-.linno-hero-image .hero-target {
-    @apply sm:mb-[20px] mb-[10px] text-center;
+.linno-hero-image .hero-experience {
+    @apply xl:mb-[40px] mb-[20px] text-center;
 }
-.linno-hero-image .hero-target img {
-    display: block;
-    margin: 0 auto 10px;
+
+.linno-hero-image .hero-experience-count {
+    border-radius: 100%;
     position: relative;
-    left: -20px;
+    display: block;
 
-    @apply lg:w-auto sm:w-[100px] w-[80px];
+    @apply xl:w-[134px] xl:h-[134px] sm:w-[104px] sm:h-[104px] w-[54px] h-[54px] mx-auto sm:mb-[20px] mb-[10px];
 }
 
-.linno-hero-image .hero-target span {
-    @apply text-[#0B0A3D] text-center font-inter lg:text-[20px] text-[14px] font-medium leading-[1.2] tracking-[0.2px] lg:w-[100px] block mx-auto;
+.linno-hero-image .hero-experience-count svg { 
+    @apply xl:w-[134px] xl:h-[134px] sm:w-[104px] sm:h-[104px] w-[54px] h-[54px];
+}
+
+.linno-hero-image .hero-experience .experience {
+    background: linear-gradient(90deg, #3433FE 56.73%, #21F0A8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: 0.9;
+    display: block;
+    position: absolute;
+    top: calc(50% + 4px);
+    left: calc(50% + 2px);
+    transform: translate(-50%, -50%);
+
+    @apply xl:text-[55px] lg:text-[38px] sm:text-[32px] text-[18px];
+}
+
+.linno-hero-image .hero-experience .experience-text {
+    @apply text-[#0B0A3D] text-center font-inter xl:text-[20px] lg:text-[16px] sm:text-[14px] text-[11px] font-medium leading-[1.2] tracking-[0.2px] block mx-auto;
 }
 
 .linno-hero .linno-hero-title {

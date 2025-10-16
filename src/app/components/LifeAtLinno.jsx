@@ -2,6 +2,7 @@
 import Button from '@/components/ui/Button';
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
+import Image from 'next/image';
 
 const LifeAtLinno = () => {
     const router = useRouter();
@@ -11,77 +12,112 @@ const LifeAtLinno = () => {
     };
     return (
         <>
-            <section className="w-full bg-white pt-[61px] sm:pt-[92px] lg:pt-[122px] pr-[28px] sm:pr-[42px] lg:pr-[56px] pb-[61px] sm:pb-[92px] lg:pb-[122px] pl-[28px] sm:pl-[42px] lg:pr-[56px]">
-                <div className="flex flex-col lg:flex-row gap-[25px] sm:gap-[38px] lg:gap-[45px] justify-center items-center w-full max-w-[1440px] mx-auto">
-                    {/* Left Content */}
-                    <div className="flex flex-col gap-[41px] sm:gap-[62px] lg:gap-[50px] justify-start lg:items-start items-center w-full lg:w-[30%] mb-[16px] sm:mb-[24px] lg:mb-[32px]">
-                        <div className="flex flex-col gap-[18px] sm:gap-[27px] lg:gap-[36px] justify-start items-start w-full">
-                            <div className="flex flex-col gap-[4px] sm:gap-[6px] lg:gap-[8px] justify-start items-start w-full">
-                                <h2 className="section-title">
-                                    <span className="title-gradient">Linno</span>
-                                    <span className="font-normal"> Is All About It's People </span>
-                                </h2>
-                                <p className="section-description">
-                                    While technology is our passion, people are our strength. At Linno, we are proud to have an amazing team that loves to innovate, grow in skills, and dive into unique ideas of true value for businesses.
-                                    <br /><br />
-                                    And from the heart, we all work as a team that makes each other better!
-                                </p>
-                            </div>
-                            <Button
-                                variant="primary"
-                                onClick={handleCheckOpenPositions}
-                                className="text-[16px] sm:text-[18px] lg:text-[20px] font-sora font-semibold leading-[20px] sm:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[13px] sm:pr-[20px] lg:pr-[26px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[13px] sm:pl-[20px] lg:pl-[26px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200"
-                            >
-                                Check Open Positions
-                            </Button>
+            <section className="linno-life">
+                <div className="linno-new-container">
+                    <div className="linno-section-title">
+                        <h2>
+                            <span className="title-gradient">Linno </span>
+                            Is All About It's People
+                        </h2>
+
+                        <p>
+                            While technology is our passion, people are our strength. At Linno, we are proud to have an amazing team that loves to innovate, grow in skills, and dive into unique ideas of true value for businesses.
+                            <br /><br />
+                            And from the heart, we all work as a team that makes each other better!
+                        </p>
+                    </div>
+
+                    <div className="linno-life-gallery">
+                        <div className="linno-life-gallery-item gallery-item-1">
+                            <figure>
+                                <Image
+                                    src="/images/life-at-linno-image1.webp"
+                                    alt="Life at Linno"
+                                    width={182}
+                                    height={253}
+                                    priority
+                                />
+                            </figure>
                         </div>
-                        <div className="w-full">
-                            <img
-                                src="/images/img_08_1.png"
-                                alt="Team member"
-                                width={400}
-                                height={356}
-                                className="w-full h-auto rounded-lg"
-                            />
+
+                        <div className="linno-life-gallery-item gallery-item-2">
+                            <figure>
+                                <Image
+                                    src="/images/life-at-linno-image2.webp"
+                                    alt="Life at Linno"
+                                    width={260}
+                                    height={276}
+                                    priority
+                                />
+                            </figure>
+
+                                <figure>
+                                <Image
+                                    src="/images/life-at-linno-image3.webp"
+                                    alt="Life at Linno"
+                                    width={260}
+                                    height={255}
+                                    priority
+                                />
+                            </figure>
+                        </div>
+
+                        <div className="linno-life-gallery-item gallery-item-3">
+                            <figure>
+                                <Image
+                                    src="/images/life-at-linno-image4.webp"
+                                    alt="Life at Linno"
+                                    width={294}
+                                    height={590}
+                                    priority
+                                />
+                            </figure>
+                        </div>
+
+                        <div className="linno-life-gallery-item gallery-item-4">
+                            <figure>
+                                <Image
+                                    src="/images/life-at-linno-image5.webp"
+                                    alt="Life at Linno"
+                                    width={260}
+                                    height={276}
+                                    priority
+                                />
+                            </figure>
+
+                            <figure>
+                                <Image
+                                    src="/images/life-at-linno-image6.webp"
+                                    alt="Life at Linno"
+                                    width={260}
+                                    height={255}
+                                    priority
+                                />
+                            </figure>
+                        </div>
+
+                        <div className="linno-life-gallery-item gallery-item-5">
+                            <figure>
+                                <Image
+                                    src="/images/life-at-linno-image7.webp"
+                                    alt="Life at Linno"
+                                    width={182}
+                                    height={253}
+                                    priority
+                                />
+                            </figure>
                         </div>
                     </div>
-                    {/* Middle Content */}
-                    <div className="flex flex-col gap-[17px] sm:gap-[26px] lg:gap-[34px] justify-start items-center w-full lg:w-[24%]">
-                        <div className="flex justify-center w-full relative">
-                            <div className="w-full max-w-[402px] h-[137px] sm:h-[206px] lg:h-[274px] relative">
-                                <img
-                                    src="/images/img_image.png"
-                                    alt="Team collaboration"
-                                    className="w-full h-full object-cover rounded-lg"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex justify-center items-center w-auto">
-                            <div className="w-full max-w-[400px]">
-                                <img
-                                    src="/images/img_pxl_20230818_110706499.png"
-                                    alt="Office environment"
-                                    className="w-full h-auto rounded-lg"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    {/* Right Content */}
-                    <div className="flex flex-col gap-[17px] sm:gap-[26px] lg:gap-[34px] justify-start items-center w-full lg:w-[22%]">
-                        <div className="w-full max-w-[400px]">
-                            <img
-                                src="/images/home-img2.jpg"
-                                alt="Team meeting"
-                                className="w-full h-auto rounded-lg"
-                            />
-                        </div>
-                        <div className="w-full max-w-[400px]">
-                            <img
-                                src="/images/img_image_8.png"
-                                alt="Workspace"
-                                className="w-full h-auto rounded-lg"
-                            />
-                        </div>
+
+                    <div className="linno-section-cta">
+                        <Button
+                            variant="primary"
+                            onClick={handleCheckOpenPositions}
+                            className="linno-cta-btn"
+                        >
+                            About Us
+                            <svg width="29" height="14" fill="none" viewBox="0 0 29 14" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M27.926 7.67c.37-.37.37-.97 0-1.34L21.892.296a.948.948 0 10-1.341 1.34L25.914 7l-5.363 5.364a.948.948 0 101.34 1.34l6.035-6.034zM.745 7v.948h26.51V6.052H.745V7z"/></svg>
+                        </Button>
                     </div>
                 </div>
             </section>
