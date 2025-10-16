@@ -28,7 +28,7 @@
             position: absolute;
             inset: 0;
             border-radius: 20px;
-            background: radial-gradient(116.41% 116.06% at 4.96% 3.28%, rgba(52, 51, 254, 0.12) 13.46%, rgba(43, 96, 211, 0.12) 45.25%, rgba(38, 134, 189, 0.12) 64.06%, rgba(33, 240, 168, 0.12) 100%);
+            background: radial-gradient(116.41% 116.06% at 4.96% 3.28%, #3433fe1f 13.46%, #2b60d31f 45.25%, #2686bd1f 64.06%, #0DF26B1f 100%);
             box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
@@ -38,6 +38,33 @@
 
         .product-logo {
             position: relative;
+            width: 62px;
+            height: 58px;
+            background: #F8F8F8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+
+            svg {
+                display: block;
+                position: relative;
+            }
+        }
+
+        .logo-gradient-bg {
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            background: linear-gradient(#fff, #fff) padding-box, linear-gradient(61deg, #3433FE 10%, #0DF26B 99%) border-box;
+            border: 1px solid transparent;
+            z-index: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
 
         .product-title {
@@ -46,6 +73,20 @@
             font-weight: 600;
             line-height: 1;
             position: relative;
+
+            &::before {
+                content: attr(data-title);
+                position: absolute;
+                color: red;
+                background: linear-gradient(90deg, #3433FE 15%, #0DF26B 104%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
         }
 
         .product-description {
@@ -54,7 +95,7 @@
             font-weight: 400;
             line-height: 1.6;
             margin-top: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 60px;
             position: relative;
         }
 
@@ -81,7 +122,20 @@
                 opacity: 1;
                 visibility: visible;
             }
-            
+
+            .product-logo {
+                background-color: #fff;
+            }
+            .logo-gradient-bg {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .product-title:before {
+                opacity: 1;
+                visibility: visible;
+            }
+
             .learn-more-link {
                 color: var(--linno-primary-color);
 
@@ -91,4 +145,62 @@
             }   
         }
     }
+}
+
+
+@media screen and (max-width: 1399px) {
+    .linno-home-page .linno-products {
+        padding: 70px 0 90px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-products .linno-products-wrapper {
+        gap: 20px;
+    }
+    .linno-products .linno-single-product {
+        padding: 24px;
+        border-radius: 14px;
+    }
+    .linno-products .linno-single-product .product-title {
+        font-size: 22px;
+    }
+    .linno-products .linno-single-product .gradient-overlay {
+        border-radius: 14px;
+    }
+    .linno-products .linno-single-product .learn-more-link {
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-home-page .linno-products {
+        padding: 50px 0 70px;
+    }
+    .linno-products .linno-products-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .linno-products .linno-single-product .product-description {
+        margin-bottom: 30px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .linno-products .linno-products-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .linno-products .linno-single-product .product-title {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .linno-products .linno-single-product {
+        padding: 20px;
+    }
+
 }

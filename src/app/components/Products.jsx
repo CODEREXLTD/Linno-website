@@ -30,10 +30,11 @@ const Products = () => {
 										<div className="gradient-overlay"></div>
 
 										<figure className="product-logo">
+											<span className="logo-gradient-bg"></span>
 											{product.image}
 										</figure>
 
-										<h3 className="product-title">
+										<h3 className="product-title" data-title={product.title}>
 											{product.title}
 										</h3>
 										<p className="product-description">
