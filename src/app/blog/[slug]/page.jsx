@@ -1,8 +1,22 @@
-import React from 'react';
-import BlogPostContent from './Content';
+import React from 'react'
+import Content from './Content';
 
-export default function BlogPost({ params }) {
-  const { slug } = params;
+export const metadata = {
+    title: "Blogs | Linno",
+    description: "Our expert developers can turn your innovative ideas into exceptional digital solutions.",
+    icons: {
+        icon: [
+            { url: '/favicon.svg', type: 'image/x-icon' }
+        ],
+    },
+};
 
-  return <BlogPostContent slug={slug} />;
+export default function page({ params }) {
+    const { slug } = params;
+
+    return (
+        <div>
+            <Content slug={slug} />
+        </div>
+    )
 }
