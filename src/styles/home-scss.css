@@ -197,13 +197,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .linno-header {
-  background-color: #fff;
   transition: all 0.3s ease;
 }
 .linno-header .linno-navigation-wrapper {
   transition: all 0.3s ease;
 }
 .linno-header.fixed-header {
+  background-color: #fff;
   box-shadow: 0 0 11px 0px rgba(204, 202, 202, 0.4392156863);
 }
 .linno-header.fixed-header .linno-navigation-wrapper {
