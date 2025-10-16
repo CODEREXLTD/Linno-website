@@ -34,44 +34,46 @@ const Blogs = ({
                             ))}
                         </div>
 
-                        {/* Always show pagination for testing */}
-                        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-8">
-                            <button
-                                onClick={() => handlePageChange && handlePageChange(Math.max(1, currentPage - 1))}
-                                disabled={currentPage <= 1}
-                                className={`px-3 sm:px-4 py-2 rounded-md ${currentPage > 1
-                                    ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
-                                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                    } transition-colors duration-200`}
-                            >
-                                Previous
-                            </button>
-
-                            {/* Show page numbers */}
-                            {[1, 2, 3, 4, 5].map((pageNum) => (
+                        {/* Dynamic pagination */}
+                        {pagination && pagination.totalPages > 1 && (
+                            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-8">
                                 <button
-                                    key={pageNum}
-                                    onClick={() => handlePageChange && handlePageChange(pageNum)}
-                                    className={`px-3 py-2 rounded-md ${currentPage === pageNum
-                                        ? 'bg-[#3433fe] text-white'
-                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                    onClick={() => handlePageChange && handlePageChange(Math.max(1, currentPage - 1))}
+                                    disabled={currentPage <= 1}
+                                    className={`px-3 sm:px-4 py-2 rounded-md ${currentPage > 1
+                                        ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
+                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                         } transition-colors duration-200`}
                                 >
-                                    {pageNum}
+                                    Previous
                                 </button>
-                            ))}
 
-                            <button
-                                onClick={() => handlePageChange && handlePageChange(currentPage + 1)}
-                                disabled={currentPage >= 5}
-                                className={`px-3 sm:px-4 py-2 rounded-md ${currentPage < 5
-                                    ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
-                                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                    } transition-colors duration-200`}
-                            >
-                                Next
-                            </button>
-                        </div>
+                                {/* Show dynamic page numbers */}
+                                {(getPageNumbers ? getPageNumbers() : Array.from({ length: pagination.totalPages }, (_, i) => i + 1)).map((pageNum) => (
+                                    <button
+                                        key={pageNum}
+                                        onClick={() => handlePageChange && handlePageChange(pageNum)}
+                                        className={`px-3 py-2 rounded-md ${currentPage === pageNum
+                                            ? 'bg-[#3433fe] text-white'
+                                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                            } transition-colors duration-200`}
+                                    >
+                                        {pageNum}
+                                    </button>
+                                ))}
+
+                                <button
+                                    onClick={() => handlePageChange && handlePageChange(currentPage + 1)}
+                                    disabled={currentPage >= pagination.totalPages}
+                                    className={`px-3 sm:px-4 py-2 rounded-md ${currentPage < pagination.totalPages
+                                        ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
+                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                        } transition-colors duration-200`}
+                                >
+                                    Next
+                                </button>
+                            </div>
+                        )}
                     </>
                 ) : (
                     <div className="text-center py-12">
