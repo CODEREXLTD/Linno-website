@@ -1,10 +1,25 @@
 @import './globe.css';
 
+.linno-home-page .hero-top-gradient {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    z-index: -1;
+}
+
+.linno-home-page .hero-top-gradient svg {
+    max-width: 80%;
+    height: auto;
+    margin-left: auto;
+
+    @apply lg:max-w-[100%] max-w-[80%];
+} 
+
 .linno-hero {
     @apply relative lg:p-[80px_0_110px_0] sm:p-[50px_0_60px_0] p-[40px_0_60px_0];
 
 }
-.linno-hero .linno-container {
+.linno-hero .linno-new-container {
     @apply lg:absolute relative top-0 lg:left-1/2 lg:-translate-x-1/2 w-full h-full lg:flex lg:flex-col items-start justify-center lg:pt-[80px] lg:pb-[120px];
 }
 

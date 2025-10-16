@@ -13,7 +13,7 @@ const HomeHero = () => {
     return (
         <>
             <section className="linno-hero">
-                <div className="linno-container">
+                <div className="linno-new-container">
                     <div className="hero-content-wrapper flex flex-col gap-[21px] sm:gap-[32px] lg:gap-[42px] justify-start items-start w-full order-2 lg:order-1">
                         {/* Innovation Badge */}
                         <div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] justify-start items-start w-full">

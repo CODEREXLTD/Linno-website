@@ -58,10 +58,10 @@ const Header = () => {
 
     return (
         <header className={`linno-header w-full sticky top-0 z-50 ${scrolled ? 'fixed-header' : ''}`}>
-            <div className="linno-container">
-                <div className="flex justify-between items-center py-3 sm:py-4 lg:py-6">
+            <div className="linno-new-container">
+                <div className="linno-navigation-wrapper flex justify-between items-center py-3 sm:py-4 lg:py-6">
                     {/* Logo */}
-                    <div className="w-[80px] sm:w-[120px] md:w-[150px] lg:w-[174px] flex-shrink-0">
+                    <div className="w-[110px] sm:w-[120px] md:w-[150px] lg:w-[174px] flex-shrink-0">
                         <Link href="/" className="block">
                             <Image
                                 src="/images/logo.svg"
@@ -100,18 +100,18 @@ const Header = () => {
                     <nav
                         className={`${menuOpen ? 'block opacity-100 translate-y-0' : 'hidden lg:block opacity-0 lg:opacity-100 -translate-y-4 lg:translate-y-0'
                             } 
-            absolute lg:relative 
-            top-full lg:top-auto 
-            left-0 lg:left-auto 
-            w-full lg:w-auto 
-            bg-white/95 lg:bg-transparent 
-            backdrop-blur-md lg:backdrop-blur-none
-            shadow-lg lg:shadow-none 
-            z-50 lg:z-auto
-            transform lg:transform-none
-            transition-all duration-300 ease-in-out
-            border-t lg:border-t-0 border-gray-200
-            `}
+                            absolute lg:relative 
+                            top-full lg:top-auto 
+                            left-0 lg:left-auto 
+                            w-full lg:w-auto 
+                            bg-white/95 lg:bg-transparent 
+                            backdrop-blur-md lg:backdrop-blur-none
+                            shadow-lg lg:shadow-none 
+                            z-50 lg:z-auto
+                            transform lg:transform-none
+                            transition-all duration-300 ease-in-out
+                            border-t lg:border-t-0 border-gray-200
+                            `}
                         role="navigation"
                         aria-label="Main navigation"
                     >

@@ -1,8 +1,22 @@
 .linno-header {
-    background-color: #fff;
     transition: all 0.3s ease;
+
+    .linno-navigation-wrapper {
+        transition: all 0.3s ease;
+    }
     
     &.fixed-header {
+        background-color: #fff;
         box-shadow: 0 0 11px 0px #cccaca70;
+
+        .linno-navigation-wrapper {
+            padding: 16px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .linno-header.fixed-header .linno-navigation-wrapper {
+        padding: 10px 0 7px;
     }
 }
