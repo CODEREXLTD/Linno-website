@@ -1,6 +1,8 @@
-.linno-life {
+.linno-home-page .linno-life {
     padding: 110px 0 0; 
+}
 
+.linno-life {
     .linno-life-gallery {
         display: flex;
         align-items: center;
@@ -37,13 +39,13 @@
 
 // --------responsive style---------
 @media screen and (max-width: 1399px) {
-    .linno-life {
+    .linno-home-page .linno-life {
         padding: 90px 0 0; 
     }
 }
 
 @media screen and (max-width: 1199px) {
-    .linno-life {
+    .linno-home-page .linno-life {
         padding: 70px 0 0; 
     }
 
@@ -62,7 +64,7 @@
 }
 
 @media screen and (max-width: 991px) {
-    .linno-life {
+    .linno-home-page .linno-life {
         padding: 50px 0 0; 
     }
     

@@ -1,3 +1,7 @@
+:root {
+  --linno-primary-color: #3433FE;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Sora", sans-serif;
 }
@@ -126,9 +130,263 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.linno-life {
+.linno-home-page .grid-line {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+.linno-home-page .line-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+}
+.linno-home-page .line-wrapper .single-line {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #F2F2F2;
+}
+.linno-home-page .line-wrapper .single-line.line-left {
+  left: 0;
+}
+.linno-home-page .line-wrapper .single-line.line-right {
+  right: 0;
+}
+
+.linno-section-separator {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #F2F2F2;
+  display: block;
+}
+.linno-section-separator .right-line,
+.linno-section-separator .left-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 100%;
+  background-color: var(--linno-primary-color);
+}
+.linno-section-separator .right-line::before,
+.linno-section-separator .left-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 24px;
+  background-color: var(--linno-primary-color);
+}
+.linno-section-separator .right-line {
+  left: inherit;
+  right: 0;
+}
+.linno-section-separator .right-line:before {
+  left: inherit;
+  right: 0;
+}
+
+.linno-header {
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.linno-header.fixed-header {
+  box-shadow: 0 0 11px 0px rgba(204, 202, 202, 0.4392156863);
+}
+
+.linno-home-page .linno-brands {
+  padding: 80px 0 110px;
+}
+
+.linno-brands .brand-item-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+}
+.linno-brands .single-brand-item {
+  border-radius: 20px;
+  border: 1px solid #E7E9F5;
+  background-color: #FFF;
+  box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+  backdrop-filter: blur(5px);
+  padding: 35px 35px 30px;
+  display: flex;
+  flex-flow: column;
+}
+.linno-brands .single-brand-item .brand-item-title {
+  font-size: 20px;
+  line-height: 1.3;
+  color: #0b0b35;
+  font-weight: 600;
+  margin-top: 50px;
+}
+.linno-brands .single-brand-item .brand-item-description {
+  color: #585A65;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.linno-brands .single-brand-item .brand-item-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  gap: 10px;
+  color: var(--linno-primary-color);
+  font-size: 17px;
+  font-weight: 400;
+  font-family: "Sora", sans-serif;
+}
+
+@media screen and (max-width: 1399px) {
+  .linno-home-page .linno-brands {
+    padding: 70px 0 90px;
+  }
+  .linno-brands .brand-item-wrapper {
+    gap: 50px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .linno-brands .brand-item-wrapper {
+    gap: 24px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .linno-home-page .linno-brands {
+    padding: 50px 0 60px;
+  }
+  .linno-brands .brand-item-wrapper {
+    gap: 24px;
+  }
+  .linno-brands .single-brand-item {
+    border-radius: 14px;
+    padding: 25px 24px 25px;
+  }
+  .linno-brands .single-brand-item .brand-item-title {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+  .linno-brands .single-brand-item .brand-item-description {
+    font-size: 16px;
+  }
+  .linno-brands .single-brand-item .brand-item-link {
+    font-size: 15px;
+  }
+  .linno-brands .single-brand-item .brand-item-link svg {
+    width: 11px;
+    height: auto;
+    position: relative;
+    top: 1px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .linno-brands .brand-item-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .linno-brands .single-brand-item {
+    border-radius: 12px;
+    padding: 20px 20px 20px;
+  }
+  .linno-brands .brand-item-logo {
+    max-width: 140px;
+    height: auto;
+  }
+}
+.linno-home-page .linno-products {
+  padding: 80px 0 100px;
+  background-color: #FBFBFF;
+}
+
+.linno-products .linno-products-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.linno-products .linno-single-product {
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid #E7E9F5;
+  background-color: #FFF;
+  box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+  backdrop-filter: blur(5px);
+  height: 100%;
+  position: relative;
+}
+.linno-products .linno-single-product .gradient-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(116.41% 116.06% at 4.96% 3.28%, rgba(52, 51, 254, 0.12) 13.46%, rgba(43, 96, 211, 0.12) 45.25%, rgba(38, 134, 189, 0.12) 64.06%, rgba(33, 240, 168, 0.12) 100%);
+  box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.linno-products .linno-single-product .product-logo {
+  position: relative;
+}
+.linno-products .linno-single-product .product-title {
+  color: #0B0A3D;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+}
+.linno-products .linno-single-product .product-description {
+  color: #585A65;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.linno-products .linno-single-product .learn-more-link {
+  position: relative;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  gap: 10px;
+  color: #585A65;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Sora", sans-serif;
+  transition: all 0.3s ease;
+}
+.linno-products .linno-single-product .learn-more-link path {
+  transition: all 0.3s ease;
+}
+.linno-products .linno-single-product:hover .gradient-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+.linno-products .linno-single-product:hover .learn-more-link {
+  color: var(--linno-primary-color);
+}
+.linno-products .linno-single-product:hover .learn-more-link path {
+  stroke: var(--linno-primary-color);
+}
+
+.linno-home-page .linno-life {
   padding: 110px 0 0;
 }
+
 .linno-life .linno-life-gallery {
   display: flex;
   align-items: center;
@@ -153,12 +411,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 1399px) {
-  .linno-life {
+  .linno-home-page .linno-life {
     padding: 90px 0 0;
   }
 }
 @media screen and (max-width: 1199px) {
-  .linno-life {
+  .linno-home-page .linno-life {
     padding: 70px 0 0;
   }
   .linno-life .linno-life-gallery {
@@ -172,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media screen and (max-width: 991px) {
-  .linno-life {
+  .linno-home-page .linno-life {
     padding: 50px 0 0;
   }
   .linno-life .linno-life-gallery {
@@ -194,6 +452,34 @@ h1, h2, h3, h4, h5, h6 {
   }
   .linno-life .linno-life-gallery-item figure {
     margin-bottom: 5px;
+  }
+}
+.linno-technology {
+  padding: 160px 0 130px;
+}
+.linno-technology .linno-section-separator {
+  margin-top: 80px;
+}
+
+@media screen and (max-width: 1399px) {
+  .linno-technology {
+    padding: 110px 0 100px;
+  }
+  .linno-technology .linno-section-separator {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .linno-technology {
+    padding: 90px 0 80px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .linno-technology {
+    padding: 60px 0 60px;
+  }
+  .linno-technology .linno-section-separator {
+    margin-top: 40px;
   }
 }
 

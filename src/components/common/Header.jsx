@@ -12,7 +12,7 @@ const Header = () => {
     // Handle scroll effect
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 10);
+            setScrolled(window.scrollY > 0);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -57,8 +57,7 @@ const Header = () => {
     };
 
     return (
-        <header className={`w-full sticky top-0 z-50 bg-[#F2F5FB] ${scrolled ? '' : ''
-            }`}>
+        <header className={`linno-header w-full sticky top-0 z-50 ${scrolled ? 'fixed-header' : ''}`}>
             <div className="linno-container">
                 <div className="flex justify-between items-center py-3 sm:py-4 lg:py-6">
                     {/* Logo */}
@@ -67,9 +66,9 @@ const Header = () => {
                             <Image
                                 src="/images/logo.svg"
                                 alt="Linno Logo"
-                                width={174}
-                                height={30}
-                                className="w-full h-auto hover:scale-105 transition-transform duration-200"
+                                width={140}
+                                height={40}
+                                className="hover:scale-105 transition-transform duration-200"
                                 priority
                             />
                         </Link>

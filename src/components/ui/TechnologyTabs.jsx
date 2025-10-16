@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
+import Separator from "../common/Separator";
 
 const tabs = [
     { key: "backend", label: "Backend" },
@@ -57,23 +58,21 @@ export default function TechnologyTabs() {
     };
 
     return (
-        <section className="linno-technology-section section-wrapper">
-            <div className="linno-container">
-                <div className="flex flex-col gap-[25px] md:gap-[42px] justify-start items-center w-full">
-                    {/* Section Header */}
-                    <div className="section-info-wrapper">
-                        <h2 className="section-title">
-                            <span className="font-normal">We </span>
-                            <span className="title-gradient"> Love Technology </span>
-                            <span className="font-normal"> And Don't Hesitate To Brag About It </span>
-                        </h2>
-                        <p className="section-description">
-                            Till now, you've heard innovation over and over again. But how do we bring that to life? Here's the brick and mortar to help us deliver the solutions we've built with excitement and passion!
-                            <br /><br />
-                            From immersive experiences to scalable software, here's our playground:
-                        </p>
-                    </div>
+        <section className="linno-technology">
+            <div className="linno-new-container">
+                {/* Section Header */}
+                <div className="linno-section-title">
+                    <h2>
+                        We <span className="title-gradient">Love Technology</span> And Don't Hesitate To Brag About It
+                    </h2>
+                    <p>
+                        Till now, you've heard innovation over and over again. But how do we bring that to life? Here's the brick and mortar to help us deliver the solutions we've built with excitement and passion!
+                        <br /><br />
+                        From immersive experiences to scalable software, here's our playground:
+                    </p>
+                </div>
 
+                <div className="flex flex-col gap-[25px] md:gap-[42px] justify-start items-center w-full">
                     {/* Tabs */}
                     <div className="flex flex-wrap justify-start items-center gap-2 sm:gap-3 lg:gap-4 w-full">
                         {tabs.map((tab) => (
@@ -121,6 +120,8 @@ export default function TechnologyTabs() {
                     </div>
                 </div>
             </div>
+
+            <Separator />
         </section>
     );
 }

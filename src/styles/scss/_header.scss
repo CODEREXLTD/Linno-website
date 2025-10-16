@@ -1,0 +1,8 @@
+.linno-header {
+    background-color: #fff;
+    transition: all 0.3s ease;
+    
+    &.fixed-header {
+        box-shadow: 0 0 11px 0px #cccaca70;
+    }
+}

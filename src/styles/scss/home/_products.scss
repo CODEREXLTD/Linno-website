@@ -1,0 +1,94 @@
+.linno-home-page {
+    .linno-products {
+        padding: 80px 0 100px;
+        background-color: #FBFBFF;
+    }
+}
+
+.linno-products {
+    .linno-products-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .linno-single-product {
+        display: flex;
+        flex-direction: column;
+        padding: 35px;
+        border-radius: 20px;
+        border: 1px solid #E7E9F5;
+        background-color: #FFF;
+        box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+        backdrop-filter: blur(5px);
+        height: 100%;
+        position: relative;
+
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: radial-gradient(116.41% 116.06% at 4.96% 3.28%, rgba(52, 51, 254, 0.12) 13.46%, rgba(43, 96, 211, 0.12) 45.25%, rgba(38, 134, 189, 0.12) 64.06%, rgba(33, 240, 168, 0.12) 100%);
+            box-shadow: 0 10px 50px 0 rgba(52, 51, 254, 0.05);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .product-logo {
+            position: relative;
+        }
+
+        .product-title {
+            color: #0B0A3D;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1;
+            position: relative;
+        }
+
+        .product-description {
+            color: #585A65;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-top: 16px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .learn-more-link {
+            position: relative;
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            gap: 10px;
+            color: #585A65;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Sora", sans-serif;
+            transition: all 0.3s ease;
+
+            path {
+                transition: all 0.3s ease;
+            }
+        }
+
+        &:hover {
+            .gradient-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .learn-more-link {
+                color: var(--linno-primary-color);
+
+                path {
+                    stroke: var(--linno-primary-color);
+                }
+            }   
+        }
+    }
+}

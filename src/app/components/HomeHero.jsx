@@ -1,8 +1,13 @@
 'use client';
 import Badge from '@/components/common/Badge';
+import Separator from '@/components/common/Separator';
 import Button from '@/components/ui/Button';
 import Image from 'next/image';
 import { memo } from 'react';
+
+const ArrowRight = () => (
+    <svg width="29" height="14" fill="none" viewBox="0 0 29 14" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M27.926 7.67c.37-.37.37-.97 0-1.34L21.892.296a.948.948 0 10-1.341 1.34L25.914 7l-5.363 5.364a.948.948 0 101.34 1.34l6.035-6.034zM.745 7v.948h26.51V6.052H.745V7z"/></svg>
+);
 
 const HomeHero = () => {
     return (
@@ -12,13 +17,7 @@ const HomeHero = () => {
                     <div className="hero-content-wrapper flex flex-col gap-[21px] sm:gap-[32px] lg:gap-[42px] justify-start items-start w-full order-2 lg:order-1">
                         {/* Innovation Badge */}
                         <div className="flex flex-col gap-[11px] sm:gap-[17px] lg:gap-[22px] justify-start items-start w-full">
-                            <div className="w-full">
-                                <Badge
-                                    highlight='Innovation.'
-                                    text='Fueled by People'
-                                    className='max-w-[330px] !py-2'
-                                />
-                            </div>
+                            <span className="tagline">Innovation. Fueled by People</span>
 
                             {/* Main Heading and Description */}
                             <div className="flex flex-col gap-[15px] sm:gap-[23px] lg:gap-[30px] justify-start items-start w-full">
@@ -32,15 +31,17 @@ const HomeHero = () => {
                             </div>
                         </div>
 
-                        {/* CTA Button */}
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            link={true}
-                            href="/products"
-                            label="See What We've Built"
-                            className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-sora font-semibold leading-[18px] sm:leading-[20px] md:leading-[23px] lg:leading-[26px] text-[#ffffff] bg-[#3433fe] rounded-[10px] pt-[7px] sm:pt-[11px] lg:pt-[14px] pr-[16px] sm:pr-[24px] lg:pr-[32px] pb-[7px] sm:pb-[11px] lg:pb-[14px] pl-[16px] sm:pl-[24px] lg:pl-[32px] hover:bg-[#2d2bdb] active:bg-[#2622c4] transition-all duration-200 w-full sm:w-auto"
-                        />
+                        <div className="linno-section-cta">
+                            <Button
+                                variant="primary"
+                                link={true}
+                                href="/products"
+                                label="See What We've Built"
+                                icon={<ArrowRight />}
+                                iconPosition="right"
+                                className="linno-cta-btn cta-link"
+                            />
+                        </div>
                     </div>
                 </div>
 
@@ -94,7 +95,9 @@ const HomeHero = () => {
 
                     </div>
                 </div>
+
             </section>
+            <Separator />
         </>
     );
 };
