@@ -4,92 +4,185 @@ import Header from '@/components/common/Header';
 import JoinUsLink from '@/components/ui/JoinUsLink';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect } from 'react';
+import { useBlogPosts, useFeaturedPosts, useCategories } from '@/hooks/useBlog';
 
 const Content = () => {
-    const [selectedCategory, setSelectedCategory] = useState('Funnel');
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [featuredPost, setFeaturedPost] = useState(null);
 
-        
-    const formattedToday = new Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-        timeZone: 'Asia/Dhaka'
+    // Fetch categories first so we can compute categoryId before posts query
+    const {
+        categories: apiCategories,
+        loading: categoriesLoading,
+        error: categoriesError
+    } = useCategories();
+
+    // Set featured post when data loads (placed after featuredPosts hook)
+
+    // Format date helper
+    const formatDate = (dateString) => {
+        if (!dateString) return new Intl.DateTimeFormat('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            timeZone: 'Asia/Dhaka'
         }).format(new Date());
+        
+        return new Intl.DateTimeFormat('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            timeZone: 'Asia/Dhaka'
+        }).format(new Date(dateString));
+    };
 
-    const categories = [
-        { name: 'All', active: false },
-        { name: 'Wordpress', active: false },
-        { name: 'Funnel', active: true },
-        { name: 'Plugins', active: false },
-        { name: 'UX design', active: false },
-        { name: 'User Research', active: false },
-        { name: 'Web Accessibility', active: false },
-        { name: 'SEO Optimization', active: false },
-        { name: 'Content Strategy', active: false },
-        { name: 'Data Analytics', active: false }
-    ];
-    const blogPosts = [
-        {
-        id: 1,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: '8 Proven Ways of effective delegation',
-        image: '/images/img_rectangle_19014_284x390.png'
-        },
-        {
-        id: 2,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: '2 Easy Ways To Create WordPress Custom User Roles',
-        image: '/images/img_rectangle_19014_1.png'
-        },
-        {
-        id: 3,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: 'Why You Should Stop Using Nulled Plugins In WordPress',
-        image: '/images/img_rectangle_19014_2.png'
-        },
-        {
-        id: 4,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: 'WordCamp Dhaka 2019 – First WordCamp in Bangladesh',
-        image: '/images/img_rectangle_19014_3.png'
-        },
-        {
-        id: 5,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: 'WordCamp Dhaka 2019 – First WordCamp in Bangladesh',
-        image: '/images/img_rectangle_19014_4.png'
-        },
-        {
-        id: 6,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: 'WordCamp Dhaka 2019 – First WordCamp in Bangladesh',
-        image: '/images/img_rectangle_19014_5.png'
-        },
-        {
-        id: 7,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: 'WordCamp Dhaka 2019 – First WordCamp in Bangladesh',
-        image: '/images/img_rectangle_19014_6.png'
-        },
-        {
-        id: 8,
-        category: 'Wordpress',
-        date: formattedToday,
-        title: 'WordCamp Dhaka 2019 – First WordCamp in Bangladesh',
-        image: '/images/img_rectangle_19014_7.png'
+    // Use dynamic categories or fallback to static ones
+    const categories = apiCategories.length > 0 ? 
+        [{ name: 'All', id: 'all', active: selectedCategory === 'All' }, ...apiCategories.map(cat => ({ 
+            name: cat.name, 
+            id: cat.id,
+            active: selectedCategory === cat.name 
+        }))] : 
+        [
+            { name: 'All', id: 'all', active: selectedCategory === 'All' },
+            { name: 'Wordpress', id: 'wordpress', active: selectedCategory === 'Wordpress' },
+            { name: 'Funnel', id: 'funnel', active: selectedCategory === 'Funnel' },
+            { name: 'Plugins', id: 'plugins', active: selectedCategory === 'Plugins' },
+            { name: 'UX design', id: 'ux-design', active: selectedCategory === 'UX design' },
+            { name: 'User Research', id: 'user-research', active: selectedCategory === 'User Research' },
+            { name: 'Web Accessibility', id: 'web-accessibility', active: selectedCategory === 'Web Accessibility' },
+            { name: 'SEO Optimization', id: 'seo-optimization', active: selectedCategory === 'SEO Optimization' },
+            { name: 'Content Strategy', id: 'content-strategy', active: selectedCategory === 'Content Strategy' },
+            { name: 'Data Analytics', id: 'data-analytics', active: selectedCategory === 'Data Analytics' }
+        ];
+    
+    // Get category ID for filtering (WordPress expects integer IDs)
+    const getCategoryId = (categoryName) => {
+        if (categoryName === 'All') return null;
+        const category = categories.find(cat => cat.name === categoryName);
+        return category?.id ? parseInt(category.id) : null;
+    };
+
+    // Compute categoryId before fetching posts
+    const categoryId = getCategoryId(selectedCategory);
+
+    // Fetch posts after categoryId is computable
+    const {
+        posts: blogPosts,
+        pagination,
+        categories: dynamicCategories,
+        loading: postsLoading,
+        error: postsError
+    } = useBlogPosts(currentPage, categoryId, 10);
+
+    const {
+        posts: featuredPosts,
+        loading: featuredLoading,
+        error: featuredError
+    } = useFeaturedPosts();
+
+    // Set featured post when data loads
+    useEffect(() => {
+        if (featuredPosts && featuredPosts.length > 0) {
+            setFeaturedPost(featuredPosts[0]);
         }
-    ];
+    }, [featuredPosts]);
+    
     const handleCategoryClick = (categoryName) => {
         setSelectedCategory(categoryName);
+        setCurrentPage(1); // Reset to first page when changing category
     };
+
+    const handlePageChange = (page) => {
+        if (!pagination) return;
+        if (page === currentPage) return;
+        if (page < 1 || page > pagination.totalPages) return;
+        setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Build a sliding window of page numbers with ellipses
+    const getPageNumbers = (totalPages, current, maxVisible = 7) => {
+        if (!totalPages || totalPages <= 0) return [];
+        if (totalPages <= maxVisible) {
+            return Array.from({ length: totalPages }, (_, i) => i + 1);
+        }
+
+        const pages = [];
+        const showLeft = current > 3;
+        const showRight = current < totalPages - 2;
+
+        pages.push(1);
+
+        let start = Math.max(2, current - 1);
+        let end = Math.min(totalPages - 1, current + 1);
+
+        // Ensure a consistent count of middle pages based on maxVisible
+        const neededMiddle = maxVisible - 2; // excluding first and last
+        let middleCount = end - start + 1;
+        if (middleCount < neededMiddle) {
+            const extra = neededMiddle - middleCount;
+            const addLeft = Math.min(extra, start - 2);
+            start -= addLeft;
+            const addRight = extra - addLeft;
+            end = Math.min(totalPages - 1, end + addRight);
+        }
+
+        if (showLeft && start > 2) pages.push('…');
+
+        for (let p = start; p <= end; p++) pages.push(p);
+
+        if (showRight && end < totalPages - 1) pages.push('…');
+
+        pages.push(totalPages);
+        return pages;
+    };
+
+    // Loading state
+    if (postsLoading || featuredLoading || categoriesLoading) {
+        return (
+            <div className="min-h-screen">
+                <Header />
+                <main className="w-full">
+                    <section className="w-full pt-[63px] sm:pt-[95px] lg:pt-[126px] bg-white">
+                        <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
+                            <div className="flex items-center justify-center min-h-[400px]">
+                                <div className="text-center">
+                                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3433fe] mx-auto mb-4"></div>
+                                    <p className="text-[#51515f] text-lg">Loading blog posts...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Error state
+    if (postsError || featuredError || categoriesError) {
+        return (
+            <div className="min-h-screen">
+                <Header />
+                <main className="w-full">
+                    <section className="w-full pt-[63px] sm:pt-[95px] lg:pt-[126px] bg-white">
+                        <div className="w-full max-w-[1440px] px-2 md:px-4 mx-auto">
+                            <div className="flex items-center justify-center min-h-[400px]">
+                                <div className="text-center">
+                                    <p className="text-red-500 text-lg mb-4">Error loading blog posts</p>
+                                    <p className="text-[#51515f]">Please try again later</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <Footer />
+            </div>
+        );
+    }
 
     return (
         <>
@@ -111,27 +204,35 @@ const Content = () => {
                                 </p>
                             </div>
                             <div className='space-y-4'>
-                                <p className='font-sora text-[#0F0E55] text-[14px] md:text-[20px]'>
-                                    Wordpress {formattedToday}
-                                </p>
+                                {featuredPost ? (
+                                    <>
+                                        <p className='font-sora text-[#0F0E55] text-[14px] md:text-[20px]'>
+                                            {featuredPost.category} {formatDate(featuredPost.date)}
+                                        </p>
 
-                                <Link href="/blog/wordcamp-dhaka-2019">
-                                    <h3  className='font-sora text-[#0B0B35] text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-tight'>
-                                        WordCamp Dhaka 2019 - First WordCamp in Bangladesh
-                                    </h3>
-                                </Link>
+                                        <Link href={`/blog/${featuredPost.slug}`}>
+                                            <h3 className='font-sora text-[#0B0B35] text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-tight'>
+                                                {featuredPost.title}
+                                            </h3>
+                                        </Link>
 
-                                <div className='mx-auto'>
-                                    <Link href="/blog/wordcamp-dhaka-2019">
-                                        <Image
-                                            src="/images/wordpress-wordcamp.png"
-                                            alt="WordCamp Dhaka 2019"
-                                            width={400}
-                                            height={300}
-                                            className="w-full h-auto"
-                                        />
-                                    </Link>
-                                </div>
+                                        <div className='mx-auto'>
+                                            <Link href={`/blog/${featuredPost.slug}`}>
+                                                <Image
+                                                    src={featuredPost.image}
+                                                    alt={featuredPost.title}
+                                                    width={400}
+                                                    height={300}
+                                                    className="w-full h-auto"
+                                                />
+                                            </Link>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <div className="text-center py-8">
+                                        <p className="text-[#51515f] text-lg">No featured post available</p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </section>
@@ -170,106 +271,105 @@ const Content = () => {
                             </div>
                             {/* Blog Grid */}
                             <div className="flex-1 order-1 lg:order-2">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
-                                {blogPosts?.slice(0, 4)?.map((post, index) => (
-                                    <Link
-                                        key={post?.id}
-                                        href="/blog/wordcamp-dhaka-2019"
-                                    >
-                                        <article className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group">
-                                            <div className="flex flex-col gap-[12px]">
-                                            <div className="flex flex-row justify-start items-center gap-[10px]">
-                                                <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
-                                                <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                                <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                                    {post?.category}
-                                                </span>
-                                                <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                                    {post?.date}
-                                                </span>
-                                                </div>
-                                            </div>
-                                            <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
-                                                {post?.title}
-                                            </h3>
-                                            </div>
-                                            <div className="relative overflow-hidden rounded-[14px]">
-                                            <Image
-                                                src={post?.image}
-                                                alt={post?.title}
-                                                width={390}
-                                                height={284}
-                                                className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
-                                            />
-                                            </div>
-                                        </article>
-                                    </Link>
-                                ))}
-                            </div>
-                            {/* Additional Blog Posts */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
-                                {blogPosts?.slice(4, 6)?.map((post, index) => (
-                                <article key={post?.id} className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group">
-                                    <div className="flex flex-col gap-[12px]">
-                                    <div className="flex flex-row justify-start items-center gap-[10px]">
-                                        <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
-                                        <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                        <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                            {post?.category}
-                                        </span>
-                                        <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                            {post?.date}
-                                        </span>
+                                {blogPosts && blogPosts.length > 0 ? (
+                                    <>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
+                                            {blogPosts.map((post, index) => (
+                                                <Link
+                                                    key={post?.id}
+                                                    href={`/blog/${post?.slug}`}
+                                                >
+                                                    <article className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group">
+                                                        <div className="flex flex-col gap-[12px]">
+                                                            <div className="flex flex-row justify-start items-center gap-[10px]">
+                                                                <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
+                                                                <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
+                                                                    <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
+                                                                        {post?.category}
+                                                                    </span>
+                                                                    <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
+                                                                        {formatDate(post?.date)}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
+                                                                {post?.title}
+                                                            </h3>
+                                                        </div>
+                                                        <div className="relative overflow-hidden rounded-[14px]">
+                                                            <Image
+                                                                src={post?.image}
+                                                                alt={post?.title}
+                                                                width={390}
+                                                                height={284}
+                                                                className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
+                                                            />
+                                                        </div>
+                                                    </article>
+                                                </Link>
+                                            ))}
                                         </div>
+
+                                        {/* Pagination */}
+                                        {pagination && pagination.totalPages > 1 && (
+                                            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-8">
+                                                <button
+                                                    onClick={() => handlePageChange(currentPage - 1)}
+                                                    disabled={!pagination.hasPrev}
+                                                    className={`px-3 sm:px-4 py-2 rounded-md ${
+                                                        pagination.hasPrev 
+                                                            ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]' 
+                                                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                                    } transition-colors duration-200`}
+                                                >
+                                                    Previous
+                                                </button>
+
+                                                {getPageNumbers(pagination.totalPages, currentPage, 7).map((p, idx) => (
+                                                    typeof p === 'string' ? (
+                                                        <span key={`ellipsis-${idx}`} className="px-2 text-gray-500">{p}</span>
+                                                    ) : (
+                                                        <button
+                                                            key={p}
+                                                            onClick={() => handlePageChange(p)}
+                                                            className={`px-3 py-2 rounded-md ${
+                                                                currentPage === p
+                                                                    ? 'bg-[#3433fe] text-white'
+                                                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                                            } transition-colors duration-200`}
+                                                        >
+                                                            {p}
+                                                        </button>
+                                                    )
+                                                ))}
+
+                                                <button
+                                                    onClick={() => handlePageChange(currentPage + 1)}
+                                                    disabled={!pagination.hasNext}
+                                                    className={`px-3 sm:px-4 py-2 rounded-md ${
+                                                        pagination.hasNext 
+                                                            ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]' 
+                                                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                                    } transition-colors duration-200`}
+                                                >
+                                                    Next
+                                                </button>
+                                            </div>
+                                        )}
+                                    </>
+                                ) : (
+                                    <div className="text-center py-12">
+                                        <p className="text-[#51515f] text-lg">No blog posts found</p>
+                                        {selectedCategory !== 'All' && (
+                                            <button
+                                                onClick={() => handleCategoryClick('All')}
+                                                className="mt-4 px-6 py-2 bg-[#3433fe] text-white rounded-md hover:bg-[#2d2bdb] transition-colors duration-200"
+                                            >
+                                                View All Posts
+                                            </button>
+                                        )}
                                     </div>
-                                    <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
-                                        {post?.title}
-                                    </h3>
-                                    </div>
-                                    <div className="relative overflow-hidden rounded-[14px]">
-                                    <Image
-                                        src={post?.image}
-                                        alt={post?.title}
-                                        width={390}
-                                        height={284}
-                                        className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
-                                    />
-                                    </div>
-                                </article>
-                                ))}
-                            </div>
-                            {/* Final Blog Posts */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px]">
-                                {blogPosts?.slice(6, 8)?.map((post, index) => (
-                                <article key={post?.id} className="bg-[#ffffff] rounded-[14px] p-[10px] flex flex-col gap-[20px] sm:gap-[23px] lg:gap-[26px] hover:shadow-lg transition-shadow duration-300 group">
-                                    <div className="flex flex-col gap-[12px]">
-                                    <div className="flex flex-row justify-start items-center gap-[10px]">
-                                        <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
-                                        <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                        <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                            {post?.category}
-                                        </span>
-                                        <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
-                                            {post?.date}
-                                        </span>
-                                        </div>
-                                    </div>
-                                    <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
-                                        {post?.title}
-                                    </h3>
-                                    </div>
-                                    <div className="relative overflow-hidden rounded-[14px]">
-                                    <Image
-                                        src={post?.image}
-                                        alt={post?.title}
-                                        width={390}
-                                        height={284}
-                                        className="w-full h-auto rounded-[14px] group-hover:scale-105 transition-transform duration-300"
-                                    />
-                                    </div>
-                                </article>
-                                ))}
-                            </div>
+                                )}
                             </div>
                         </div>
                         </div>
