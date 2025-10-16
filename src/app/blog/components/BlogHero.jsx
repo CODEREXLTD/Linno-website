@@ -6,7 +6,7 @@ const BlogHero = () => {
         <>
             <section className="section-wrapper bg-white">
                 <div className="linno-container">
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-16 md:mb-32'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         <h2 className='font-sora text-[#0B0B35] text-[28px] sm:text-[36px] lg:text-[48px] font-semibold leading-tight'>
                             Blog
                         </h2>
