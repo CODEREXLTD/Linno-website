@@ -26,9 +26,9 @@ const Sidebar = ({ categories, selectedCategory, handleCategoryClick }) => {
                                     <span className={`text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-normal leading-[16px] sm:leading-[18px] lg:leading-[20px] xl:leading-[24px] ml-[10px] whitespace-nowrap transition-colors duration-200 ${selectedCategory === category?.name ? 'text-[#3433fe]' : 'text-[#0f0e55]'
                                         }`}>
                                         {decodeHTML(category?.name)}
-                                        {category?.count > 0 && (
+                                        {/* {category?.count > 0 && (
                                             <span className="ml-2 text-xs text-gray-500">({category.count})</span>
-                                        )}
+                                        )} */}
                                     </span>
                                 </div>
                             ))}

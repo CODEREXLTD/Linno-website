@@ -17,6 +17,7 @@ import '@wordpress/base-styles/_mixins.scss';
 import '@wordpress/base-styles/_breakpoints.scss';
 import '@wordpress/base-styles/_animations.scss';
 import '@wordpress/base-styles/_z-index.scss';
+import { decodeHTML } from '@/hooks/useDecodeHTML';
 
 const Content = ({slug}) => {
     const [headings, setHeadings] = useState([]);
@@ -197,7 +198,7 @@ const Content = ({slug}) => {
                                 <span className="mx-2">/</span>
                                 <Link href="/blog" className="hover:text-blue-600">Blog</Link>
                                 <span className="mx-2">/</span>
-                                <span className="text-gray-900 truncate max-w-xs">{post.title}</span>
+                                <span className="text-gray-900 truncate max-w-xs">{decodeHTML(post.title)}</span>
                             </nav>
                         </div>
                     </section>
@@ -216,7 +217,7 @@ const Content = ({slug}) => {
                                 </div>
 
                                 <h1 className='font-sora text-[#0B0B35] text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-tight'>
-                                    {post.title}
+                                    {decodeHTML(post.title)}
                                 </h1>
 
                                 <div className='mx-auto'>
