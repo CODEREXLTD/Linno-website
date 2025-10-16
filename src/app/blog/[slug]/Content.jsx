@@ -9,6 +9,14 @@ import BlogPostSkeleton from '@/components/common/BlogPostSkeleton';
 import HomeCTA from '@/app/components/HomeCTA';
 import { useBlogPost } from '@/hooks/useBlog';
 import '@/styles/blog-post.css';
+import '@wordpress/block-library/build-style/style.css';
+import '@wordpress/block-library/build-style/theme.css';
+import '@wordpress/base-styles/_colors.scss';
+import '@wordpress/base-styles/_variables.scss';
+import '@wordpress/base-styles/_mixins.scss';
+import '@wordpress/base-styles/_breakpoints.scss';
+import '@wordpress/base-styles/_animations.scss';
+import '@wordpress/base-styles/_z-index.scss';
 
 const Content = ({slug}) => {
     const [headings, setHeadings] = useState([]);
