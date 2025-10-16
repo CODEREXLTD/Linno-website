@@ -81,7 +81,6 @@ export const fetchBlogPosts = async (page = 1, limit = 10, categoryId = null) =>
     }
 
     const url = `${API_BASE_URL}${ENDPOINTS.POSTS}?${params}`;
-    console.log('Fetching posts from:', url); // Debug log
 
     const response = await fetch(url, {
       method: 'GET',
@@ -98,8 +97,6 @@ export const fetchBlogPosts = async (page = 1, limit = 10, categoryId = null) =>
     const posts = await response.json();
     const totalPages = parseInt(response.headers.get('X-WP-TotalPages')) || 1;
     const totalPosts = parseInt(response.headers.get('X-WP-Total')) || 0;
-    
-    console.log(`Found ${posts.length} posts on page ${page} of ${totalPages} (${totalPosts} total)`); // Debug log
     
     return {
       posts: posts.map(transformPost),

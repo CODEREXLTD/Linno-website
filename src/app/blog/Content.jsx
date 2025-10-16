@@ -56,8 +56,6 @@ const Content = () => {
             
             // Use a reasonable page size for pagination
             const response = await fetchBlogPosts(page, 6, categoryId);
-            console.log('API Response:', response); // Debug log
-            console.log('Pagination response:', response.pagination); // Debug log
             
             setBlogs(response.posts || []);
             

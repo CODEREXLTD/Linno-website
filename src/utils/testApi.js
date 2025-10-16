@@ -10,14 +10,11 @@ export const testApiConnection = async () => {
     });
     
     if (response.ok) {
-      console.log('✅ WordPress API connection successful');
       return { success: true, status: response.status };
     } else {
-      console.log('❌ WordPress API connection failed:', response.status);
       return { success: false, status: response.status, error: 'API returned error status' };
     }
   } catch (error) {
-    console.log('❌ CORS or network error:', error.message);
     return { success: false, error: error.message };
   }
 };
