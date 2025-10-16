@@ -298,31 +298,31 @@ const AboutTeam = () => {
                                             >
                                                 <path
                                                     stroke="#FFC933"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="1.5"
                                                     d="M15.369 1.5v2.55h2.55m-7.31 4.76l7.31-7.31"
                                                 />
                                                 <path
                                                     fill="#FFC933"
                                                     stroke="#FFC933"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="1.5"
                                                     d="M9.418 11.7a1.7 1.7 0 100-3.4 1.7 1.7 0 000 3.4z"
                                                 />
                                                 <path
                                                     stroke="#3433FE"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="1.5"
                                                     d="M9.673 4.9h-.255a5.1 5.1 0 105.1 5.1v-.255"
                                                 />
                                                 <path
                                                     stroke="#3433FE"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="1.5"
                                                     d="M11.969 1.926a8.44 8.44 0 105.525 5.524m-13.77 8.84L2.619 18.5m12.495-2.21l1.105 2.21"
                                                 />
                                             </svg>
@@ -363,9 +363,9 @@ const AboutTeam = () => {
                                                             xmlns="http://www.w3.org/2000/svg"
                                                         >
                                                             <g
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                                stroke-width="1.5"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth="1.5"
                                                                 clip-path="url(#clip0_26_541)"
                                                             >
                                                                 <path
