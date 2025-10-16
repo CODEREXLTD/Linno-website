@@ -3,6 +3,7 @@ import { memo } from 'react';
 import SingleBlog from './SingleBlog';
 
 const Blogs = () => {
+    return null;
     return (
         <>
             <div className="flex-1 order-1 lg:order-2">
