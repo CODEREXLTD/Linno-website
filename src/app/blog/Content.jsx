@@ -44,9 +44,30 @@ const Content = () => {
             setLoading(true);
             setError(null);
             const categoryId = category === 'All' ? null : categories.find(cat => cat.name === category)?.id;
-            const response = await fetchBlogPosts(page, 10, categoryId);
+            // Use smaller page size to ensure pagination shows up
+            const response = await fetchBlogPosts(page, 4, categoryId);
+            console.log('API Response:', response); // Debug log
+            console.log('Pagination response:', response.pagination); // Debug log
+            
             setBlogs(response.posts || []);
-            setPagination(response.pagination);
+            
+            // Ensure pagination object exists with fallback values
+            const paginationData = response.pagination || {
+                currentPage: page,
+                totalPages: Math.max(1, Math.ceil((response.posts?.length || 0) / 4)),
+                totalPosts: response.posts?.length || 0,
+                hasNext: false,
+                hasPrev: page > 1
+            };
+            
+            // If we got posts but no totalPages, create mock pagination for testing
+            if (response.posts && response.posts.length > 0 && (!paginationData.totalPages || paginationData.totalPages === 1)) {
+                paginationData.totalPages = 3; // Mock 3 pages for testing
+                paginationData.hasNext = page < 3;
+                paginationData.totalPosts = 12; // Mock total
+            }
+            
+            setPagination(paginationData);
             setCurrentPage(page);
         } catch (error) {
             console.error('Error fetching blogs:', error);

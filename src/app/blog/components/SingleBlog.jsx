@@ -44,15 +44,15 @@ const SingleBlog = ({ post }) => {
                         <div className="flex flex-row justify-start items-center gap-[10px]">
                             <div className="w-[1px] h-[18px] bg-[#3433fe]"></div>
                             <div className="flex flex-row justify-start items-center gap-[12px] sm:gap-[14px] lg:gap-[16px] px-[10px]">
-                                <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
+                                <span className="text-[10px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
                                     {post?.category}
                                 </span>
-                                <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
+                                <span className="text-[10px] font-normal leading-[12px] sm:leading-[14px] lg:leading-[17px] tracking-[0.5px] sm:tracking-[0.7px] lg:tracking-[1px] uppercase text-[#787878]">
                                     {formatDate(post?.date)}
                                 </span>
                             </div>
                         </div>
-                        <h3 className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[26px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
+                        <h3 className="text-[16px] md:text-[20px] lg:text-[24px] font-bold leading-[20px] sm:leading-[25px] lg:leading-[30px] xl:leading-[33px] text-[#0b0a3d] group-hover:text-[#3433fe] transition-colors duration-200 line-clamp-3">
                             {getTitle(post?.title)}
                         </h3>
                     </div>
