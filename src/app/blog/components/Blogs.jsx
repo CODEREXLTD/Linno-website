@@ -2,16 +2,34 @@
 import { memo } from 'react';
 import SingleBlog from './SingleBlog';
 
-const Blogs = () => {
-    return null;
+const Blogs = ({ 
+    blogs, 
+    pagination, 
+    currentPage, 
+    selectedCategory, 
+    handlePageChange, 
+    handleCategoryClick, 
+    getPageNumbers,
+    error 
+}) => {
     return (
         <>
             <div className="flex-1 order-1 lg:order-2">
-                {blogPosts && blogPosts.length > 0 ? (
+                {error ? (
+                    <div className="text-center py-12">
+                        <p className="text-red-500 text-lg mb-4">{error}</p>
+                        <button
+                            onClick={() => window.location.reload()}
+                            className="px-6 py-2 bg-[#3433fe] text-white rounded-md hover:bg-[#2d2bdb] transition-colors duration-200"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                ) : blogs && blogs.length > 0 ? (
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] sm:gap-[50px] lg:gap-[64px] mb-[60px] sm:mb-[70px] lg:mb-[80px]">
-                            {blogPosts.map((post, index) => (
-                                <SingleBlog post={post} key={index} />
+                            {blogs.map((post, index) => (
+                                <SingleBlog post={post} key={post.id || index} />
                             ))}
                         </div>
 

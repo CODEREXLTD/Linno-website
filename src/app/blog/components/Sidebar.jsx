@@ -1,23 +1,9 @@
 import { memo } from 'react';
 import Image from 'next/image';
-import { useCategories } from '@/hooks/useBlog';
+import { decodeHTML } from '@/hooks/useDecodeHTML';
 
-const Sidebar = () => {
-    const {
-        categories: apiCategories,
-        loading: categoriesLoading,
-        error: categoriesError
-    } = useCategories();
-
-    const categories = [
-        { name: 'All' },
-        ...(apiCategories || [])
-    ];
-
-    const handleCategoryClick = (categoryName) => {
-        // Implement category filtering logic here
-        console.log(`Category clicked: ${categoryName}`);
-    };
+const Sidebar = ({ categories, selectedCategory, handleCategoryClick }) => {
+    
     return (
         <>
             <div className="w-full lg:w-[200px] xl:w-[12%] order-2 lg:order-1">
@@ -26,20 +12,23 @@ const Sidebar = () => {
                         <div className="flex flex-row lg:flex-col gap-[20px] sm:gap-[25px] lg:gap-[36px] overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0">
                             {categories?.map((category, index) => (
                                 <div
-                                    key={index}
+                                    key={category.id || index}
                                     className="flex flex-row justify-start items-center gap-[10px] cursor-pointer flex-shrink-0 lg:flex-shrink hover:opacity-75 transition-opacity duration-200"
-                                    onClick={() => handleCategoryClick(category?.name)}
+                                    onClick={() => handleCategoryClick?.(category?.name)}
                                 >
                                     <Image
-                                        src={category?.name === 'Funnel' ? "/images/img_line_12.svg" : "/images/img_line_14.svg"}
+                                        src={selectedCategory === category?.name ? "/images/img_line_12.svg" : "/images/img_line_14.svg"}
                                         alt="Line"
                                         width={20}
                                         height={1}
                                         className="w-[20px] h-[1px]"
                                     />
-                                    <span className={`text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-normal leading-[16px] sm:leading-[18px] lg:leading-[20px] xl:leading-[24px] ml-[10px] whitespace-nowrap ${category?.name === 'Funnel' ? 'text-[#3433fe]' : 'text-[#0f0e55]'
+                                    <span className={`text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-normal leading-[16px] sm:leading-[18px] lg:leading-[20px] xl:leading-[24px] ml-[10px] whitespace-nowrap transition-colors duration-200 ${selectedCategory === category?.name ? 'text-[#3433fe]' : 'text-[#0f0e55]'
                                         }`}>
-                                        {category?.name}
+                                        {decodeHTML(category?.name)}
+                                        {category?.count > 0 && (
+                                            <span className="ml-2 text-xs text-gray-500">({category.count})</span>
+                                        )}
                                     </span>
                                 </div>
                             ))}
