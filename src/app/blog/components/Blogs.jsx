@@ -10,7 +10,8 @@ const Blogs = ({
     handlePageChange, 
     handleCategoryClick, 
     getPageNumbers,
-    error 
+    error,
+    totalPosts
 }) => {
 
     return (
@@ -34,36 +35,22 @@ const Blogs = ({
                             ))}
                         </div>
 
-                        {/* Pagination info for debugging */}
-                        {pagination && (
-                            <div className="text-center text-sm text-gray-600 mb-4">
-                                Showing page {pagination.currentPage} of {pagination.totalPages} 
-                                ({pagination.totalPosts} total posts{selectedCategory !== 'All' ? ` in ${selectedCategory}` : ''})
-                            </div>
-                        )}
+                        {
+                            totalPosts > 6 ? (
+                                <>
+                                    <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-8">
+                                        <button
+                                            onClick={() => handlePageChange && handlePageChange(Math.max(1, currentPage - 1))}
+                                            disabled={currentPage <= 1}
+                                            className={`px-3 sm:px-4 py-2 rounded-md ${currentPage > 1
+                                                ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
+                                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                                } transition-colors duration-200`}
+                                        >
+                                            Previous
+                                        </button>
 
-                        {/* Dynamic pagination */}
-                        {pagination && pagination.totalPages > 1 && (
-                            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-8">
-                                <button
-                                    onClick={() => handlePageChange && handlePageChange(Math.max(1, currentPage - 1))}
-                                    disabled={currentPage <= 1}
-                                    className={`px-3 sm:px-4 py-2 rounded-md ${currentPage > 1
-                                        ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
-                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                        } transition-colors duration-200`}
-                                >
-                                    Previous
-                                </button>
-
-                                {/* Show dynamic page numbers */}
-                                {getPageNumbers ? 
-                                    getPageNumbers(pagination.totalPages, currentPage).map((pageNum) => (
-                                        pageNum === '...' ? (
-                                            <span key={`ellipsis-${Math.random()}`} className="px-3 py-2 text-gray-500">
-                                                ...
-                                            </span>
-                                        ) : (
+                                        {Array.from({ length: (Math.ceil(totalPosts / 6) || 1) }, (_, i) => i + 1).map((pageNum) => (
                                             <button
                                                 key={pageNum}
                                                 onClick={() => handlePageChange && handlePageChange(pageNum)}
@@ -74,34 +61,23 @@ const Blogs = ({
                                             >
                                                 {pageNum}
                                             </button>
-                                        )
-                                    )) :
-                                    Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map((pageNum) => (
+                                        ))}
+
                                         <button
-                                            key={pageNum}
-                                            onClick={() => handlePageChange && handlePageChange(pageNum)}
-                                            className={`px-3 py-2 rounded-md ${currentPage === pageNum
-                                                ? 'bg-[#3433fe] text-white'
-                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                            onClick={() => handlePageChange && handlePageChange(currentPage + 1)}
+                                            disabled={currentPage >= Math.ceil(totalPosts / 6)}
+                                            className={`px-3 sm:px-4 py-2 rounded-md ${currentPage < Math.ceil(totalPosts / 6)
+                                                ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
+                                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                                 } transition-colors duration-200`}
                                         >
-                                            {pageNum}
+                                            Next
                                         </button>
-                                    ))
-                                }
 
-                                <button
-                                    onClick={() => handlePageChange && handlePageChange(currentPage + 1)}
-                                    disabled={currentPage >= pagination.totalPages}
-                                    className={`px-3 sm:px-4 py-2 rounded-md ${currentPage < pagination.totalPages
-                                        ? 'bg-[#3433fe] text-white hover:bg-[#2d2bdb]'
-                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                        } transition-colors duration-200`}
-                                >
-                                    Next
-                                </button>
-                            </div>
-                        )}
+                                    </div>
+                                </>
+                            ) : null
+                        }
                     </>
                 ) : (
                     <div className="text-center py-12">

@@ -20,6 +20,7 @@ const Content = () => {
     const [loading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [error, setError] = useState(null);
+    const [totalPosts, setTotalPosts] = useState(0);
 
     const fetchCategories = async () => {
         try {
@@ -58,6 +59,10 @@ const Content = () => {
             const response = await fetchBlogPosts(page, 6, categoryId);
             
             setBlogs(response.posts || []);
+
+            if(category === 'All'){
+                setTotalPosts(30);
+            }
             
             // Use the actual pagination data from WordPress API
             const paginationData = response.pagination || {
@@ -150,6 +155,23 @@ const Content = () => {
         }
     }, [categories]);
 
+    useEffect(() => {
+        if (!pageLoading) {
+            if('All' === selectedCategory){
+                const total = blogs.length;
+                setTotalPosts(total);
+            } else {
+                const category = categories.find(cat => cat.name === selectedCategory);
+                if(category){
+                    setTotalPosts(category.count);
+                } else {
+                    setTotalPosts(0);
+                }
+            }
+
+        }   
+    }, [selectedCategory]);
+
     return (
         <>
             <div className="min-h-screen">
@@ -185,6 +207,7 @@ const Content = () => {
                                                 handleCategoryClick={handleCategoryClick}
                                                 getPageNumbers={getPageNumbers}
                                                 error={error}
+                                                totalPosts={totalPosts}
                                             /> 
                                         )
                                     }
