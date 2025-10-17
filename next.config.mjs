@@ -2,6 +2,22 @@
 const nextConfig = {
   productionBrowserSourceMaps: true,
   distDir: process.env.DIST_DIR || '.next',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'getin.coderex.co',
+        port: '',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'getin.coderex.co',
+        port: '',
+        pathname: '/wp-content/**',
+      },
+    ],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.(jsx|tsx)$/,
