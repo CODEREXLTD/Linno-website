@@ -12,6 +12,7 @@ export default function TeamCard({name, position, imgSrc}) {
           width={80}
           height={80}
           className="object-cover"
+          loading="lazy"
         />
       </div>
 

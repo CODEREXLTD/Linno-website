@@ -29,6 +29,7 @@ const HomeBrands = () => {
                                     width={174}
                                     height={26}
                                     className='brand-item-logo'
+                                    loading="lazy"
                                 />
 
                                 <h3 className='brand-item-title'>
@@ -52,6 +53,7 @@ const HomeBrands = () => {
                                     width={162}
                                     height={34}
                                     className='brand-item-logo'
+                                    loading="lazy"
                                 />
 
                                 <h3 className='brand-item-title'>

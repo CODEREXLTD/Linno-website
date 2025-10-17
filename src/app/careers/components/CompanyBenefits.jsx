@@ -102,6 +102,7 @@ const CompanyBenefits = () => {
                                         width={30}
                                         height={30}
                                         className="w-[24px] h-[24px] sm:w-[26px] sm:h-[26px] lg:w-[30px] lg:h-[30px]"
+                                        loading="lazy"
                                     />
                                 </div>
                                 <div className="text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-sora leading-[18px] sm:leading-[20px] lg:leading-[24px] xl:leading-[28px] text-center sm:text-left lg:text-left text-white flex-1">

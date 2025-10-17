@@ -94,6 +94,7 @@ const EditText = ({
             width={rightImage.width || 20}
             height={rightImage.height || 20}
             className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 object-contain"
+            loading="lazy"
           />
         </button>
       )}

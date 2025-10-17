@@ -104,6 +104,7 @@ export default function TechnologyTabs() {
                                                 width={48}
                                                 height={48}
                                                 className="w-[48px] h-[48px] sm:w-[64px] sm:h-[64px] lg:w-[80px] lg:h-[80px] object-contain"
+                                                loading="lazy"
                                             />
                                         ) : (
                                             <>

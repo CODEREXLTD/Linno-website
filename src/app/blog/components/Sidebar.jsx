@@ -22,6 +22,7 @@ const Sidebar = ({ categories, selectedCategory, handleCategoryClick }) => {
                                         width={20}
                                         height={1}
                                         className="w-[20px] h-[1px]"
+                                        loading="lazy"
                                     />
                                     <span className={`text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-normal leading-[16px] sm:leading-[18px] lg:leading-[20px] xl:leading-[24px] ml-[10px] whitespace-nowrap transition-colors duration-200 ${selectedCategory === category?.name ? 'text-[#3433fe]' : 'text-[#0f0e55]'
                                         }`}>

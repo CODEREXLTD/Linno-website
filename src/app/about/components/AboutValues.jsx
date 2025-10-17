@@ -62,6 +62,7 @@ const AboutValues = () => {
                                             width={610}
                                             height={388}
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
                                         />
                                     </div>
                                     <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
@@ -72,6 +73,7 @@ const AboutValues = () => {
                                                 width={28}
                                                 height={28}
                                                 className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] lg:w-[28px] lg:h-[28px]"
+                                                loading="lazy"
                                             />
                                             <h3 className="text-[20px] sm:text-[23px] lg:text-[26px] font-sora font-bold leading-[24px] sm:leading-[28px] lg:leading-[32px] text-[#0f0e55]">
                                                 {value?.title}

@@ -348,6 +348,7 @@ const AboutTeam = () => {
                                                     width={350}
                                                     height={328}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                    loading="lazy"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             </div>
