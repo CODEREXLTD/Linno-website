@@ -254,34 +254,34 @@ const AboutTeam = () => {
     };
     return (
         <>
-            <section className="section-wrapper bg-[#FFF]">
-                <div className="linno-container">
-                    <div className="mb-8 sm:mb-12">
-                        <h2 className="section-title">
+            <section className="linno-team">
+                <div className="linno-new-container">
+                    <div className="linno-section-title">
+                        <h2>
                             Meet Our <span className="title-gradient">Teams</span>
                         </h2>
-                        <p className="section-description">
+                        <p>
                             We combine expert resources with the latest technologies to deliver high-quality
                             software solutions for your business.
                         </p>
                     </div>
 
-                    <div className="flex flex-col md:flex-row gap-8 lg:gap-16">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
                         {/* Left Side - Department Filter */}
-                        <div className="w-full md:w-1/3 md:sticky top-20 self-start">
-                            <div className="space-y-4 sm:space-y-6 lg:space-y-8 mt-0 md:mt-4 lg:mt-10">
+                        <div className="w-full lg:w-1/3 lg:sticky lg:top-20 self-start">
+                            <div className="filter-wrapper space-y-4 sm:space-y-6 lg:space-y-8 mt-0 md:mt-4 lg:mt-10">
                                 {departments?.map((dept, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-center gap-3 sm:gap-4 lg:gap-5 cursor-pointer group"
+                                        className={`single-filter-item flex items-center gap-3 sm:gap-4 lg:gap-5 cursor-pointer group ${dept?.active ? 'active' : '' }`}
                                         onClick={() => handleTabClick(dept.key)}
                                     >
                                         <div
-                                            className={`w-[16px] sm:w-[18px] lg:w-[20px] h-[1px] transition-colors duration-200 ${dept?.active ? 'bg-[#3433fe]' : 'bg-[#0f0e55] group-hover:bg-[#3433fe]'
+                                            className={`dash-line w-[16px] sm:w-[18px] lg:w-[20px] h-[1px] transition-colors duration-200 ${dept?.active ? 'bg-[#3433fe]' : 'bg-[#0f0e55] group-hover:bg-[#3433fe]'
                                                 }`}
                                         ></div>
                                         <span
-                                            className={`text-[16px] sm:text-[18px] lg:text-[20px] font-bold font-sans leading-[20px] sm:leading-[22px] lg:leading-[24px] transition-colors duration-200 ${dept?.active
+                                            className={`filter-title text-[14px] lg:text-[18px] xl:text-[20px] font-medium lg:font-bold font-sans leading-[20px] sm:leading-[22px] lg:leading-[24px] transition-colors duration-200 ${dept?.active
                                                 ? 'text-[#3433fe]'
                                                 : 'text-[#0f0e55] group-hover:text-[#3433fe]'
                                                 }`}
@@ -348,6 +348,7 @@ const AboutTeam = () => {
                                                     width={350}
                                                     height={328}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                    loading="lazy"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             </div>

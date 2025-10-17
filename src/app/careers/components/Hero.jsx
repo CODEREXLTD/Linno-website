@@ -56,11 +56,12 @@ const Hero = () => {
                             <div className='flex flex-col gap-2'>
                                 <div className='flex gap-2 items-start sm:items-end flex-col-reverse sm:flex-row'>
                                     <Image
-                                        src="/images/img_pxl_20230818_110706499_308x348.png"
+                                        src="/images/team_collaboration.png"
                                         alt="Team collaboration"
                                         width={348}
                                         height={308}
                                         className="h-auto max-w-full sm:max-w-[60%]"
+                                        priority
                                     />
 
                                     <div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] rounded-none px-[8px] sm:px-[12px] lg:px-[16px] py-[14px] sm:py-[21px] lg:py-[28px] w-full sm:w-[40%]">
@@ -73,11 +74,12 @@ const Hero = () => {
                                 </div>
 
                                 <Image
-                                    src="/images/hero-home.jpg"
+                                    src="/images/team_meeting.jpg"
                                     alt="Team meeting"
                                     width={300}
                                     height={180}
                                     className="w-full h-auto"
+                                    priority
                                 />
                             </div>
                         </div>

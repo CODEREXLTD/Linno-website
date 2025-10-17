@@ -38,7 +38,7 @@ const Solution = () => {
 
                             <Link href={'https://getwpfunnels.com/'} target='_blank' className="solution-link">
                                 View Solutions
-                                <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
                         </div>
 
@@ -46,8 +46,8 @@ const Solution = () => {
                             <Image
                                 src="/images/woocommerce-solution.webp"
                                 alt="woocommerce solution"
-                                width={370}
-                                height={81}
+                                width={298}
+                                height={38}
                             />
 
                             <h3>WooCommerce Solutions</h3>
@@ -55,7 +55,7 @@ const Solution = () => {
 
                             <Link href={'https://getwpfunnels.com/'} target='_blank' className="solution-link">
                                 View Solutions
-                                <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
                         </div>
 
@@ -72,11 +72,27 @@ const Solution = () => {
 
                             <Link href={'https://getwpfunnels.com/'} target='_blank' className="solution-link">
                                 View Solutions
-                                <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
                         </div>
 
+                        <div className="single-solution tryon-ar">
+                            <div className="tryon-ar-logo">
+                                <Image
+                                    src="/images/tryon-ar-logo.webp"
+                                    alt="easier for creators"
+                                    width={240}
+                                    height={222}
+                                />
+                            </div>
+
+                            <div className="tryon-ar-content">
+                                <h3>But there is more...</h3>
+                                <p>We are currently preparing for yet another innovative solution involving XR and AI.... Something you've never seen before!</p>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </section>
 

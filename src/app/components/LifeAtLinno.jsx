@@ -36,7 +36,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={182}
                                     height={253}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
                         </div>
@@ -48,7 +48,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={260}
                                     height={276}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
 
@@ -58,7 +58,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={260}
                                     height={255}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
                         </div>
@@ -70,7 +70,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={294}
                                     height={590}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
                         </div>
@@ -82,7 +82,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={260}
                                     height={276}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
 
@@ -92,7 +92,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={260}
                                     height={255}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
                         </div>
@@ -104,7 +104,7 @@ const LifeAtLinno = () => {
                                     alt="Life at Linno"
                                     width={182}
                                     height={253}
-                                    priority
+                                    loading="lazy"
                                 />
                             </figure>
                         </div>

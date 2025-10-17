@@ -10,6 +10,7 @@ import AboutTeam from "./components/AboutTeam";
 import LinnoExistance from "./components/LinnoExistance";
 import Journey from "./components/Journey";
 import Solution from "./components/Solution";
+import Quote from "./components/Quote";
 
 const Content = () => {
     return (
@@ -28,6 +29,7 @@ const Content = () => {
             <LinnoExistance />
             <Journey />
             <Solution />
+            <Quote />
             <AboutTeam />
             <AboutCTA />
             <Footer />

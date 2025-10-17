@@ -20,6 +20,7 @@ const CultureSection = () => {
                                 width={210}
                                 height={210}
                                 className="w-[210px] h-[210px]"
+                                loading="lazy"
                             />
                             <Image
                                 src="/images/img_frame_14251_248x290.png"
@@ -27,6 +28,7 @@ const CultureSection = () => {
                                 width={290}
                                 height={248}
                                 className="w-[58%] h-auto"
+                                loading="lazy"
                             />
                         </div>
                         <Image
@@ -35,6 +37,7 @@ const CultureSection = () => {
                             width={530}
                             height={274}
                             className="w-full h-auto"
+                            loading="lazy"
                         />
                     </div>
                     {/* Right Content */}

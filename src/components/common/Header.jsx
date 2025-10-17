@@ -115,15 +115,18 @@ const Header = () => {
                         role="navigation"
                         aria-label="Main navigation"
                     >
-                        <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 xl:gap-8 p-4 lg:p-0 items-stretch lg:items-center max-h-[calc(100vh-80px)] lg:max-h-none overflow-y-auto lg:overflow-visible">
+                        <ul 
+                            className="flex flex-col lg:flex-row gap-2 lg:gap-6 xl:gap-8 p-4 lg:p-0 items-stretch lg:items-center max-h-[calc(100vh-80px)] lg:max-h-none overflow-y-auto lg:overflow-visible list-none m-0"
+                            role="menubar"
+                        >
                             {menuItems?.map((item, index) => {
                                 const isActive = isActiveRoute(item.href);
                                 return (
-                                    <Link
-                                        key={index}
-                                        href={item.href}
-                                        onClick={handleMenuItemClick}
-                                        className={`
+                                    <li key={index} role="none">
+                                        <Link
+                                            href={item.href}
+                                            onClick={handleMenuItemClick}
+                                            className={`
                       block lg:inline-block
                       px-4 py-3 lg:px-2 lg:py-1
                       text-base lg:text-sm xl:text-base 
@@ -145,13 +148,15 @@ const Header = () => {
                       text-center lg:text-left
                       whitespace-nowrap
                     `}
-                                        role="menuitem"
-                                    >
-                                        {item?.label}
-                                    </Link>
+                                            role="menuitem"
+                                            aria-current={isActive ? 'page' : undefined}
+                                        >
+                                            {item?.label}
+                                        </Link>
+                                    </li>
                                 );
                             })}
-                        </div>
+                        </ul>
                     </nav>
                 </div>
             </div>

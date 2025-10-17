@@ -7,7 +7,7 @@
   font-size: clamp(32px, 4vw, 40px);
   font-weight: bold;
   line-height: 1.2;
-  color: #0b0a3d;
+  color: #0b0a3d  !important;
   margin-bottom: 1.5rem;
 }
 
@@ -15,7 +15,7 @@
   font-size: clamp(24px, 3vw, 32px);
   font-weight: bold;
   line-height: 1.2;
-  color: #0b0a3d;
+  color: #0b0a3d  !important;
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
@@ -24,7 +24,7 @@
   font-size: clamp(20px, 2.5vw, 28px);
   font-weight: bold;
   line-height: 1.2;
-  color: #0b0a3d;
+  color: #0b0a3d  !important;
   margin-bottom: 1rem;
   margin-top: 1.5rem;
 }
@@ -33,7 +33,7 @@
   font-size: clamp(18px, 2vw, 24px);
   font-weight: bold;
   line-height: 1.2;
-  color: #0b0a3d;
+  color: #0b0a3d  !important;
   margin-bottom: 0.75rem;
   margin-top: 1rem;
 }
@@ -133,7 +133,7 @@
 .blog-content th {
   background-color: #f8f9ff;
   font-weight: 600;
-  color: #0b0a3d;
+  color: #0b0a3d  !important;
 }
 
 .blog-content hr {

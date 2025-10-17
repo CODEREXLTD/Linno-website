@@ -63,6 +63,7 @@ const Footer = () => {
 											width={174}
 											height={30}
 											className="w-full h-auto hover:scale-105 transition-transform duration-200"
+											loading="lazy"
 										/>
 									</Link>
 								</div>

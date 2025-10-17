@@ -1,0 +1,45 @@
+.linno-about-page{
+    .linno-quote {
+        padding: 80px 0 90px;
+    }
+}
+
+.linno-quote {
+    .quote-text {
+        color: #0B0A3D;
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-size: 30px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.4;
+        text-transform: capitalize;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .linno-about-page .linno-quote {
+        padding: 60px 0 70px;
+    }
+    .linno-quote .quote-text {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-about-page .linno-quote {
+        padding: 50px 0 50px;
+    }
+    .linno-quote .quote-text {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .linno-quote .quote-text {
+        font-size: 16px;
+    }
+
+}
