@@ -1,5 +1,6 @@
 'use client';
 import { memo } from 'react';
+import Image from 'next/image';
 import Separator from '@/components/common/Separator';
 
 
@@ -9,6 +10,13 @@ const Quote = () => {
         <>
             <section className="linno-quote">
                 <div className="linno-new-container">
+                    <Image
+                        src="/images/blue-heart.webp"
+                        alt="easier for creators"
+                        width={28}
+                        height={27}
+                        className="quote-icon block m-auto mb-5"
+                    />
                     <h2 className="quote-text">
                         We’re not asking you to be impressed.
                         <br />

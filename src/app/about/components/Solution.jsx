@@ -36,7 +36,7 @@ const Solution = () => {
                             <h3>Virtual Reality within WordPress</h3>
                             <p>Our team came up with WPVR, a VR solution in WordPress, allowing realtors and hotel owners to offer an immersive experience to buyers and prospects!</p>
 
-                            <Link href={'https://getwpfunnels.com/'} target='_blank' className="solution-link">
+                            <Link href={'https://rextheme.com/wpvr/'} target='_blank' className="solution-link">
                                 View Solutions
                                 <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
@@ -53,7 +53,7 @@ const Solution = () => {
                             <h3>WooCommerce Solutions</h3>
                             <p>Product feed manager, abandoned cart recovery, dynamic discounts, custom checkout, and many more necessary plugins to grow as a business!</p>
 
-                            <Link href={'https://getwpfunnels.com/'} target='_blank' className="solution-link">
+                            <Link href={'https://rextheme.com/'} target='_blank' className="solution-link">
                                 View Solutions
                                 <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
