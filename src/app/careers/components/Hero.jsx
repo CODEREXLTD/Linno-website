@@ -56,7 +56,7 @@ const Hero = () => {
                             <div className='flex flex-col gap-2'>
                                 <div className='flex gap-2 items-start sm:items-end flex-col-reverse sm:flex-row'>
                                     <Image
-                                        src="/images/img_pxl_20230818_110706499_308x348.png"
+                                        src="/images/team_collaboration.png"
                                         alt="Team collaboration"
                                         width={348}
                                         height={308}
@@ -73,7 +73,7 @@ const Hero = () => {
                                 </div>
 
                                 <Image
-                                    src="/images/hero-home.jpg"
+                                    src="/images/team_meeting.jpg"
                                     alt="Team meeting"
                                     width={300}
                                     height={180}
