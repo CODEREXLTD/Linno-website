@@ -8,7 +8,7 @@ const Facts = () => {
     const facts = [
         {
             title: 'Team Members',
-            number: '25+',
+            number: '30+',
         },
         {
             title: 'Year Founded',
