@@ -31,7 +31,7 @@ const AboutValues = () => {
             title: 'We are a family',
             description:
                 'We grow together, celebrate success together, and support one another like a close-knit family.',
-            image: '/images/hero-home.jpg',
+            image: '/images/family-v2.jpg',
             icon: '/images/img_solar_fire_bold_duotone.svg',
         },
     ];
