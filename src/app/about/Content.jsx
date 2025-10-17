@@ -11,6 +11,7 @@ import LinnoExistance from "./components/LinnoExistance";
 import Journey from "./components/Journey";
 import Solution from "./components/Solution";
 import Quote from "./components/Quote";
+import PartOfUs from "./components/PartOfUs";
 
 const Content = () => {
     return (
@@ -31,6 +32,7 @@ const Content = () => {
             <Solution />
             <Quote />
             <AboutTeam />
+            <PartOfUs />
             <AboutCTA />
             <Footer />
         </div>

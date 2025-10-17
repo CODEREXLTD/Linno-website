@@ -1,4 +1,5 @@
 'use client';
+import Separator from '@/components/common/Separator';
 import Image from 'next/image';
 import { memo, useState } from 'react';
 
@@ -422,6 +423,8 @@ const AboutTeam = () => {
                     </div>
                 </div>
             </section>
+
+            <Separator />
         </>
     );
 };

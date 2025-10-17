@@ -1252,5 +1252,124 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 }
+.linno-about-page .linno-partof-us {
+  padding: 70px 0 130px;
+}
+
+.linno-partof-us .linno-section-title strong {
+  color: #5E658B;
+}
+.linno-partof-us .partof-us-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.linno-partof-us .single-partof-us {
+  border-radius: 20px;
+  border: 1px solid #E7E9F5;
+  background: #FFF;
+  box-shadow: 0 9.785px 48.926px 0 rgba(52, 51, 254, 0.05);
+  backdrop-filter: blur(5px);
+  padding: 25px 35px 35px;
+  display: flex;
+  flex-direction: column;
+}
+.linno-partof-us .single-partof-us h3 {
+  color: #0B0A3D;
+  font-family: "Sora", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 23px;
+}
+.linno-partof-us .single-partof-us .partof-us-iamge {
+  position: relative;
+  margin-top: auto;
+}
+.linno-partof-us .single-partof-us .partof-us-iamge:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--linno-primary-color);
+  border-radius: 14px;
+}
+.linno-partof-us .single-partof-us .partof-us-iamge img {
+  border-radius: 14px;
+  display: block;
+  transform-origin: center center;
+  transform: rotate(-3deg);
+  width: 100%;
+}
+.linno-partof-us .linno-section-separator {
+  margin-top: 80px;
+}
+
+@media screen and (max-width: 1399px) {
+  .linno-about-page .linno-partof-us {
+    padding: 70px 0 100px;
+  }
+  .linno-partof-us .single-partof-us {
+    padding: 20px 30px 30px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .linno-about-page .linno-partof-us {
+    padding: 60px 0 80px;
+  }
+  .linno-partof-us .linno-section-separator {
+    margin-top: 50px;
+  }
+  .linno-partof-us .single-partof-us {
+    padding: 20px 24px 24px;
+    border-radius: 14px;
+  }
+  .linno-partof-us .single-partof-us h3 {
+    font-size: 20px;
+  }
+  .linno-partof-us .single-partof-us .partof-us-iamge:before {
+    border-radius: 10px;
+  }
+  .linno-partof-us .single-partof-us .partof-us-iamge img {
+    border-radius: 10px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .linno-about-page .linno-partof-us {
+    padding: 50px 0 60px;
+  }
+  .linno-partof-us .linno-section-separator {
+    margin-top: 40px;
+  }
+  .linno-partof-us .partof-us-wrapper {
+    gap: 14px;
+  }
+  .linno-partof-us .single-partof-us {
+    padding: 16px 18px 18px;
+    border-radius: 14px;
+  }
+  .linno-partof-us .single-partof-us h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .linno-partof-us .partof-us-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .linno-partof-us .single-partof-us h3 {
+    font-size: 22px;
+  }
+  .linno-partof-us .single-partof-us {
+    padding: 24px 30px 30px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .linno-partof-us .single-partof-us h3 {
+    font-size: 18px;
+  }
+  .linno-partof-us .single-partof-us {
+    padding: 16px 18px 18px;
+  }
+}
 
 /*# sourceMappingURL=home-scss.css.map */
