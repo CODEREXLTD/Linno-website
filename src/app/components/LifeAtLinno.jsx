@@ -3,6 +3,7 @@ import Button from '@/components/ui/Button';
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import Image from 'next/image';
+import Separator from '@/components/common/Separator';
 
 const LifeAtLinno = () => {
     const router = useRouter();
@@ -121,6 +122,8 @@ const LifeAtLinno = () => {
                     </div>
                 </div>
             </section>
+
+            <Separator />
         </>
     );
 };

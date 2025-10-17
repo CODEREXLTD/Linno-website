@@ -492,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .linno-home-page .linno-life {
-  padding: 110px 0 0;
+  padding: 110px 0 80px;
 }
 
 .linno-life .linno-life-gallery {
@@ -520,12 +520,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (max-width: 1399px) {
   .linno-home-page .linno-life {
-    padding: 90px 0 0;
+    padding: 90px 0 70px;
   }
 }
 @media screen and (max-width: 1199px) {
   .linno-home-page .linno-life {
-    padding: 70px 0 0;
+    padding: 70px 0 60px;
   }
   .linno-life .linno-life-gallery {
     gap: 14px;
@@ -539,7 +539,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 991px) {
   .linno-home-page .linno-life {
-    padding: 50px 0 0;
+    padding: 50px 0 60px;
   }
   .linno-life .linno-life-gallery {
     gap: 10px;
@@ -563,7 +563,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .linno-technology {
-  padding: 160px 0 130px;
+  padding: 70px 0 130px;
 }
 .linno-technology .linno-section-separator {
   margin-top: 80px;
@@ -571,7 +571,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (max-width: 1399px) {
   .linno-technology {
-    padding: 110px 0 100px;
+    padding: 60px 0 100px;
   }
   .linno-technology .linno-section-separator {
     margin-top: 50px;
@@ -579,12 +579,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 1199px) {
   .linno-technology {
-    padding: 90px 0 80px;
+    padding: 50px 0 80px;
   }
 }
 @media screen and (max-width: 991px) {
   .linno-technology {
-    padding: 60px 0 60px;
+    padding: 50px 0 60px;
   }
   .linno-technology .linno-section-separator {
     margin-top: 40px;
