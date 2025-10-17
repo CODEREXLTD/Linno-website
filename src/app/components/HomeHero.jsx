@@ -72,7 +72,7 @@ const HomeHero = () => {
                         <div className="iamge-side2">
                             <div className="hero-experience">
                                 <span className="hero-experience-count">
-                                    <svg width="134" height="134" fill="none" viewBox="0 0 134 134" xmlns="http://www.w3.org/2000/svg"><circle cx="67" cy="67" r="62" fill="#BEBED7" fill-opacity=".2"/><circle cx="67" cy="67" r="66.5" stroke="url(#paint0_linear_6031_15)"/><defs><linearGradient id="paint0_linear_6031_15" x1="11" x2="120" y1="24.5" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#21F0A8"/><stop offset=".433" stop-color="#3433FE"/></linearGradient></defs></svg>
+                                    <svg width="134" height="134" fill="none" viewBox="0 0 134 134" xmlns="http://www.w3.org/2000/svg"><circle cx="67" cy="67" r="62" fill="#BEBED7" fillOpacity=".2"/><circle cx="67" cy="67" r="66.5" stroke="url(#paint0_linear_6031_15)"/><defs><linearGradient id="paint0_linear_6031_15" x1="11" x2="120" y1="24.5" y2="120" gradientUnits="userSpaceOnUse"><stop stopColor="#21F0A8"/><stop offset=".433" stopColor="#3433FE"/></linearGradient></defs></svg>
 
                                     <span className="experience">
                                         12+

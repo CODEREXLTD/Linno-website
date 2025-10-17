@@ -41,7 +41,7 @@ const HomeBrands = () => {
 
                                 <Link href={'https://getwpfunnels.com/'} target='_blank' className="brand-item-link">
                                     Visit Website
-                                    <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                    <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
                                 </Link>
                             </div>
 
@@ -64,7 +64,7 @@ const HomeBrands = () => {
 
                                 <Link href={'https://rextheme.com/'} target='_blank' className="brand-item-link">
                                     Visit Website
-                                    <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
+                                    <svg fill="none" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path stroke="#3433FE" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.476" d="M12.806 1.182L1 12.988M12.806 1.182v8.66m0-8.66h-8.66"/></svg>
                                 </Link>
                             </div>
                         </div>

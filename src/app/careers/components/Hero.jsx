@@ -61,6 +61,7 @@ const Hero = () => {
                                         width={348}
                                         height={308}
                                         className="h-auto max-w-full sm:max-w-[60%]"
+                                        priority
                                     />
 
                                     <div className="bg-[linear-gradient(90deg,#3433fe19_0%,_#00c85319_100%)] rounded-none px-[8px] sm:px-[12px] lg:px-[16px] py-[14px] sm:py-[21px] lg:py-[28px] w-full sm:w-[40%]">
@@ -78,6 +79,7 @@ const Hero = () => {
                                     width={300}
                                     height={180}
                                     className="w-full h-auto"
+                                    priority
                                 />
                             </div>
                         </div>
