@@ -62,7 +62,9 @@ const ProductsContent = () => {
 
             <main>
                 <ProductsHero />
-                <Products />
+                <section className='section-wrapper'>
+                    <Products />
+                </section>
             </main>
             
             <Footer />
