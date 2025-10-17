@@ -1,0 +1,164 @@
+.linno-about-page{
+    .linno-existance {
+        padding: 75px 0 90px;
+    }
+}
+
+.linno-existance {
+    .linno-section-title {
+        .light-text {
+            color: #0B0A3D;
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: 120px;
+        justify-content: space-between;
+
+        .content-left {
+            width: calc(50% - 65px);
+            padding-left: 45px;
+        }
+
+        .content-right {
+            width: calc(50% - 65px);
+        }
+
+        .questions {
+            li {
+                color: #0B0A3D;
+                font-family: 'Inter', sans-serif;
+                font-size: 26px;
+                font-weight: 500;
+                line-height: 1.5;
+                margin-bottom: 36px;
+                position: relative;
+                padding-left: 44px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:before {
+                    content: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjcgMjciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iIzM0MzNGRSIgZD0iTTE0Ljk1MyAxOS43OTdhMS40NTMgMS40NTMgMCAxMS0yLjkwNiAwIDEuNDUzIDEuNDUzIDAgMDEyLjkwNiAwek0xMy41IDYuNzE5Yy0yLjY3MSAwLTQuODQ0IDEuOTU1LTQuODQ0IDQuMzZ2LjQ4M2EuOTY5Ljk2OSAwIDAwMS45MzggMHYtLjQ4NGMwLTEuMzMyIDEuMzA0LTIuNDIyIDIuOTA2LTIuNDIyczIuOTA2IDEuMDkgMi45MDYgMi40MjJTMTUuMTAyIDEzLjUgMTMuNSAxMy41YS45Ny45NyAwIDAwLS45NjkuOTY5di45NjlhLjk2OS45NjkgMCAxMDEuOTM4IDB2LS4wODhjMi4yMDgtLjQwNSAzLjg3NS0yLjE2NyAzLjg3NS00LjI3MiAwLTIuNDA0LTIuMTczLTQuMzYtNC44NDQtNC4zNnpNMjYuMDk0IDEzLjVBMTIuNTk0IDEyLjU5NCAwIDExMTMuNS45MDYgMTIuNjA3IDEyLjYwNyAwIDAxMjYuMDk0IDEzLjV6bS0xLjkzOCAwQTEwLjY1NiAxMC42NTYgMCAxMDEzLjUgMjQuMTU2IDEwLjY2OSAxMC42NjkgMCAwMDI0LjE1NiAxMy41eiIvPjwvc3ZnPg==");
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    width: 27px;
+                    height: auto;
+                    display: block;
+                }
+            }
+        }
+
+        .question-ans {
+            color: #585A65;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-top: 40px;
+            padding-left: 45px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1399px) {
+    .linno-existance .content-wrapper .questions li {
+        font-size: 22px;
+    }
+    .linno-existance .content-wrapper .question-ans {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-about-page .linno-existance {
+        padding: 55px 0 70px;
+    }
+    .linno-existance .content-wrapper {
+        gap: 60px;
+    }
+
+    .linno-existance .content-wrapper .content-left {
+        width: calc(50% - 30px);
+        padding-left: 0;
+    }
+    .linno-existance .content-wrapper .content-left img {
+        max-width: 380px;
+        height: auto;
+    }
+
+    .linno-existance .content-wrapper .content-right {
+        width: calc(50% - 30px);
+    }
+
+    .linno-existance .content-wrapper .questions li {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 34px;
+    }
+    .linno-existance .content-wrapper .questions li:before {
+        width: 20px;
+    }
+    .linno-existance .content-wrapper .question-ans {
+        font-size: 18px;
+        margin-top: 30px;
+        padding-left: 34px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-about-page .linno-existance {
+        padding: 45px 0 60px;
+    }
+    .linno-existance .content-wrapper {
+        gap: 30px;
+    }
+    
+    .linno-existance .content-wrapper .content-left {
+        width: calc(50% - 15px);
+    }
+    .linno-existance .content-wrapper .content-right {
+        width: calc(50% - 15px);
+    }
+    .linno-existance .content-wrapper .content-left img {
+        max-width: 290px;
+        width: 100%;
+        height: auto;
+    }
+    .linno-existance .content-wrapper .questions li {
+        font-size: 16px;
+    }
+    .linno-existance .content-wrapper .question-ans {
+        font-size: 16px;
+        margin-top: 24px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .linno-existance .content-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .linno-existance .content-wrapper .content-left {
+        width: 100%;
+    }
+    .linno-existance .content-wrapper .content-right {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .linno-existance .content-wrapper .content-left img {
+        max-width: 200px;
+    }
+
+}

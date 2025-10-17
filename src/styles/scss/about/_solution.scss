@@ -1,0 +1,136 @@
+.linno-about-page{
+    .linno-solution {
+        padding: 80px 0 80px;
+    }
+}
+
+.linno-solution {
+    .linno-section-title {
+
+        .note {
+            color: #585A65;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 36px;
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: 120px;
+        justify-content: space-between;
+
+        .content-left {
+            width: calc(50% - 60px);
+            max-width: 560px;
+        }
+        .content-right {
+            width: calc(50% - 60px);
+        }
+    }
+
+    .journey-image-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        max-width: 550px;
+
+        .journey-single-image {
+            img {
+                display: block;
+                border-radius: 36px;
+                width: 100%;
+                height: auto;
+            }
+
+            &:nth-child(2) {
+                img {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1399px) {
+    
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-about-page .linno-solution {
+        padding: 70px 0;
+    }
+    .linno-solution .content-wrapper {
+        gap: 60px;
+    }
+
+    .linno-solution .content-wrapper .content-left {
+        width: calc(50% - 30px);
+    }
+
+    .linno-solution .content-wrapper .content-right {
+        width: calc(50% - 30px);
+    }
+
+    .linno-solution .journey-image-wrapper .journey-single-image img {
+        border-radius: 20px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-about-page .linno-solution {
+        padding: 60px 0;
+    }
+    .linno-solution .content-wrapper {
+        gap: 30px;
+    }
+    
+    .linno-solution .content-wrapper .content-left {
+        width: calc(50% - 15px);
+    }
+    .linno-solution .content-wrapper .content-right {
+        width: calc(50% - 15px);
+    }
+    .linno-solution .journey-image-wrapper {
+        gap: 14px;
+    }
+    .linno-solution .journey-image-wrapper .journey-single-image img {
+        border-radius: 14px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .linno-about-page .linno-solution {
+        padding: 50px 0 60px;
+    }
+    .linno-solution .linno-section-title h2 br {
+        display: none;
+    }
+
+    .linno-solution .content-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .linno-solution .content-wrapper .content-left {
+        width: 100%;
+    }
+    .linno-solution .content-wrapper .content-right {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .linno-solution .journey-image-wrapper {
+        gap: 10px;
+    }
+
+}

@@ -14,7 +14,7 @@ const Content = () => {
     
 	return (
 		<div className="linno-home-page">
-			<div className="grid-line">
+			<div className="linno-grid-line">
 				<div className="line-wrapper">
 					<span className="single-line line-left"></span>
 					<span className="single-line line-right"></span>

@@ -366,7 +366,7 @@ const AboutTeam = () => {
                                                                 strokeLinecap="round"
                                                                 strokeLinejoin="round"
                                                                 strokeWidth="1.5"
-                                                                clip-path="url(#clip0_26_541)"
+                                                                clipPath="url(#clip0_26_541)"
                                                             >
                                                                 <path
                                                                     stroke="#21F0A8"

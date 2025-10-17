@@ -4,17 +4,30 @@ import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import AboutHero from "./components/AboutHero";
 import AboutVideo from "./components/AboutVideo";
-import AboutValues from "./components/AboutValues";
+import Facts from "./components/Facts";
 import AboutCTA from "./components/AboutCTA";
 import AboutTeam from "./components/AboutTeam";
+import LinnoExistance from "./components/LinnoExistance";
+import Journey from "./components/Journey";
+import Solution from "./components/Solution";
 
 const Content = () => {
     return (
-        <div className="w-full bg-[#ffffff]">
+        <div className="linno-about-page">
+            <div className="linno-grid-line">
+				<div className="line-wrapper">
+					<span className="single-line line-left"></span>
+					<span className="single-line line-right"></span>
+				</div>
+            </div>
+
             <Header />
             <AboutHero />
             <AboutVideo />
-            <AboutValues />
+            <Facts />
+            <LinnoExistance />
+            <Journey />
+            <Solution />
             <AboutTeam />
             <AboutCTA />
             <Footer />

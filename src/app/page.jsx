@@ -2,7 +2,7 @@ import React from 'react';
 import Content from './Content';
 
 export const metadata = {
-    title: "Linno - High-End Software Solutions",
+    title: "Linno - Innovation, Fueled by People",
     description: "Our expert developers can turn your innovative ideas into exceptional digital solutions.",
     icons: {
         icon: [
