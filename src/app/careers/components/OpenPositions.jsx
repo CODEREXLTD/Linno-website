@@ -22,6 +22,15 @@ const OpenPositions = () => {
             buttonStyle: 'outline',
             buttonLink: 'https://inside.coderex.co/jobs/ai-engineer--lead-role--nbgze'
         },
+        {
+            category: 'Engineering',
+            title: 'Full Stack WordPress Developer ',
+            location: 'On-Site',
+            type: 'Full Time',
+            level: 'Mid-Level',
+            buttonStyle: 'outline',
+            buttonLink: 'https://inside.coderex.co/jobs/full-stack-wordpress-developer--mid-level---gbj9n'
+        },
     ];
 
     return (
