@@ -6,15 +6,6 @@ const OpenPositions = () => {
     const jobPositions = [
         {
             category: 'Marketing',
-            title: 'Digital Product Marketing Executive',
-            location: 'On-Site',
-            type: 'Full Time',
-            level: 'Mid-Level',
-            buttonStyle: 'outline',
-            buttonLink: 'https://inside.coderex.co/jobs/digital-product-marketing-executive--mid-level--gokgm'
-        },
-        {
-            category: 'Marketing',
             title: 'Digital Marketing Executive',
             location: 'On-Site',
             type: 'Full Time',
