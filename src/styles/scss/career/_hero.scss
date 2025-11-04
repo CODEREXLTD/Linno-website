@@ -1,0 +1,114 @@
+.linno-career-page {
+    .linno-career-hero {
+        padding: 120px 0 90px;
+    }
+}
+
+.linno-career-hero {
+    .content-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .linno-section-title {
+        width: calc(50% - 50px);
+        max-width: 540px;
+        margin-bottom: 0;
+
+        h1 {
+            color: #0F0E55;
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+    }
+
+    .linno-about-description {
+        max-width: 505px;
+        width: 50%;
+
+        p {
+            color: #585A65;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .linno-section-cta {
+            text-align: left;
+
+            .linno-cta-btn {
+                gap: 30px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .linno-career-page .linno-career-hero {
+        padding: 100px 0 90px;
+    }
+
+    .linno-career-hero .linno-section-title h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-career-page .linno-career-hero {
+        padding: 70px 0 70px;
+    }
+
+    .linno-career-hero .linno-section-title h1 {
+        font-size: 50px;
+    }
+
+    .linno-career-hero .linno-about-description p {
+        font-size: 18px;
+    }
+
+    .linno-career-hero .linno-about-description .linno-section-cta .linno-cta-btn {
+        gap: 8px;
+    }
+
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-career-hero .content-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .linno-career-hero .linno-section-title {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .linno-career-hero .linno-section-title h1 {
+        font-size: 42px;
+    }
+
+    .linno-career-hero .linno-about-description {
+        max-width: 100%;
+        width: 100%;
+    }
+    .linno-career-hero .linno-about-description p {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .linno-career-page .linno-career-hero {
+        padding: 50px 0 60px;
+    }
+    .linno-career-hero .linno-section-title h1 {
+        font-size: 40px;
+    }
+
+}

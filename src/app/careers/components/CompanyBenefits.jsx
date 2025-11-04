@@ -75,7 +75,7 @@ const CompanyBenefits = () => {
     ];
 
     return (
-        <section className="bg-[#090936] section-wrapper">
+        <section className="bg-[#090936] section-wrapper linno-benefits">
             <div className="linno-container">
                 {/* Background Image Section */}
                 <div className="mx-auto relative">

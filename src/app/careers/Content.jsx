@@ -7,6 +7,7 @@ import WhyWorkAtLinno from './components/WhyWorkAtLinno';
 import CompanyBenefits from './components/CompanyBenefits';
 import CultureSection from './components/CultureSection';
 import OpenPositions from './components/OpenPositions';
+import Facts from '../about/components/Facts';
 
 const Content = () => {
     // Handle scrolling to section when page loads with hash
@@ -23,17 +24,21 @@ const Content = () => {
     }, []);
 
 	return (
-		<div className="w-full bg-[#f2f5fb]">
-			<Header />
-			
-			<main className="w-full">
-				<Hero />
-				<WhyWorkAtLinno />
-				<CompanyBenefits />
-				<CultureSection />
-				<OpenPositions />
-			</main>
+		<div className="linno-career-page">
+			<div className="linno-grid-line">
+				<div className="line-wrapper">
+					<span className="single-line line-left"></span>
+					<span className="single-line line-right"></span>
+				</div>
+            </div>
 
+			<Header />
+			<Hero />
+			<Facts />
+			<WhyWorkAtLinno />
+			<CompanyBenefits />
+			<CultureSection />
+			<OpenPositions />
 			<Footer />
 		</div>
 	);

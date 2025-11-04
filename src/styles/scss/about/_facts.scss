@@ -1,10 +1,6 @@
-.linno-about-page{
-    .linno-facts {
-        padding: 153px 0 100px;
-    }
-}
-
 .linno-facts {
+    padding: 140px 0 100px;
+
     .facts-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -45,7 +41,7 @@
 
 
 @media screen and (max-width: 1399px) {
-    .linno-about-page .linno-facts {
+    .linno-facts {
         padding: 113px 0 80px;
     }
     .linno-facts .single-fact {
@@ -57,7 +53,7 @@
 }
 
 @media screen and (max-width: 1199px) {
-    .linno-about-page .linno-facts {
+    .linno-facts {
         padding: 60px 0 60px;
     }
     .linno-facts .single-fact {
@@ -73,7 +69,7 @@
 }
 
 @media screen and (max-width: 991px) {
-    .linno-about-page .linno-facts {
+    .linno-facts {
         padding: 50px 0 50px;
     }
 

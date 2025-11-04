@@ -680,10 +680,9 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 40px;
   }
 }
-.linno-about-page .linno-facts {
-  padding: 153px 0 100px;
+.linno-facts {
+  padding: 140px 0 100px;
 }
-
 .linno-facts .facts-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -719,7 +718,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 1399px) {
-  .linno-about-page .linno-facts {
+  .linno-facts {
     padding: 113px 0 80px;
   }
   .linno-facts .single-fact {
@@ -730,7 +729,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media screen and (max-width: 1199px) {
-  .linno-about-page .linno-facts {
+  .linno-facts {
     padding: 60px 0 60px;
   }
   .linno-facts .single-fact {
@@ -744,7 +743,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media screen and (max-width: 991px) {
-  .linno-about-page .linno-facts {
+  .linno-facts {
     padding: 50px 0 50px;
   }
   .linno-facts .facts-wrapper {
@@ -1370,6 +1369,212 @@ h1, h2, h3, h4, h5, h6 {
   .linno-partof-us .single-partof-us {
     padding: 16px 18px 18px;
   }
+}
+.linno-career-page .linno-career-hero {
+  padding: 120px 0 90px;
+}
+
+.linno-career-hero .content-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+}
+.linno-career-hero .linno-section-title {
+  width: calc(50% - 50px);
+  max-width: 540px;
+  margin-bottom: 0;
+}
+.linno-career-hero .linno-section-title h1 {
+  color: #0F0E55;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.linno-career-hero .linno-about-description {
+  max-width: 505px;
+  width: 50%;
+}
+.linno-career-hero .linno-about-description p {
+  color: #585A65;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.linno-career-hero .linno-about-description .linno-section-cta {
+  text-align: left;
+}
+.linno-career-hero .linno-about-description .linno-section-cta .linno-cta-btn {
+  gap: 30px;
+}
+
+@media screen and (max-width: 1399px) {
+  .linno-career-page .linno-career-hero {
+    padding: 100px 0 90px;
+  }
+  .linno-career-hero .linno-section-title h1 {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .linno-career-page .linno-career-hero {
+    padding: 70px 0 70px;
+  }
+  .linno-career-hero .linno-section-title h1 {
+    font-size: 50px;
+  }
+  .linno-career-hero .linno-about-description p {
+    font-size: 18px;
+  }
+  .linno-career-hero .linno-about-description .linno-section-cta .linno-cta-btn {
+    gap: 8px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .linno-career-hero .content-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .linno-career-hero .linno-section-title {
+    width: 100%;
+    max-width: 100%;
+  }
+  .linno-career-hero .linno-section-title h1 {
+    font-size: 42px;
+  }
+  .linno-career-hero .linno-about-description {
+    max-width: 100%;
+    width: 100%;
+  }
+  .linno-career-hero .linno-about-description p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .linno-career-page .linno-career-hero {
+    padding: 50px 0 60px;
+  }
+  .linno-career-hero .linno-section-title h1 {
+    font-size: 40px;
+  }
+}
+.linno-career-page .why-linno {
+  padding: 75px 0 90px;
+}
+
+.why-linno .linno-section-title p {
+  max-width: 1100px;
+}
+.why-linno .content-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 50px;
+  justify-content: space-between;
+}
+.why-linno .content-wrapper .content-left {
+  width: calc(50% - 25px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+  row-gap: 70px;
+}
+.why-linno .content-wrapper .content-right {
+  width: calc(50% - 25px);
+}
+.why-linno .content-wrapper .image-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+.why-linno .content-wrapper .image-wrapper img {
+  display: block;
+  border-radius: 16px;
+}
+.why-linno .content-wrapper .image-left {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+.why-linno .content-wrapper .single-content {
+  max-width: 270px;
+}
+.why-linno .content-wrapper .single-content h3 {
+  color: #0B0A3D;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: -0.396px;
+  margin-top: 28px;
+}
+.why-linno .content-wrapper .single-content p {
+  color: #585A65;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+@media screen and (max-width: 1399px) {
+  .why-linno .content-wrapper .single-content h3 {
+    font-size: 24px;
+  }
+  .why-linno .content-wrapper .content-left {
+    gap: 50px;
+    row-gap: 50px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .linno-career-page .why-linno {
+    padding: 55px 0 70px;
+  }
+  .why-linno .content-wrapper .content-left {
+    gap: 30px;
+    row-gap: 40px;
+  }
+  .why-linno .content-wrapper .single-content h3 {
+    font-size: 20px;
+  }
+  .why-linno .content-wrapper .single-content p {
+    margin-top: 6px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .linno-career-page .why-linno {
+    padding: 45px 0 60px;
+  }
+  .why-linno .content-wrapper {
+    flex-direction: column-reverse;
+  }
+  .why-linno .content-wrapper .content-right {
+    width: 100%;
+  }
+  .why-linno .content-wrapper .content-left {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 575px) {
+  .why-linno .content-wrapper {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+  .why-linno .content-wrapper .image-wrapper img {
+    border-radius: 10px;
+  }
+  .why-linno .content-wrapper .content-left {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 30px;
+  }
+  .why-linno .content-wrapper .single-content h3 {
+    margin-top: 18px;
+  }
+}
+.linno-career-page .linno-benefits {
+  padding: 110px 0 120px;
 }
 
 /*# sourceMappingURL=home-scss.css.map */
