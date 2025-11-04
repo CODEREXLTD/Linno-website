@@ -1,46 +1,29 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Application from './Application';
 
 const OpenPositions = () => {
-    const jobPositions = [
-        {
-            category: 'Marketing',
-            title: 'Digital Product Marketing Executive',
-            location: 'On-Site',
-            type: 'Full Time',
-            level: 'Mid-Level',
-            buttonStyle: 'outline',
-            buttonLink: 'https://inside.coderex.co/jobs/digital-product-marketing-executive--mid-level--gokgm'
-        },
-        {
-            category: 'Marketing',
-            title: 'Digital Marketing Executive',
-            location: 'On-Site',
-            type: 'Full Time',
-            level: 'Mid-Level',
-            buttonStyle: 'outline',
-            buttonLink: 'https://inside.coderex.co/jobs/digital-marketing-executive--mid-level--gokgm'
-        },
-        {
-            category: 'Engineering',
-            title: 'AI Engineer ',
-            location: 'On-Site',
-            type: 'Full Time',
-            level: 'Lead-Role',
-            buttonStyle: 'outline',
-            buttonLink: 'https://inside.coderex.co/jobs/ai-engineer--lead-role--nbgze'
-        },
-        {
-            category: 'Engineering',
-            title: 'Full Stack PHP Developer',
-            location: 'On-Site',
-            type: 'Full Time',
-            level: 'Mid-Level',
-            buttonStyle: 'outline',
-            buttonLink: 'https://inside.coderex.co/jobs/full-stack-php-developer--mid-level---gbj9n'
-        },
-    ];
+    const [jobPositions, setJobPositions] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // Fetch published jobs from API
+        const fetchJobs = async () => {
+            try {
+                const response = await fetch('/api/jobs?published=true');
+                const data = await response.json();
+                if (data.success) {
+                    setJobPositions(data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchJobs();
+    }, []);
 
     return (
         <section className="section-wrapper" id="linno-open-positions">
@@ -57,11 +40,21 @@ const OpenPositions = () => {
                     </div>
 
                     {/* Job Listings */}
-                    <div className="flex flex-col gap-[30px] sm:gap-[40px] lg:gap-[60px] xl:gap-[86px] items-center w-full lg:w-[80%] mb-[4px] sm:mb-[6px] lg:mb-[8px]">
-                        {jobPositions?.map((job, index) => (
-                            <Application key={index} job={job} index={index} jobPositions={jobPositions} />
-                        ))}
-                    </div>
+                    {isLoading ? (
+                        <div className="flex justify-center items-center py-12">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3433FE]"></div>
+                        </div>
+                    ) : jobPositions.length === 0 ? (
+                        <div className="text-center py-12">
+                            <p className="text-[18px] text-[#5E658B]">No open positions at the moment. Check back soon!</p>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col gap-[30px] sm:gap-[40px] lg:gap-[60px] xl:gap-[86px] items-center w-full lg:w-[80%] mb-[4px] sm:mb-[6px] lg:mb-[8px]">
+                            {jobPositions.map((job, index) => (
+                                <Application key={job.id || index} job={job} index={index} jobPositions={jobPositions} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
