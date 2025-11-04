@@ -1,10 +1,42 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function AdminLayout({ children }) {
     const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isChecking, setIsChecking] = useState(true);
+
+    // Check authentication on mount
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                const response = await fetch('/api/auth/verify', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.authenticated) {
+                        setIsAuthenticated(true);
+                    } else {
+                        router.push('/login-as-linno-admin?redirect=' + window.location.pathname);
+                    }
+                } else {
+                    router.push('/login-as-linno-admin?redirect=' + window.location.pathname);
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+                router.push('/login-as-linno-admin?redirect=' + window.location.pathname);
+            } finally {
+                setIsChecking(false);
+            }
+        };
+
+        checkAuth();
+    }, [router]);
 
     const handleLogout = async () => {
         try {
@@ -49,6 +81,23 @@ export default function AdminLayout({ children }) {
             )
         }
     ];
+
+    // Show loading state while checking authentication
+    if (isChecking) {
+        return (
+            <div className="min-h-screen bg-[#F8F9FC] flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3433FE] mx-auto mb-4"></div>
+                    <p className="text-[16px] text-[#5E658B]">Verifying authentication...</p>
+                </div>
+            </div>
+        );
+    }
+
+    // Don't render admin content if not authenticated
+    if (!isAuthenticated) {
+        return null;
+    }
 
     return (
         <div className="min-h-screen bg-[#F8F9FC] font-inter">
