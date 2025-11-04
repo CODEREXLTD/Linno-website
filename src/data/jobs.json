@@ -1,0 +1,35 @@
+[
+    {
+        "id": "job-1",
+        "category": "Marketing",
+        "title": "Digital Marketing Executive",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Mid-Level",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/digital-marketing-executive--mid-level--gokgm",
+        "status": "publish"
+    },
+    {
+        "id": "job-2",
+        "category": "Engineering",
+        "title": "AI Engineer",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Lead-Role",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/ai-engineer--lead-role--nbgze",
+        "status": "publish"
+    },
+    {
+        "id": "job-3",
+        "category": "Engineering",
+        "title": "Full Stack PHP Developer",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Mid-Level",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/full-stack-php-developer--mid-level---gbj9n",
+        "status": "publish"
+    }
+]
