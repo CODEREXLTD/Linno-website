@@ -101,14 +101,7 @@ const AboutTeam = () => {
             image: '/images/kabir.jpeg',
             icon: '/images/img_lucide_lab_target_arrow.svg',
         },
-        {
-            id: 12,
-            name: 'Mamun Prodhan',
-            position: 'JavaScript Developer',
-            department: 'engineering',
-            image: '/images/mamun.png',
-            icon: '/images/img_lucide_lab_target_arrow.svg',
-        },
+        
         {
             id: 13,
             name: 'Tasnim Ikra',
