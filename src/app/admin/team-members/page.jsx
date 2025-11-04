@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 export default function TeamMembersPage() {
@@ -9,6 +9,9 @@ export default function TeamMembersPage() {
     const [modalMode, setModalMode] = useState('create');
     const [editingMember, setEditingMember] = useState(null);
     const [deleteConfirm, setDeleteConfirm] = useState(null);
+    const [uploadingImage, setUploadingImage] = useState(false);
+    const [imagePreview, setImagePreview] = useState(null);
+    const fileInputRef = useRef(null);
     const [formData, setFormData] = useState({
         name: '',
         position: '',
@@ -64,6 +67,15 @@ export default function TeamMembersPage() {
         });
     };
 
+    const closeModal = () => {
+        setShowModal(false);
+        setEditingMember(null);
+        setImagePreview(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
     const openCreateModal = () => {
         setModalMode('create');
         const maxOrder = members.reduce((max, m) => Math.max(max, m.order || 0), 0);
@@ -76,6 +88,7 @@ export default function TeamMembersPage() {
             status: 'active',
             order: maxOrder + 1
         });
+        setImagePreview('/images/default-avatar.jpg');
         setShowModal(true);
     };
 
@@ -91,7 +104,83 @@ export default function TeamMembersPage() {
             status: member.status,
             order: member.order || 0
         });
+        setImagePreview(member.image);
         setShowModal(true);
+    };
+
+    const handleImageUpload = async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        // Validate file type
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+        if (!allowedTypes.includes(file.type)) {
+            alert('Please upload a valid image file (JPEG, PNG, WebP, or GIF)');
+            return;
+        }
+
+        // Validate file size (5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Image size should not exceed 5MB');
+            return;
+        }
+
+        setUploadingImage(true);
+
+        try {
+            const formDataUpload = new FormData();
+            formDataUpload.append('file', file);
+
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formDataUpload
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setFormData(prev => ({ ...prev, image: data.data.path }));
+                setImagePreview(data.data.path);
+            } else {
+                alert(data.message || 'Failed to upload image');
+            }
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            alert('Failed to upload image');
+        } finally {
+            setUploadingImage(false);
+        }
+    };
+
+    const handleRemoveImage = async () => {
+        if (!formData.image || formData.image === '/images/default-avatar.jpg') return;
+
+        const confirmDelete = window.confirm('Are you sure you want to remove this image?');
+        if (!confirmDelete) return;
+
+        try {
+            const response = await fetch('/api/upload/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ imagePath: formData.image })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setFormData(prev => ({ ...prev, image: '/images/default-avatar.jpg' }));
+                setImagePreview('/images/default-avatar.jpg');
+            } else {
+                // Image might be in use or not found, just reset to default
+                setFormData(prev => ({ ...prev, image: '/images/default-avatar.jpg' }));
+                setImagePreview('/images/default-avatar.jpg');
+            }
+        } catch (error) {
+            console.error('Error removing image:', error);
+            // Still reset to default on error
+            setFormData(prev => ({ ...prev, image: '/images/default-avatar.jpg' }));
+            setImagePreview('/images/default-avatar.jpg');
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -274,10 +363,7 @@ export default function TeamMembersPage() {
                                         {modalMode === 'create' ? 'Add Team Member' : 'Edit Team Member'}
                                     </h2>
                                     <button
-                                        onClick={() => {
-                                            setShowModal(false);
-                                            setEditingMember(null);
-                                        }}
+                                        onClick={closeModal}
                                         className="p-2 hover:bg-[#F8F9FC] rounded-lg transition-colors"
                                     >
                                         <svg className="w-6 h-6 text-[#5E658B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -344,21 +430,72 @@ export default function TeamMembersPage() {
                                         </div>
                                     </div>
 
-                                    {/* Image URL */}
+                                    {/* Image Upload */}
                                     <div>
                                         <label className="block text-[14px] font-medium text-[#0B0A3D] mb-2">
-                                            Image Path
+                                            Profile Image
                                         </label>
-                                        <input
-                                            type="text"
-                                            name="image"
-                                            value={formData.image}
-                                            onChange={handleInputChange}
-                                            className="w-full px-4 py-3 rounded-[12px] border border-[#E0E4F2] focus:border-[#3433FE] focus:ring-2 focus:ring-[#3433FE]/20 outline-none transition-all"
-                                            placeholder="/images/team-member.jpg"
-                                        />
-                                        <p className="text-[12px] text-[#5E658B] mt-1">
-                                            Upload image to /public/images/ folder first
+                                        
+                                        {/* Image Preview */}
+                                        <div className="mb-3">
+                                            <div className="relative w-40 h-40 rounded-[12px] overflow-hidden border-2 border-[#E0E4F2] bg-[#F8F9FC]">
+                                                <Image
+                                                    src={imagePreview || formData.image}
+                                                    alt="Preview"
+                                                    width={160}
+                                                    height={160}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* Upload Controls */}
+                                        <div className="flex gap-2">
+                                            <input
+                                                ref={fileInputRef}
+                                                type="file"
+                                                accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
+                                                onChange={handleImageUpload}
+                                                className="hidden"
+                                            />
+                                            
+                                            <button
+                                                type="button"
+                                                onClick={() => fileInputRef.current?.click()}
+                                                disabled={uploadingImage}
+                                                className="flex items-center gap-2 px-4 py-2 rounded-[10px] border border-[#3433FE] text-[#3433FE] hover:bg-[#3433FE]/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[14px] font-medium"
+                                            >
+                                                {uploadingImage ? (
+                                                    <>
+                                                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#3433FE]"></div>
+                                                        Uploading...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                        </svg>
+                                                        Upload Image
+                                                    </>
+                                                )}
+                                            </button>
+
+                                            {formData.image && formData.image !== '/images/default-avatar.jpg' && (
+                                                <button
+                                                    type="button"
+                                                    onClick={handleRemoveImage}
+                                                    className="flex items-center gap-2 px-4 py-2 rounded-[10px] border border-red-500 text-red-500 hover:bg-red-50 transition-colors text-[14px] font-medium"
+                                                >
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                    </svg>
+                                                    Remove
+                                                </button>
+                                            )}
+                                        </div>
+
+                                        <p className="text-[12px] text-[#5E658B] mt-2">
+                                            Upload JPEG, PNG, WebP, or GIF. Max size: 5MB
                                         </p>
                                     </div>
 
