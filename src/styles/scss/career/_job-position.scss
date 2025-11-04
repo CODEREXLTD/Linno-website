@@ -1,0 +1,150 @@
+.linno-career-page {
+    .linno-job-position {
+        padding: 80px 0 120px;
+    }
+}
+
+.linno-job-position {
+    .linno-job-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .linno-single-job {
+        border-radius: 13px;
+        background-color: #F9F9F9;
+        padding: 40px 35px;
+        display: flex;
+        flex-flow: row wrap;
+        gap: 30px;
+
+        .job-details {
+            width: calc(100% - 190px);
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .job-category {
+            color: #3433FE;
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+            width: 140px;
+        }
+
+        .job-content {
+            width: calc(100% - 190px);
+        }
+        
+        .job-title{
+            color: #0B0B35;
+            font-family: 'Inter', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        ul.job-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            row-gap: 10px;
+            margin-top: 24px;
+
+            li {
+                color: #51515F;
+                font-family: 'Inter', sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+
+        .job-apply-btn {
+            border: none;
+            background: transparent;
+            border-radius: 50px;
+            color: #3433FE;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1;
+
+            path {
+                transition: all 0.3s ease;
+            }
+
+            &:hover {
+                background-color: #3433FE;
+                color: #fff;
+
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1399px) {
+    .linno-career-page .linno-job-position {
+        padding: 80px 0 100px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-career-page .linno-job-position {
+        padding: 60px 0 80px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .linno-career-page .linno-job-position {
+        padding: 50px 0 70px;
+    }
+
+    .linno-job-position .linno-single-job {
+        padding: 20px 22px;
+        flex-direction: column;
+        gap: 14px;
+    }
+    
+    .linno-job-position .linno-single-job .job-details {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .linno-job-position .linno-single-job .job-content {
+        width: 100%;
+    }
+    .linno-job-position .linno-single-job .job-category {
+        font-size: 16px;
+    }
+    .linno-job-position .linno-single-job .job-title {
+        font-size: 24px;
+    }
+
+    .linno-job-position .linno-single-job ul.job-meta {
+        margin-top: 12px;
+    }
+    .linno-job-position .linno-single-job ul.job-meta li {
+        font-size: 14px;
+    }
+
+    .linno-job-position .linno-single-job .job-apply-btn {
+        font-size: 15px;
+        padding: 10px 17px;
+        min-height: auto;
+    }
+
+}

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Application from './Application';
+import Separator from '@/components/common/Separator';
 
 const OpenPositions = () => {
     const [jobPositions, setJobPositions] = useState([]);
@@ -26,38 +27,40 @@ const OpenPositions = () => {
     }, []);
 
     return (
-        <section className="section-wrapper" id="linno-open-positions">
-            <div className="linno-container">
-                <div className="flex flex-col gap-[26px] sm:gap-[39px] lg:gap-[52px] justify-center items-center w-full">
-                    {/* Header */}
-                    <div className="flex flex-col gap-[3px] sm:gap-[5px] lg:gap-[6px] items-center px-[4px] sm:px-[6px] lg:px-[8px] w-auto">
-                        <h2 className="section-title">
-                            Open <span className="title-gradient">Positions</span>
-                        </h2>
-                        <p className="section-description">
-                            We're Hiring! See something that interests you? Apply here.
+        <>
+            <Separator />
+
+            <section className="linno-job-position section-wrapper" id="linno-open-positions">
+                <div className="linno-new-container">
+                    <div className="linno-section-title">
+                        <h2>Open <span className="title-gradient">Positions</span></h2>
+                        <p>
+                            We are growing and always excited to meet new talent. <br />
+                            Explore our current openings below or send us your portfolio if you think you would be a great fit.
                         </p>
                     </div>
 
-                    {/* Job Listings */}
-                    {isLoading ? (
-                        <div className="flex justify-center items-center py-12">
-                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3433FE]"></div>
-                        </div>
-                    ) : jobPositions.length === 0 ? (
-                        <div className="text-center py-12">
-                            <p className="text-[18px] text-[#5E658B]">No open positions at the moment. Check back soon!</p>
-                        </div>
-                    ) : (
-                        <div className="flex flex-col gap-[30px] sm:gap-[40px] lg:gap-[60px] xl:gap-[86px] items-center w-full lg:w-[80%] mb-[4px] sm:mb-[6px] lg:mb-[8px]">
-                            {jobPositions.map((job, index) => (
-                                <Application key={job.id || index} job={job} index={index} jobPositions={jobPositions} />
-                            ))}
-                        </div>
-                    )}
+                    <div className="">
+                        {/* Job Listings */}
+                        {isLoading ? (
+                            <div className="flex justify-center items-center py-12">
+                                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3433FE]"></div>
+                            </div>
+                        ) : jobPositions.length === 0 ? (
+                            <div className="text-center py-12">
+                                <p className="text-[18px] text-[#5E658B]">No open positions at the moment. Check back soon!</p>
+                            </div>
+                        ) : (
+                            <div className="linno-job-wrapper">
+                                {jobPositions.map((job, index) => (
+                                    <Application key={job.id || index} job={job} index={index} jobPositions={jobPositions} />
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 

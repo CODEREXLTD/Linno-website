@@ -1,8 +1,107 @@
 .linno-career-page {
     .linno-benefits {
         padding: 110px 0 120px;
+        background-color: #090936;
     }
 }
 
 .linno-benefits {
+
+    .linno-section-title {
+        h2 {
+            color: #fff;
+        }
+        p {
+            color: #fff;
+            max-width: 770px;
+        }
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 70px;
+        row-gap: 46px;
+    }
+
+    .single-benefit {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        gap: 20px;
+        border-radius: 10px;
+        border: 1px solid #ffffff1a;
+        padding: 20px 30px;
+
+        .benefit-icon {
+            width: 62px;
+            height: 62px;
+            background-color: #3433fe;
+            padding: 6px;
+            border-radius: 50px;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            display: flex;
+
+            img {
+                display: block;
+                height: auto;
+            }
+        }
+
+        .benefit-title {
+            color: #FFF;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1399px) {
+    .linno-career-page .linno-benefits {
+        padding: 90px 0 100px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-career-page .linno-benefits {
+        padding: 70px 0 80px;
+    }
+
+    .linno-benefits .benefits-grid {
+        gap: 20px;
+        row-gap: 20px;
+    }
+    .linno-benefits .single-benefit {
+        padding: 20px;
+    }
+    .linno-benefits .single-benefit .benefit-title {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-career-page .linno-benefits {
+        padding: 60px 0 70px;
+    }
+
+    .linno-benefits .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+
+@media screen and (max-width: 767px) {
+    .linno-benefits .benefits-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .linno-benefits .single-benefit {
+        padding: 16px;
+    }
+
 }

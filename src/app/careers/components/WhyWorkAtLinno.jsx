@@ -7,7 +7,7 @@ const WhyWorkAtLinno = () => {
         <section className="why-linno">
             <div className="linno-new-container">
                 <div className="linno-section-title">
-                    <h2>Why <span className="title-gradient">Linno Exists</span></h2>
+                    <h2>Why Work At <span className="title-gradient">Linno</span></h2>
                     <p>
                         Working here means being part of a team that values creativity, collaboration, and continuous learning. We focus on building products that solve real problems, and we believe that happy teams build the best tools.
                     </p>

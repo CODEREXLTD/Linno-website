@@ -8,32 +8,32 @@ const CompanyBenefits = () => {
             icon: '/images/img_icon_white_a700.svg',
             title: 'Fastival\nBonuses',
             spanText: [
-                { text: 'Fastival ', weight: 'font-bold' },
-                { text: 'Bonuses', weight: 'font-normal' }
+                { text: 'Fastival ', weight: 'font-normal' },
+                { text: 'Bonuses', weight: 'font-bold' }
             ]
         },
         {
             icon: '/images/img_icon_white_a700_62x62.svg',
             title: 'Performance\nBonus',
             spanText: [
-                { text: 'Performance ', weight: 'font-bold' },
-                { text: 'Bonus', weight: 'font-normal' }
+                { text: 'Performance ', weight: 'font-normal' },
+                { text: 'Bonus', weight: 'font-bold' }
             ]
         },
         {
             icon: '/images/img_icon_62x62.svg',
             title: 'Yearly \ncompany tour',
             spanText: [
-                { text: 'Yearly ', weight: 'font-bold' },
-                { text: 'company tour', weight: 'font-normal' }
+                { text: 'Yearly ', weight: 'font-normal' },
+                { text: 'company tour', weight: 'font-bold' }
             ]
         },
         {
             icon: '/images/img_icon_1.svg',
             title: 'Yearly \nsalary review',
             spanText: [
-                { text: 'Yearly ', weight: 'font-bold' },
-                { text: 'salary review', weight: 'font-normal' }
+                { text: 'Yearly ', weight: 'font-normal' },
+                { text: 'salary review', weight: 'font-bold' }
             ]
         },
         {
@@ -54,7 +54,11 @@ const CompanyBenefits = () => {
         },
         {
             icon: '/images/img_icon_4.svg',
-            title: 'Competitive\nSalary'
+            title: 'Competitive\nSalary',
+            spanText: [
+                { text: 'Competitive', weight: 'font-normal' },
+                { text: ' Salary', weight: 'font-bold' }
+            ]
         },
         {
             icon: '/images/img_icon_5.svg',
@@ -75,55 +79,46 @@ const CompanyBenefits = () => {
     ];
 
     return (
-        <section className="bg-[#090936] section-wrapper linno-benefits">
-            <div className="linno-container">
-                {/* Background Image Section */}
-                <div className="mx-auto relative">
-                    <div className="relative z-10 flex justify-center items-start w-[48%] mx-auto mb-[36px] sm:mb-[54px] lg:mb-[72px]">
-                        <div className="flex flex-col gap-[2px] sm:gap-[3px] lg:gap-[4px] items-center">
-                            <h2 className="section-title !text-white">
-                                Company <span className="title-gradient">Benefits</span>
-                            </h2>
-                            <p className="section-description text-center  w-full">
-                                At Linno, we offer a comprehensive benefits package to support our employees' well-being and work-life balance.
-                            </p>
-                        </div>
-                    </div>
+        <section className="linno-benefits">
+            <div className="linno-new-container">
+                <div className="linno-section-title">
+                    <h2>Company <strong>Benefits</strong></h2>
+                    <p>
+                        At Linno, we offer a comprehensive benefits package to support our employees' well-being and work-life balance.
+                    </p>
                 </div>
-                {/* Benefits Grid */}
-                <div className="w-full relative z-20">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:gap-[30px] w-full">
-                        {benefits?.map((benefit, index) => (
-                            <div key={index} className="flex flex-col sm:flex-row lg:flex-row justify-start items-center sm:items-start lg:items-center gap-[10px] sm:gap-[15px] lg:gap-[20px] w-full group hover:scale-105 transition-transform duration-200 backdrop-blur-md bg-white/5 border border-white/10 px-[30px] py-[26px] relative rounded-[12px]  shadow-lg">
-                                <div className="bg-[#3433fe] rounded-[30px] p-[12px] sm:p-[14px] lg:p-[16px] w-[56px] h-[56px] sm:w-[60px] sm:h-[60px] lg:w-[62px] lg:h-[62px] flex items-center justify-center flex-shrink-0 group-hover:shadow-lg transition-shadow duration-200">
-                                    <Image
-                                        src={benefit?.icon}
-                                        alt={`${benefit?.title} icon`}
-                                        width={30}
-                                        height={30}
-                                        className="w-[24px] h-[24px] sm:w-[26px] sm:h-[26px] lg:w-[30px] lg:h-[30px]"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <div className="text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-sora leading-[18px] sm:leading-[20px] lg:leading-[24px] xl:leading-[28px] text-center sm:text-left lg:text-left text-white flex-1">
-                                    {benefit?.spanText ? (
-                                        <>
-                                            {benefit?.spanText?.map((span, spanIndex) => (
-                                                <span key={spanIndex} className={span?.weight}>
-                                                    {span?.text}
-                                                    {
-                                                        spanIndex === 0 ? <br /> : null
-                                                    }
-                                                </span>
-                                            ))}
-                                        </>
-                                    ) : (
-                                        <span className="font-bold">{benefit?.title}</span>
-                                    )}
-                                </div>
+
+                <div className="benefits-grid">
+                    {benefits?.map((benefit, index) => (
+                        <div key={index} className="single-benefit ">
+                            <div className="benefit-icon">
+                                <Image
+                                    src={benefit?.icon}
+                                    alt={`${benefit?.title} icon`}
+                                    width={28}
+                                    height={28}
+                                    loading="lazy"
+                                />
                             </div>
-                        ))}
-                    </div>
+
+                            <h3 className="benefit-title">
+                                {benefit?.spanText ? (
+                                    <>
+                                        {benefit?.spanText?.map((span, spanIndex) => (
+                                            <span key={spanIndex} className={span?.weight}>
+                                                {span?.text}
+                                                {
+                                                    spanIndex === 0 ? <br /> : null
+                                                }
+                                            </span>
+                                        ))}
+                                    </>
+                                ) : (
+                                    <span className="font-bold">{benefit?.title}</span>
+                                )}
+                            </h3>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
