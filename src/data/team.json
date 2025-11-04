@@ -1,0 +1,323 @@
+[
+    {
+        "id": "team-1",
+        "name": "Lincoln Islam",
+        "position": "Founder & Visionary",
+        "department": [
+            "founder",
+            "leadership"
+        ],
+        "image": "/images/lincoln_islam.jpg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 1
+    },
+    {
+        "id": "team-2",
+        "name": "Farshid Chowdhury",
+        "position": "Chief Operating Officer",
+        "department": [
+            "product",
+            "leadership"
+        ],
+        "image": "/images/farshid.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 2
+    },
+    {
+        "id": "team-3",
+        "name": "Nahid Hasan Pallab",
+        "position": "Associate Product Manager",
+        "department": [
+            "product"
+        ],
+        "image": "/images/pallab.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 3
+    },
+    {
+        "id": "team-4",
+        "name": "Sadi Mohammad Zaman",
+        "position": "Chief Technology Officer",
+        "department": [
+            "engineering",
+            "leadership"
+        ],
+        "image": "/images/sadi.jpg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 4
+    },
+    {
+        "id": "team-21",
+        "name": "Shahab Uddin Mahi",
+        "position": "Lead UI/UX Designer",
+        "department": [
+            "product",
+            "leadership"
+        ],
+        "image": "/images/mahi.png",
+        "icon": "/images/img_uim_layer_group.svg",
+        "status": "active",
+        "order": 5
+    },
+    {
+        "id": "team-5",
+        "name": "Tarequl Islam Khan",
+        "position": "HR Manager",
+        "department": [
+            "product",
+            "leadership"
+        ],
+        "image": "/images/tareq.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 6
+    },
+    {
+        "id": "team-6",
+        "name": "Md. Saiduzzaman Tohin",
+        "position": "Senior Software Engineer",
+        "department": [
+            "engineering",
+            "leadership"
+        ],
+        "image": "/images/tuhin.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 7
+    },
+    {
+        "id": "team-7",
+        "name": "A S M Nasim",
+        "position": "Software Engineer",
+        "department": [
+            "engineering",
+            "leadership"
+        ],
+        "image": "/images/nasim.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 8
+    },
+    {
+        "id": "team-8",
+        "name": "Md. Razun Mia",
+        "position": "Full Stack Developer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/razun.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 9
+    },
+    {
+        "id": "team-9",
+        "name": "Tipu Sultan",
+        "position": "Frontend Engineer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/tipu.jpg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 10
+    },
+    {
+        "id": "team-10",
+        "name": "AB Belal",
+        "position": "Frontend Engineer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/belal.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 11
+    },
+    {
+        "id": "team-11",
+        "name": "Humayun Kabir",
+        "position": "JavaScript Developer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/kabir.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 12
+    },
+    {
+        "id": "team-13",
+        "name": "Tasnim Ikra",
+        "position": "SQA Engineer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/tasnim.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 13
+    },
+    {
+        "id": "team-14",
+        "name": "Nusrat Jahan Mou",
+        "position": "SQA Engineer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/mou.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 14
+    },
+    {
+        "id": "team-15",
+        "name": "C S Sultan",
+        "position": "Chief Marketing Manager",
+        "department": [
+            "marketing",
+            "leadership"
+        ],
+        "image": "/images/sultan.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 15
+    },
+    {
+        "id": "team-16",
+        "name": "Fatema-Tuz-Zohra Nabila",
+        "position": "Product Marketing Manager",
+        "department": [
+            "marketing",
+            "leadership"
+        ],
+        "image": "/images/nabila.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 16
+    },
+    {
+        "id": "team-17",
+        "name": "Sakiba Prima",
+        "position": "Marketing",
+        "department": [
+            "marketing"
+        ],
+        "image": "/images/prima.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 17
+    },
+    {
+        "id": "team-18",
+        "name": "Rafsan Jany",
+        "position": "Content Writer",
+        "department": [
+            "marketing"
+        ],
+        "image": "/images/akhil.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 18
+    },
+    {
+        "id": "team-19",
+        "name": "Syed Abid Hossain",
+        "position": "Marketing Associate",
+        "department": [
+            "marketing"
+        ],
+        "image": "/images/abid.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 19
+    },
+    {
+        "id": "team-20",
+        "name": "Mahir Ashhab",
+        "position": "Brand Marketer",
+        "department": [
+            "marketing"
+        ],
+        "image": "/images/mahir.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 20
+    },
+    {
+        "id": "team-22",
+        "name": "Fahmida Bhuiyan Sathi",
+        "position": "UI/UX Designer",
+        "department": [
+            "product"
+        ],
+        "image": "/images/sathi.jpg",
+        "icon": "/images/img_uim_layer_group.svg",
+        "status": "active",
+        "order": 21
+    },
+    {
+        "id": "team-23",
+        "name": "Shahala Akter Joti",
+        "position": "UI/UX Designer",
+        "department": [
+            "product"
+        ],
+        "image": "/images/joti.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 22
+    },
+    {
+        "id": "team-24",
+        "name": "Tamanna Islam",
+        "position": "Technical Support Engineer",
+        "department": [
+            "customer"
+        ],
+        "image": "/images/tamanna.webp",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 23
+    },
+    {
+        "id": "team-25",
+        "name": "Sakibul Hasan",
+        "position": "Technical Support Engineer",
+        "department": [
+            "customer"
+        ],
+        "image": "/images/sakibul.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 24
+    },
+    {
+        "id": "team-26",
+        "name": "Al Amin",
+        "position": "Office Assistant",
+        "department": [
+            "assistant"
+        ],
+        "image": "/images/alamin.jpeg",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 25
+    },
+    {
+        "id": "team-27",
+        "name": "Morjina Begum",
+        "position": "Office Assistant",
+        "department": [
+            "assistant"
+        ],
+        "image": "/images/morjina.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 26
+    }
+]
