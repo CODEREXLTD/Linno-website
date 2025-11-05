@@ -1,10 +1,25 @@
 .linno-career-page {
     .linno-career-hero {
         padding: 120px 0 90px;
+        position: relative;
     }
 }
 
 .linno-career-hero {
+    .hero-top-shape {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .hero-bottom-shape {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+
     .content-wrapper {
         display: flex;
         flex-flow: row wrap;
@@ -46,9 +61,18 @@
             }
         }
     }
+
 }
 
 @media screen and (max-width: 1399px) {
+    .linno-career-hero .hero-top-shape {
+        width: 285px;
+    }
+    
+    .linno-career-hero .hero-bottom-shape {
+        width: 285px;
+    }
+
     .linno-career-page .linno-career-hero {
         padding: 100px 0 90px;
     }

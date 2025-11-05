@@ -79,7 +79,7 @@ const CompanyBenefits = () => {
     ];
 
     return (
-        <section className="linno-benefits">
+        <section className="linno-benefits" style={{ backgroundImage: "url('/images/linno-benefits-bg.webp')" }}>
             <div className="linno-new-container">
                 <div className="linno-section-title">
                     <h2>Company <strong>Benefits</strong></h2>
