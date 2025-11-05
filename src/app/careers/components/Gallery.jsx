@@ -10,19 +10,19 @@ const Gallery = () => {
     const [isAutoPlay, setIsAutoPlay] = useState(true);
 
     const images = [
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+        '/images/linno-gallery-item2.webp',
+        '/images/linno-gallery-item3.webp',
+        '/images/linno-gallery-item1.webp',
+        '/images/linno-gallery-item4.webp',
+        '/images/linno-gallery-item5.webp',
+        '/images/linno-gallery-item4.webp',
     ];
 
     useEffect(() => {
         if (!isAutoPlay) return;
 
         const interval = setInterval(() => {
-            //setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
         }, 4000);
 
         return () => clearInterval(interval);
@@ -52,16 +52,15 @@ const Gallery = () => {
         setIsAutoPlay(false);
         setCurrentIndex(index % images.length);
     };
-
+    
     // mapping for visual positions (keeps the current placement: two left, center, two right)
     const positionMap = {
-        '-2': { translateX: -60, scale: 0.6, zIndex: 20, opacity: 0.5, blur: 2 },
-        '-1': { translateX: -30, scale: 0.85, zIndex: 40, opacity: 0.8, blur: 1 },
+        '-2': { translateX: -50, scale: 0.6, zIndex: 20, opacity: 0.6, blur: 2 },
+        '-1': { translateX: -25, scale: 0.85, zIndex: 40, opacity: 0.9, blur: 1 },
         '0': { translateX: 0, scale: 1, zIndex: 50, opacity: 1, blur: 0 },
-        '1': { translateX: 30, scale: 0.85, zIndex: 40, opacity: 0.8, blur: 1 },
-        '2': { translateX: 60, scale: 0.6, zIndex: 20, opacity: 0.5, blur: 2 },
+        '1': { translateX: 25, scale: 0.85, zIndex: 40, opacity: 0.9, blur: 1 },
+        '2': { translateX: 50, scale: 0.6, zIndex: 20, opacity: 0.6, blur: 2 }
     };
-
 
     return (
         <>

@@ -1,5 +1,5 @@
 .linno-gallery-carousel {
-    margin-top: 60px;
+    margin-top: 100px;
 
     .carousel-container {
         display: flex;
@@ -12,7 +12,7 @@
     .carousel-wrapper {
         position: relative;
         width: 100%;
-        height: 410px;
+        height: 390px;
         overflow: hidden;
     }
 
@@ -28,6 +28,7 @@
 
     .carousel-slide {
         position: absolute;
+        height: 100%;
         will-change: transform, opacity, filter;
         /* default - break out of normal flow so absolute positioning based on transform works */
     }
@@ -51,7 +52,7 @@
 
     .carousel-slide img {
         width: 100%;
-        height: 320px;
+        height: 100%;
         object-fit: cover;
         border-radius: 24px;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -62,6 +63,7 @@
         justify-content: center;
         align-items: center;
         gap: 8px;
+        margin-top: 30px;
 
         .carousel-button {
             padding: 8px;
@@ -97,4 +99,89 @@
             background-color: #3433FE;
         }
     }
+}
+
+
+@media screen and (max-width: 1399px) {
+    .linno-gallery-carousel .carousel-slide {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .linno-gallery-carousel {
+        margin-top: 60px;
+    }
+    .linno-gallery-carousel .carousel-wrapper {
+        height: 294px;
+    }
+    .linno-gallery-carousel .carousel-slide {
+        width: 570px;
+    }
+    .linno-gallery-carousel .carousel-slide img {
+        border-radius: 16px;
+        box-shadow: 0 11px 7px -5px rgba(0, 0, 0, 0.1);
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .linno-gallery-carousel .carousel-wrapper {
+        height: 218px;
+    }
+    .linno-gallery-carousel .carousel-slide {
+        width: 422px;
+    }
+    .linno-gallery-carousel .carousel-slide img {
+        box-shadow: 0 7px 7px -5px rgba(0, 0, 0, 0.1);
+    }
+    .linno-gallery-carousel .linno-2d-carousel-navigation {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .linno-gallery-carousel .carousel-wrapper {
+        height: 160px;
+    }
+    .linno-gallery-carousel .carousel-slide {
+        width: 310px;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .linno-gallery-carousel {
+        margin-top: 30px;
+    }
+    .linno-gallery-carousel .carousel-wrapper {
+        height: 130px;
+    }
+    .linno-gallery-carousel .carousel-slide {
+        width: 58%;
+    }
+    .linno-gallery-carousel .carousel-slide img {
+        border-radius: 10px;
+    }
+
+    .linno-gallery-carousel .linno-2d-carousel-navigation .carousel-indicator {
+        width: 8px;
+        height: 8px;
+    }
+    .linno-gallery-carousel .linno-2d-carousel-navigation .carousel-button svg {
+        width: 18px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .linno-gallery-carousel .carousel-wrapper {
+        height: 88px;
+    }
+    .linno-gallery-carousel .linno-2d-carousel-navigation {
+        margin-top: 6px;
+    }
+
 }
