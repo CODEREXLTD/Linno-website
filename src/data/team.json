@@ -225,18 +225,6 @@
         "order": 18
     },
     {
-        "id": "team-19",
-        "name": "Syed Abid Hossain",
-        "position": "Marketing Associate",
-        "department": [
-            "marketing"
-        ],
-        "image": "/images/abid.png",
-        "icon": "/images/img_lucide_lab_target_arrow.svg",
-        "status": "active",
-        "order": 19
-    },
-    {
         "id": "team-20",
         "name": "Mahir Ashhab",
         "position": "Brand Marketer",
