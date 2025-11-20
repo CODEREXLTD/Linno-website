@@ -163,18 +163,6 @@
         "order": 13
     },
     {
-        "id": "team-14",
-        "name": "Nusrat Jahan Mou",
-        "position": "SQA Engineer",
-        "department": [
-            "engineering"
-        ],
-        "image": "/images/mou.jpeg",
-        "icon": "/images/img_lucide_lab_target_arrow.svg",
-        "status": "active",
-        "order": 14
-    },
-    {
         "id": "team-15",
         "name": "C S Sultan",
         "position": "Chief Marketing Manager",
@@ -223,18 +211,6 @@
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 18
-    },
-    {
-        "id": "team-20",
-        "name": "Mahir Ashhab",
-        "position": "Brand Marketer",
-        "department": [
-            "marketing"
-        ],
-        "image": "/images/mahir.jpeg",
-        "icon": "/images/img_lucide_lab_target_arrow.svg",
-        "status": "active",
-        "order": 20
     },
     {
         "id": "team-22",
