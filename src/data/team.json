@@ -20,7 +20,7 @@
             "product",
             "leadership"
         ],
-        "image": "/images/farshid.png",
+        "image": "/images/farshid.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 2
@@ -58,7 +58,7 @@
             "product",
             "leadership"
         ],
-        "image": "/images/mahi.png",
+        "image": "/images/mahi.jpg",
         "icon": "/images/img_uim_layer_group.svg",
         "status": "active",
         "order": 5
@@ -71,7 +71,7 @@
             "product",
             "leadership"
         ],
-        "image": "/images/tareq.jpeg",
+        "image": "/images/tareq.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 6
@@ -84,7 +84,7 @@
             "engineering",
             "leadership"
         ],
-        "image": "/images/tuhin.png",
+        "image": "/images/tuhin.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 7
@@ -133,7 +133,7 @@
         "department": [
             "engineering"
         ],
-        "image": "/images/belal.png",
+        "image": "/images/belal.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 11
@@ -243,7 +243,7 @@
         "department": [
             "customer"
         ],
-        "image": "/images/tamanna.webp",
+        "image": "/images/tamanna.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 23
