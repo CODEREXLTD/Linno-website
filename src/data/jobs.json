@@ -31,5 +31,16 @@
         "buttonStyle": "outline",
         "buttonLink": "https://inside.coderex.co/jobs/full-stack-php-developer--mid-level---gbj9n",
         "status": "publish"
+    },
+    {
+        "id": "job-4",
+        "category": "Administration",
+        "title": "HR & People Operations Executive",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Mid-Level",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/hr---people-operations-executive-ap1oe",
+        "status": "publish"
     }
 ]
