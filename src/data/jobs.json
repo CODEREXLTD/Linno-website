@@ -33,17 +33,6 @@
         "status": "publish"
     },
     {
-        "id": "job-4",
-        "category": "Engineering",
-        "title": "Full Stack PHP Developer",
-        "location": "On-Site",
-        "type": "Full Time",
-        "level": "Mid-Level",
-        "buttonStyle": "outline",
-        "buttonLink": "https://inside.coderex.co/jobs/full-stack-php-developer--mid-level---gbj9n",
-        "status": "publish"
-    },
-    {
         "id": "job-5",
         "category": "Administration",
         "title": "HR & People Operations Executive",
