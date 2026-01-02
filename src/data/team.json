@@ -13,6 +13,18 @@
         "order": 1
     },
     {
+        "id": "team-29",
+        "name": "MD AZAHARUL ISLAM",
+        "position": "Financial Operations",
+        "department": [
+            "financial"
+        ],
+        "image": "/images/MD-AZAHARUL-ISLAM.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 1
+    },
+    {
         "id": "team-2",
         "name": "Farshid Chowdhury",
         "position": "Chief Operating Officer",
@@ -174,19 +186,6 @@
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 15
-    },
-    {
-        "id": "team-16",
-        "name": "Fatema-Tuz-Zohra Nabila",
-        "position": "Product Marketing Manager",
-        "department": [
-            "marketing",
-            "leadership"
-        ],
-        "image": "/images/nabila.jpeg",
-        "icon": "/images/img_lucide_lab_target_arrow.svg",
-        "status": "active",
-        "order": 16
     },
     {
         "id": "team-17",
