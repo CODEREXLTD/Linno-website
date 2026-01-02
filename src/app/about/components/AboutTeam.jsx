@@ -29,7 +29,7 @@ const AboutTeam = () => {
     const departmentList = [
         { name: 'Founder & Visionary', key: 'founder' },
         { name: 'Leadership Team', key: 'leadership' },
-        { name: 'Financial Operations', key: 'financial' },
+        { name: 'Finance', key: 'financial' },
         { name: 'Engineering Team', key: 'engineering' },
         { name: 'Marketing Team', key: 'marketing' },
         { name: 'Product Team', key: 'product' },
