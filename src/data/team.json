@@ -294,5 +294,17 @@
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 27
+    },
+    {
+        "id": "team-29",
+        "name": "Md Ashfaqur Rahman",
+        "position": "HR & People Operations Executive",
+        "department": [
+            "human-resources"
+        ],
+        "image": "/images/Md-Ashfaqur-Rahman.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 27
     }
 ]
