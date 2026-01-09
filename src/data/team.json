@@ -305,7 +305,7 @@
         "image": "/images/Md-Ashfaqur-Rahman.png",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
-        "order": 27
+        "order": 30
     },
      {
         "id": "team-30",
@@ -317,6 +317,18 @@
         "image": "/images/Sekander-Badsha.png",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
-        "order": 27
+        "order": 31
+    },
+    {
+        "id": "team-31",
+        "name": "Rezab Ud Dawla",
+        "position": "Full Stack Developer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/Rezab-Ud-Dawla.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order": 32
     }
 ]
