@@ -29,25 +29,12 @@
         "name": "Farshid Chowdhury",
         "position": "Chief Operating Officer",
         "department": [
-            "product",
             "leadership"
         ],
         "image": "/images/farshid.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order": 2
-    },
-    {
-        "id": "team-3",
-        "name": "Nahid Hasan Pallab",
-        "position": "Associate Product Manager",
-        "department": [
-            "product"
-        ],
-        "image": "/images/pallab.jpeg",
-        "icon": "/images/img_lucide_lab_target_arrow.svg",
-        "status": "active",
-        "order": 3
     },
     {
         "id": "team-4",

@@ -33,7 +33,7 @@ const AboutTeam = () => {
         { name: 'Human Resources', key: 'human-resources' },
         { name: 'Engineering Team', key: 'engineering' },
         { name: 'Marketing Team', key: 'marketing' },
-        { name: 'Product Team', key: 'product' },
+        { name: 'Design Team', key: 'product' },
         { name: 'Customer Success', key: 'customer' },
         { name: 'Office Assistant', key: 'assistant' },
     ];
