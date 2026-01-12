@@ -29,7 +29,8 @@
         "name": "Farshid Chowdhury",
         "position": "Chief Operating Officer",
         "department": [
-            "leadership"
+            "leadership",
+            "financial"
         ],
         "image": "/images/farshid.jpg",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
@@ -316,6 +317,6 @@
         "image": "/images/Rezab-Ud-Dawla.png",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
-        "order": 32
+        "order":9
     }
 ]
