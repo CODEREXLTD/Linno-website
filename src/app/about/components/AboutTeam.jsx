@@ -1,11 +1,12 @@
 'use client';
 import Separator from '@/components/common/Separator';
 import Image from 'next/image';
-import { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect, useRef } from 'react';
 
 const AboutTeam = () => {
     const [allTeamMembers, setAllTeamMembers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const teamSectionRef = useRef(null);
 
     useEffect(() => {
         // Fetch active team members from API
@@ -57,12 +58,19 @@ const AboutTeam = () => {
 
     const handleTabClick = (departmentKey) => {
         setActiveTab(departmentKey);
+
+        if (teamSectionRef.current) {
+            teamSectionRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     };
     return (
         <>
             <section className="linno-team">
                 <div className="linno-new-container">
-                    <div className="linno-section-title">
+                    <div className="linno-section-title" ref={teamSectionRef}>
                         <h2>
                             Meet Our <span className="title-gradient">Teams</span>
                         </h2>
@@ -144,7 +152,7 @@ const AboutTeam = () => {
                             </div>
 
                             {/* Right Side - Team Grid */}
-                            <div className="w-full lg:w-2/3">
+                            <div className="w-full lg:w-2/3" id="team-members-grid">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
                                     {filteredTeamMembers?.map((member) => (
                                         <div
