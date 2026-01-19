@@ -16,6 +16,12 @@ const nextConfig = {
         port: '',
         pathname: '/wp-content/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'huauwowskshsqpugedoj.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
+      },
     ],
   },
   webpack(config) {

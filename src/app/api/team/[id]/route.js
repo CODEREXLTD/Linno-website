@@ -14,7 +14,7 @@ import { verifyAdminToken } from '@/lib/auth';
 export async function GET(request, { params }) {
     try {
         const { id } = params;
-        const member = getTeamMemberById(id);
+        const member = await getTeamMemberById(id);
 
         if (!member) {
             return NextResponse.json(
@@ -56,7 +56,7 @@ export async function PUT(request, { params }) {
         const { id } = params;
         const body = await request.json();
 
-        const updatedMember = updateTeamMember(id, body);
+        const updatedMember = await updateTeamMember(id, body);
 
         if (!updatedMember) {
             return NextResponse.json(
@@ -97,7 +97,7 @@ export async function DELETE(request, { params }) {
         }
 
         const { id } = params;
-        const deleted = deleteTeamMember(id);
+        const deleted = await deleteTeamMember(id);
 
         if (!deleted) {
             return NextResponse.json(

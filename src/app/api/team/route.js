@@ -18,9 +18,9 @@ export async function GET(request) {
 
         let members;
         if (active === 'true') {
-            members = getActiveTeamMembers();
+            members = await getActiveTeamMembers();
         } else {
-            members = getAllTeamMembers();
+            members = await getAllTeamMembers();
         }
 
         return NextResponse.json({
@@ -63,7 +63,7 @@ export async function POST(request) {
             );
         }
 
-        const newMember = createTeamMember(body);
+        const newMember = await createTeamMember(body);
 
         return NextResponse.json({
             success: true,

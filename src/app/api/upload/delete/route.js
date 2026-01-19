@@ -1,13 +1,11 @@
 /**
  * Image Delete API Route
- * Handles deletion of images from /public/images/ directory
+ * Handles deletion of images from Supabase Storage
  */
 
 import { NextResponse } from 'next/server';
-import { unlink } from 'fs/promises';
-import { existsSync } from 'fs';
-import path from 'path';
 import { verifyAdminToken } from '@/lib/auth';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request) {
     try {
@@ -32,23 +30,20 @@ export async function POST(request) {
             );
         }
 
-        // Ensure the path is within /images/ directory for security
-        if (!imagePath.startsWith('/images/')) {
+        // Extract filename from Supabase URL or local path
+        let filename;
+        
+        if (imagePath.includes('supabase.co')) {
+            // It's a Supabase URL - extract filename from URL
+            const urlParts = imagePath.split('/');
+            filename = urlParts[urlParts.length - 1];
+        } else if (imagePath.startsWith('/images/')) {
+            // It's a local path - extract filename
+            filename = imagePath.replace('/images/', '');
+        } else {
             return NextResponse.json(
                 { success: false, message: 'Invalid image path' },
                 { status: 400 }
-            );
-        }
-
-        // Convert public path to filesystem path
-        const filename = path.basename(imagePath);
-        const filepath = path.join(process.cwd(), 'public', 'images', filename);
-
-        // Check if file exists
-        if (!existsSync(filepath)) {
-            return NextResponse.json(
-                { success: false, message: 'Image not found' },
-                { status: 404 }
             );
         }
 
@@ -61,8 +56,18 @@ export async function POST(request) {
             );
         }
 
-        // Delete the file
-        await unlink(filepath);
+        // Delete from Supabase Storage
+        const { error } = await supabase.storage
+            .from('team-images')
+            .remove([filename]);
+
+        if (error) {
+            console.error('Supabase delete error:', error);
+            return NextResponse.json(
+                { success: false, message: `Failed to delete from storage: ${error.message}` },
+                { status: 500 }
+            );
+        }
 
         return NextResponse.json({
             success: true,

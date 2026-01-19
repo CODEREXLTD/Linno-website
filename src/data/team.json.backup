@@ -284,7 +284,7 @@
         "order": 27
     },
     {
-        "id": "team-1768793453771-23",
+        "id": "team-29",
         "name": "Md Ashfaqur Rahman",
         "position": "HR & People Operations Executive",
         "department": [
@@ -295,7 +295,7 @@
         "status": "active",
         "order": 30
     },
-    {
+     {
         "id": "team-30",
         "name": "Sekander Badsha",
         "position": "Senior Product Marketing Manager",
@@ -317,6 +317,6 @@
         "image": "/images/Rezab.png",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
-        "order": 9
+        "order":9
     }
 ]

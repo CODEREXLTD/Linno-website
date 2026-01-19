@@ -1,13 +1,11 @@
 /**
  * Image Upload API Route
- * Handles image uploads to /public/images/ directory
+ * Handles image uploads to Supabase Storage
  */
 
 import { NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { existsSync } from 'fs';
-import path from 'path';
 import { verifyAdminToken } from '@/lib/auth';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request) {
     try {
@@ -50,35 +48,44 @@ export async function POST(request) {
             );
         }
 
-        // Create unique filename
-        const bytes = await file.arrayBuffer();
-        const buffer = Buffer.from(bytes);
-
         // Generate unique filename with timestamp
         const timestamp = Date.now();
         const originalName = file.name.replace(/\s+/g, '-').toLowerCase();
-        const extension = path.extname(originalName);
-        const nameWithoutExt = path.basename(originalName, extension);
-        const filename = `${nameWithoutExt}-${timestamp}${extension}`;
+        const extension = originalName.split('.').pop();
+        const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
+        const filename = `${nameWithoutExt}-${timestamp}.${extension}`;
 
-        // Ensure public/images directory exists
-        const imagesDir = path.join(process.cwd(), 'public', 'images');
-        if (!existsSync(imagesDir)) {
-            await mkdir(imagesDir, { recursive: true });
+        // Convert file to buffer
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+
+        // Upload to Supabase Storage
+        const { data, error } = await supabase.storage
+            .from('team-images')
+            .upload(filename, buffer, {
+                contentType: file.type,
+                cacheControl: '3600',
+                upsert: false
+            });
+
+        if (error) {
+            console.error('Supabase upload error:', error);
+            return NextResponse.json(
+                { success: false, message: `Failed to upload to storage: ${error.message}` },
+                { status: 500 }
+            );
         }
 
-        // Save file
-        const filepath = path.join(imagesDir, filename);
-        await writeFile(filepath, buffer);
-
-        // Return the public path
-        const publicPath = `/images/${filename}`;
+        // Get public URL
+        const { data: urlData } = supabase.storage
+            .from('team-images')
+            .getPublicUrl(filename);
 
         return NextResponse.json({
             success: true,
             message: 'Image uploaded successfully',
             data: {
-                path: publicPath,
+                path: urlData.publicUrl,
                 filename: filename,
                 size: file.size,
                 type: file.type

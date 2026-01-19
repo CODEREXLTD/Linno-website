@@ -1,0 +1,35 @@
+[
+    {
+        "id": "job-1",
+        "category": "Marketing",
+        "title": "Digital Marketing Executive",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Mid-Level",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/digital-marketing-executive--mid-level--gokgm",
+        "status": "publish"
+    },
+    {
+        "id": "job-2",
+        "category": "Marketing",
+        "title": "Outbound Partnerships Manager",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Mid-Level",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/outbound-partnerships-manager--mid-level--0g7gp",
+        "status": "publish"
+    },
+    {
+        "id": "job-3",
+        "category": "Engineering",
+        "title": "Senior AR/VR Engineer",
+        "location": "On-Site",
+        "type": "Full Time",
+        "level": "Lead-Role",
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/senior-arvr-engineer-9zkyd",
+        "status": "publish"
+    }
+]

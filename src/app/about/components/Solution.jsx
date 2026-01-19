@@ -38,7 +38,7 @@ const Solution = () => {
 
                             <Link href={'https://rextheme.com/wpvr/'} target='_blank' className="solution-link">
                                 View Solutions
-                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" strokeLinecap="round" strokeLinejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
+                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
                         </div>
 
@@ -55,7 +55,7 @@ const Solution = () => {
 
                             <Link href={'https://rextheme.com/'} target='_blank' className="solution-link">
                                 View Solutions
-                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" strokeLinecap="round" strokeLinejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
+                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
                         </div>
 
@@ -72,7 +72,7 @@ const Solution = () => {
 
                             <Link href={'https://getwpfunnels.com/'} target='_blank' className="solution-link">
                                 View Solutions
-                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" strokeLinecap="round" strokeLinejoin="round" stroke-miterlimit="10" stroke-width="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
+                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#585A65" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.476" d="M13.144 1.467L1.338 13.273M13.144 1.467v8.66m0-8.66h-8.66"/></svg>
                             </Link>
                         </div>
 

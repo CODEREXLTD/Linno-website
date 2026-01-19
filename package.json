@@ -41,8 +41,10 @@
   },
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.10",
+    "@supabase/supabase-js": "^2.90.1",
     "@tailwindcss/typography": "^0.5.16",
     "@wordpress/block-library": "^9.32.0",
+    "dotenv": "^17.2.3",
     "next": "14.2.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",

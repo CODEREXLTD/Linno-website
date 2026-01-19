@@ -1,150 +1,206 @@
 /**
  * Team Members Data Management Utilities
- * Handles CRUD operations for team members using local JSON file
+ * Handles CRUD operations for team members using Supabase
  */
 
-import fs from 'fs';
-import path from 'path';
-
-const TEAM_FILE_PATH = path.join(process.cwd(), 'src', 'data', 'team.json');
+import { supabase } from './supabase';
 
 /**
- * Read all team members from the JSON file
- * @returns {Array} - Array of team member objects
+ * Read all team members from Supabase
+ * @returns {Promise<Array>} - Array of team member objects
  */
-export function getAllTeamMembers() {
+export async function getAllTeamMembers() {
     try {
-        const fileContent = fs.readFileSync(TEAM_FILE_PATH, 'utf8');
-        const members = JSON.parse(fileContent);
-        // Sort by order
-        return members.sort((a, b) => (a.order || 0) - (b.order || 0));
+        const { data, error } = await supabase
+            .from('team_members')
+            .select('*')
+            .order('order', { ascending: true });
+
+        if (error) throw error;
+
+        return data || [];
     } catch (error) {
-        console.error('Error reading team file:', error);
+        console.error('Error reading team members from Supabase:', error);
         return [];
     }
 }
 
 /**
  * Get active team members only
- * @returns {Array} - Array of active team member objects
+ * @returns {Promise<Array>} - Array of active team member objects
  */
-export function getActiveTeamMembers() {
-    const members = getAllTeamMembers();
-    return members.filter(member => member.status === 'active');
+export async function getActiveTeamMembers() {
+    try {
+        const { data, error } = await supabase
+            .from('team_members')
+            .select('*')
+            .eq('status', 'active')
+            .order('order', { ascending: true });
+
+        if (error) throw error;
+
+        return data || [];
+    } catch (error) {
+        console.error('Error getting active team members:', error);
+        return [];
+    }
 }
 
 /**
  * Get team members by department
  * @param {string} department - Department key
- * @returns {Array} - Array of team member objects
+ * @returns {Promise<Array>} - Array of team member objects
  */
-export function getTeamMembersByDepartment(department) {
-    const members = getActiveTeamMembers();
-    return members.filter(member => {
-        if (Array.isArray(member.department)) {
-            return member.department.includes(department);
-        }
-        return member.department === department;
-    });
+export async function getTeamMembersByDepartment(department) {
+    try {
+        const { data, error } = await supabase
+            .from('team_members')
+            .select('*')
+            .eq('status', 'active')
+            .contains('department', [department])
+            .order('order', { ascending: true });
+
+        if (error) throw error;
+
+        return data || [];
+    } catch (error) {
+        console.error('Error getting team members by department:', error);
+        return [];
+    }
 }
 
 /**
  * Get a single team member by ID
  * @param {string} id - Team member ID
- * @returns {Object|null} - Team member object or null
+ * @returns {Promise<Object|null>} - Team member object or null
  */
-export function getTeamMemberById(id) {
-    const members = getAllTeamMembers();
-    return members.find(member => member.id === id) || null;
+export async function getTeamMemberById(id) {
+    try {
+        const { data, error } = await supabase
+            .from('team_members')
+            .select('*')
+            .eq('id', id)
+            .single();
+
+        if (error) {
+            if (error.code === 'PGRST116') return null; // Not found
+            throw error;
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error getting team member by ID:', error);
+        return null;
+    }
 }
 
 /**
  * Create a new team member
  * @param {Object} memberData - Team member data
- * @returns {Object} - Created team member object
+ * @returns {Promise<Object>} - Created team member object
  */
-export function createTeamMember(memberData) {
-    const members = getAllTeamMembers();
-    
-    // Generate unique ID
-    const newId = `team-${Date.now()}`;
-    
-    // Determine order (last + 1)
-    const maxOrder = members.reduce((max, m) => Math.max(max, m.order || 0), 0);
-    
-    const newMember = {
-        id: newId,
-        name: memberData.name || '',
-        position: memberData.position || '',
-        department: memberData.department || [],
-        image: memberData.image || '/images/default-avatar.jpg',
-        icon: memberData.icon || '/images/img_lucide_lab_target_arrow.svg',
-        status: memberData.status || 'active',
-        order: memberData.order !== undefined ? memberData.order : maxOrder + 1
-    };
-    
-    members.push(newMember);
-    saveTeamMembers(members);
-    
-    return newMember;
+export async function createTeamMember(memberData) {
+    try {
+        // Generate unique ID
+        const newId = `team-${Date.now()}`;
+        
+        // Get max order for new member
+        const { data: existingMembers } = await supabase
+            .from('team_members')
+            .select('order')
+            .order('order', { ascending: false })
+            .limit(1);
+
+        const maxOrder = existingMembers && existingMembers.length > 0 
+            ? existingMembers[0].order 
+            : 0;
+        
+        const newMember = {
+            id: newId,
+            name: memberData.name || '',
+            position: memberData.position || '',
+            department: memberData.department || [],
+            image: memberData.image || '/images/default-avatar.jpg',
+            icon: memberData.icon || '/images/img_lucide_lab_target_arrow.svg',
+            status: memberData.status || 'active',
+            order: memberData.order !== undefined ? memberData.order : maxOrder + 1
+        };
+        
+        const { data, error } = await supabase
+            .from('team_members')
+            .insert([newMember])
+            .select()
+            .single();
+
+        if (error) throw error;
+
+        return data;
+    } catch (error) {
+        console.error('Error creating team member:', error);
+        throw error;
+    }
 }
 
 /**
  * Update an existing team member
  * @param {string} id - Team member ID
  * @param {Object} memberData - Updated team member data
- * @returns {Object|null} - Updated team member object or null
+ * @returns {Promise<Object|null>} - Updated team member object or null
  */
-export function updateTeamMember(id, memberData) {
-    const members = getAllTeamMembers();
-    const memberIndex = members.findIndex(member => member.id === id);
-    
-    if (memberIndex === -1) {
+export async function updateTeamMember(id, memberData) {
+    try {
+        const updateData = {
+            name: memberData.name,
+            position: memberData.position,
+            department: memberData.department,
+            image: memberData.image,
+            icon: memberData.icon,
+            status: memberData.status,
+            order: memberData.order,
+            updated_at: new Date().toISOString()
+        };
+
+        // Remove undefined values
+        Object.keys(updateData).forEach(key => 
+            updateData[key] === undefined && delete updateData[key]
+        );
+
+        const { data, error } = await supabase
+            .from('team_members')
+            .update(updateData)
+            .eq('id', id)
+            .select()
+            .single();
+
+        if (error) {
+            if (error.code === 'PGRST116') return null; // Not found
+            throw error;
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error updating team member:', error);
         return null;
     }
-    
-    members[memberIndex] = {
-        ...members[memberIndex],
-        name: memberData.name !== undefined ? memberData.name : members[memberIndex].name,
-        position: memberData.position !== undefined ? memberData.position : members[memberIndex].position,
-        department: memberData.department !== undefined ? memberData.department : members[memberIndex].department,
-        image: memberData.image !== undefined ? memberData.image : members[memberIndex].image,
-        icon: memberData.icon !== undefined ? memberData.icon : members[memberIndex].icon,
-        status: memberData.status !== undefined ? memberData.status : members[memberIndex].status,
-        order: memberData.order !== undefined ? memberData.order : members[memberIndex].order
-    };
-    
-    saveTeamMembers(members);
-    
-    return members[memberIndex];
 }
 
 /**
  * Delete a team member
  * @param {string} id - Team member ID
- * @returns {boolean} - True if deleted, false otherwise
+ * @returns {Promise<boolean>} - True if deleted, false otherwise
  */
-export function deleteTeamMember(id) {
-    const members = getAllTeamMembers();
-    const filteredMembers = members.filter(member => member.id !== id);
-    
-    if (filteredMembers.length === members.length) {
-        return false; // Member not found
-    }
-    
-    saveTeamMembers(filteredMembers);
-    return true;
-}
-
-/**
- * Save team members to the JSON file
- * @param {Array} members - Array of team member objects
- */
-function saveTeamMembers(members) {
+export async function deleteTeamMember(id) {
     try {
-        fs.writeFileSync(TEAM_FILE_PATH, JSON.stringify(members, null, 4), 'utf8');
+        const { error } = await supabase
+            .from('team_members')
+            .delete()
+            .eq('id', id);
+
+        if (error) throw error;
+
+        return true;
     } catch (error) {
-        console.error('Error saving team file:', error);
-        throw error;
+        console.error('Error deleting team member:', error);
+        return false;
     }
 }

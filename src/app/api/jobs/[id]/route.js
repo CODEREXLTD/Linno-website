@@ -14,7 +14,7 @@ import { verifyAdminToken } from '@/lib/auth';
 export async function GET(request, { params }) {
     try {
         const { id } = params;
-        const job = getJobById(id);
+        const job = await getJobById(id);
 
         if (!job) {
             return NextResponse.json(
@@ -56,7 +56,7 @@ export async function PUT(request, { params }) {
         const { id } = params;
         const body = await request.json();
 
-        const updatedJob = updateJob(id, body);
+        const updatedJob = await updateJob(id, body);
 
         if (!updatedJob) {
             return NextResponse.json(
@@ -97,7 +97,7 @@ export async function DELETE(request, { params }) {
         }
 
         const { id } = params;
-        const deleted = deleteJob(id);
+        const deleted = await deleteJob(id);
 
         if (!deleted) {
             return NextResponse.json(

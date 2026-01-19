@@ -18,9 +18,9 @@ export async function GET(request) {
 
         let jobs;
         if (published === 'true') {
-            jobs = getPublishedJobs();
+            jobs = await getPublishedJobs();
         } else {
-            jobs = getAllJobs();
+            jobs = await getAllJobs();
         }
 
         return NextResponse.json({
@@ -63,7 +63,7 @@ export async function POST(request) {
             );
         }
 
-        const newJob = createJob(body);
+        const newJob = await createJob(body);
 
         return NextResponse.json({
             success: true,
