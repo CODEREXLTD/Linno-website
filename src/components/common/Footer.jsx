@@ -157,7 +157,7 @@ const Footer = () => {
 						{/* Copyright Section */}
 						<div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 lg:gap-8 w-full pt-[20px] sm:pt-[24px] lg:pt-[28px] border-t border-gray-200">
 							<p className="text-sm sm:text-base lg:text-lg font-inter font-medium leading-[18px] sm:leading-[19px] lg:leading-[20px] text-global-5 text-center sm:text-left order-2 sm:order-1">
-								&copy; 2025 Linno Global Limited. All Rights Reserved.
+								&copy; {new Date().getFullYear()} Linno Global Limited. All Rights Reserved.
 							</p>
 							<div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 lg:gap-8 text-sm sm:text-base lg:text-lg font-inter font-medium leading-[18px] sm:leading-[19px] lg:leading-[20px] text-global-5 text-center sm:text-right order-1 sm:order-2" >
 								<Link
