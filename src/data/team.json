@@ -283,18 +283,6 @@
         "status": "active",
         "order": 27
     },
-    {
-        "id": "team-29",
-        "name": "Md Ashfaqur Rahman",
-        "position": "HR & People Operations Executive",
-        "department": [
-            "human-resources"
-        ],
-        "image": "/images/Md-Ashfaqur-Rahman.png",
-        "icon": "/images/img_lucide_lab_target_arrow.svg",
-        "status": "active",
-        "order": 30
-    },
      {
         "id": "team-30",
         "name": "Sekander Badsha",
@@ -315,6 +303,18 @@
             "engineering"
         ],
         "image": "/images/Rezab.png",
+        "icon": "/images/img_lucide_lab_target_arrow.svg",
+        "status": "active",
+        "order":9
+    },
+     {
+        "id": "team-32",
+        "name": "Arman Afridi Rahman",
+        "position": "Full Stack Developer",
+        "department": [
+            "engineering"
+        ],
+        "image": "/images/arman.png",
         "icon": "/images/img_lucide_lab_target_arrow.svg",
         "status": "active",
         "order":9

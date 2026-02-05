@@ -30,7 +30,7 @@ const AboutTeam = () => {
         { name: 'Founder & Visionary', key: 'founder' },
         { name: 'Leadership Team', key: 'leadership' },
         { name: 'Finance', key: 'financial' },
-        { name: 'Human Resources', key: 'human-resources' },
+        // { name: 'Human Resources', key: 'human-resources' },
         { name: 'Engineering Team', key: 'engineering' },
         { name: 'Marketing Team', key: 'marketing' },
         { name: 'Design Team', key: 'product' },
