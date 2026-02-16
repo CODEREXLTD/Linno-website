@@ -31,5 +31,16 @@
         "buttonStyle": "outline",
         "buttonLink": "https://inside.coderex.co/jobs/senior-arvr-engineer-9zkyd",
         "status": "publish"
+    },
+    {
+        "id": "job-4",
+        "category": "Engineering",
+        "title": "Technical Support Engineer",
+        "location": "Remote",
+        "type": "Full Time",
+        
+        "buttonStyle": "outline",
+        "buttonLink": "https://inside.coderex.co/jobs/technical-support-engineer--remote--9zkxe",
+        "status": "publish"
     }
 ]

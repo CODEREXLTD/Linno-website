@@ -30,10 +30,14 @@ const Application = ({job, index, jobPositions}) => {
                                 <svg width="16" height="16" fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#51515F" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.75 7.75c0 3.864-3.136 7-7 7s-7-3.136-7-7 3.136-7 7-7 7 3.136 7 7z"/><path stroke="#51515F" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10.347 9.976L8.177 8.68c-.378-.224-.686-.763-.686-1.204v-2.87"/></svg>
                                 {job?.type}
                             </li>
-                            <li>
-                                <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#51515F" strokeLinecap="round" strokeLinejoin="round" d="M10.3 1.9v12.6h3.15V1.9c0-.77-.315-1.4-1.26-1.4h-.63c-.945 0-1.26.63-1.26 1.4z"/><path fill="#51515F" stroke="#51515F" strokeLinecap="round" strokeLinejoin="round" d="M5.4 6.1v8.4h2.8V6.1c0-.77-.28-1.4-1.12-1.4h-.56c-.84 0-1.12.63-1.12 1.4zM.5 9.6v4.9h2.8V9.6c0-.77-.28-1.4-1.12-1.4h-.56C.78 8.2.5 8.83.5 9.6z"/></svg>
-                                {job?.level}
-                            </li>
+                            {
+                                job?.level && (
+                                    <li>
+                                        <svg width="14" height="15" fill="none" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path stroke="#51515F" strokeLinecap="round" strokeLinejoin="round" d="M10.3 1.9v12.6h3.15V1.9c0-.77-.315-1.4-1.26-1.4h-.63c-.945 0-1.26.63-1.26 1.4z"/><path fill="#51515F" stroke="#51515F" strokeLinecap="round" strokeLinejoin="round" d="M5.4 6.1v8.4h2.8V6.1c0-.77-.28-1.4-1.12-1.4h-.56c-.84 0-1.12.63-1.12 1.4zM.5 9.6v4.9h2.8V9.6c0-.77-.28-1.4-1.12-1.4h-.56C.78 8.2.5 8.83.5 9.6z"/></svg>
+                                        {job?.level}
+                                    </li>
+                                )
+                            }
                         </ul>
                     </div>
 
