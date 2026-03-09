@@ -319,7 +319,7 @@ export default function DepartmentsPage() {
                                             value={formData.key}
                                             onChange={handleInputChange}
                                             required
-                                            pattern="[a-z0-9-]+"
+                                            pattern="[a-z0-9\-]+"
                                             className="w-full px-4 py-3 rounded-[12px] border border-[#E0E4F2] focus:border-[#3433FE] focus:ring-2 focus:ring-[#3433FE]/20 outline-none transition-all font-mono"
                                             placeholder="e.g., engineering"
                                             disabled={modalMode === 'edit'}

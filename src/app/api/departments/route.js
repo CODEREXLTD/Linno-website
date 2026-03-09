@@ -51,6 +51,7 @@ export async function POST(request) {
         }
 
         const body = await request.json();
+        console.log('Creating department with data:', body);
 
         // Validate required fields
         if (!body.name || !body.key) {
@@ -69,6 +70,12 @@ export async function POST(request) {
         }, { status: 201 });
     } catch (error) {
         console.error('Error creating department:', error);
+        console.error('Error details:', {
+            message: error.message,
+            code: error.code,
+            details: error.details,
+            hint: error.hint
+        });
         
         // Handle unique constraint violation
         if (error.code === '23505') {
@@ -79,7 +86,11 @@ export async function POST(request) {
         }
 
         return NextResponse.json(
-            { success: false, message: 'Failed to create department' },
+            { 
+                success: false, 
+                message: 'Failed to create department',
+                error: error.message || 'Unknown error'
+            },
             { status: 500 }
         );
     }

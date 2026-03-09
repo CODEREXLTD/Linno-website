@@ -107,11 +107,16 @@ export async function createDepartment(departmentData) {
         const newId = `dept-${Date.now()}`;
         
         // Get max order for new department
-        const { data: existingDepts } = await supabase
+        const { data: existingDepts, error: selectError } = await supabase
             .from('departments')
             .select('order_index')
             .order('order_index', { ascending: false })
             .limit(1);
+
+        if (selectError) {
+            console.error('Error fetching max order:', selectError);
+            throw selectError;
+        }
 
         const maxOrder = existingDepts && existingDepts.length > 0 
             ? existingDepts[0].order_index 
@@ -127,14 +132,20 @@ export async function createDepartment(departmentData) {
             order_index: departmentData.order_index !== undefined ? departmentData.order_index : maxOrder + 1
         };
         
+        console.log('Attempting to insert department:', newDepartment);
+        
         const { data, error } = await supabase
             .from('departments')
             .insert([newDepartment])
             .select()
             .single();
 
-        if (error) throw error;
+        if (error) {
+            console.error('Supabase insert error:', error);
+            throw error;
+        }
 
+        console.log('Department created successfully:', data);
         return data;
     } catch (error) {
         console.error('Error creating department:', error);
