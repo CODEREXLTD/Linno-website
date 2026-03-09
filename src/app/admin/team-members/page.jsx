@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Toast from '@/components/common/Toast';
 
 export default function TeamMembersPage() {
     const [members, setMembers] = useState([]);
@@ -11,6 +12,9 @@ export default function TeamMembersPage() {
     const [deleteConfirm, setDeleteConfirm] = useState(null);
     const [uploadingImage, setUploadingImage] = useState(false);
     const [imagePreview, setImagePreview] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [toast, setToast] = useState(null);
     const fileInputRef = useRef(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -21,6 +25,14 @@ export default function TeamMembersPage() {
         status: 'active',
         order: 0
     });
+
+    const showToast = (message, type = 'success') => {
+        setToast({ message, type });
+    };
+
+    const closeToast = () => {
+        setToast(null);
+    };
 
     const departmentOptions = [
         { label: 'Founder', value: 'founder' },
@@ -115,13 +127,13 @@ export default function TeamMembersPage() {
         // Validate file type
         const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
         if (!allowedTypes.includes(file.type)) {
-            alert('Please upload a valid image file (JPEG, PNG, WebP, or GIF)');
+            showToast('Please upload a valid image file (JPEG, PNG, WebP, or GIF)', 'error');
             return;
         }
 
         // Validate file size (5MB)
         if (file.size > 5 * 1024 * 1024) {
-            alert('Image size should not exceed 5MB');
+            showToast('Image size should not exceed 5MB', 'error');
             return;
         }
 
@@ -141,12 +153,13 @@ export default function TeamMembersPage() {
             if (data.success) {
                 setFormData(prev => ({ ...prev, image: data.data.path }));
                 setImagePreview(data.data.path);
+                showToast('Image uploaded successfully!', 'success');
             } else {
-                alert(data.message || 'Failed to upload image');
+                showToast(data.message || 'Failed to upload image', 'error');
             }
         } catch (error) {
             console.error('Error uploading image:', error);
-            alert('Failed to upload image');
+            showToast('Failed to upload image', 'error');
         } finally {
             setUploadingImage(false);
         }
@@ -170,21 +183,25 @@ export default function TeamMembersPage() {
             if (data.success) {
                 setFormData(prev => ({ ...prev, image: '/images/default-avatar.jpg' }));
                 setImagePreview('/images/default-avatar.jpg');
+                showToast('Image removed successfully!', 'success');
             } else {
                 // Image might be in use or not found, just reset to default
                 setFormData(prev => ({ ...prev, image: '/images/default-avatar.jpg' }));
                 setImagePreview('/images/default-avatar.jpg');
+                showToast('Image removed', 'info');
             }
         } catch (error) {
             console.error('Error removing image:', error);
             // Still reset to default on error
             setFormData(prev => ({ ...prev, image: '/images/default-avatar.jpg' }));
             setImagePreview('/images/default-avatar.jpg');
+            showToast('Image removed', 'info');
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         try {
             let response;
@@ -206,14 +223,30 @@ export default function TeamMembersPage() {
                 await fetchMembers();
                 setShowModal(false);
                 setEditingMember(null);
+                showToast(
+                    modalMode === 'create' 
+                        ? 'Team member added successfully!' 
+                        : 'Team member updated successfully!',
+                    'success'
+                );
+            } else {
+                const data = await response.json();
+                showToast(data.message || 'Failed to save team member', 'error');
             }
         } catch (error) {
             console.error('Error saving team member:', error);
+            showToast('An error occurred while saving the team member', 'error');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     const handleDelete = async (memberId) => {
+        const memberToDelete = deleteConfirm;
+        setIsDeleting(true);
+
         try {
+            // Delete member from database (will also delete image from Supabase via API)
             const response = await fetch(`/api/team/${memberId}`, {
                 method: 'DELETE'
             });
@@ -221,9 +254,16 @@ export default function TeamMembersPage() {
             if (response.ok) {
                 await fetchMembers();
                 setDeleteConfirm(null);
+                showToast('Team member deleted successfully!', 'success');
+            } else {
+                const data = await response.json();
+                showToast(data.message || 'Failed to delete team member', 'error');
             }
         } catch (error) {
             console.error('Error deleting team member:', error);
+            showToast('An error occurred while deleting the team member', 'error');
+        } finally {
+            setIsDeleting(false);
         }
     };
 
@@ -544,9 +584,17 @@ export default function TeamMembersPage() {
                                         </button>
                                         <button
                                             type="submit"
-                                            className="flex-1 px-6 py-3 rounded-[12px] bg-gradient-to-r from-[#3433FE] to-[#21F0A8] text-white font-semibold shadow-[0_4px_20px_rgba(52,51,254,0.3)] hover:shadow-[0_6px_30px_rgba(52,51,254,0.4)] transition-all"
+                                            disabled={isSubmitting}
+                                            className="flex-1 px-6 py-3 rounded-[12px] bg-gradient-to-r from-[#3433FE] to-[#21F0A8] text-white font-semibold shadow-[0_4px_20px_rgba(52,51,254,0.3)] hover:shadow-[0_6px_30px_rgba(52,51,254,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                         >
-                                            {modalMode === 'create' ? 'Add Member' : 'Update Member'}
+                                            {isSubmitting ? (
+                                                <>
+                                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                                    <span>Saving...</span>
+                                                </>
+                                            ) : (
+                                                modalMode === 'create' ? 'Add Member' : 'Update Member'
+                                            )}
                                         </button>
                                     </div>
                                 </div>
@@ -583,13 +631,30 @@ export default function TeamMembersPage() {
                                 </button>
                                 <button
                                     onClick={() => handleDelete(deleteConfirm.id)}
-                                    className="flex-1 px-6 py-3 rounded-[12px] bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors"
+                                    disabled={isDeleting}
+                                    className="flex-1 px-6 py-3 rounded-[12px] bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
-                                    Delete
+                                    {isDeleting ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                            <span>Deleting...</span>
+                                        </>
+                                    ) : (
+                                        'Delete'
+                                    )}
                                 </button>
                             </div>
                         </div>
                     </div>
+                )}
+
+                {/* Toast Notification */}
+                {toast && (
+                    <Toast
+                        message={toast.message}
+                        type={toast.type}
+                        onClose={closeToast}
+                    />
                 )}
             </div>
         </div>

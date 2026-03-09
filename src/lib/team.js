@@ -185,18 +185,69 @@ export async function updateTeamMember(id, memberData) {
 }
 
 /**
- * Delete a team member
+ * Delete a team member and associated image from Supabase storage
  * @param {string} id - Team member ID
  * @returns {Promise<boolean>} - True if deleted, false otherwise
  */
 export async function deleteTeamMember(id) {
     try {
-        const { error } = await supabase
+        // First, get the team member to find their image path
+        const { data: member, error: fetchError } = await supabase
+            .from('team_members')
+            .select('image')
+            .eq('id', id)
+            .single();
+
+        if (fetchError && fetchError.code !== 'PGRST116') {
+            throw fetchError;
+        }
+
+        // Delete the team member record
+        const { error: deleteError } = await supabase
             .from('team_members')
             .delete()
             .eq('id', id);
 
-        if (error) throw error;
+        if (deleteError) throw deleteError;
+
+        // If member had a custom image (not default avatar), delete it from storage
+        if (member && member.image && 
+            member.image !== '/images/default-avatar.jpg' && 
+            !member.image.endsWith('default-avatar.jpg')) {
+            
+            // Extract filename from Supabase URL or path
+            let filename;
+            
+            if (member.image.includes('supabase.co')) {
+                // It's a Supabase URL - extract filename from URL
+                // Format: https://[project].supabase.co/storage/v1/object/public/team-images/filename.jpg
+                const urlParts = member.image.split('/');
+                filename = urlParts[urlParts.length - 1];
+            } else if (member.image.startsWith('/images/')) {
+                // It's a local path - extract filename
+                filename = member.image.replace('/images/', '');
+            } else {
+                // Direct filename or other format
+                filename = member.image;
+            }
+            
+            // Protected images that should not be deleted
+            const protectedImages = ['default-avatar.jpg', 'placeholder.jpg'];
+            
+            if (filename && !protectedImages.includes(filename)) {
+                // Delete from Supabase storage (bucket name is 'team-images')
+                const { error: storageError } = await supabase.storage
+                    .from('team-images')
+                    .remove([filename]);
+
+                if (storageError) {
+                    console.warn('Failed to delete image from storage:', storageError);
+                    // Don't throw error here as the member is already deleted
+                } else {
+                    console.log('Successfully deleted image from storage:', filename);
+                }
+            }
+        }
 
         return true;
     } catch (error) {

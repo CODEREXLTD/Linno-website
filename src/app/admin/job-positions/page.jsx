@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Toast from '@/components/common/Toast';
 
 export default function JobPositionsPage() {
     const [jobs, setJobs] = useState([]);
@@ -8,6 +9,9 @@ export default function JobPositionsPage() {
     const [modalMode, setModalMode] = useState('create'); // 'create' or 'edit'
     const [editingJob, setEditingJob] = useState(null);
     const [deleteConfirm, setDeleteConfirm] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [toast, setToast] = useState(null);
     const [formData, setFormData] = useState({
         category: '',
         title: '',
@@ -18,6 +22,14 @@ export default function JobPositionsPage() {
         buttonLink: '',
         status: 'publish'
     });
+
+    const showToast = (message, type = 'success') => {
+        setToast({ message, type });
+    };
+
+    const closeToast = () => {
+        setToast(null);
+    };
 
     // Fetch jobs on component mount
     useEffect(() => {
@@ -79,6 +91,7 @@ export default function JobPositionsPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         try {
             let response;
@@ -100,13 +113,26 @@ export default function JobPositionsPage() {
                 await fetchJobs();
                 setShowModal(false);
                 setEditingJob(null);
+                showToast(
+                    modalMode === 'create' 
+                        ? 'Job position created successfully!' 
+                        : 'Job position updated successfully!',
+                    'success'
+                );
+            } else {
+                const data = await response.json();
+                showToast(data.message || 'Failed to save job position', 'error');
             }
         } catch (error) {
             console.error('Error saving job:', error);
+            showToast('An error occurred while saving the job position', 'error');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     const handleDelete = async (jobId) => {
+        setIsDeleting(true);
         try {
             const response = await fetch(`/api/jobs/${jobId}`, {
                 method: 'DELETE'
@@ -115,9 +141,16 @@ export default function JobPositionsPage() {
             if (response.ok) {
                 await fetchJobs();
                 setDeleteConfirm(null);
+                showToast('Job position deleted successfully!', 'success');
+            } else {
+                const data = await response.json();
+                showToast(data.message || 'Failed to delete job position', 'error');
             }
         } catch (error) {
             console.error('Error deleting job:', error);
+            showToast('An error occurred while deleting the job position', 'error');
+        } finally {
+            setIsDeleting(false);
         }
     };
 
@@ -383,9 +416,17 @@ export default function JobPositionsPage() {
                                         </button>
                                         <button
                                             type="submit"
-                                            className="flex-1 px-6 py-3 rounded-[12px] bg-gradient-to-r from-[#3433FE] to-[#21F0A8] text-white font-semibold shadow-[0_4px_20px_rgba(52,51,254,0.3)] hover:shadow-[0_6px_30px_rgba(52,51,254,0.4)] transition-all"
+                                            disabled={isSubmitting}
+                                            className="flex-1 px-6 py-3 rounded-[12px] bg-gradient-to-r from-[#3433FE] to-[#21F0A8] text-white font-semibold shadow-[0_4px_20px_rgba(52,51,254,0.3)] hover:shadow-[0_6px_30px_rgba(52,51,254,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                         >
-                                            {modalMode === 'create' ? 'Create Position' : 'Update Position'}
+                                            {isSubmitting ? (
+                                                <>
+                                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                                    <span>Saving...</span>
+                                                </>
+                                            ) : (
+                                                modalMode === 'create' ? 'Create Position' : 'Update Position'
+                                            )}
                                         </button>
                                     </div>
                                 </div>
@@ -422,13 +463,30 @@ export default function JobPositionsPage() {
                                 </button>
                                 <button
                                     onClick={() => handleDelete(deleteConfirm.id)}
-                                    className="flex-1 px-6 py-3 rounded-[12px] bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors"
+                                    disabled={isDeleting}
+                                    className="flex-1 px-6 py-3 rounded-[12px] bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
-                                    Delete
+                                    {isDeleting ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                            <span>Deleting...</span>
+                                        </>
+                                    ) : (
+                                        'Delete'
+                                    )}
                                 </button>
                             </div>
                         </div>
                     </div>
+                )}
+
+                {/* Toast Notification */}
+                {toast && (
+                    <Toast
+                        message={toast.message}
+                        type={toast.type}
+                        onClose={closeToast}
+                    />
                 )}
             </div>
         </div>
