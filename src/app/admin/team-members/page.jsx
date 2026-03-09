@@ -15,6 +15,7 @@ export default function TeamMembersPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
     const [toast, setToast] = useState(null);
+    const [departmentOptions, setDepartmentOptions] = useState([]);
     const fileInputRef = useRef(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -34,19 +35,25 @@ export default function TeamMembersPage() {
         setToast(null);
     };
 
-    const departmentOptions = [
-        { label: 'Founder', value: 'founder' },
-        { label: 'Leadership', value: 'leadership' },
-        { label: 'Engineering', value: 'engineering' },
-        { label: 'Marketing', value: 'marketing' },
-        { label: 'Product', value: 'product' },
-        { label: 'Customer', value: 'customer' },
-        { label: 'Assistant', value: 'assistant' }
-    ];
-
     useEffect(() => {
         fetchMembers();
+        fetchDepartments();
     }, []);
+
+    const fetchDepartments = async () => {
+        try {
+            const response = await fetch('/api/departments?active=true');
+            const data = await response.json();
+            if (data.success) {
+                setDepartmentOptions(data.data.map(dept => ({
+                    label: dept.name,
+                    value: dept.key
+                })));
+            }
+        } catch (error) {
+            console.error('Error fetching departments:', error);
+        }
+    };
 
     const fetchMembers = async () => {
         try {

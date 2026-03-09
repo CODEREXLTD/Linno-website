@@ -6,39 +6,45 @@ import { memo, useState, useEffect, useRef } from 'react';
 const AboutTeam = () => {
     const [allTeamMembers, setAllTeamMembers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [departmentList, setDepartmentList] = useState([]);
+    const [activeTab, setActiveTab] = useState('leadership');
     const teamSectionRef = useRef(null);
 
     useEffect(() => {
-        // Fetch active team members from API
-        const fetchTeamMembers = async () => {
+        // Fetch active team members and departments from API
+        const fetchData = async () => {
             try {
-                const response = await fetch('/api/team?active=true');
-                const data = await response.json();
-                if (data.success) {
-                    setAllTeamMembers(data.data);
+                const [membersResponse, departmentsResponse] = await Promise.all([
+                    fetch('/api/team?active=true'),
+                    fetch('/api/departments?active=true')
+                ]);
+
+                const membersData = await membersResponse.json();
+                const departmentsData = await departmentsResponse.json();
+
+                if (membersData.success) {
+                    setAllTeamMembers(membersData.data);
+                }
+
+                if (departmentsData.success) {
+                    setDepartmentList(departmentsData.data.map(dept => ({
+                        name: dept.name,
+                        key: dept.key
+                    })));
+                    // Set first department as active if available
+                    if (departmentsData.data.length > 0) {
+                        setActiveTab(departmentsData.data[0].key);
+                    }
                 }
             } catch (error) {
-                console.error('Error fetching team members:', error);
+                console.error('Error fetching data:', error);
             } finally {
                 setIsLoading(false);
             }
         };
 
-        fetchTeamMembers();
+        fetchData();
     }, []);
-
-    const departmentList = [
-        { name: 'Founder & Visionary', key: 'founder' },
-        { name: 'Leadership Team', key: 'leadership' },
-        { name: 'Finance', key: 'financial' },
-        { name: 'Engineering Team', key: 'engineering' },
-        { name: 'Marketing Team', key: 'marketing' },
-        { name: 'Design Team', key: 'product' },
-        { name: 'Customer Success', key: 'customer' },
-        { name: 'Office Assistant', key: 'assistant' },
-    ];
-
-    const [activeTab, setActiveTab] = useState('leadership');
 
     // Filter team members based on active tab
     const filteredTeamMembers = allTeamMembers.filter((member) => {
